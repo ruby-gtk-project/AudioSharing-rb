@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2021 Felix Häcker -->
+<component type="desktop-application">
+  <id>@appid@</id>
+  <name>Audio Sharing</name>
+  <summary>Share computer audio</summary>
+  <translation type="gettext">audio-sharing</translation>
+  <developer_name>Felix Häcker</developer_name>
+  <update_contact>haeckerfelix@gnome.org</update_contact>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <launchable type="desktop-id">@appid@.desktop</launchable>
+  <content_rating type="oars-1.1"/>
+
+  <description>
+    <p>A boilerplate template for GTK + Rust. It uses Meson as a build system and has flatpak support by default.</p>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://gitlab.gnome.org/World/AudioSharing/raw/master/data/resources/screenshots/screenshot1.png</image>
+      <caption>Main window</caption>
+    </screenshot>
+  </screenshots>
+
+  <kudos>
+     <!--
+       GNOME Software kudos:
+       https://gitlab.gnome.org/GNOME/gnome-software/blob/master/doc/kudos.md
+     -->
+     <kudo>ModernToolkit</kudo>
+     <kudo>HiDpiIcon</kudo>
+  </kudos>
+
+  <url type="homepage">https://gitlab.gnome.org/World/AudioSharing</url>
+  <url type="bugtracker">https://gitlab.gnome.org/World/AudioSharing/issues</url>
+
+  <releases>
+    <release version="0.0.1" date="2019-07-11" />
+  </releases>
+</component>
