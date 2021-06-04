@@ -91,10 +91,16 @@ impl AsApplication {
             self,
             "quit",
             clone!(@weak self as app => move |_, _| {
-                // This is needed to trigger the delete event
-                // and saving the window state
-                app.get_main_window().close();
                 app.quit();
+            })
+        );
+
+        // Help
+        action!(
+            self,
+            "help",
+            clone!(@weak self as app => move |_, _| {
+                open::that("https://gitlab.gnome.org/World/AudioSharing/-/blob/master/README.md").expect("Could not open webpage.");
             })
         );
 
@@ -128,28 +134,19 @@ impl AsApplication {
 
     fn setup_server(&self) {
         let server = gstreamer_rtsp_server::RTSPServer::new();
-        dbg!(server.address());
-
-        let mounts = server.mount_points().unwrap();
 
         let factory = gstreamer_rtsp_server::RTSPMediaFactory::new();
-        dbg!(factory.latency());
-
         factory.set_launch("pulsesrc device=alsa_output.pci-0000_06_00.6.HiFi__hw_Generic_1__sink ! vorbisenc ! rtpvorbispay name=pay0 pt=96");
         factory.set_shared(true);
 
-        //factory.create_element();
-
-        mounts.add_factory("/test", &factory);
-
-        server.connect_client_connected(|_, _| {
-            debug!("Client connected");
-        });
+        let mounts = server.mount_points().unwrap();
+        mounts.add_factory("/audio", &factory);
 
         let ctx = glib::MainContext::default();
         server.attach(Some(&ctx)).unwrap();
 
-        self.get_main_window().set_address("Works!".to_string());
+        self.get_main_window()
+            .set_address("rtsp://192.168.178.105:8554/audio".to_string());
     }
 
     pub fn run(&self) {

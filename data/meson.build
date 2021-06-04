@@ -43,31 +43,6 @@ appstream_file = i18n.merge_file(
   install_dir: join_paths(datadir, 'metainfo')
 )
 
-
-# Gschema file #
-gschema_conf = configuration_data()
-gschema_conf.set('appid', app_id)
-i18n.merge_file(
-  input: configure_file(
-    input: files('de.haeckerfelix.AudioSharing.gschema.xml.in'),
-    output: 'de.haeckerfelix.AudioSharing.gschema.xml',
-    configuration: gschema_conf
-  ),
-  output: '@0@.gschema.xml'.format(app_id),
-  po_dir: '../po',
-  install: true,
-  install_dir: join_paths(datadir, 'glib-2.0/schemas')
-)
-
-# Validate gschema file #
-compile_schemas = find_program('glib-compile-schemas', required: false)
-if compile_schemas.found()
-  test('Validate schema file', compile_schemas,
-    args: ['--strict', '--dry-run', meson.current_source_dir()]
-  )
-endif
-
-
 # DBUS service
 service_conf = configuration_data()
 service_conf.set('appid', app_id)

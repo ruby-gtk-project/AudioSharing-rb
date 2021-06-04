@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template class="AsApplicationWindow" parent="GtkApplicationWindow">
-    <property name="default-width">370</property>
-    <property name="default-height">370</property>
+    <property name="default-width">450</property>
+    <property name="default-height">425</property>
+    <property name="width-request">350</property>
+    <property name="height-request">425</property>
     <property name="title" translatable="yes">Audio Sharing</property>
     <child type="titlebar">
       <object class="GtkBox">
@@ -48,7 +50,10 @@
                 <property name="margin_bottom">12</property>
                 <child>
                   <object class="GtkPicture" id="qrcode">
-
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="width-request">200</property>
+                    <property name="height-request">200</property>
                   </object>
                 </child>
                 <child>
@@ -56,15 +61,17 @@
                     <property name="halign">center</property>
                     <property name="spacing">12</property>
                     <child>
-                      <object class="GtkLabel">
-                        <property name="label">rtsp://0.0.0.0:1234</property>
+                      <object class="GtkLabel" id="address_label">
+                        <property name="selectable">True</property>
+                        <style>
+                          <class name="title-3"/>
+                        </style>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkButton">
+                      <object class="GtkButton" id="copy_address_button">
                         <property name="icon-name">edit-copy-symbolic</property>
                         <property name="tooltip-text" translatable="yes">Copy address</property>
-                        <property name="action-name">win.copy-address</property>
                         <style>
                           <class name="circular"/>
                         </style>
@@ -81,7 +88,7 @@
                     <property name="wrap">True</property>
                     <property name="justify">center</property>
                     <style>
-                      <class name="dim-label"/>
+                      <class name="caption"/>
                     </style>
                   </object>
                 </child>
@@ -112,7 +119,7 @@
   <menu id="primary_menu">
     <section>
       <item>
-        <attribute name="label" translatable="yes">_Help &lt;sup&gt;↗&lt;/sup&gt;</attribute>
+        <attribute name="label" translatable="yes">Open _help &lt;sup&gt;↗&lt;/sup&gt;</attribute>
         <attribute name="action">app.help</attribute>
       </item>
     </section>
@@ -124,4 +131,3 @@
     </section>
   </menu>
 </interface>
-

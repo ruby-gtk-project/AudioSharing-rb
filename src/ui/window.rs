@@ -1,12 +1,12 @@
-use glib::signal::Inhibit;
+use glib::clone;
 use gtk::subclass::prelude::*;
 use gtk::{self, prelude::*};
 use gtk::{gdk, gio, glib, CompositeTemplate};
-use log::warn;
 
 use crate::app::AsApplication;
-use crate::config::{APP_ID, PROFILE};
+use crate::config::APP_ID;
 use crate::ui::QRCodePaintable;
+use crate::QRCode;
 
 mod imp {
     use super::*;
@@ -16,6 +16,11 @@ mod imp {
     pub struct AsApplicationWindow {
         #[template_child]
         pub qrcode: TemplateChild<gtk::Picture>,
+        #[template_child]
+        pub address_label: TemplateChild<gtk::Label>,
+        #[template_child]
+        pub copy_address_button: TemplateChild<gtk::Button>,
+
         pub paintable: QRCodePaintable,
     }
 
@@ -29,42 +34,14 @@ mod imp {
             Self::bind_template(klass);
         }
 
-        // You must call `Widget`'s `init_template()` within `instance_init()`.
         fn instance_init(obj: &glib::subclass::InitializingObject<Self>) {
             obj.init_template();
         }
     }
 
-    impl ObjectImpl for AsApplicationWindow {
-        fn constructed(&self, obj: &Self::Type) {
-            self.parent_constructed(obj);
-
-            let builder =
-                gtk::Builder::from_resource("/de/haeckerfelix/AudioSharing/gtk/shortcuts.ui");
-            let shortcuts = builder.object("shortcuts").unwrap();
-            obj.set_help_overlay(Some(&shortcuts));
-
-            // Devel Profile
-            if PROFILE == "Devel" {
-                obj.style_context().add_class("devel");
-            }
-
-            // load latest window state
-            obj.load_window_size();
-        }
-    }
-
+    impl ObjectImpl for AsApplicationWindow {}
     impl WidgetImpl for AsApplicationWindow {}
-    impl WindowImpl for AsApplicationWindow {
-        // save window state on delete event
-        fn close_request(&self, obj: &Self::Type) -> Inhibit {
-            if let Err(err) = obj.save_window_size() {
-                warn!("Failed to save window state, {}", &err);
-            }
-            Inhibit(false)
-        }
-    }
-
+    impl WindowImpl for AsApplicationWindow {}
     impl ApplicationWindowImpl for AsApplicationWindow {}
 }
 
@@ -75,46 +52,35 @@ glib::wrapper! {
 
 impl AsApplicationWindow {
     pub fn new(app: &AsApplication) -> Self {
-        let window: Self = glib::Object::new(&[]).expect("Failed to create AsApplicationWindow");
+        let window: Self = glib::Object::new(&[]).unwrap();
         window.set_application(Some(app));
 
         // Set icons for shell
         gtk::Window::set_default_icon_name(APP_ID);
 
+        window.setup_widgets();
         window
+    }
+
+    fn setup_widgets(&self) {
+        let imp = imp::AsApplicationWindow::from_instance(self);
+
+        imp.copy_address_button
+            .connect_clicked(clone!(@weak self as this => move|_|
+                let imp = imp::AsApplicationWindow::from_instance(&this);
+                let address = imp.address_label.get().text();
+
+                let display = gdk::Display::default().unwrap();
+                let clipboard = display.clipboard();
+                clipboard.set_text(&address.to_string());
+            ));
     }
 
     pub fn set_address(&self, address: String) {
         let imp = imp::AsApplicationWindow::from_instance(self);
-
-        //PANICS: imp.qrcode.set_paintable(Some(&imp.paintable));
-        //imp.qrcode.set_paintable(Option::<&gdk::Paintable>::None);
-    }
-
-    pub fn save_window_size(&self) -> Result<(), glib::BoolError> {
-        let settings = gio::Settings::new(APP_ID);
-
-        let size = self.default_size();
-
-        settings.set_int("window-width", size.0)?;
-        settings.set_int("window-height", size.1)?;
-
-        settings.set_boolean("is-maximized", self.is_maximized())?;
-
-        Ok(())
-    }
-
-    fn load_window_size(&self) {
-        let settings = gio::Settings::new(APP_ID);
-
-        let width = settings.int("window-width");
-        let height = settings.int("window-height");
-        let is_maximized = settings.boolean("is-maximized");
-
-        self.set_default_size(width, height);
-
-        if is_maximized {
-            self.maximize();
-        }
+        imp.address_label.set_text(&address);
+        let qr = QRCode::new(address);
+        imp.paintable.set_qrcode(qr.data());
+        imp.qrcode.set_paintable(Some(&imp.paintable));
     }
 }

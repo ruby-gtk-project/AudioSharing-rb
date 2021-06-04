@@ -56,6 +56,7 @@ mod imp {
         const NAME: &'static str = "QRCodePaintable";
         type Type = super::QRCodePaintable;
         type ParentType = glib::Object;
+        type Interfaces = (gdk::Paintable,);
 
         fn new() -> Self {
             Self {

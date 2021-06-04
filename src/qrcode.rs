@@ -48,7 +48,7 @@ mod imp {
         }
     }
 
-    #[derive(Debug)]
+    #[derive(Debug, Default)]
     pub struct QRCode {
         pub id: Cell<i32>,
         pub content: RefCell<String>,
@@ -60,37 +60,18 @@ mod imp {
         const NAME: &'static str = "QRCode";
         type ParentType = glib::Object;
         type Type = super::QRCode;
-
-        fn new() -> Self {
-            Self {
-                id: Cell::new(0),
-                content: RefCell::new("".to_string()),
-                data: RefCell::new(None),
-            }
-        }
     }
 
     impl ObjectImpl for QRCode {
         fn properties() -> &'static [ParamSpec] {
             static PROPERTIES: Lazy<Vec<ParamSpec>> = Lazy::new(|| {
-                vec![
-                    ParamSpec::new_int(
-                        "id",
-                        "id",
-                        "Id",
-                        0,
-                        i32::MAX,
-                        0,
-                        glib::ParamFlags::READWRITE | glib::ParamFlags::CONSTRUCT_ONLY,
-                    ),
-                    ParamSpec::new_string(
-                        "content",
-                        "content",
-                        "Content",
-                        None,
-                        glib::ParamFlags::READWRITE,
-                    ),
-                ]
+                vec![ParamSpec::new_string(
+                    "content",
+                    "content",
+                    "Content",
+                    None,
+                    glib::ParamFlags::READWRITE,
+                )]
             });
             PROPERTIES.as_ref()
         }
@@ -103,9 +84,6 @@ mod imp {
             pspec: &ParamSpec,
         ) {
             match pspec.name() {
-                "id" => {
-                    self.id.replace(value.get::<i32>().unwrap());
-                }
                 "content" => {
                     let content = value.get::<String>().unwrap();
                     self.content.replace(content);
@@ -116,7 +94,6 @@ mod imp {
 
         fn property(&self, _obj: &Self::Type, _id: usize, pspec: &ParamSpec) -> glib::Value {
             match pspec.name() {
-                "id" => self.id.get().to_value(),
                 "content" => self.content.borrow().to_value(),
                 _ => unimplemented!(),
             }
@@ -129,18 +106,12 @@ glib::wrapper! {
 }
 
 impl QRCode {
-    pub fn new(id: i32, content: String) -> Self {
-        let qr_code: QRCode = glib::Object::new(&[("id", &id), ("content", &content)])
-            .expect("Failed to create a QRCode object");
+    pub fn new(content: String) -> Self {
+        let qr_code: QRCode = glib::Object::new(&[("content", &content)]).unwrap();
         let self_ = imp::QRCode::from_instance(&qr_code);
         let qrcode_data = imp::QRCodeData::from(content.as_str());
         self_.data.replace(Some(qrcode_data));
         qr_code
-    }
-
-    pub fn id(&self) -> i32 {
-        let self_ = imp::QRCode::from_instance(self);
-        self_.id.get()
     }
 
     pub fn content(&self) -> String {
