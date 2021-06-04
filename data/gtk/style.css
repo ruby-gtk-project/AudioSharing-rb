@@ -1,4 +1,18 @@
-.title-header{
-  font-size: 36px;
-  font-weight: bold;
+/* Credits: https://gitlab.gnome.org/World/design/typography/-/blob/master/src/style.css */
+
+.audio-sharing-window {
+	background-color: alpha(@theme_bg_color, 0.96);
+}
+
+.audio-sharing-window:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) {
+	border-radius: 8px;
+}
+
+.audio-sharing-window.maximised {
+	border-radius: 0;
+}
+
+headerbar.flat {
+	background: none;
+	border: none;
 }

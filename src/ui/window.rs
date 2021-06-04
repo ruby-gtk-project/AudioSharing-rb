@@ -1,20 +1,22 @@
-use crate::app::AsApplication;
-use crate::config::{APP_ID, PROFILE};
 use glib::signal::Inhibit;
 use gtk::subclass::prelude::*;
 use gtk::{self, prelude::*};
-use gtk::{gio, glib, CompositeTemplate};
+use gtk::{gdk, gio, glib, CompositeTemplate};
 use log::warn;
+
+use crate::app::AsApplication;
+use crate::config::{APP_ID, PROFILE};
+use crate::ui::QRCodePaintable;
 
 mod imp {
     use super::*;
 
-    #[derive(Debug, CompositeTemplate)]
+    #[derive(Default, Debug, CompositeTemplate)]
     #[template(resource = "/de/haeckerfelix/AudioSharing/gtk/window.ui")]
     pub struct AsApplicationWindow {
         #[template_child]
-        pub headerbar: TemplateChild<gtk::HeaderBar>,
-        pub settings: gio::Settings,
+        pub qrcode: TemplateChild<gtk::Picture>,
+        pub paintable: QRCodePaintable,
     }
 
     #[glib::object_subclass]
@@ -22,13 +24,6 @@ mod imp {
         const NAME: &'static str = "AsApplicationWindow";
         type Type = super::AsApplicationWindow;
         type ParentType = gtk::ApplicationWindow;
-
-        fn new() -> Self {
-            Self {
-                headerbar: TemplateChild::default(),
-                settings: gio::Settings::new(APP_ID),
-            }
-        }
 
         fn class_init(klass: &mut Self::Class) {
             Self::bind_template(klass);
@@ -89,8 +84,15 @@ impl AsApplicationWindow {
         window
     }
 
+    pub fn set_address(&self, address: String) {
+        let imp = imp::AsApplicationWindow::from_instance(self);
+
+        //PANICS: imp.qrcode.set_paintable(Some(&imp.paintable));
+        //imp.qrcode.set_paintable(Option::<&gdk::Paintable>::None);
+    }
+
     pub fn save_window_size(&self) -> Result<(), glib::BoolError> {
-        let settings = &imp::AsApplicationWindow::from_instance(self).settings;
+        let settings = gio::Settings::new(APP_ID);
 
         let size = self.default_size();
 
@@ -103,7 +105,7 @@ impl AsApplicationWindow {
     }
 
     fn load_window_size(&self) {
-        let settings = &imp::AsApplicationWindow::from_instance(self).settings;
+        let settings = gio::Settings::new(APP_ID);
 
         let width = settings.int("window-width");
         let height = settings.int("window-height");

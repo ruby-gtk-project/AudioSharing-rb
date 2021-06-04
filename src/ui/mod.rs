@@ -15,6 +15,8 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 pub mod about_dialog;
+mod qrcode_paintable;
 mod window;
 
+pub use qrcode_paintable::QRCodePaintable;
 pub use window::AsApplicationWindow;

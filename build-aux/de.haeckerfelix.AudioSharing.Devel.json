@@ -3,30 +3,91 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "40",
     "sdk": "org.gnome.Sdk",
-    "sdk-extensions": ["org.freedesktop.Sdk.Extension.rust-stable/x86_64/20.08"],
+    "sdk-extensions": ["org.freedesktop.Sdk.Extension.rust-stable"],
     "command": "audio-sharing",
     "finish-args" : [
         "--socket=fallback-x11",
         "--socket=wayland",
         "--device=dri",
+        "--share=network",
         "--talk-name=org.a11y.Bus",
-        "--env=RUST_LOG=audio-sharing=debug",
-        "--env=G_MESSAGES_DEBUG=none"
+        "--env=RUST_LOG=audio_sharing=debug",
+        "--env=RUST_BACKTRACE=1",
+        "--socket=pulseaudio"
     ],
     "build-options" : {
         "append-path" : "/usr/lib/sdk/rust-stable/bin",
         "build-args" : [
             "--share=network"
-        ],
-        "test-args": [
-            "--socket=x11",
-            "--share=network"
-        ],
-        "env" : {
-            "RUST_BACKTRACE": "1"
-        }
+        ]
     },
     "modules": [
+        {
+            "name": "x264",
+            "config-opts": [
+                "--enable-shared",
+                "--system-libx264",
+                "--enable-pic"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.videolan.org/pub/x264/snapshots/x264-snapshot-20191217-2245-stable.tar.bz2",
+                    "sha256": "b2495c8f2930167d470994b1ce02b0f4bfb24b3317ba36ba7f112e9809264160"
+                }
+            ]
+        },
+	{
+	    "name": "gst-plugins-ugly",
+	    "buildsystem": "meson",
+	    "config-opts": [
+		"--buildtype=release",
+		"-Ddoc=disabled",
+		"-Dnls=disabled",
+		"-Dtests=disabled",
+		"-Dgobject-cast-checks=disabled",
+		"-Dglib-asserts=disabled",
+		"-Dglib-checks=disabled",
+		"-D=x264=enabled"
+	    ],
+	    "sources": [
+		{
+		    "type": "git",
+		    "url": "https://gitlab.freedesktop.org/gstreamer/gst-plugins-ugly.git",
+		    "commit": "6cbac8d09f7866827381a9d0554b7a61d45b41b5"
+		}
+	    ]
+	},
+	{
+	    "name": "gst-libav",
+	    "buildsystem": "meson",
+	    "config-opts": [
+		"--buildtype=release",
+		"-Ddoc=disabled",
+		"-Dtests=disabled"
+	    ],
+	    "sources": [
+		{
+		    "type": "git",
+		    "url": "https://gitlab.freedesktop.org/gstreamer/gst-libav.git",
+		    "tag": "1.16"
+		}
+	    ]
+	},
+	{
+	    "name": "gst-rtsp-server",
+	    "buildsystem": "meson",
+	    "config-opts": [
+		"-Ddoc=disabled"
+	    ],
+	    "sources": [
+		{
+		    "type": "git",
+		    "url": "https://gitlab.freedesktop.org/gstreamer/gst-rtsp-server.git",
+		    "tag": "1.16.2"
+		}
+	    ]
+	},
         {
             "name" : "libsass",
             "buildsystem" : "meson",

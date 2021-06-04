@@ -25,12 +25,14 @@ run_command(
 sources = files(
   'ui/about_dialog.rs',
   'ui/mod.rs',
+  'ui/qrcode_paintable.rs',
   'ui/window.rs',
 
   'app.rs',
   'config.rs',
   'i18n.rs',
   'main.rs',
+  'qrcode.rs',
 )
 
 cargo_script = find_program(join_paths(meson.source_root(), 'build-aux/cargo.sh'))

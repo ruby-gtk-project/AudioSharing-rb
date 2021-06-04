@@ -1,6 +1,7 @@
 use gio::ApplicationFlags;
 use glib::clone;
 use glib::WeakRef;
+use gstreamer_rtsp_server::prelude::*;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{gdk, gio, glib};
@@ -51,6 +52,7 @@ mod imp {
 
             app.setup_gactions();
             app.setup_accels();
+            app.setup_server();
 
             app.get_main_window().present();
         }
@@ -122,6 +124,32 @@ impl AsApplication {
                 gtk::STYLE_PROVIDER_PRIORITY_APPLICATION,
             );
         }
+    }
+
+    fn setup_server(&self) {
+        let server = gstreamer_rtsp_server::RTSPServer::new();
+        dbg!(server.address());
+
+        let mounts = server.mount_points().unwrap();
+
+        let factory = gstreamer_rtsp_server::RTSPMediaFactory::new();
+        dbg!(factory.latency());
+
+        factory.set_launch("pulsesrc device=alsa_output.pci-0000_06_00.6.HiFi__hw_Generic_1__sink ! vorbisenc ! rtpvorbispay name=pay0 pt=96");
+        factory.set_shared(true);
+
+        //factory.create_element();
+
+        mounts.add_factory("/test", &factory);
+
+        server.connect_client_connected(|_, _| {
+            debug!("Client connected");
+        });
+
+        let ctx = glib::MainContext::default();
+        server.attach(Some(&ctx)).unwrap();
+
+        self.get_main_window().set_address("Works!".to_string());
     }
 
     pub fn run(&self) {

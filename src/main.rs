@@ -28,10 +28,12 @@ mod ui;
 mod app;
 mod config;
 mod i18n;
+mod qrcode;
+
+pub use crate::app::AsApplication;
+pub use crate::qrcode::QRCode;
 
 use gtk::{gio, glib};
-
-use crate::app::AsApplication;
 
 fn main() {
     // Initialize logger
