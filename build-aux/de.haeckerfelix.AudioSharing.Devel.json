@@ -22,58 +22,6 @@
         ]
     },
     "modules": [
-        {
-            "name": "x264",
-            "config-opts": [
-                "--enable-shared",
-                "--system-libx264",
-                "--enable-pic"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.videolan.org/pub/x264/snapshots/x264-snapshot-20191217-2245-stable.tar.bz2",
-                    "sha256": "b2495c8f2930167d470994b1ce02b0f4bfb24b3317ba36ba7f112e9809264160"
-                }
-            ]
-        },
-	{
-	    "name": "gst-plugins-ugly",
-	    "buildsystem": "meson",
-	    "config-opts": [
-		"--buildtype=release",
-		"-Ddoc=disabled",
-		"-Dnls=disabled",
-		"-Dtests=disabled",
-		"-Dgobject-cast-checks=disabled",
-		"-Dglib-asserts=disabled",
-		"-Dglib-checks=disabled",
-		"-D=x264=enabled"
-	    ],
-	    "sources": [
-		{
-		    "type": "git",
-		    "url": "https://gitlab.freedesktop.org/gstreamer/gst-plugins-ugly.git",
-		    "commit": "6cbac8d09f7866827381a9d0554b7a61d45b41b5"
-		}
-	    ]
-	},
-	{
-	    "name": "gst-libav",
-	    "buildsystem": "meson",
-	    "config-opts": [
-		"--buildtype=release",
-		"-Ddoc=disabled",
-		"-Dtests=disabled"
-	    ],
-	    "sources": [
-		{
-		    "type": "git",
-		    "url": "https://gitlab.freedesktop.org/gstreamer/gst-libav.git",
-		    "tag": "1.16"
-		}
-	    ]
-	},
 	{
 	    "name": "gst-rtsp-server",
 	    "buildsystem": "meson",
@@ -88,28 +36,6 @@
 		}
 	    ]
 	},
-        {
-            "name" : "libsass",
-            "buildsystem" : "meson",
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "https://github.com/lazka/libsass.git",
-                    "branch" : "meson"
-                }
-            ]
-        },
-        {
-            "name" : "sassc",
-            "buildsystem" : "meson",
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "https://github.com/lazka/sassc.git",
-                    "branch" : "meson"
-                }
-            ]
-        },
         {
             "name" : "libadwaita",
             "buildsystem" : "meson",
@@ -127,7 +53,7 @@
                 {
                     "type" : "git",
                     "url" : "https://gitlab.gnome.org/GNOME/libadwaita.git",
-                    "branch" : "main"
+                    "tag" : "1.0.0-alpha.1"
                 }
             ]
         },
