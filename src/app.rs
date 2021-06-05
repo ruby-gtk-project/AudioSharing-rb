@@ -142,7 +142,7 @@ impl AsApplication {
 
             let factory = RTSPMediaFactory::new();
             let launch = format!(
-                "pulsesrc device={} ! vorbisenc ! rtpvorbispay name=pay0 pt=96",
+                "pulsesrc device={} client-name=audio-share ! vorbisenc ! rtpvorbispay name=pay0 pt=96",
                 device
             );
             factory.set_launch(&launch);
