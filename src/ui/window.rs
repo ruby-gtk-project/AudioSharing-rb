@@ -20,6 +20,10 @@ mod imp {
         pub address_label: TemplateChild<gtk::Label>,
         #[template_child]
         pub copy_address_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub stack: TemplateChild<gtk::Stack>,
+        #[template_child]
+        pub error_status: TemplateChild<adw::StatusPage>,
 
         pub paintable: QRCodePaintable,
     }
@@ -82,5 +86,11 @@ impl AsApplicationWindow {
         let qr = QRCode::new(address);
         imp.paintable.set_qrcode(qr.data());
         imp.qrcode.set_paintable(Some(&imp.paintable));
+    }
+
+    pub fn show_error(&self, message: String) {
+        let imp = imp::AsApplicationWindow::from_instance(self);
+        imp.stack.set_visible_child_name("error");
+        imp.error_status.set_description(Some(&message));
     }
 }

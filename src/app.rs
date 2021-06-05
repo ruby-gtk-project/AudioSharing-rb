@@ -8,7 +8,7 @@ use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{gdk, gio, glib};
 use gtk_macros::action;
-use log::{debug, info};
+use log::{debug, info, warn};
 use once_cell::sync::OnceCell;
 use pnet::datalink::interfaces;
 
@@ -157,6 +157,10 @@ impl AsApplication {
             let ip = self.get_ip_addr();
             let address = format!("rtsp://{}:8554/audio", ip);
             self.get_main_window().set_address(address);
+        } else {
+            warn!("Unable to find audio sink");
+            self.get_main_window()
+                .show_error("No audio sink found".into());
         }
     }
 
