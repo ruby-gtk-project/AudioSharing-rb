@@ -84,7 +84,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel">
-                    <property name="label" translatable="yes">You are currently sharing your audio. You can access it from other devices by scanning the QR code or entering the displayed address. To stop sharing, simply close this window.</property>
+                    <property name="label" translatable="yes">You are currently sharing your audio. You can access it from other devices in the same network by scanning the QR code or entering the displayed address. To stop sharing, simply close this window.</property>
                     <property name="wrap">True</property>
                     <property name="justify">center</property>
                     <style>
