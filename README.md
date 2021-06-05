@@ -26,6 +26,7 @@ For example for the VLC iOS app:
  2. Click on VLC
  3. Network cache level -> lowest latency
 
+You have to test a bit with the values to find the perfect balance between latency and audio quality. Unfortunately, latency cannot be completely prevented, but depending on the use case, it may not be a issue (e.g. listening to music).
 
 ## Installation
 The recommended way of installing Audio Sharing is using the Flatpak package. If you don't have Flatpak installed yet, you can get it from [here](https://flatpak.org/setup/).
