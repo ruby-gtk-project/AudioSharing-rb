@@ -10,6 +10,7 @@ use gtk::{gdk, gio, glib};
 use gtk_macros::action;
 use log::{debug, info};
 use once_cell::sync::OnceCell;
+use pnet::datalink::interfaces;
 
 use crate::config;
 use crate::ui::about_dialog;
@@ -153,9 +154,29 @@ impl AsApplication {
             let ctx = glib::MainContext::default();
             server.attach(Some(&ctx)).unwrap();
 
-            self.get_main_window()
-                .set_address("rtsp://192.168.178.105:8554/audio".to_string());
+            let ip = self.get_ip_addr();
+            let address = format!("rtsp://{}:8554/audio", ip);
+            self.get_main_window().set_address(address);
         }
+    }
+
+    fn get_ip_addr(&self) -> String {
+        // Get a vector with all network interfaces found
+        let all_interfaces = interfaces();
+
+        // Search for the default interface - the one that is
+        // up, not loopback and has an IP.
+        let default_interface = all_interfaces.iter().find(|e| {
+            e.is_up() && !e.is_loopback() && !e.ips.is_empty() && !e.name.contains("virbr")
+        });
+
+        if let Some(interface) = default_interface {
+            info!("Using network interface {:?}", interface);
+            let ip = interface.ips.get(0).unwrap().ip();
+            return ip.to_string();
+        }
+
+        "0.0.0.0".into()
     }
 
     fn find_device_name(&self) -> Option<String> {

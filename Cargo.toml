@@ -17,3 +17,4 @@ gstreamer-rtsp-server = { git = "https://gitlab.freedesktop.org/gstreamer/gstrea
 gtk = { git = "https://github.com/gtk-rs/gtk4-rs", package = "gtk4" }
 qrcode = "0.12"
 open = "1.4.0"
+pnet = "0.28.0"
