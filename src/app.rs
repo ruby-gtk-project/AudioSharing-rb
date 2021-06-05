@@ -1,7 +1,9 @@
 use gio::ApplicationFlags;
 use glib::clone;
 use glib::WeakRef;
+use gstreamer::DeviceMonitor;
 use gstreamer_rtsp_server::prelude::*;
+use gstreamer_rtsp_server::{RTSPMediaFactory, RTSPServer};
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{gdk, gio, glib};
@@ -133,20 +135,51 @@ impl AsApplication {
     }
 
     fn setup_server(&self) {
-        let server = gstreamer_rtsp_server::RTSPServer::new();
+        if let Some(device) = self.find_device_name() {
+            // Setup and start RTSP server
+            let server = RTSPServer::new();
 
-        let factory = gstreamer_rtsp_server::RTSPMediaFactory::new();
-        factory.set_launch("pulsesrc device=alsa_output.pci-0000_06_00.6.HiFi__hw_Generic_1__sink ! vorbisenc ! rtpvorbispay name=pay0 pt=96");
-        factory.set_shared(true);
+            let factory = RTSPMediaFactory::new();
+            let launch = format!(
+                "pulsesrc device={} ! vorbisenc ! rtpvorbispay name=pay0 pt=96",
+                device
+            );
+            factory.set_launch(&launch);
+            factory.set_shared(true);
 
-        let mounts = server.mount_points().unwrap();
-        mounts.add_factory("/audio", &factory);
+            let mounts = server.mount_points().unwrap();
+            mounts.add_factory("/audio", &factory);
 
-        let ctx = glib::MainContext::default();
-        server.attach(Some(&ctx)).unwrap();
+            let ctx = glib::MainContext::default();
+            server.attach(Some(&ctx)).unwrap();
 
-        self.get_main_window()
-            .set_address("rtsp://192.168.178.105:8554/audio".to_string());
+            self.get_main_window()
+                .set_address("rtsp://192.168.178.105:8554/audio".to_string());
+        }
+    }
+
+    fn find_device_name(&self) -> Option<String> {
+        // Use gstreamer device monitor to find out the sink which we want to stream
+        let device_monitor = DeviceMonitor::new();
+        device_monitor
+            .start()
+            .expect("Unable to start gstreamer device monitor");
+
+        let mut device_name = None;
+
+        for device in &device_monitor.devices() {
+            let is_sink = device.device_class() == "Audio/Sink";
+            let is_default = device.properties()?.get::<bool>("is-default").ok()?;
+            let node_name = device.properties()?.get::<String>("node.name").ok()?;
+
+            if is_sink && is_default {
+                info!("Using {} as device.", device.display_name());
+                device_name = Some(node_name);
+            }
+        }
+
+        device_monitor.stop();
+        device_name
     }
 
     pub fn run(&self) {
