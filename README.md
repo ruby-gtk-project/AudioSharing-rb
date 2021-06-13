@@ -42,3 +42,7 @@ Just clone the repo and hit the run button. You can get Builder from [here](http
 ## Code Of Conduct
 We follow the [GNOME Code of Conduct](/CODE_OF_CONDUCT.md).
 All communications in project spaces are expected to follow it.
+
+## Credits
+- [Decoder](https://gitlab.gnome.org/bilelmoussaoui/decoder) for the QR code widget
+- [Typography](https://gitlab.gnome.org/World/design/typography) for the window styling
