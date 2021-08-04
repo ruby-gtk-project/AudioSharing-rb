@@ -5,7 +5,6 @@
     <property name="default-height">450</property>
     <property name="width-request">350</property>
     <property name="height-request">425</property>
-    <property name="title" translatable="yes">Audio Sharing</property>
     <child type="titlebar">
       <object class="GtkBox">
         <property name="visible">False</property>
