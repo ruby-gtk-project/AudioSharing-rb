@@ -127,17 +127,6 @@ To stop sharing, simply close this window.</property>
         </child>
       </object>
     </child>
-    <child>
-      <object class="GtkShortcutController">
-        <property name="scope">global</property>
-        <child>
-          <object class="GtkShortcut">
-            <property name="trigger">&lt;Control&gt;Q</property>
-            <property name="action">action(window.close)</property>
-          </object>
-        </child>
-      </object>
-    </child>
     <style>
       <class name="audio-sharing-window"/>
     </style>
