@@ -9,7 +9,7 @@ desktop_conf.set('icon', app_id)
 desktop_file = i18n.merge_file(
   input: configure_file(
     input: files('de.haeckerfelix.AudioSharing.desktop.in.in'),
-    output: 'de.haeckerfelix.AudioSharing.desktop.in',
+    output: '@BASENAME@',
     configuration: desktop_conf
   ),
   output: '@0@.desktop'.format(app_id),
