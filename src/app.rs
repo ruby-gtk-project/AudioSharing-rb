@@ -42,8 +42,12 @@ mod imp {
                 let window = window.upgrade().unwrap();
                 window.show();
                 window.present();
-                return;
             }
+        }
+
+        fn startup(&self, app: &Self::Type) {
+            debug!("GtkApplication<AsApplication>::startup");
+            self.parent_startup(app);
 
             app.setup_css();
 
@@ -52,16 +56,11 @@ mod imp {
                 .set(window.downgrade())
                 .expect("Window already set.");
 
+            app.get_main_window().present();
+
             app.setup_gactions();
             app.setup_accels();
             app.setup_server();
-
-            app.get_main_window().present();
-        }
-
-        fn startup(&self, app: &Self::Type) {
-            debug!("GtkApplication<AsApplication>::startup");
-            self.parent_startup(app);
         }
     }
 
