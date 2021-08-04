@@ -105,7 +105,7 @@ impl AsApplication {
             self,
             "help",
             clone!(@weak self as app => move |_, _| {
-                open::that("https://gitlab.gnome.org/World/AudioSharing/-/blob/master/README.md").expect("Could not open webpage.");
+                gtk::show_uri(Some(&app.get_main_window()), "https://gitlab.gnome.org/World/AudioSharing/-/blob/master/README.md", gdk::CURRENT_TIME);
             })
         );
 

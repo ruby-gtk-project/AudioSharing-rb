@@ -16,5 +16,4 @@ gstreamer = "0.17"
 gstreamer-rtsp-server = "0.17"
 gtk = { version = "0.2.0", package = "gtk4" }
 qrcode = "0.12"
-open = "1.4"
 pnet = "0.28"
