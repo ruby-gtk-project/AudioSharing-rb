@@ -45,7 +45,6 @@ mod imp {
                 return;
             }
 
-            app.set_resource_base_path(Some("/de/haeckerfelix/AudioSharing/"));
             app.setup_css();
 
             let window = AsApplicationWindow::new(app);
@@ -79,6 +78,10 @@ impl AsApplication {
         glib::Object::new(&[
             ("application-id", &Some(config::APP_ID)),
             ("flags", &ApplicationFlags::empty()),
+            (
+                "resource-base-path",
+                &Some("/de/haeckerfelix/AudioSharing/"),
+            ),
         ])
         .expect("Application initialization failed...")
     }
