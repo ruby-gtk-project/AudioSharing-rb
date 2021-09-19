@@ -7,14 +7,14 @@ edition = "2018"
 [dependencies]
 log = "0.4"
 pretty_env_logger = "0.4"
-regex = "1.4.3"
+regex = "1.4"
 gettext-rs = { version = "0.6", features = ["gettext-system"] }
 gtk-macros = "0.3"
 once_cell = "1.5"
-adw = { git = "https://gitlab.gnome.org/bilelmoussaoui/libadwaita-rs", package = "libadwaita" }
-gstreamer = { git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", features = ["v1_16"] }
-gstreamer-rtsp-server = { git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs" }
-gtk = { git = "https://github.com/gtk-rs/gtk4-rs", package = "gtk4" }
+adw = { git = "https://gitlab.gnome.org/bilelmoussaoui/libadwaita-rs", branch = "v0.1", package = "libadwaita" }
+gstreamer = "0.17"
+gstreamer-rtsp-server = "0.17"
+gtk = { version = "0.2.0", package = "gtk4" }
 qrcode = "0.12"
-open = "1.4.0"
-pnet = "0.28.0"
+open = "1.4"
+pnet = "0.28"
