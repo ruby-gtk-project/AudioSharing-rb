@@ -3,7 +3,7 @@
 <component type="desktop-application">
   <id>@appid@</id>
   <name>Audio Sharing</name>
-  <summary>Share computer audio</summary>
+  <summary>Share your computer audio</summary>
   <translation type="gettext">audio-sharing</translation>
   <developer_name>Felix Häcker</developer_name>
   <update_contact>haeckerfelix@gnome.org</update_contact>
@@ -13,28 +13,51 @@
   <content_rating type="oars-1.1"/>
 
   <description>
-    <p>A boilerplate template for GTK + Rust. It uses Meson as a build system and has flatpak support by default.</p>
+    <p>
+      With Audio Sharing you can share your current computer audio playback in the form of an RTSP stream. This stream can then be played back by other devices, for example using VLC.
+    </p>
+    <p>
+      By sharing the audio as a network stream, you can also use common devices that are not intended to be used as audio sinks (eg. smartphones) to receive it.
+      For example, there are audio accessories that are not compatible with desktop computers (e.g. because the computer does not have a Bluetooth module installed). With the help of this app, the computer audio can be played back on a smartphone, which is then connected to the Bluetooth accessory.
+    </p>
   </description>
   <screenshots>
     <screenshot type="default">
-      <image>https://gitlab.gnome.org/World/AudioSharing/raw/master/data/resources/screenshots/screenshot1.png</image>
+      <image>https://gitlab.gnome.org/World/AudioSharing/-/raw/master/data/screenshots/1.png</image>
       <caption>Main window</caption>
     </screenshot>
   </screenshots>
 
   <kudos>
-     <!--
-       GNOME Software kudos:
-       https://gitlab.gnome.org/GNOME/gnome-software/blob/master/doc/kudos.md
-     -->
      <kudo>ModernToolkit</kudo>
      <kudo>HiDpiIcon</kudo>
   </kudos>
 
   <url type="homepage">https://gitlab.gnome.org/World/AudioSharing</url>
   <url type="bugtracker">https://gitlab.gnome.org/World/AudioSharing/issues</url>
+  <url type="donation">https://liberapay.com/haecker-felix</url>
+  <url type="help">https://gitlab.gnome.org/World/AudioSharing/-/blob/master/README.md</url>
+
+  <requires>
+    <display_length compare="ge">350</display_length>
+  </requires>
+
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </recommends>
+
+  <custom>
+    <value key="Purism::form_factor">workstation</value>
+    <value key="Purism::form_factor">mobile</value>
+  </custom>
 
   <releases>
-    <release version="0.0.1" date="2019-07-11" />
+    <release version="0.1.0" date="2021-09-19">
+      <description>
+        <p>First stable release.</p>
+      </description>
+    </release>
   </releases>
 </component>

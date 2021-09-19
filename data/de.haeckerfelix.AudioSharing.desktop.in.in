@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Audio Sharing
-Comment=Write a GTK + Rust application
+Comment=Share your computer audio
 Type=Application
 Exec=audio-sharing
 Terminal=false
