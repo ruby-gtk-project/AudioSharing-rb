@@ -7,22 +7,26 @@
 
   <name xml:lang="en">Audio Sharing</name>
   <shortdesc xml:lang="en">
-    Share computer audio
+    Share your computer audio
   </shortdesc>
   <description xml:lang="en">
-      Share computer audio
+    Share your computer audio
   </description>
-  <bug-database rdf:resource="https://gitlab.gnome.org/World/AudioSharing/issues" />
-  <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
+  <bug-database rdf:resource="https://gitlab.gnome.org/World/AudioSharing/issues"/>
+  <category rdf:resource="http://api.gnome.org/doap-extensions#apps"/>
   <programming-language>Rust</programming-language>
 
   <maintainer>
     <foaf:Person>
       <foaf:name>Felix Häcker</foaf:name>
-      <foaf:mbox rdf:resource="mailto:haeckerfelix@gnome.org" />
+      <foaf:mbox rdf:resource="mailto:haeckerfelix@gnome.org"/>
       <gnome:userid>haeckerfelix</gnome:userid>
+      <foaf:account>
+        <foaf:OnlineAccount>
+          <foaf:accountServiceHomepage rdf:resource="https://gitlab.gnome.org"/>
+          <foaf:accountName>haecker-felix</foaf:accountName>
+        </foaf:OnlineAccount>
+      </foaf:account>
     </foaf:Person>
   </maintainer>
 </Project>
-
-
