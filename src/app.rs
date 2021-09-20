@@ -42,10 +42,13 @@ mod imp {
                 let window = window.upgrade().unwrap();
                 window.show();
                 window.present();
-                return;
             }
+        }
 
-            app.set_resource_base_path(Some("/de/haeckerfelix/AudioSharing/"));
+        fn startup(&self, app: &Self::Type) {
+            debug!("GtkApplication<AsApplication>::startup");
+            self.parent_startup(app);
+
             app.setup_css();
 
             let window = AsApplicationWindow::new(app);
@@ -53,16 +56,11 @@ mod imp {
                 .set(window.downgrade())
                 .expect("Window already set.");
 
+            app.get_main_window().present();
+
             app.setup_gactions();
             app.setup_accels();
             app.setup_server();
-
-            app.get_main_window().present();
-        }
-
-        fn startup(&self, app: &Self::Type) {
-            debug!("GtkApplication<AsApplication>::startup");
-            self.parent_startup(app);
         }
     }
 
@@ -79,6 +77,10 @@ impl AsApplication {
         glib::Object::new(&[
             ("application-id", &Some(config::APP_ID)),
             ("flags", &ApplicationFlags::empty()),
+            (
+                "resource-base-path",
+                &Some("/de/haeckerfelix/AudioSharing/"),
+            ),
         ])
         .expect("Application initialization failed...")
     }
@@ -103,7 +105,7 @@ impl AsApplication {
             self,
             "help",
             clone!(@weak self as app => move |_, _| {
-                open::that("https://gitlab.gnome.org/World/AudioSharing/-/blob/master/README.md").expect("Could not open webpage.");
+                gtk::show_uri(Some(&app.get_main_window()), "https://gitlab.gnome.org/World/AudioSharing/-/blob/master/README.md", gdk::CURRENT_TIME);
             })
         );
 

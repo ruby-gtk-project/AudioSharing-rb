@@ -56,8 +56,7 @@ glib::wrapper! {
 
 impl AsApplicationWindow {
     pub fn new(app: &AsApplication) -> Self {
-        let window: Self = glib::Object::new(&[]).unwrap();
-        window.set_application(Some(app));
+        let window: Self = glib::Object::new(&[("application", app)]).unwrap();
 
         // Set icons for shell
         gtk::Window::set_default_icon_name(APP_ID);

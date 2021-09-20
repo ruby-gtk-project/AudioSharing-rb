@@ -5,7 +5,6 @@
     <property name="default-height">450</property>
     <property name="width-request">350</property>
     <property name="height-request">425</property>
-    <property name="title" translatable="yes">Audio Sharing</property>
     <child type="titlebar">
       <object class="GtkBox">
         <property name="visible">False</property>
@@ -77,7 +76,7 @@
                                 <child>
                                   <object class="GtkButton" id="copy_address_button">
                                     <property name="icon-name">edit-copy-symbolic</property>
-                                    <property name="tooltip-text" translatable="yes">Copy address</property>
+                                    <property name="tooltip-text" translatable="yes">Copy Address</property>
                                     <property name="valign">center</property>
                                     <style>
                                       <class name="circular"/>
@@ -115,7 +114,7 @@ To stop sharing, simply close this window.</property>
                     <property name="name">error</property>
                     <property name="child">
                       <object class="AdwStatusPage" id="error_status">
-                        <property name="title">Unable to share audio</property>
+                        <property name="title" translatable="yes">Unable to Share Audio</property>
                         <property name="icon-name">audio-volume-muted-symbolic</property>
                       </object>
                     </property>
@@ -127,17 +126,6 @@ To stop sharing, simply close this window.</property>
         </child>
       </object>
     </child>
-    <child>
-      <object class="GtkShortcutController">
-        <property name="scope">global</property>
-        <child>
-          <object class="GtkShortcut">
-            <property name="trigger">&lt;Control&gt;Q</property>
-            <property name="action">action(window.close)</property>
-          </object>
-        </child>
-      </object>
-    </child>
     <style>
       <class name="audio-sharing-window"/>
     </style>
@@ -145,7 +133,7 @@ To stop sharing, simply close this window.</property>
   <menu id="primary_menu">
     <section>
       <item>
-        <attribute name="label" translatable="yes">Open _help &lt;sup&gt;↗&lt;/sup&gt;</attribute>
+        <attribute name="label" translatable="yes">Open _Help &lt;sup&gt;↗&lt;/sup&gt;</attribute>
         <attribute name="action">app.help</attribute>
       </item>
     </section>

@@ -29,7 +29,6 @@ pub fn show_about_dialog(window: &AsApplicationWindow) {
     };
 
     let dialog = gtk::AboutDialog::new();
-    dialog.set_program_name(Some(config::NAME));
     dialog.set_logo_icon_name(Some(config::APP_ID));
     dialog.set_comments(Some(&i18n("Share computer audio")));
     dialog.set_copyright(Some("© 2021 Felix Häcker"));
