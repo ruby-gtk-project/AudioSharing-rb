@@ -22,6 +22,7 @@ use std::env;
 mod ui;
 
 mod app;
+#[rustfmt::skip]
 mod config;
 mod i18n;
 mod qrcode;
