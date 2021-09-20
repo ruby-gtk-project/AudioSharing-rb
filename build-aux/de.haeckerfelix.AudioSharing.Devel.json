@@ -65,7 +65,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "path": "https://gitlab.gnome.org/World/AudioSharing.git"
+                    "url": "https://gitlab.gnome.org/World/AudioSharing.git"
                 }
             ]
         }
