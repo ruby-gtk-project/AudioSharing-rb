@@ -283,9 +283,9 @@ dependencies = [
 
 [[package]]
 name = "gettext-rs"
-version = "0.6.0"
+version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3df4e7a9dc238dddd30f183d43e4f497990885daa211fcf01657159ade8f1610"
+checksum = "e49ea8a8fad198aaa1f9655a2524b64b70eb06b2f3ff37da407566c93054f364"
 dependencies = [
  "gettext-sys",
  "locale_config",
@@ -726,7 +726,7 @@ checksum = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
 [[package]]
 name = "libadwaita"
 version = "0.1.0-alpha-4"
-source = "git+https://gitlab.gnome.org/bilelmoussaoui/libadwaita-rs?branch=v0.1#e1f4496007fc9656b34fa6dfd0b34dad9033c25e"
+source = "git+https://gitlab.gnome.org/World/Rust/libadwaita-rs?branch=v0.1#e1f4496007fc9656b34fa6dfd0b34dad9033c25e"
 dependencies = [
  "gdk-pixbuf",
  "gdk4",
@@ -742,7 +742,7 @@ dependencies = [
 [[package]]
 name = "libadwaita-sys"
 version = "0.1.0-alpha-4"
-source = "git+https://gitlab.gnome.org/bilelmoussaoui/libadwaita-rs?branch=v0.1#e1f4496007fc9656b34fa6dfd0b34dad9033c25e"
+source = "git+https://gitlab.gnome.org/World/Rust/libadwaita-rs?branch=v0.1#e1f4496007fc9656b34fa6dfd0b34dad9033c25e"
 dependencies = [
  "gdk-pixbuf-sys",
  "gdk4-sys",
