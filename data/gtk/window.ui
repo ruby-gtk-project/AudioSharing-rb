@@ -133,7 +133,7 @@ To stop sharing, simply close this window.</property>
   <menu id="primary_menu">
     <section>
       <item>
-        <attribute name="label" translatable="yes">Open _Help &lt;sup&gt;↗&lt;/sup&gt;</attribute>
+        <attribute name="label" translatable="yes">Open _Help ↗</attribute>
         <attribute name="action">app.help</attribute>
       </item>
     </section>
