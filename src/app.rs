@@ -192,8 +192,6 @@ impl AsApplication {
             .start()
             .expect("Unable to start gstreamer device monitor");
 
-        let mut device_name = None;
-
         for device in &device_monitor.devices() {
             let is_sink = device.device_class() == "Audio/Sink";
             let is_default = device.properties()?.get::<bool>("is-default").ok();
@@ -201,12 +199,13 @@ impl AsApplication {
 
             if is_sink && is_default == Some(true) {
                 info!("Using {} as device.", device.display_name());
-                device_name = node_name;
+                device_monitor.stop();
+                return node_name;
             }
         }
 
         device_monitor.stop();
-        device_name
+        None
     }
 
     pub fn run(&self) {
