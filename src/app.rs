@@ -196,12 +196,12 @@ impl AsApplication {
 
         for device in &device_monitor.devices() {
             let is_sink = device.device_class() == "Audio/Sink";
-            let is_default = device.properties()?.get::<bool>("is-default").ok()?;
-            let node_name = device.properties()?.get::<String>("node.name").ok()?;
+            let is_default = device.properties()?.get::<bool>("is-default").ok();
+            let node_name = device.properties()?.get::<String>("node.name").ok();
 
-            if is_sink && is_default {
+            if is_sink && is_default == Some(true) {
                 info!("Using {} as device.", device.display_name());
-                device_name = Some(node_name);
+                device_name = node_name;
             }
         }
 
