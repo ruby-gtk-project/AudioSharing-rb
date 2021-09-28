@@ -138,14 +138,14 @@ impl AsApplication {
     }
 
     fn setup_server(&self) {
-        if let Some(device) = self.find_device_name() {
+        if let Some(node_name) = self.find_device_name() {
             // Setup and start RTSP server
             let server = RTSPServer::new();
 
             let factory = RTSPMediaFactory::new();
             let launch = format!(
                 "pulsesrc device={} client-name=audio-share ! vorbisenc ! rtpvorbispay name=pay0 pt=96",
-                device
+                node_name
             );
             factory.set_launch(&launch);
             factory.set_shared(true);
@@ -195,12 +195,18 @@ impl AsApplication {
         for device in &device_monitor.devices() {
             let is_sink = device.device_class() == "Audio/Sink";
             let is_default = device.properties()?.get::<bool>("is-default").ok();
-            let node_name = device.properties()?.get::<String>("node.name").ok();
 
             if is_sink && is_default == Some(true) {
-                info!("Using {} as device.", device.display_name());
+                let element = device.create_element(None).ok()?;
+                let node_name = element.property("device").ok()?.get::<String>().ok()?;
+                info!(
+                    "Using \"{}\" as device ({}).",
+                    device.display_name(),
+                    node_name
+                );
+
                 device_monitor.stop();
-                return node_name;
+                return Some(node_name);
             }
         }
 
