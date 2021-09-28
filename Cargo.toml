@@ -14,6 +14,6 @@ once_cell = "1.5"
 adw = { git = "https://gitlab.gnome.org/World/Rust/libadwaita-rs", branch = "v0.1", package = "libadwaita" }
 gstreamer = "0.17"
 gstreamer-rtsp-server = "0.17"
-gtk = { version = "0.2.0", package = "gtk4" }
+gtk = { version = "0.3.0", package = "gtk4" }
 qrcode = "0.12"
 pnet = "0.28"
