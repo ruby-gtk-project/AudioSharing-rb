@@ -11,9 +11,9 @@ regex = "1.4"
 gettext-rs = { version = "0.7", features = ["gettext-system"] }
 gtk-macros = "0.3"
 once_cell = "1.5"
-adw = { git = "https://gitlab.gnome.org/World/Rust/libadwaita-rs", branch = "v0.1", package = "libadwaita" }
+adw = { git = "https://gitlab.gnome.org/World/Rust/libadwaita-rs", package = "libadwaita" }
 gstreamer = "0.17"
 gstreamer-rtsp-server = "0.17"
-gtk = { version = "0.3.0", package = "gtk4" }
+gtk = { version = "0.3.1", package = "gtk4" }
 qrcode = "0.12"
 pnet = "0.28"
