@@ -18,7 +18,7 @@ VLC is supported, and is available for smartphones and computers.
 - [VLC for iOS](https://apps.apple.com/app/apple-store/id650377962)
 - [VLC for desktop](https://flathub.org/apps/details/org.videolan.VLC)
 
-#### I can receive the stream, but there's a noticable delay
+#### I can receive the stream, but there's a noticeable delay
 There is usually a setting in the playback program where you can adjust the latency / caching. If this value is reduced, the latency/delay should be noticeably better.
 
 For example for the VLC iOS app: 
@@ -26,7 +26,7 @@ For example for the VLC iOS app:
  2. Click on VLC
  3. Network cache level -> lowest latency
 
-You have to test a bit with the values to find the perfect balance between latency and audio quality. Unfortunately, latency cannot be completely prevented, but depending on the use case, it may not be a issue (e.g. listening to music).
+You have to test a bit with the values to find the perfect balance between latency and audio quality. Unfortunately, latency cannot be completely prevented, but depending on the use case, it may not be an issue (e.g. listening to music).
 
 ## Installation
 The recommended way of installing Audio Sharing is using the Flatpak package. If you don't have Flatpak installed yet, you can get it from [here](https://flatpak.org/setup/).
