@@ -144,9 +144,10 @@ impl AsApplication {
 
             let factory = RTSPMediaFactory::new();
             let launch = format!(
-                "pulsesrc device={} client-name=audio-share ! vorbisenc ! rtpvorbispay name=pay0 pt=96",
+                "pulsesrc device={}.monitor client-name=audio-sharing ! vorbisenc ! rtpvorbispay name=pay0 pt=96",
                 node_name
             );
+            debug!("Gstreamer pipeline: {}", &launch);
             factory.set_launch(&launch);
             factory.set_shared(true);
 
