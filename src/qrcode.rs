@@ -1,7 +1,7 @@
 // Original author: Bilal Elmoussaoui
 // https://gitlab.gnome.org/bilelmoussaoui/decoder/-/raw/master/src/qrcode.rs
 
-use glib::ParamSpec;
+use glib::{ParamSpec, ParamSpecString};
 use gtk::glib;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
@@ -12,8 +12,8 @@ mod imp {
     use super::*;
     use std::cell::{Cell, RefCell};
 
-    #[derive(Debug, Clone, glib::GBoxed)]
-    #[gboxed(type_name = "QRCodeData")]
+    #[derive(Debug, Clone, glib::Boxed)]
+    #[boxed_type(name = "QRCodeData")]
     pub struct QRCodeData {
         pub width: i32,
         pub height: i32,
@@ -65,7 +65,7 @@ mod imp {
     impl ObjectImpl for QRCode {
         fn properties() -> &'static [ParamSpec] {
             static PROPERTIES: Lazy<Vec<ParamSpec>> = Lazy::new(|| {
-                vec![ParamSpec::new_string(
+                vec![ParamSpecString::new(
                     "content",
                     "content",
                     "Content",
