@@ -36,88 +36,97 @@
               </object>
             </child>
             <child>
-              <object class="GtkStack" id="stack">
+              <object class="AdwToastOverlay" id="toast_overlay">
                 <child>
-                  <object class="GtkStackPage">
-                    <property name="child">
-                      <object class="GtkBox">
-                        <property name="spacing">12</property>
-                        <property name="orientation">vertical</property>
-                        <property name="halign">center</property>
-                        <property name="valign">center</property>
-                        <property name="hexpand">True</property>
-                        <property name="vexpand">True</property>
-                        <property name="margin_top">12</property>
-                        <property name="margin_start">12</property>
-                        <property name="margin_end">12</property>
-                        <property name="margin_bottom">12</property>
+                  <object class="GtkScrolledWindow">
+                    <property name="hscrollbar-policy">never</property>
+                    <child>
+                      <object class="AdwClamp">
+                        <property name="maximum-size">500</property>
                         <child>
-                          <object class="GtkPicture" id="qrcode">
-                            <property name="halign">center</property>
-                            <property name="valign">center</property>
-                            <property name="width-request">200</property>
-                            <property name="height-request">200</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkScrolledWindow">
+                          <object class="GtkStack" id="stack">
                             <child>
-                              <object class="GtkBox">
-                                <property name="halign">center</property>
-                                <property name="spacing">12</property>
-                                <child>
-                                  <object class="GtkLabel" id="address_label">
-                                    <property name="selectable">True</property>
-                                    <style>
-                                      <class name="title-3"/>
-                                    </style>
-                                  </object>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="copy_address_button">
-                                    <property name="icon-name">edit-copy-symbolic</property>
-                                    <property name="tooltip-text" translatable="yes">Copy Address</property>
+                              <object class="GtkStackPage">
+                                <property name="child">
+                                  <object class="GtkBox">
+                                    <property name="spacing">12</property>
+                                    <property name="orientation">vertical</property>
+                                    <property name="halign">center</property>
                                     <property name="valign">center</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <property name="margin_top">12</property>
+                                    <property name="margin_start">12</property>
+                                    <property name="margin_end">12</property>
+                                    <property name="margin_bottom">12</property>
+                                    <child>
+                                      <object class="GtkPicture" id="qrcode">
+                                        <property name="halign">center</property>
+                                        <property name="valign">center</property>
+                                        <property name="width-request">200</property>
+                                        <property name="height-request">200</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="halign">center</property>
+                                        <property name="spacing">12</property>
+                                        <property name="orientation">vertical</property>
+                                        <child>
+                                          <object class="GtkLabel" id="address_label">
+                                            <property name="selectable">True</property>
+                                            <property name="wrap">True</property>
+                                            <property name="justify">center</property>
+                                            <style>
+                                              <class name="title-3"/>
+                                            </style>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkButton" id="copy_address_button">
+                                            <property name="label" translatable="yes">Copy to clipboard</property>
+                                            <property name="halign">center</property>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkSeparator"/>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="label" translatable="yes">You are currently sharing your audio. You can access it from other devices in the same network by scanning the QR code or entering the displayed address. This device can be muted, the audio will still be shared.
+
+To stop sharing, simply close this window.</property>
+                                        <property name="wrap">True</property>
+                                        <property name="justify">center</property>
+                                        <style>
+                                          <class name="caption"/>
+                                        </style>
+                                      </object>
+                                    </child>
                                     <style>
-                                      <class name="circular"/>
+                                      <class name="audio-sharing"/>
                                     </style>
                                   </object>
-                                </child>
+                                </property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkStackPage">
+                                <property name="name">error</property>
+                                <property name="child">
+                                  <object class="AdwStatusPage" id="error_status">
+                                    <property name="title" translatable="yes">Unable to Share Audio</property>
+                                    <property name="icon-name">audio-volume-muted-symbolic</property>
+                                  </object>
+                                </property>
                               </object>
                             </child>
                           </object>
                         </child>
-                        <child>
-                          <object class="GtkSeparator"/>
-                        </child>
-                        <child>
-                          <object class="GtkLabel">
-                            <property name="label" translatable="yes">You are currently sharing your audio. You can access it from other devices in the same network by scanning the QR code or entering the displayed address. This device can be muted, the audio will still be shared.
-
-To stop sharing, simply close this window.</property>
-                            <property name="wrap">True</property>
-                            <property name="justify">center</property>
-                            <style>
-                              <class name="caption"/>
-                            </style>
-                          </object>
-                        </child>
-                        <style>
-                          <class name="audio-sharing"/>
-                        </style>
                       </object>
-                    </property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkStackPage">
-                    <property name="name">error</property>
-                    <property name="child">
-                      <object class="AdwStatusPage" id="error_status">
-                        <property name="title" translatable="yes">Unable to Share Audio</property>
-                        <property name="icon-name">audio-volume-muted-symbolic</property>
-                      </object>
-                    </property>
+                    </child>
                   </object>
                 </child>
               </object>
@@ -146,5 +155,4 @@ To stop sharing, simply close this window.</property>
     </section>
   </menu>
 </interface>
-
 
