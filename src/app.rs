@@ -13,6 +13,7 @@ use once_cell::sync::OnceCell;
 use pnet::datalink::interfaces;
 
 use crate::config;
+use crate::i18n::i18n;
 use crate::ui::about_dialog;
 use crate::ui::AsApplicationWindow;
 
@@ -141,6 +142,17 @@ impl AsApplication {
         if let Some(node_name) = self.find_device_name() {
             // Setup and start RTSP server
             let server = RTSPServer::new();
+
+            server.connect_client_connected(|_, _| {
+                debug!("A client has established a connection");
+
+                let notification =
+                    gio::Notification::new(&i18n("A client has established a connection"));
+                notification.set_body(Some(&i18n("Audio playback from this device gets shared.")));
+
+                let app = gio::Application::default().unwrap();
+                app.send_notification(Some("audio-sharing-playback"), &notification);
+            });
 
             let factory = RTSPMediaFactory::new();
             let launch = format!(

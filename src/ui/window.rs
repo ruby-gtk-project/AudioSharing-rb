@@ -81,6 +81,7 @@ impl AsApplicationWindow {
                 clipboard.set_text(&address.to_string());
 
                 let toast = adw::Toast::new(&i18n("Copied address to clipboard"));
+                toast.set_timeout(2);
                 imp.toast_overlay.add_toast(&toast);
             ));
     }
