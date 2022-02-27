@@ -2,7 +2,7 @@
 <interface>
   <template class="AsApplicationWindow" parent="GtkApplicationWindow">
     <property name="default-width">450</property>
-    <property name="default-height">450</property>
+    <property name="default-height">475</property>
     <property name="width-request">350</property>
     <property name="height-request">425</property>
     <child type="titlebar">
@@ -95,7 +95,7 @@
                                     </child>
                                     <child>
                                       <object class="GtkLabel">
-                                        <property name="label" translatable="yes">You are currently sharing your audio. You can access it from other devices in the same network by scanning the QR code or entering the displayed address. This device can be muted, the audio will still be shared.
+                                        <property name="label" translatable="yes">You are currently sharing your audio. You can access it from other devices in the same network by scanning the QR code or entering the displayed address in a playback app that supports RTSP streams. This device can be muted, the audio will still be shared.
 
 To stop sharing, simply close this window.</property>
                                         <property name="wrap">True</property>
