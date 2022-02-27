@@ -9,8 +9,8 @@
   <update_contact>haeckerfelix@gnome.org</update_contact>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
-  <launchable type="desktop-id">@appid@.desktop</launchable>
   <content_rating type="oars-1.1"/>
+  <launchable type="desktop-id">@appid@.desktop</launchable>
 
   <description>
     <p>
@@ -21,6 +21,7 @@
       For example, there are audio accessories that are not compatible with desktop computers (e.g. because the computer does not have a Bluetooth module installed). With the help of this app, the computer audio can be played back on a smartphone, which is then connected to the Bluetooth accessory.
     </p>
   </description>
+
   <screenshots>
     <screenshot type="default">
       <image>https://gitlab.gnome.org/World/AudioSharing/-/raw/master/data/screenshots/1.png</image>
@@ -29,8 +30,9 @@
   </screenshots>
 
   <kudos>
-     <kudo>ModernToolkit</kudo>
-     <kudo>HiDpiIcon</kudo>
+    <kudo>HiDpiIcon</kudo>
+    <kudo>ModernToolkit</kudo>
+    <kudo>Notifications</kudo>
   </kudos>
 
   <url type="homepage">https://gitlab.gnome.org/World/AudioSharing</url>
@@ -38,20 +40,18 @@
   <url type="donation">https://liberapay.com/haecker-felix</url>
   <url type="help">https://gitlab.gnome.org/World/AudioSharing/-/blob/master/README.md</url>
 
+  <custom>
+    <value key="Purism::form_factor">workstation</value>
+    <value key="Purism::form_factor">mobile</value>
+  </custom>
   <requires>
-    <display_length compare="ge">350</display_length>
+    <display_length compare="ge">360</display_length>
   </requires>
-
   <recommends>
     <control>keyboard</control>
     <control>pointing</control>
     <control>touch</control>
   </recommends>
-
-  <custom>
-    <value key="Purism::form_factor">workstation</value>
-    <value key="Purism::form_factor">mobile</value>
-  </custom>
 
   <releases>
     <release version="0.1.2" date="2021-09-28">
