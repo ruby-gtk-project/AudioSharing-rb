@@ -1,6 +1,6 @@
 [package]
 name = "audio-sharing"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Felix Häcker <haeckerfelix@gnome.org>"]
 edition = "2018"
 

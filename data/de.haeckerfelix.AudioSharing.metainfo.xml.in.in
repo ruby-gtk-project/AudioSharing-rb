@@ -58,6 +58,18 @@
   </recommends>
 
   <releases>
+    <release version="0.2.0" date="2022-02-27">
+      <description>
+        <p>
+          This version includes minor improvements and bug fixes.
+        </p>
+        <ul>
+          <li>User interface adapted to new Adwaita design</li>
+          <li>New desktop notification when a client connects</li>
+          <li>Fixed a problem where on some systems the microphone input was streamed instead of audio playback</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.1.2" date="2021-09-28">
       <description>
         <p>Bugfix release to fix the "Unable to find audio sink" message.</p>
