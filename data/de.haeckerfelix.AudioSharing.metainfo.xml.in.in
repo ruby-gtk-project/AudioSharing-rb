@@ -24,8 +24,12 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://gitlab.gnome.org/World/AudioSharing/-/raw/master/data/screenshots/1.png</image>
-      <caption>Main window</caption>
+      <image width="572" height="597">https://gitlab.gnome.org/World/AudioSharing/-/raw/master/data/screenshots/1.png</image>
+      <caption>Main window light</caption>
+    </screenshot>
+    <screenshot>
+      <image width="572" height="597">https://gitlab.gnome.org/World/AudioSharing/-/raw/master/data/screenshots/2.png</image>
+      <caption>Main window dark</caption>
     </screenshot>
   </screenshots>
 
