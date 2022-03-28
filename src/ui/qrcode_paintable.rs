@@ -14,23 +14,29 @@ mod imp {
     fn snapshot_qrcode(snapshot: &gtk::Snapshot, qrcode: &QRCodeData, width: f64, height: f64) {
         let manager = adw::StyleManager::default();
         let is_dark_theme = manager.is_dark();
-        let square_height = height as f32 / qrcode.height as f32;
-        let square_width = width as f32 / qrcode.width as f32;
+
+        // If theme is dark we draw a white background and leave a one-tile margin around it
+        let square_height =
+            height as f32 / (qrcode.height as f32 + (is_dark_theme as i32 * 2) as f32);
+        let square_width = width as f32 / (qrcode.width as f32 + (is_dark_theme as i32 * 2) as f32);
+
+        if is_dark_theme {
+            snapshot.append_color(
+                &gdk::RGBA::WHITE,
+                &graphene::Rect::new(0.0, 0.0, width as f32, height as f32),
+            );
+        }
 
         qrcode.items.iter().enumerate().for_each(|(y, line)| {
             line.iter().enumerate().for_each(|(x, is_dark)| {
                 let color = if *is_dark {
-                    if is_dark_theme {
-                        gdk::RGBA::WHITE
-                    } else {
-                        gdk::RGBA::BLACK
-                    }
+                    gdk::RGBA::BLACK
                 } else {
                     gdk::RGBA::new(0.0, 0.0, 0.0, 0.0)
                 };
                 let position = graphene::Rect::new(
-                    (x as f32) * square_width,
-                    (y as f32) * square_height,
+                    (x + is_dark_theme as usize) as f32 * square_width,
+                    (y + is_dark_theme as usize) as f32 * square_height,
                     square_width,
                     square_height,
                 );
