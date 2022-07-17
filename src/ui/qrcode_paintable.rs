@@ -15,10 +15,8 @@ mod imp {
         let manager = adw::StyleManager::default();
         let is_dark_theme = manager.is_dark();
 
-        // If theme is dark we draw a white background and leave a one-tile margin around it
-        let square_height =
-            height as f32 / (qrcode.height as f32 + (is_dark_theme as i32 * 2) as f32);
-        let square_width = width as f32 / (qrcode.width as f32 + (is_dark_theme as i32 * 2) as f32);
+        let square_height = height as f32 / (qrcode.height as f32 + 2.0);
+        let square_width = width as f32 / (qrcode.width as f32 + 2.0);
 
         if is_dark_theme {
             snapshot.append_color(
@@ -35,8 +33,8 @@ mod imp {
                     gdk::RGBA::new(0.0, 0.0, 0.0, 0.0)
                 };
                 let position = graphene::Rect::new(
-                    (x + is_dark_theme as usize) as f32 * square_width,
-                    (y + is_dark_theme as usize) as f32 * square_height,
+                    (x + 1) as f32 * square_width,
+                    (y + 1) as f32 * square_height,
                     square_width,
                     square_height,
                 );
