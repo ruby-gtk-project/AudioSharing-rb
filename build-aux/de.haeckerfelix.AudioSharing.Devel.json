@@ -25,9 +25,6 @@
 	{
 	    "name": "gst-rtsp-server",
 	    "buildsystem": "meson",
-	    "config-opts": [
-		"-Ddoc=disabled"
-	    ],
 	    "sources": [
 		{
 		    "type": "git",
