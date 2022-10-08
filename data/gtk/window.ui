@@ -84,7 +84,7 @@
                                         </child>
                                         <child>
                                           <object class="GtkButton" id="copy_address_button">
-                                            <property name="label" translatable="yes">Copy to clipboard</property>
+                                            <property name="label" translatable="yes">Copy to Clipboard</property>
                                             <property name="halign">center</property>
                                           </object>
                                         </child>
