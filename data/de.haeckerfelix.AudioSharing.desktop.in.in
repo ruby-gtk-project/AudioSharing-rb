@@ -1,11 +1,14 @@
 [Desktop Entry]
-Name=Audio Sharing
-Comment=Share your computer audio
-Type=Application
-Exec=audio-sharing
-Terminal=false
-Categories=GNOME;GTK;
-Keywords=Gnome;GTK;audio;sharing;sound;
+Name=@NAME@
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-Icon=@icon@
+Icon=@APP_ID@
+Exec=@PKGNAME@
+Terminal=false
+Type=Application
 StartupNotify=true
+Categories=GNOME;GTK;Audio;AudioVideo;
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=Gnome;GTK;audio;sharing;sound;
+DBusActivatable=true
+# Translators: Do NOT translate or transliterate this text (these are enum types)!
+X-Purism-FormFactor=Workstation;Mobile;

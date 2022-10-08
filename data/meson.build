@@ -1,16 +1,16 @@
-gnome = import('gnome')
-
 # Icons #
 subdir('icons')
 
-# Desktop file #
-desktop_conf = configuration_data()
-desktop_conf.set('icon', app_id)
+# Desktop file
+conf = configuration_data()
+conf.set('APP_ID', app_id)
+conf.set('PKGNAME', meson.project_name())
+conf.set('NAME', name)
 desktop_file = i18n.merge_file(
   input: configure_file(
-    input: files('de.haeckerfelix.AudioSharing.desktop.in.in'),
-    output: '@BASENAME@',
-    configuration: desktop_conf
+    input: '@0@.desktop.in.in'.format(base_id),
+    output: '@0@.desktop.in'.format(app_id),
+    configuration: conf
   ),
   output: '@0@.desktop'.format(app_id),
   type: 'desktop',
@@ -19,7 +19,7 @@ desktop_file = i18n.merge_file(
   install_dir: join_paths(datadir, 'applications')
 )
 
-# Validate desktop file #
+# Validate desktop file
 desktop_utils = find_program('desktop-file-validate', required: false)
 if desktop_utils.found()
   test('Validate desktop file', desktop_utils,
@@ -27,15 +27,16 @@ if desktop_utils.found()
   )
 endif
 
-
-# Appstream metadata #
-appdata_conf = configuration_data()
-appdata_conf.set('appid', app_id)
-appstream_file = i18n.merge_file(
+# Appdata
+conf = configuration_data()
+conf.set('APP_ID', app_id)
+conf.set('PKGNAME', meson.project_name())
+conf.set('NAME', name)
+appdata_file = i18n.merge_file(
   input: configure_file(
-    input: files('de.haeckerfelix.AudioSharing.metainfo.xml.in.in'),
-    output: 'de.haeckerfelix.AudioSharing.metainfo.xml.in',
-    configuration: appdata_conf
+    input: '@0@.metainfo.xml.in.in'.format(base_id),
+    output: '@0@.metainfo.xml.in'.format(app_id),
+    configuration: conf
   ),
   output: '@0@.metainfo.xml'.format(app_id),
   po_dir: '../po',
@@ -43,25 +44,49 @@ appstream_file = i18n.merge_file(
   install_dir: join_paths(datadir, 'metainfo')
 )
 
-# DBUS service
-service_conf = configuration_data()
-service_conf.set('appid', app_id)
-service_conf.set('bindir', join_paths(get_option('prefix'), get_option('bindir')))
+# Validate Appdata
+appstream_util = find_program('appstream-util', required: false)
+if appstream_util.found()
+  test(
+    'Validate appdata', appstream_util,
+    args: [
+      'validate', '--nonet', appdata_file.full_path()
+    ]
+  )
+endif
+
+# DBus service
+conf = configuration_data()
+conf.set('APP_ID', app_id)
+conf.set('PKGNAME', meson.project_name())
+conf.set('BINDIR', bindir)
 configure_file(
-  input: 'de.haeckerfelix.AudioSharing.service.in',
+  input: '@0@.service.in'.format(base_id),
   output: '@0@.service'.format(app_id),
-  configuration: service_conf,
+  configuration: conf,
   install_dir: join_paths(datadir,'dbus-1', 'services')
 )
 
-
 # Resources
+conf = configuration_data()
+conf.set('PATH_ID', path_id)
+configure_file(
+  input: '@0@.gresource.xml.in'.format(base_id),
+  output: '@0@.gresource.xml'.format(app_id),
+  configuration: conf,
+)
 gnome.compile_resources(
   app_id,
-  'de.haeckerfelix.AudioSharing.gresource.xml',
+  join_paths(meson.project_build_root(), 'data', '@0@.gresource.xml'.format(app_id)),
   gresource_bundle: true,
-  source_dir: meson.current_build_dir(),
+  source_dir: join_paths(meson.project_build_root(), 'data'),
   install: true,
   install_dir: join_paths(datadir, meson.project_name())
 )
 
+# Run required post-install steps
+gnome.post_install(
+  gtk_update_icon_cache: true,
+  glib_compile_schemas: false,
+  update_desktop_database: true,
+)

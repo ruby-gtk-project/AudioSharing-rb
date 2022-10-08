@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2022 Felix Häcker -->
 <component type="desktop-application">
-  <id>@appid@</id>
-  <name>Audio Sharing</name>
+  <id>@APP_ID@</id>
+  <name>@NAME@</name>
   <summary>Share your computer audio</summary>
   <translation type="gettext">audio-sharing</translation>
   <developer_name>Felix Häcker</developer_name>
   <update_contact>haeckerfelix@gnome.org</update_contact>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
+  <launchable type="desktop-id">@APP_ID@.desktop</launchable>
   <content_rating type="oars-1.1"/>
-  <launchable type="desktop-id">@appid@.desktop</launchable>
 
   <description>
     <p>
@@ -33,24 +33,27 @@
     </screenshot>
   </screenshots>
 
+  <url type="homepage">https://gitlab.gnome.org/World/AudioSharing</url>
+  <url type="bugtracker">https://gitlab.gnome.org/World/AudioSharing/issues</url>
+  <url type="donation">https://liberapay.com/haecker-felix</url>
+  <url type="help">https://gitlab.gnome.org/World/AudioSharing/-/blob/master/README.md</url>
+  <url type="translate">https://l10n.gnome.org/module/AudioSharing/</url>
+
   <kudos>
     <kudo>HiDpiIcon</kudo>
     <kudo>ModernToolkit</kudo>
     <kudo>Notifications</kudo>
   </kudos>
 
-  <url type="homepage">https://gitlab.gnome.org/World/AudioSharing</url>
-  <url type="bugtracker">https://gitlab.gnome.org/World/AudioSharing/issues</url>
-  <url type="donation">https://liberapay.com/haecker-felix</url>
-  <url type="help">https://gitlab.gnome.org/World/AudioSharing/-/blob/master/README.md</url>
-
   <custom>
     <value key="Purism::form_factor">workstation</value>
     <value key="Purism::form_factor">mobile</value>
   </custom>
+
   <requires>
     <display_length compare="ge">360</display_length>
   </requires>
+
   <recommends>
     <control>keyboard</control>
     <control>pointing</control>

@@ -39,7 +39,6 @@ fn main() {
 
     // Initialize GTK
     gtk::init().unwrap_or_else(|_| panic!("Failed to initialize GTK."));
-    adw::init();
 
     // Initialize Gstreamer
     gstreamer::init().expect("Failed to initialize Gstreamer");
@@ -56,13 +55,15 @@ fn main() {
     textdomain(config::PKGNAME).unwrap();
 
     // Load app resources
-    let res = gio::Resource::load(
-        config::PKGDATADIR.to_owned() + &format!("/{}.gresource", config::APP_ID),
-    )
-    .expect("Could not load resources");
+    let path = &format!(
+        "{}/{}/{}.gresource",
+        config::DATADIR,
+        config::PKGNAME,
+        config::APP_ID
+    );
+    let res = gio::Resource::load(path).expect("Could not load resources");
     gio::resources_register(&res);
 
     // Run app itself
-    let app = AsApplication::new();
-    app.run();
+    AsApplication::run();
 }

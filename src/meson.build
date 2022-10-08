@@ -3,11 +3,12 @@ conf = configuration_data()
 conf.set_quoted('NAME', name)
 conf.set_quoted('PKGNAME', meson.project_name())
 conf.set_quoted('APP_ID', app_id)
+conf.set_quoted('PATH_ID', path_id)
 conf.set_quoted('VERSION', meson.project_version())
 conf.set_quoted('PROFILE', profile)
 conf.set_quoted('VCS_TAG', vcs_tag)
 conf.set_quoted('LOCALEDIR', localedir)
-conf.set_quoted('PKGDATADIR', pkgdatadir)
+conf.set_quoted('DATADIR', datadir)
 
 configure_file(
     input: 'config.rs.in',
@@ -17,39 +18,40 @@ configure_file(
 
 run_command(
   'cp',
-  join_paths(meson.build_root(), 'src', 'config.rs'),
-  join_paths(meson.source_root(), 'src', 'config.rs'),
+  join_paths(meson.project_build_root(), 'src', 'config.rs'),
+  join_paths(meson.project_source_root(), 'src', 'config.rs'),
   check: true
 )
 
-sources = files(
-  'ui/about_dialog.rs',
-  'ui/mod.rs',
-  'ui/qrcode_paintable.rs',
-  'ui/window.rs',
+# Setup cargo
+cargo = find_program('cargo')
+cargo_env = [ 'CARGO_HOME=' + meson.project_build_root() / 'cargo-home' ]
+cargo_options = [ '--manifest-path', meson.project_source_root() / 'Cargo.toml' ]
+cargo_options += [ '--target-dir', meson.project_build_root() / 'target' ]
 
-  'app.rs',
-  'config.rs',
-  'i18n.rs',
-  'main.rs',
-  'qrcode.rs',
-)
+if get_option('profile') == 'default'
+  cargo_options += [ '--release' ]
+  rust_target = 'release'
+  message('Building in release mode')
+else
+  rust_target = 'debug'
+  message('Building in debug mode')
+endif
 
-cargo_script = find_program(join_paths(meson.source_root(), 'build-aux/cargo.sh'))
 cargo_release = custom_target(
   'cargo-build',
   build_by_default: true,
-  input: sources,
+  build_always_stale: true,
   output: meson.project_name(),
   console: true,
   install: true,
-  install_dir: get_option('bindir'),
+  install_dir: bindir,
   command: [
-    cargo_script,
-    meson.build_root(),
-    meson.source_root(),
-    '@OUTPUT@',
-    localedir,
-    profile
+    'env',
+    cargo_env,
+    cargo, 'build',
+    cargo_options,
+    '&&',
+    'cp', 'target' / rust_target / meson.project_name(), '@OUTPUT@',
   ]
 )

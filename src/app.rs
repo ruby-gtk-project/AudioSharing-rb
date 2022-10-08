@@ -1,4 +1,4 @@
-use gio::ApplicationFlags;
+use adw::subclass::prelude::*;
 use glib::{clone, WeakRef};
 use gstreamer::DeviceMonitor;
 use gstreamer_rtsp_server::prelude::*;
@@ -27,61 +27,70 @@ mod imp {
     impl ObjectSubclass for AsApplication {
         const NAME: &'static str = "AsApplication";
         type Type = super::AsApplication;
-        type ParentType = gtk::Application;
+        type ParentType = adw::Application;
     }
 
     impl ObjectImpl for AsApplication {}
 
-    impl gio::subclass::prelude::ApplicationImpl for AsApplication {
+    impl ApplicationImpl for AsApplication {
         fn activate(&self, app: &Self::Type) {
-            debug!("GtkApplication<AsApplication>::activate");
+            debug!("Activate GIO Application...");
 
-            let priv_ = AsApplication::from_instance(app);
-            if let Some(window) = priv_.window.get() {
-                let window = window.upgrade().unwrap();
-                window.show();
+            // If the window already exists,
+            // present it instead creating a new one again.
+            if let Some(weak_win) = self.window.get() {
+                let window = weak_win.upgrade().unwrap();
                 window.present();
+                info!("Application window presented.");
+                return;
             }
-        }
 
-        fn startup(&self, app: &Self::Type) {
-            debug!("GtkApplication<AsApplication>::startup");
-            self.parent_startup(app);
-
-            app.setup_css();
-
+            // No window available -> we have to create one
             let window = AsApplicationWindow::new(app);
-            self.window
-                .set(window.downgrade())
-                .expect("Window already set.");
+            window.present();
+            let _ = self.window.set(window.downgrade());
+            info!("Created application window.");
 
-            app.get_main_window().present();
-
+            // Setup GActions
             app.setup_gactions();
             app.setup_accels();
+
             app.setup_server();
         }
     }
 
     impl GtkApplicationImpl for AsApplication {}
+
+    impl AdwApplicationImpl for AsApplication {}
 }
 
 glib::wrapper! {
     pub struct AsApplication(ObjectSubclass<imp::AsApplication>)
-        @extends gio::Application, gtk::Application, @implements gio::ActionMap, gio::ActionGroup;
+        @extends gio::Application, gtk::Application, adw::Application,
+        @implements gio::ActionMap, gio::ActionGroup;
 }
 
 impl AsApplication {
-    pub fn new() -> Self {
-        glib::Object::new(&[
+    pub fn run() {
+        debug!(
+            "{} ({}) ({}) - Version {} ({})",
+            config::NAME,
+            config::APP_ID,
+            config::VCS_TAG,
+            config::VERSION,
+            config::PROFILE
+        );
+
+        // Create new GObject and downcast it into AsApplication
+        let app = glib::Object::new::<AsApplication>(&[
             ("application-id", &Some(config::APP_ID)),
-            ("flags", &ApplicationFlags::empty()),
-            (
-                "resource-base-path",
-                &Some("/de/haeckerfelix/AudioSharing/"),
-            ),
+            ("flags", &gio::ApplicationFlags::empty()),
+            ("resource-base-path", &Some(config::PATH_ID)),
         ])
-        .expect("Application initialization failed...")
+        .unwrap();
+
+        // Start running gtk::Application
+        app.run();
     }
 
     fn get_main_window(&self) -> AsApplicationWindow {
@@ -122,18 +131,6 @@ impl AsApplication {
     fn setup_accels(&self) {
         self.set_accels_for_action("app.quit", &["<primary>q"]);
         self.set_accels_for_action("win.show-help-overlay", &["<primary>question"]);
-    }
-
-    fn setup_css(&self) {
-        let provider = gtk::CssProvider::new();
-        provider.load_from_resource("/de/haeckerfelix/AudioSharing/gtk/style.css");
-        if let Some(display) = gdk::Display::default() {
-            gtk::StyleContext::add_provider_for_display(
-                &display,
-                &provider,
-                gtk::STYLE_PROVIDER_PRIORITY_APPLICATION,
-            );
-        }
     }
 
     fn setup_server(&self) {
@@ -223,14 +220,6 @@ impl AsApplication {
 
         device_monitor.stop();
         None
-    }
-
-    pub fn run(&self) {
-        info!("Audio Sharing ({})", config::APP_ID);
-        info!("Version: {} ({})", config::VERSION, config::PROFILE);
-        info!("Datadir: {}", config::PKGDATADIR);
-
-        ApplicationExtManual::run(self);
     }
 }
 
