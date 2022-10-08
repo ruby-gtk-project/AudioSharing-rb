@@ -16,8 +16,9 @@
 
 extern crate pretty_env_logger;
 
-use gettextrs::*;
 use std::env;
+
+use gettextrs::*;
 
 mod ui;
 
@@ -27,10 +28,10 @@ mod config;
 mod i18n;
 mod qrcode;
 
+use gtk::{gio, glib};
+
 pub use crate::app::AsApplication;
 pub use crate::qrcode::QRCode;
-
-use gtk::{gio, glib};
 
 fn main() {
     // Initialize logger

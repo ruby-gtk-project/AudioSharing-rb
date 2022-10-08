@@ -1,7 +1,7 @@
 use glib::clone;
+use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use gtk::{self, prelude::*};
-use gtk::{gdk, gio, glib, CompositeTemplate};
+use gtk::{self, gdk, gio, glib, CompositeTemplate};
 
 use crate::app::AsApplication;
 use crate::config::APP_ID;

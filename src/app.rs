@@ -1,6 +1,5 @@
 use gio::ApplicationFlags;
-use glib::clone;
-use glib::WeakRef;
+use glib::{clone, WeakRef};
 use gstreamer::DeviceMonitor;
 use gstreamer_rtsp_server::prelude::*;
 use gstreamer_rtsp_server::{RTSPMediaFactory, RTSPServer};
@@ -14,8 +13,7 @@ use pnet::datalink::interfaces;
 
 use crate::config;
 use crate::i18n::i18n;
-use crate::ui::about_dialog;
-use crate::ui::AsApplicationWindow;
+use crate::ui::{about_dialog, AsApplicationWindow};
 
 mod imp {
     use super::*;

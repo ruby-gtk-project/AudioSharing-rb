@@ -1,11 +1,12 @@
 // Original author: Bilal Elmoussaoui
 // https://gitlab.gnome.org/bilelmoussaoui/decoder/-/blob/master/src/widgets/qrcode/paintable.rs
 
-use crate::qrcode::QRCodeData;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{gdk, glib, graphene};
 use once_cell::sync::Lazy;
+
+use crate::qrcode::QRCodeData;
 
 static INIT_QR_CODE: Lazy<QRCodeData> = Lazy::new(|| QRCodeData::from("0.0.0.0"));
 
@@ -43,8 +44,9 @@ mod imp {
             });
         });
     }
-    use super::*;
     use std::cell::RefCell;
+
+    use super::*;
     pub struct QRCodePaintable {
         pub qrcode: RefCell<Option<QRCodeData>>,
     }

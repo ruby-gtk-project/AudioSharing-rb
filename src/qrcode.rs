@@ -9,8 +9,9 @@ pub use imp::QRCodeData;
 use once_cell::sync::Lazy;
 
 mod imp {
-    use super::*;
     use std::cell::{Cell, RefCell};
+
+    use super::*;
 
     #[derive(Debug, Clone, glib::Boxed)]
     #[boxed_type(name = "QRCodeData")]
