@@ -24,11 +24,11 @@
 
   <screenshots>
     <screenshot type="default">
-      <image width="572" height="597">https://gitlab.gnome.org/World/AudioSharing/-/raw/master/data/screenshots/1.png</image>
+      <image width="572" height="597">https://gitlab.gnome.org/World/AudioSharing/-/raw/main/data/screenshots/1.png</image>
       <caption>Main window light</caption>
     </screenshot>
     <screenshot>
-      <image width="572" height="597">https://gitlab.gnome.org/World/AudioSharing/-/raw/master/data/screenshots/2.png</image>
+      <image width="572" height="597">https://gitlab.gnome.org/World/AudioSharing/-/raw/main/data/screenshots/2.png</image>
       <caption>Main window dark</caption>
     </screenshot>
   </screenshots>
@@ -36,7 +36,7 @@
   <url type="homepage">https://gitlab.gnome.org/World/AudioSharing</url>
   <url type="bugtracker">https://gitlab.gnome.org/World/AudioSharing/issues</url>
   <url type="donation">https://liberapay.com/haecker-felix</url>
-  <url type="help">https://gitlab.gnome.org/World/AudioSharing/-/blob/master/README.md</url>
+  <url type="help">https://gitlab.gnome.org/World/AudioSharing/-/blob/main/README.md</url>
   <url type="translate">https://l10n.gnome.org/module/AudioSharing/</url>
 
   <kudos>

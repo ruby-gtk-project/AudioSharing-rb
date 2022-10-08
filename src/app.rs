@@ -113,7 +113,7 @@ impl AsApplication {
             self,
             "help",
             clone!(@weak self as app => move |_, _| {
-                gtk::show_uri(Some(&app.get_main_window()), "https://gitlab.gnome.org/World/AudioSharing/-/blob/master/README.md", gdk::CURRENT_TIME);
+                gtk::show_uri(Some(&app.get_main_window()), "https://gitlab.gnome.org/World/AudioSharing/-/blob/main/README.md", gdk::CURRENT_TIME);
             })
         );
 

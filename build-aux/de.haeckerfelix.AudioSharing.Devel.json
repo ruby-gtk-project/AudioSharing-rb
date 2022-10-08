@@ -52,7 +52,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/World/AudioSharing.git",
-                    "branch": "master"
+                    "branch": "main"
                 }
             ]
         }
