@@ -4,7 +4,6 @@ use gstreamer::DeviceMonitor;
 use gstreamer_rtsp_server::prelude::*;
 use gstreamer_rtsp_server::{RTSPMediaFactory, RTSPServer};
 use gtk::prelude::*;
-use gtk::subclass::prelude::*;
 use gtk::{gdk, gio, glib};
 use gtk_macros::action;
 use log::{debug, info, warn};
@@ -13,7 +12,7 @@ use pnet::datalink::interfaces;
 
 use crate::config;
 use crate::i18n::i18n;
-use crate::ui::{about_dialog, AsApplicationWindow};
+use crate::ui::{about_window, AsApplicationWindow};
 
 mod imp {
     use super::*;
@@ -122,7 +121,7 @@ impl AsApplication {
             self,
             "about",
             clone!(@weak self as app => move |_, _| {
-                about_dialog::show_about_dialog(&app.get_main_window());
+                about_window::show(&app.get_main_window());
             })
         );
     }
