@@ -78,7 +78,7 @@ impl AsApplicationWindow {
 
                 let display = gdk::Display::default().unwrap();
                 let clipboard = display.clipboard();
-                clipboard.set_text(&address.to_string());
+                clipboard.set_text(&address);
 
                 let toast = adw::Toast::new(&i18n("Copied address to clipboard"));
                 toast.set_timeout(2);

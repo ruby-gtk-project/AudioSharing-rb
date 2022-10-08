@@ -233,3 +233,12 @@ impl AsApplication {
         ApplicationExtManual::run(self);
     }
 }
+
+impl Default for AsApplication {
+    fn default() -> Self {
+        gio::Application::default()
+            .expect("Could not get default GApplication")
+            .downcast()
+            .unwrap()
+    }
+}

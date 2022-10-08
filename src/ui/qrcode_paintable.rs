@@ -80,7 +80,7 @@ mod imp {
             if let Some(ref qrcode) = *self.qrcode.borrow() {
                 snapshot_qrcode(snapshot, qrcode, width, height);
             } else {
-                snapshot_qrcode(snapshot, &*INIT_QR_CODE, width, height);
+                snapshot_qrcode(snapshot, &INIT_QR_CODE, width, height);
             }
         }
     }
