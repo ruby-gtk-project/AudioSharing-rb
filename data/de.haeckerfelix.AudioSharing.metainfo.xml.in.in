@@ -61,6 +61,18 @@
   </recommends>
 
   <releases>
+    <release version="0.2.1" date="2022-10-15">
+      <description>
+        <p>
+          This version includes minor improvements and bug fixes.
+        </p>
+        <ul>
+          <li>Don't invert QR code on dark mode</li>
+          <li>Use new Adwaita about dialog</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.2.0" date="2022-02-27">
       <description>
         <p>
