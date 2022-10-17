@@ -1,0 +1,131 @@
+# Russian translation for AudioSharing.
+# Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# Aleksandr Melman <Alexmelman88@gmail.com>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2022-10-09 19:56+0000\n"
+"PO-Revision-Date: 2022-10-10 18:44+0300\n"
+"Last-Translator: Aleksandr Melman <Alexmelman88@gmail.com>\n"
+"Language-Team: Russian <gnome-cyr@gnome.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;audio;sharing;sound;аудио;звук;"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+msgid "Share your computer audio"
+msgstr "Делитесь аудио с вашего компьютера"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"С помощью Audio Sharing вы можете поделиться текущим аудиовоспроизведением "
+"на компьютере в виде потока RTSP. Затем этот поток может быть воспроизведен "
+"другими устройствами, например, с помощью VLC."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Передавая аудио в виде сетевого потока, вы также можете использовать для его "
+"приема обычные устройства, которые не предназначены для использования в "
+"качестве потребителей аудио (например, смартфоны). Например, существуют "
+"аудиоаксессуары, которые не совместимы с настольными компьютерами (например, "
+"потому что в компьютере не установлен модуль Bluetooth). С помощью этого "
+"приложения звук с компьютера можно воспроизвести на смартфоне, который затем "
+"подключается к Bluetooth-аксессуару."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
+msgid "Main window light"
+msgstr "Главное окно светлое"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
+msgid "Main window dark"
+msgstr "Главное окно темное"
+
+#: data/gtk/window.ui:27
+msgid "Menu"
+msgstr "Меню"
+
+#: data/gtk/window.ui:87
+msgid "Copy to Clipboard"
+msgstr "Копировать в буфер обмена"
+
+#: data/gtk/window.ui:98
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"В настоящее время вы предоставляете общий доступ к аудио. Вы можете получить "
+"доступ к нему с других устройств в той же сети, отсканировав QR-код или "
+"введя отображаемый адрес в приложении для воспроизведения, которое "
+"поддерживает потоки RTSP. Это устройство можно отключить, аудио все равно "
+"будет передаваться.\n"
+"\n"
+"Чтобы прекратить обмен, просто закройте это окно."
+
+#: data/gtk/window.ui:120
+msgid "Unable to Share Audio"
+msgstr "Невозможно поделиться аудио"
+
+#: data/gtk/window.ui:145
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Открыть _Справку <sup>↗</sup>"
+
+#: data/gtk/window.ui:152
+msgid "_About Audio Sharing"
+msgstr "_О Audio Sharing"
+
+#: src/ui/about_window.rs:35
+msgid "Share computer audio"
+msgstr "Делитесь аудио с компьютера"
+
+#: src/ui/about_window.rs:45
+msgid "translator-credits"
+msgstr "Aleksandr Melman"
+
+#: src/ui/window.rs:83
+msgid "Copied address to clipboard"
+msgstr "Адрес скопирован в буфер обмена"
+
+#: src/app.rs:144
+msgid "A client has established a connection"
+msgstr "Клиент установил соединение"
+
+#: src/app.rs:145
+msgid "Audio playback from this device gets shared."
+msgstr "Воспроизведение аудио с этого устройства становится общим."
