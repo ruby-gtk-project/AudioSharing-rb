@@ -1,0 +1,129 @@
+# Hungarian translation for AudioSharing.
+# Copyright (C) 2022 Free Software Foundation, Inc.
+# This file is distributed under the same license as the AudioSharing package.
+#
+# Balázs Úr <ur.balazs at fsf dot hu>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2022-10-17 23:21+0000\n"
+"PO-Revision-Date: 2022-10-22 00:29+0200\n"
+"Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
+"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 19.12.3\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;hang;megosztás;zene;"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+msgid "Share your computer audio"
+msgstr "A számítógép hangjának megosztása"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"A Hangmegosztóval megoszthatja a számítógép aktuális hanglejátszását"
+" RTSP-hangfolyam formájában. Ezt a hangfolyamot azután lejátszhatja más"
+" eszközökkel, például a VLC használatával."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"A hang hálózati adatfolyamként történő megosztásával olyan általános eszközök"
+" is használhat, amelyek nem hangfogadóként szolgálnak (például okostelefonok)"
+" a hang fogadásához. Vannak például olyan hangkiegészítők, amelyek nem"
+" kompatibilisek az asztali számítógépekkel (például mert a számítógépen nincs"
+" Bluetooth-modul telepítve). Ennek az alkalmazásnak a segítségével a"
+" számítógép hangja lejátszható egy okostelefonon, amely aztán kapcsolódik a"
+" Bluetooth-kiegészítőhöz."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
+msgid "Main window light"
+msgstr "Főablak világos"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
+msgid "Main window dark"
+msgstr "Főablak sötét"
+
+#: data/gtk/window.ui:27
+msgid "Menu"
+msgstr "Menü"
+
+#: data/gtk/window.ui:87
+msgid "Copy to Clipboard"
+msgstr "Másolás a vágólapra"
+
+#: data/gtk/window.ui:98
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Ön jelenleg megosztja a hangját. Elérheti azt az ugyanazon a hálózaton lévő"
+" más eszközökről a QR-kód beolvasásával vagy a megjelenített cím beírásával"
+" egy olyan lejátszó alkalmazásban, amely támogatja az RTSP-adatfolyamokat. Ez"
+" az eszköz elnémítható, a hang továbbra is megosztásra kerül.\n"
+"\n"
+"A megosztás leállításához egyszerűen zárja be ezt az ablakot."
+
+#: data/gtk/window.ui:120
+msgid "Unable to Share Audio"
+msgstr "Nem lehet megosztani a hangot"
+
+#: data/gtk/window.ui:145
+msgid "Open _Help <sup>↗</sup>"
+msgstr "_Súgó megnyitása <sup>↗</sup>"
+
+#: data/gtk/window.ui:152
+msgid "_About Audio Sharing"
+msgstr "A Hangmegosztó _névjegye"
+
+#: src/ui/about_window.rs:35
+msgid "Share computer audio"
+msgstr "A számítógép hangjának megosztása"
+
+#: src/ui/about_window.rs:45
+msgid "translator-credits"
+msgstr "Úr Balázs <ur dot balazs at fsf dot hu>, 2022."
+
+#: src/ui/window.rs:83
+msgid "Copied address to clipboard"
+msgstr "Cím a vágólapra másolva"
+
+#: src/app.rs:144
+msgid "A client has established a connection"
+msgstr "Egy ügyfél kapcsolatot létesített"
+
+#: src/app.rs:145
+msgid "Audio playback from this device gets shared."
+msgstr "Az erről az eszközről indított hanglejátszás megosztásra kerül."
