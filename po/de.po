@@ -1,0 +1,133 @@
+# German translation for AudioSharing.
+# Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# Jürgen Benvenuti <gastornis@posteo.org>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2022-10-09 07:05+0000\n"
+"PO-Revision-Date: 2022-10-09 21:44+0200\n"
+"Last-Translator: Jürgen Benvenuti <gastornis@posteo.org>\n"
+"Language-Team: German <gnome-de@gnome.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;audio;sharing;sound;Ton;freigeben;Klang;"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+msgid "Share your computer audio"
+msgstr "Geben Sie die Tonausgabe Ihres Rechners frei"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+# Stream: Datenstrom? - jb
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"Mit Audio Sharing können Sie die aktuelle Tonwiedergabe Ihres Rechners in "
+"Form eines RTSP-Streams freigeben. Dieser Stream kann dann von anderen "
+"Geräten wiedergegeben werden, zum Beispiel mit VLC."
+
+# Audio (ohne playback): Tonausgabe. Bin allerdings nicht ganz überzeugt davon. Audio einfach als Audio zu übersetzen, funktioniert aber auch nicht wirklich, finde ich. Verbesserungsvorschläge werden wie immer gerne angenommen ;) - jb
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Indem Sie die Tonausgabe als Netzwerk-Stream freigeben, können Sie zum "
+"Empfang auch gängige Geräte verwenden, die nicht als Tonausgabegeräte "
+"gedacht sind (z.B. Smartphones). Es gibt zum Beispiel Audio-Zubehör, das "
+"nicht kompatibel ist mit Desktop-Rechnern (z.B. weil der Rechner kein "
+"Bluetooth-Modul installiert hat). Mithilfe dieser Anwendung kann die "
+"Tonausgabe des Rechners auf einem Smartphone wiedergegeben werden, welches "
+"dann mit dem Bluetooth-Zubehör verbunden wird."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
+msgid "Main window light"
+msgstr "Hauptfenster hell"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
+msgid "Main window dark"
+msgstr "Hauptfenster dunkel"
+
+#: data/gtk/window.ui:27
+msgid "Menu"
+msgstr "Menü"
+
+#: data/gtk/window.ui:87
+msgid "Copy to Clipboard"
+msgstr "In die Zwischenablage kopieren"
+
+#: data/gtk/window.ui:98
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Sie geben derzeit Ihre Tonausgabe frei. Sie können darauf von anderen "
+"Geräten im selben Netzwerk zugreifen, indem Sie den QR-Code scannen oder die "
+"angezeigte Adresse in eine Wiedergabe-Anwendung eingeben, die RTSP-Streams "
+"unterstützt. Dieses Gerät kann stumm gestellt werden, die Tonausgabe wird "
+"weiterhin freigegeben.\n"
+"\n"
+"Um die Freigabe zu beenden, schließen Sie einfach dieses Fenster."
+
+#: data/gtk/window.ui:120
+msgid "Unable to Share Audio"
+msgstr "Tonausgabe konnte nicht freigegeben werden"
+
+#: data/gtk/window.ui:145
+msgid "Open _Help <sup>↗</sup>"
+msgstr "_Hilfe öffnen <sup>↗</sup>"
+
+#: data/gtk/window.ui:152
+msgid "_About Audio Sharing"
+msgstr "_Info zu Audio Sharing"
+
+#: src/ui/about_window.rs:35
+msgid "Share computer audio"
+msgstr "Tonausgabe des Rechners freigeben"
+
+#: src/ui/about_window.rs:45
+msgid "translator-credits"
+msgstr "Jürgen Benvenuti <gastornis@posteo.org>, 2022"
+
+#: src/ui/window.rs:83
+msgid "Copied address to clipboard"
+msgstr "Adresse in die Zwischenablage kopiert"
+
+#: src/app.rs:144
+msgid "A client has established a connection"
+msgstr "Ein Client hat eine Verbindung hergestellt"
+
+# Audio playback: Tonwiedergabe (siehe auch anderer Kommentar). - jb
+#: src/app.rs:145
+msgid "Audio playback from this device gets shared."
+msgstr "Tonwiedergabe von diesem Gerät wird freigegeben."
