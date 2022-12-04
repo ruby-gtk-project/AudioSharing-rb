@@ -1,0 +1,127 @@
+# Occitan translation for AudioSharing.
+# Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# Quentin PAGÈS <pages_quentin@hotmail.com>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2022-11-25 08:27+0000\n"
+"PO-Revision-Date: 2022-12-04 10:58+0100\n"
+"Last-Translator: Quentin PAGÈS\n"
+"Language-Team: Occitan <totenoc@gmail.com>\n"
+"Language: oc\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;audio;àudio;partiment;partatge;paratge;son;musica;"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+msgid "Share your computer audio"
+msgstr "Partejar l’àudio de l’ordenador"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"Amb Partatge àudio podètz partejar la lectura àudio de l’ordenador jos la "
+"fòrma de flux RTSP. Aqueste flux se pòt legir sus d’autres periferics, per "
+"exemple en utilizant VLC."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"En partejant l’àudio via un flux ret, podètz utilizar de periferics del "
+"quotidian que son pas destinats a èsser de naut parlaires (per exemple los "
+"mobils) per lo recebre. Per exemple i a d’accessòris que son pas compatibles "
+"amb los ordenadors de burèu (per abséncia de connectivitat Bluetooth). Amb "
+"l’ajuda d’aquesta aplicacion, l’ordenador pòt enviar l’àudio al mobil, qu'es "
+"connectat a l’accessòri Bluetooth."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
+msgid "Main window light"
+msgstr "Fenèstra principala en tèma clar"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
+msgid "Main window dark"
+msgstr "Fenèstra principala en tèma escur"
+
+#: data/gtk/window.ui:27
+msgid "Menu"
+msgstr "Menú"
+
+#: data/gtk/window.ui:87
+msgid "Copy to Clipboard"
+msgstr "Copiar al quichapapièrs"
+
+#: data/gtk/window.ui:98
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Sètz a partejar l’àudio. I podètz accedir a partir d’autres periferics sul "
+"meteis ret en numerizant lo còdi QR o en picant l’adreça afichada dins una "
+"aplicacion qu’es compatibla RTSP. Aqueste periferic pòt èsser mut, l’àudio "
+"serà totjorn partejat.\n"
+"\n"
+"Per arrestar lo partatge, tampatz aquesta fenèstra."
+
+#: data/gtk/window.ui:120
+msgid "Unable to Share Audio"
+msgstr "Partatge àudio impossible"
+
+#: data/gtk/window.ui:145
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Dobrir _Ajuda <sup>↗</sup>"
+
+#: data/gtk/window.ui:152
+msgid "_About Audio Sharing"
+msgstr "_A prepaus de Partatge àudio"
+
+#: src/ui/about_window.rs:35
+msgid "Share computer audio"
+msgstr "Partejar l’àudio de l’ordenador"
+
+#: src/ui/about_window.rs:45
+msgid "translator-credits"
+msgstr "Quentin PAGÈS"
+
+#: src/ui/window.rs:83
+msgid "Copied address to clipboard"
+msgstr "Adreça copiada al quichapapièrs"
+
+#: src/app.rs:144
+msgid "A client has established a connection"
+msgstr "Un client a establit una connexion"
+
+#: src/app.rs:145
+msgid "Audio playback from this device gets shared."
+msgstr "La lectura del periferic es partejada."
