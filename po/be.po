@@ -1,0 +1,129 @@
+# Belarusian translation for AudioSharing.
+# Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# Yuras Shumovich <shumovichy@gmail.com>\, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2022-12-14 11:37+0000\n"
+"PO-Revision-Date: 2022-12-16 18:00+0300\n"
+"Last-Translator: Yuras Shumovich <shumovichy@gmail.com>\n"
+"Language-Team: Belarusian <i18n-bel-gnome@googlegroups.com>\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;audio;аўдыя;супольны;агульны;гук;"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+msgid "Share your computer audio"
+msgstr "Агульны доступ да гуку з вашага камп'ютара"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"Праз гэту праграму вы можаце ў форме патоку RTSP абагуліць гук, які ў бягучы "
+"прайграецца на камп'ютары. Затым гэты паток можна прайграць на іншых "
+"прыладах, напрыклад, з дапамогай VLC."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Праз абагульненне гуку ў выглядзе сеткавага патоку, вы таксама можаце "
+"выкарыстоўваць звычайныя прылады, якія не прызначаны для выкарыстання ў "
+"якасці аўдыяпрыёмнікаў (напр. смартфоны). Ёсць аксесуары, якія "
+"несумяшчальныя з настольнымі камп'ютарамі (напрыклад, таму што ў камп'ютары "
+"няма модуля Bluetooth). З дапамогай гэтай праграмы гук з камп'ютара можа "
+"прайгравацца на смартфоне, да якога потым падключаецца аксесуар Bluetooth."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
+msgid "Main window light"
+msgstr "Светлае галоўнае акно"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
+msgid "Main window dark"
+msgstr "Цёмнае галоўнае акно"
+
+#: data/gtk/window.ui:27
+msgid "Menu"
+msgstr "Меню"
+
+#: data/gtk/window.ui:87
+msgid "Copy to Clipboard"
+msgstr "Скапіраваць у буфер абмену"
+
+#: data/gtk/window.ui:98
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"У бягучы момант гук абагулены. Вы можаце атрымаць доступ да яго з іншых "
+"прылад у той жа сетцы, калі адскануеце QR-код або ўведзяце паказаны адрас у "
+"праграме прайгравання, якая падтрымлівае патокі RTSP. На гэтай прыладзе "
+"можна адключыць гук, але ён будзе заставацца ў агульным доступе.\n"
+"\n"
+"Каб спыніць абагульванне, проста закрыйце гэта акно."
+
+#: data/gtk/window.ui:120
+msgid "Unable to Share Audio"
+msgstr "Не ўдалося абагуліць гук"
+
+#: data/gtk/window.ui:145
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Адкрыць _даведку <sup>↗</sup>"
+
+#: data/gtk/window.ui:152
+msgid "_About Audio Sharing"
+msgstr "_Аб праграме"
+
+#: src/ui/about_window.rs:35
+msgid "Share computer audio"
+msgstr "Агульны доступ да гуку з камп'ютара"
+
+#: src/ui/about_window.rs:45
+msgid "translator-credits"
+msgstr "Юрась Шумовіч <shumovichy@gmail.com>"
+
+#: src/ui/window.rs:83
+msgid "Copied address to clipboard"
+msgstr "Адрас скапіраваны ў буфер абмену"
+
+#: src/app.rs:144
+msgid "A client has established a connection"
+msgstr "Злучэнне з кліентам усталявана"
+
+#: src/app.rs:145
+msgid "Audio playback from this device gets shared."
+msgstr "Прайграванне гуку на гэтай прыладзе абагулена."
