@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
 "POT-Creation-Date: 2023-01-08 11:30+0000\n"
-"PO-Revision-Date: 2023-01-13 12:15+0100\n"
+"PO-Revision-Date: 2023-01-13 12:17+0100\n"
 "Last-Translator: \n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
@@ -66,11 +66,11 @@ msgstr ""
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
 msgid "Main window light"
-msgstr "Glavni prozor svjetao"
+msgstr "Svijetli glavni prozor"
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
 msgid "Main window dark"
-msgstr "Glavni prozor taman"
+msgstr "Tamni glavni prozor"
 
 #: data/gtk/window.ui:27
 msgid "Menu"
