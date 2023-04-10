@@ -1,0 +1,134 @@
+# Lithuanian translation for AudioSharing.
+# Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Martynas <gnomei18n@mprogramavimai.lt>, 2023.
+# Aurimas Černius <aurisc4@gmail.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2023-01-25 15:55+0000\n"
+"PO-Revision-Date: 2023-04-10 14:32+0300\n"
+"Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
+"Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"(n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Generator: Gtranslator 42.0\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;garsas;bendrinimas;dalijimasis;"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+msgid "Share your computer audio"
+msgstr "Dalinkitės kompiuterio garsu"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"Su Garso Dalijimusi galima dalintis jūsų dabartinio kompiuterio garsu RTSP "
+"transliacijos formoje. Ši transliacija tada gali būti paleista kitų "
+"įrenginių, pavyzdžiui naudojant VLC."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Dalindamiesi garsu kaip tinklo transliacija galite naudoti įrenginius, kurie "
+"įprastai nėra skirti naudojimuisi kaip garso paleidimo įrenginiais (pvz. "
+"išmanieji telefonai). Pavyzdžiui, yra daugybė garso prietaisų, kurie yra "
+"nesuderinami su staliniais kompiuteriais (pvz. kadangi kompiuteris neturi "
+"įdiegto Bluetooth modulio). Šios programos pagalba kompiuterio garsas gali "
+"būti paleistas išmaniajame telefone, kuris tada yra prijungtas prie "
+"Bluetooth prietaiso."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
+msgid "Main window light"
+msgstr "Pagrindinis langas šviesus"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
+msgid "Main window dark"
+msgstr "Pagrindinis langas tamsus"
+
+#: data/gtk/window.ui:27
+msgid "Menu"
+msgstr "Meniu"
+
+#: data/gtk/window.ui:87
+msgid "Copy to Clipboard"
+msgstr "Kopijuoti į iškarpinę"
+
+#: data/gtk/window.ui:98
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Jūs dabar dalinatės garsu. Jį galite pasiekti kituose įrenginiuose tame "
+"pačiame tinkle skenuojant QR kodą arba įvedant rodomą adresą programėlėje, "
+"kuri palaiko RTSP transliacijas. Šio įrenginio garsas gali būti užtildytas, "
+"bet jis vis tiek bus bendrinamas.\n"
+"\n"
+"Dalijimuisi nutraukti tiesiog uždarykite šį langą."
+
+#: data/gtk/window.ui:120
+msgid "Unable to Share Audio"
+msgstr "Nepavyksta dalintis garsu"
+
+#: data/gtk/window.ui:145
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Atidaryti žinyną <sup>↗</sup>"
+
+#: data/gtk/window.ui:152
+msgid "_About Audio Sharing"
+msgstr "_Apie Garso Dalijimąsi"
+
+#: src/ui/about_window.rs:35
+msgid "Share computer audio"
+msgstr "Dalinkitės kompiuterio garsu"
+
+#: src/ui/about_window.rs:45
+msgid "translator-credits"
+msgstr ""
+"Išvertė:\n"
+"Aurimas Černius <aurisc4@gmail.com>"
+
+#: src/ui/window.rs:83
+msgid "Copied address to clipboard"
+msgstr "Adresas nukopijuotas į iškarpinę"
+
+#: src/app.rs:144
+msgid "A client has established a connection"
+msgstr "Klientas užmezgė ryšį"
+
+#: src/app.rs:145
+msgid "Audio playback from this device gets shared."
+msgstr "Dalijimąsi garsu iš šio įrenginio."
