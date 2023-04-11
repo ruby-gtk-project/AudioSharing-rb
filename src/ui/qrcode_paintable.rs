@@ -13,18 +13,13 @@ static INIT_QR_CODE: Lazy<QRCodeData> = Lazy::new(|| QRCodeData::from("0.0.0.0")
 mod imp {
 
     fn snapshot_qrcode(snapshot: &gtk::Snapshot, qrcode: &QRCodeData, width: f64, height: f64) {
-        let manager = adw::StyleManager::default();
-        let is_dark_theme = manager.is_dark();
-
         let square_height = height as f32 / (qrcode.height as f32 + 2.0);
         let square_width = width as f32 / (qrcode.width as f32 + 2.0);
 
-        if is_dark_theme {
-            snapshot.append_color(
-                &gdk::RGBA::WHITE,
-                &graphene::Rect::new(0.0, 0.0, width as f32, height as f32),
-            );
-        }
+        snapshot.append_color(
+            &gdk::RGBA::WHITE,
+            &graphene::Rect::new(0.0, 0.0, width as f32, height as f32),
+        );
 
         qrcode.items.iter().enumerate().for_each(|(y, line)| {
             line.iter().enumerate().for_each(|(x, is_dark)| {
