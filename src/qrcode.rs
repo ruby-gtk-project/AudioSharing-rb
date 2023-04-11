@@ -26,7 +26,7 @@ mod imp {
             let code = qrcode::QrCode::new(data.as_bytes()).unwrap();
             let items = code
                 .render::<char>()
-                .quiet_zone(false)
+                .quiet_zone(true)
                 .module_dimensions(1, 1)
                 .build()
                 .split('\n')
