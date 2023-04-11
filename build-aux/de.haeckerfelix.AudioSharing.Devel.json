@@ -16,7 +16,6 @@
         "--socket=wayland",
         "--device=dri",
         "--share=network",
-        "--talk-name=org.a11y.Bus",
         "--env=RUST_LOG=audio_sharing=debug",
         "--env=RUST_BACKTRACE=1",
         "--socket=pulseaudio"
