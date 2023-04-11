@@ -4,8 +4,8 @@ use gstreamer::DeviceMonitor;
 use gstreamer_rtsp_server::prelude::*;
 use gstreamer_rtsp_server::{RTSPMediaFactory, RTSPServer};
 use gtk::prelude::*;
-use gtk::{gdk, gio, glib};
-use log::{debug, info, warn};
+use gtk::{gio, glib};
+use log::{debug, error, info, warn};
 use once_cell::sync::OnceCell;
 use pnet::datalink::interfaces;
 
@@ -103,10 +103,9 @@ impl AsApplication {
                 .build(),
             gio::ActionEntryBuilder::new("help")
                 .activate(|app: &Self, _, _| {
-                    gtk::show_uri(
-                        Some(&app.get_main_window()),
+                    app.open_url(
+                        &app.get_main_window(),
                         "https://gitlab.gnome.org/World/AudioSharing/-/blob/main/README.md",
-                        gdk::CURRENT_TIME,
                     );
                 })
                 .build(),
@@ -214,6 +213,15 @@ impl AsApplication {
 
         device_monitor.stop();
         None
+    }
+
+    fn open_url(&self, window: &AsApplicationWindow, url: &str) {
+        let launcher = gtk::UriLauncher::new(url);
+        launcher.launch(Some(window), gio::Cancellable::NONE, move |result| {
+            if let Err(err) = result {
+                error!("Could not open url: {err}");
+            }
+        });
     }
 }
 
