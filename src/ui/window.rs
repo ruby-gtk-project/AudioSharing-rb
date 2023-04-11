@@ -59,7 +59,7 @@ glib::wrapper! {
 
 impl AsApplicationWindow {
     pub fn new(app: &AsApplication) -> Self {
-        let window: Self = glib::Object::new(&[("application", app)]).unwrap();
+        let window: Self = glib::Object::builder().property("application", app).build();
 
         // Set icons for shell
         gtk::Window::set_default_icon_name(APP_ID);
@@ -69,9 +69,8 @@ impl AsApplicationWindow {
     }
 
     fn setup_widgets(&self) {
-        let imp = self.imp();
-
-        imp.copy_address_button
+        self.imp()
+            .copy_address_button
             .connect_clicked(clone!(@weak self as this => move|_|
                 let imp = this.imp();
                 let address = imp.address_label.get().text();
@@ -82,7 +81,7 @@ impl AsApplicationWindow {
 
                 let toast = adw::Toast::new(&i18n("Copied address to clipboard"));
                 toast.set_timeout(2);
-                imp.toast_overlay.add_toast(&toast);
+                imp.toast_overlay.add_toast(toast);
             ));
     }
 
