@@ -40,7 +40,7 @@ pub fn show(parent: &AsApplicationWindow) {
         "Felix Häcker <haeckerfelix@gnome.org>",
         "Maximiliano Sandoval <msandova@gnome.org>",
     ]);
-    window.set_issue_url("https://gitlab.gnome.org/World/AudioSharing/-/issues");
+    window.set_issue_url("https://gitlab.gnome.org/World/AudioSharing/-/issues/new");
     window.set_license_type(gtk::License::Gpl30);
     window.set_translator_credits(&i18n("translator-credits"));
     window.set_version(&version);
