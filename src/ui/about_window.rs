@@ -46,5 +46,5 @@ pub fn show(parent: &AsApplicationWindow) {
     window.set_version(&version);
     window.set_website("https://gitlab.gnome.org/World/AudioSharing");
 
-    window.show();
+    window.present();
 }
