@@ -30,10 +30,8 @@ mod imp {
                 .module_dimensions(1, 1)
                 .build()
                 .split('\n')
-                .into_iter()
                 .map(|line| {
                     line.chars()
-                        .into_iter()
                         .map(|c| !c.is_whitespace())
                         .collect::<Vec<bool>>()
                 })
