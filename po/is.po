@@ -1,0 +1,130 @@
+# Icelandic translation for AudioSharing.
+# Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+#
+# Ingir <ingirafn@this.is>, 2023.
+# Sveinn í Felli <sv1@fellsnet.is>, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2023-04-10 11:33+0000\n"
+"PO-Revision-Date: 2023-04-22 17:34+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;tónlist;deila;hljóð;"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+msgid "Share your computer audio"
+msgstr "Deildu hljóði úr tölvunni þinni"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"Með Audio Sharing getur þú deilt yfirstandandi afspilun í tölvunni þinni sem "
+"RTSP-streymi. Þetta streymi er þá hægt að spila með öðrum tækjum, t.d. með"
+" VLC."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Með því að deila hljóði sem net-streymi, getur þú notað algeng tæki "
+"sem ekki eru ætluð sem móttakarar (t.d. eins og snjallsíma) sem viðtakendur."
+" Sem dæmi væru hljómtæki sem eru ekki samrýmanleg við borðtölvur (í þeim"
+" tilfellum að "
+"tölvan hefur ekki innbyggt Bluetooth). En með hjálp þessa forrits, er hægt að"
+" spila "
+"hljóð úr tölvunni yfir í snjallsíma, sem er þá tengdur við Bluetooth-tækið."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
+msgid "Main window light"
+msgstr "Aðalgluggi ljós"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
+msgid "Main window dark"
+msgstr "Aðalgluggi dökkur"
+
+#: data/gtk/window.ui:27
+msgid "Menu"
+msgstr "Valmynd"
+
+#: data/gtk/window.ui:87
+msgid "Copy to Clipboard"
+msgstr "Afrita á klippispjald"
+
+#: data/gtk/window.ui:98
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Þú deilir núna hljóðinu þínu. Þú getur hlustað á hana í öðrum tækjum á "
+"sama netkerfi með því að skanna inn QR-kóðann eða setja inn uppgefið veffang"
+" í "
+"forriti sem styður RTSP-streymi. Hægt er að þagga niður í viðkomandi tæki en "
+"aðrir geta eftir sem áður hlustað.\n"
+"Til að hætta að deila skaltu einfaldlega loka þessum glugga."
+
+#: data/gtk/window.ui:120
+msgid "Unable to Share Audio"
+msgstr "Ekki hægt að deila hljóði"
+
+#: data/gtk/window.ui:145
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Opna _hjálp <sup>↗</sup>"
+
+#: data/gtk/window.ui:152
+msgid "_About Audio Sharing"
+msgstr "_Um Audio Sharing"
+
+#: src/ui/about_window.rs:35
+msgid "Share computer audio"
+msgstr "Deila hljóði úr tölvu"
+
+#: src/ui/about_window.rs:45
+msgid "translator-credits"
+msgstr "Ingirafn Steinarsson, ingirafn at this dot is, 2023"
+
+#: src/ui/window.rs:83
+msgid "Copied address to clipboard"
+msgstr "Afritaði veffang á klippispjald"
+
+#: src/app.rs:144
+msgid "A client has established a connection"
+msgstr "Notandi hefur komið á tengingu"
+
+#: src/app.rs:145
+msgid "Audio playback from this device gets shared."
+msgstr "Afspilun hljóðs frá þessu tæki deilist."
