@@ -1,14 +1,14 @@
 # French translation for AudioSharing.
 # Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
-# Irénée THIRION <irenee.thirion@e.email>, 2022.
+# Irénée THIRION <irenee.thirion@e.email>, 2022-2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2022-09-29 05:53+0000\n"
-"PO-Revision-Date: 2022-09-29 18:15+0200\n"
+"POT-Creation-Date: 2023-01-08 11:30+0000\n"
+"PO-Revision-Date: 2023-01-12 11:32+0100\n"
 "Last-Translator: Irénée Thirion <irenee.thirion@e.email>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -16,58 +16,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.1.1\n"
-
-#: data/gtk/window.ui:27
-msgid "Menu"
-msgstr "Menu"
-
-#: data/gtk/window.ui:87
-msgid "Copy to clipboard"
-msgstr "Copier dans le presse-papiers"
-
-#: data/gtk/window.ui:98
-msgid ""
-"You are currently sharing your audio. You can access it from other devices "
-"in the same network by scanning the QR code or entering the displayed "
-"address in a playback app that supports RTSP streams. This device can be "
-"muted, the audio will still be shared.\n"
-"\n"
-"To stop sharing, simply close this window."
-msgstr ""
-"Vous êtes en train de partager votre audio. Vous pouvez y accéder depuis "
-"d’autres appareils du même réseau en scannant le QR Code ou en saisissant "
-"l’adresse affichée dans une application de lecture prenant en charge les "
-"flux RTSP. Cet appareil peut être mis en sourdine, l’audio sera toujours "
-"partagé.\n"
-"\n"
-"Pour arrêter le partage, il suffit de fermer cette fenêtre."
-
-#: data/gtk/window.ui:120
-msgid "Unable to Share Audio"
-msgstr "Impossible de partager l’audio"
-
-#: data/gtk/window.ui:145
-msgid "Open _Help <sup>↗</sup>"
-msgstr "Ouvrir l’_aide <sup>↗</sup>"
-
-#: data/gtk/window.ui:152
-msgid "_About Audio Sharing"
-msgstr "À _propos de Partage Audio"
+"X-Generator: Poedit 3.2.2\n"
+"X-DL-Team: fr\n"
+"X-DL-Module: AudioSharing\n"
+"X-DL-Branch: main\n"
+"X-DL-Domain: po\n"
+"X-DL-State: Translating\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
-msgid "Audio Sharing"
-msgstr "Partage Audio"
+msgid "@NAME@"
+msgstr ""
 
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:4
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;audio;partage;son;"
+
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
 msgid "Share your computer audio"
 msgstr "Partagez l’audio de votre ordinateur"
-
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:9
-msgid "Gnome;GTK;audio;sharing;sound;"
-msgstr "Gnome;GTK;audio;partage;son;"
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
 msgid "Felix Häcker"
@@ -108,3 +76,63 @@ msgstr "Fenêtre principale claire"
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
 msgid "Main window dark"
 msgstr "Fenêtre principale sombre"
+
+#: data/gtk/window.ui:27
+msgid "Menu"
+msgstr "Menu"
+
+#: data/gtk/window.ui:87
+msgid "Copy to Clipboard"
+msgstr "Copier dans le presse-papiers"
+
+#: data/gtk/window.ui:98
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Vous êtes en train de partager votre audio. Vous pouvez y accéder depuis "
+"d’autres appareils du même réseau en scannant le QR Code ou en saisissant "
+"l’adresse affichée dans une application de lecture prenant en charge les "
+"flux RTSP. Cet appareil peut être mis en sourdine, l’audio sera toujours "
+"partagé.\n"
+"\n"
+"Pour arrêter le partage, il suffit de fermer cette fenêtre."
+
+#: data/gtk/window.ui:120
+msgid "Unable to Share Audio"
+msgstr "Impossible de partager l’audio"
+
+#: data/gtk/window.ui:145
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Ouvrir l’_aide <sup>↗</sup>"
+
+#: data/gtk/window.ui:152
+msgid "_About Audio Sharing"
+msgstr "À _propos de Partage Audio"
+
+#: src/ui/about_window.rs:35
+msgid "Share computer audio"
+msgstr "Partager l’audio de l’ordinateur"
+
+#: src/ui/about_window.rs:45
+msgid "translator-credits"
+msgstr "Irénée Thirion <irenee.thirion@e.email>"
+
+#: src/ui/window.rs:83
+msgid "Copied address to clipboard"
+msgstr "Adresse copiée dans le presse-papiers"
+
+#: src/app.rs:144
+msgid "A client has established a connection"
+msgstr "Un client a établi une connexion"
+
+#: src/app.rs:145
+msgid "Audio playback from this device gets shared."
+msgstr "La lecture de l’audio de cet appareil est partagée."
+
+#~ msgid "Audio Sharing"
+#~ msgstr "Partage Audio"
