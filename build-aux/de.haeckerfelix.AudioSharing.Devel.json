@@ -12,14 +12,14 @@
         "nightly"
     ],
     "finish-args" : [
+        "--share=network",
+        "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland",
         "--device=dri",
-        "--share=network",
-        "--talk-name=org.a11y.Bus",
+        "--socket=pulseaudio",
         "--env=RUST_LOG=audio_sharing=debug",
-        "--env=RUST_BACKTRACE=1",
-        "--socket=pulseaudio"
+        "--env=RUST_BACKTRACE=1"
     ],
     "build-options" : {
         "append-path" : "/usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/llvm14/bin",
