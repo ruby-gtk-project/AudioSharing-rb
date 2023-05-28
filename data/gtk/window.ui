@@ -25,6 +25,7 @@
                     <property name="menu-model">primary_menu</property>
                     <property name="icon-name">open-menu-symbolic</property>
                     <property name="tooltip-text" translatable="yes">Menu</property>
+                    <property name="primary">True</property>
                     <style>
                       <class name="circular"/>
                     </style>
