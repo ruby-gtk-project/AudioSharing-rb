@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2022 Felix Häcker -->
+<!-- Copyright 2022-2023 Felix Häcker -->
 <component type="desktop-application">
   <id>@APP_ID@</id>
   <name>@NAME@</name>
@@ -61,6 +61,16 @@
   </recommends>
 
   <releases>
+    <release version="0.2.2" date="2023-06-19">
+      <description>
+        <p>
+          This version includes minor improvements and bug fixes.
+        </p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.2.1" date="2022-10-15">
       <description>
         <p>
