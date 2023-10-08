@@ -17,6 +17,15 @@ Or by clicking this button:
 
 <a href="https://flathub.org/apps/details/de.haeckerfelix.AudioSharing"><img src="https://flathub.org/assets/badges/flathub-badge-en.png" width="200"/></a>
 
+#### Nightly Builds
+
+Development builds of Audio Sharing are available from the `gnome-nightly` Flatpak repository: 
+
+```
+flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
+flatpak install gnome-nightly de.haeckerfelix.AudioSharing.Devel
+```
+
 ## FAQ
 
 - **Why this app, and not just using Bluetooth**
