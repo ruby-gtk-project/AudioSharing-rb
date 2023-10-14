@@ -1,0 +1,118 @@
+# Greek translation for AudioSharing.
+# Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# Efstathios Iosifidis <eiosifidis@gnome.org>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2023-10-08 15:44+0000\n"
+"PO-Revision-Date: 2023-10-08 15:44+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Greek <gnome-el-list@gnome.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr ""
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr ""
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+msgid "Share your computer audio"
+msgstr ""
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
+msgid "Felix Häcker"
+msgstr ""
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
+msgid "Main window light"
+msgstr "Κύριο παράθυρο (φωτεινό)"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
+msgid "Main window dark"
+msgstr "Κύριο παράθυρο (σκοτεινό)"
+
+#: data/gtk/window.ui:27
+msgid "Menu"
+msgstr "Μενού"
+
+#: data/gtk/window.ui:88
+msgid "Copy to Clipboard"
+msgstr "Αντιγραφή στο Πρόχειρο"
+
+#: data/gtk/window.ui:99
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Μοιράζεστε αυτήν τη στιγμή τον ήχο σας. Μπορείτε να αποκτήσετε πρόσβαση σε αυτόν από άλλες συσκευές "
+"στο ίδιο δίκτυο σαρώνοντας τον κωδικό QR ή εισάγοντας την εμφανιζόμενη "
+"διεύθυνση σε μια εφαρμογή αναπαραγωγής που υποστηρίζει ροές RTSP. Αυτή η συσκευή μπορεί να "
+"αποσιωπηθεί, ο ήχος θα εξακολουθεί να κοινοποιείται.\n"
+"\n"
+"Για να διακόψετε την κοινή χρήση, απλώς κλείστε αυτό το παράθυρο."
+
+#: data/gtk/window.ui:121
+msgid "Unable to Share Audio"
+msgstr "Αδυναμία Κοινής Χρήσης Ήχου"
+
+#: data/gtk/window.ui:146
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Άνοιγμα _Βοήθειας <sup>↗</sup>"
+
+#: data/gtk/window.ui:153
+msgid "_About Audio Sharing"
+msgstr "_Περί Κοινής Χρήσης Ήχου"
+
+#: src/ui/about_window.rs:35
+msgid "Share computer audio"
+msgstr "Κοινή χρήση ήχου υπολογιστή"
+
+#: src/ui/about_window.rs:45
+msgid "translator-credits"
+msgstr ""
+
+#: src/ui/window.rs:83
+msgid "Copied address to clipboard"
+msgstr "Αντιγράφηκε η διεύθυνση στο πρόχειρο"
+
+#: src/app.rs:144
+msgid "A client has established a connection"
+msgstr "Ένας πελάτης έχει συνδεθεί"
+
+#: src/app.rs:145
+msgid "Audio playback from this device gets shared."
+msgstr "Η αναπαραγωγή ήχου από αυτήν τη συσκευή κοινοποιείται."
