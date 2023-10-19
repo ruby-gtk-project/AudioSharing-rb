@@ -1,0 +1,132 @@
+# Romanian translation for AudioSharing.
+# Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# Florentina Mușat <florentina.musat.28@gmail.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2023-10-08 15:44+0000\n"
+"PO-Revision-Date: 2023-10-11 13:47+0300\n"
+"Last-Translator: Florentina Mușat <florentina [dot] musat [dot] 28 [at] "
+"gmail [dot] com>\n"
+"Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2);;\n"
+"X-Generator: Poedit 3.4\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;audio;sharing;sound;partajare;sunet;"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+msgid "Share your computer audio"
+msgstr "Partajați sunetul calculatorului"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"Cu Partajare audio puteți să partajați redarea audio curentă a "
+"calculatorului sub forma unui flux RSTP. Acest flux poate fi apoi redat de "
+"alte dispozitive, de exemplu utilizând VLC."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Prin partajarea audio-ului ca flux de rețea, puteți utiliza, de asemenea, "
+"dispozitive comune care nu sunt destinate a fi utilizate ca recipiente audio "
+"(de exemplu, smartphone-uri) pentru a îl primi. De exemplu, există accesorii "
+"audio care nu sunt compatibile cu calculatoarele desktop (de exemplu, "
+"deoarece calculatorul nu are instalat un modul Bluetooth). Cu ajutorul "
+"acestei aplicații, audio-ul calculatorului poate fi redat pe un smartphone, "
+"care este apoi conectat la accesoriul Bluetooth."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
+msgid "Main window light"
+msgstr "Fereastra principală luminoasă"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
+msgid "Main window dark"
+msgstr "Fereastra principală întunecată"
+
+#: data/gtk/window.ui:27
+msgid "Menu"
+msgstr "Meniu"
+
+#: data/gtk/window.ui:88
+msgid "Copy to Clipboard"
+msgstr "Copiază la clipboard"
+
+#: data/gtk/window.ui:99
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"În prezent, partajați conținutul audio. Îl puteți accesa de pe alte "
+"dispozitive din aceeași rețea scanând codul QR sau introducând adresa "
+"afișate într-o aplicație de redare care suportă fluxuri RSTP. Acest "
+"dispozitiv poate fi pus pe mut, audio-ul va fi în continuare partajat.\n"
+"\n"
+"Pentru a opri partajarea, pur și simplu închideți această fereastră."
+
+#: data/gtk/window.ui:121
+msgid "Unable to Share Audio"
+msgstr "Nu se poate partaja audio-ul"
+
+#: data/gtk/window.ui:146
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Deschide _Ajutorul <sup>↗</sup>"
+
+#: data/gtk/window.ui:153
+msgid "_About Audio Sharing"
+msgstr "_Despre Partajare audio"
+
+#: src/ui/about_window.rs:35
+msgid "Share computer audio"
+msgstr "Partajează sunetul calculatorului"
+
+#: src/ui/about_window.rs:45
+msgid "translator-credits"
+msgstr ""
+"Florentina Mușat <florentina [dot] musat [dot] 28 [at] gmail [dot] com>, 2023"
+
+#: src/ui/window.rs:83
+msgid "Copied address to clipboard"
+msgstr "S-a copiat adresa la clipboard"
+
+#: src/app.rs:144
+msgid "A client has established a connection"
+msgstr "Un client a stabilit o conexiune"
+
+#: src/app.rs:145
+msgid "Audio playback from this device gets shared."
+msgstr "Redarea audio pentru acest dispozitiv este partajată."
