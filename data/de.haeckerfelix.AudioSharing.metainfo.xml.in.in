@@ -40,21 +40,6 @@
   <url type="translate">https://l10n.gnome.org/module/AudioSharing/</url>
   <url type="vcs-browser">https://gitlab.gnome.org/World/AudioSharing</url>
 
-  <categories>
-    <category>GNOME</category>
-    <category>GTK</category>
-    <category>Audio</category>
-    <category>AudioVideo</category>
-  </categories>
-
-  <keywords>
-    <keyword>Gnome</keyword>
-    <keyword>GTK</keyword>
-    <keyword>audio</keyword>
-    <keyword>sharing</keyword>
-    <keyword>sound</keyword>
-  </keywords>
- 
   <kudos>
     <kudo>HiDpiIcon</kudo>
     <kudo>ModernToolkit</kudo>
