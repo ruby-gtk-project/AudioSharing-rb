@@ -5,7 +5,11 @@
   <name>@NAME@</name>
   <summary>Share your computer audio</summary>
   <translation type="gettext">audio-sharing</translation>
+  <!-- developer_name tag deprecated with Appstream 1.0 -->
   <developer_name translatable="no">Felix Häcker</developer_name>
+  <developer id="de.haeckerfelix">
+    <name translatable="no">Felix Häcker</name>
+  </developer>
   <update_contact>haeckerfelix@gnome.org</update_contact>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
@@ -40,21 +44,6 @@
   <url type="translate">https://l10n.gnome.org/module/AudioSharing/</url>
   <url type="vcs-browser">https://gitlab.gnome.org/World/AudioSharing</url>
 
-  <categories>
-    <category>GNOME</category>
-    <category>GTK</category>
-    <category>Audio</category>
-    <category>AudioVideo</category>
-  </categories>
-
-  <keywords>
-    <keyword>Gnome</keyword>
-    <keyword>GTK</keyword>
-    <keyword>audio</keyword>
-    <keyword>sharing</keyword>
-    <keyword>sound</keyword>
-  </keywords>
- 
   <kudos>
     <kudo>HiDpiIcon</kudo>
     <kudo>ModernToolkit</kudo>
