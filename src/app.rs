@@ -179,7 +179,7 @@ impl AsApplication {
 
         if let Some(interface) = default_interface {
             info!("Using network interface {:?}", interface);
-            let ip = interface.ips.get(0).unwrap().ip();
+            let ip = interface.ips.first().unwrap().ip();
             return ip.to_string();
         }
 
