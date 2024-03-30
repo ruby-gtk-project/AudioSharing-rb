@@ -66,6 +66,9 @@
                                         <property name="valign">center</property>
                                         <property name="width-request">200</property>
                                         <property name="height-request">200</property>
+                                        <style>
+                                          <class name="card"/>
+                                        </style>
                                       </object>
                                     </child>
                                     <child>
@@ -85,8 +88,12 @@
                                         </child>
                                         <child>
                                           <object class="GtkButton" id="copy_address_button">
-                                            <property name="label" translatable="yes">Copy to Clipboard</property>
+                                            <property name="label" translatable="yes">_Copy to Clipboard</property>
+                                            <property name="use-underline">True</property>
                                             <property name="halign">center</property>
+                                            <style>
+                                              <class name="pill"/>
+                                            </style>
                                           </object>
                                         </child>
                                       </object>

@@ -1,12 +1,11 @@
 use adw::subclass::prelude::*;
-use glib::{clone, WeakRef};
+use glib::WeakRef;
 use gstreamer::DeviceMonitor;
 use gstreamer_rtsp_server::prelude::*;
 use gstreamer_rtsp_server::{RTSPMediaFactory, RTSPServer};
 use gtk::prelude::*;
-use gtk::{gdk, gio, glib};
-use gtk_macros::action;
-use log::{debug, info, warn};
+use gtk::{gio, glib};
+use log::{debug, error, info, warn};
 use once_cell::sync::OnceCell;
 use pnet::datalink::interfaces;
 
@@ -32,8 +31,9 @@ mod imp {
     impl ObjectImpl for AsApplication {}
 
     impl ApplicationImpl for AsApplication {
-        fn activate(&self, app: &Self::Type) {
+        fn activate(&self) {
             debug!("Activate GIO Application...");
+            let app = self.obj();
 
             // If the window already exists,
             // present it instead creating a new one again.
@@ -45,7 +45,7 @@ mod imp {
             }
 
             // No window available -> we have to create one
-            let window = AsApplicationWindow::new(app);
+            let window = AsApplicationWindow::new(&app);
             window.present();
             let _ = self.window.set(window.downgrade());
             info!("Created application window.");
@@ -70,7 +70,7 @@ glib::wrapper! {
 }
 
 impl AsApplication {
-    pub fn run() {
+    pub fn run() -> glib::ExitCode {
         debug!(
             "{} ({}) ({}) - Version {} ({})",
             config::NAME,
@@ -81,54 +81,48 @@ impl AsApplication {
         );
 
         // Create new GObject and downcast it into AsApplication
-        let app = glib::Object::new::<AsApplication>(&[
-            ("application-id", &Some(config::APP_ID)),
-            ("flags", &gio::ApplicationFlags::empty()),
-            ("resource-base-path", &Some(config::PATH_ID)),
-        ])
-        .unwrap();
+        let app = glib::Object::builder::<AsApplication>()
+            .property("application-id", config::APP_ID)
+            .property("resource-base-path", config::PATH_ID)
+            .build();
 
         // Start running gtk::Application
-        app.run();
+        app.run()
     }
 
     fn get_main_window(&self) -> AsApplicationWindow {
-        let priv_ = imp::AsApplication::from_instance(self);
-        priv_.window.get().unwrap().upgrade().unwrap()
+        self.imp().window.get().unwrap().upgrade().unwrap()
     }
 
     fn setup_gactions(&self) {
-        // Quit
-        action!(
-            self,
-            "quit",
-            clone!(@weak self as app => move |_, _| {
-                app.quit();
-            })
-        );
+        let actions = [
+            gio::ActionEntryBuilder::new("quit")
+                .activate(|app: &Self, _, _| {
+                    app.quit();
+                })
+                .build(),
+            gio::ActionEntryBuilder::new("help")
+                .activate(|app: &Self, _, _| {
+                    app.open_url(
+                        &app.get_main_window(),
+                        "https://gitlab.gnome.org/World/AudioSharing/-/blob/main/README.md",
+                    );
+                })
+                .build(),
+            gio::ActionEntryBuilder::new("about")
+                .activate(|app: &Self, _, _| {
+                    about_window::show(&app.get_main_window());
+                })
+                .build(),
+        ];
 
-        // Help
-        action!(
-            self,
-            "help",
-            clone!(@weak self as app => move |_, _| {
-                gtk::show_uri(Some(&app.get_main_window()), "https://gitlab.gnome.org/World/AudioSharing/-/blob/main/README.md", gdk::CURRENT_TIME);
-            })
-        );
-
-        // About
-        action!(
-            self,
-            "about",
-            clone!(@weak self as app => move |_, _| {
-                about_window::show(&app.get_main_window());
-            })
-        );
+        self.add_action_entries(actions);
     }
 
     // Sets up keyboard shortcuts
     fn setup_accels(&self) {
         self.set_accels_for_action("app.quit", &["<primary>q"]);
+        self.set_accels_for_action("window.close", &["<primary>w"]);
         self.set_accels_for_action("win.show-help-overlay", &["<primary>question"]);
     }
 
@@ -158,7 +152,7 @@ impl AsApplication {
             factory.set_shared(true);
 
             let mounts = server.mount_points().unwrap();
-            mounts.add_factory("/audio", &factory);
+            mounts.add_factory("/audio", factory);
 
             let ctx = glib::MainContext::default();
             server.attach(Some(&ctx)).unwrap();
@@ -219,6 +213,15 @@ impl AsApplication {
 
         device_monitor.stop();
         None
+    }
+
+    fn open_url(&self, window: &AsApplicationWindow, url: &str) {
+        let launcher = gtk::UriLauncher::new(url);
+        launcher.launch(Some(window), gio::Cancellable::NONE, move |result| {
+            if let Err(err) = result {
+                error!("Could not open url: {err}");
+            }
+        });
     }
 }
 

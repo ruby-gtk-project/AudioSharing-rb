@@ -26,7 +26,7 @@ mod imp {
             let code = qrcode::QrCode::new(data.as_bytes()).unwrap();
             let items = code
                 .render::<char>()
-                .quiet_zone(false)
+                .quiet_zone(true)
                 .module_dimensions(1, 1)
                 .build()
                 .split('\n')
@@ -63,25 +63,12 @@ mod imp {
 
     impl ObjectImpl for QRCode {
         fn properties() -> &'static [ParamSpec] {
-            static PROPERTIES: Lazy<Vec<ParamSpec>> = Lazy::new(|| {
-                vec![ParamSpecString::new(
-                    "content",
-                    "content",
-                    "Content",
-                    None,
-                    glib::ParamFlags::READWRITE,
-                )]
-            });
+            static PROPERTIES: Lazy<Vec<ParamSpec>> =
+                Lazy::new(|| vec![ParamSpecString::builder("content").readwrite().build()]);
             PROPERTIES.as_ref()
         }
 
-        fn set_property(
-            &self,
-            _obj: &Self::Type,
-            _id: usize,
-            value: &glib::Value,
-            pspec: &ParamSpec,
-        ) {
+        fn set_property(&self, _id: usize, value: &glib::Value, pspec: &ParamSpec) {
             match pspec.name() {
                 "content" => {
                     let content = value.get::<String>().unwrap();
@@ -91,7 +78,7 @@ mod imp {
             }
         }
 
-        fn property(&self, _obj: &Self::Type, _id: usize, pspec: &ParamSpec) -> glib::Value {
+        fn property(&self, _id: usize, pspec: &ParamSpec) -> glib::Value {
             match pspec.name() {
                 "content" => self.content.borrow().to_value(),
                 _ => unimplemented!(),
@@ -106,20 +93,19 @@ glib::wrapper! {
 
 impl QRCode {
     pub fn new(content: String) -> Self {
-        let qr_code: QRCode = glib::Object::new(&[("content", &content)]).unwrap();
-        let self_ = imp::QRCode::from_instance(&qr_code);
+        let qr_code: QRCode = glib::Object::builder()
+            .property("content", &content)
+            .build();
         let qrcode_data = imp::QRCodeData::from(content.as_str());
-        self_.data.replace(Some(qrcode_data));
+        qr_code.imp().data.replace(Some(qrcode_data));
         qr_code
     }
 
     pub fn content(&self) -> String {
-        let self_ = imp::QRCode::from_instance(self);
-        self_.content.borrow().clone()
+        self.imp().content.borrow().clone()
     }
 
     pub fn data(&self) -> QRCodeData {
-        let self_ = imp::QRCode::from_instance(self);
-        self_.data.borrow().as_ref().unwrap().clone()
+        self.imp().data.borrow().as_ref().unwrap().clone()
     }
 }

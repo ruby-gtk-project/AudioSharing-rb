@@ -17,6 +17,8 @@
         "--socket=fallback-x11",
         "--socket=wayland",
         "--device=dri",
+        "--share=network",
+        "--share=ipc",
         "--socket=pulseaudio",
         "--env=RUST_LOG=audio_sharing=debug",
         "--env=RUST_BACKTRACE=1"
@@ -35,11 +37,13 @@
         {
             "name": "gst-rtsp-server",
             "buildsystem": "meson",
-            "sources": [
+            "subdir": "subprojects/gst-rtsp-server",
+            "sources" : [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.freedesktop.org/gstreamer/gst-rtsp-server.git",
-                    "tag": "1.16.2"
+                    "type" : "git",
+                    "disable-submodules": true,
+                    "url": "https://gitlab.freedesktop.org/gstreamer/gstreamer.git",
+                    "tag": "1.20.6"
                 }
             ]
         },

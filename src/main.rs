@@ -33,7 +33,7 @@ use gtk::{gio, glib};
 pub use crate::app::AsApplication;
 pub use crate::qrcode::QRCode;
 
-fn main() {
+fn main() -> glib::ExitCode {
     // Initialize logger
     pretty_env_logger::init();
 
@@ -65,5 +65,5 @@ fn main() {
     gio::resources_register(&res);
 
     // Run app itself
-    AsApplication::run();
+    AsApplication::run()
 }
