@@ -1,26 +1,24 @@
-# Turkish translation for AudioSharing.
-# Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
+# Icelandic translation for AudioSharing.
+# Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 #
-# Sabri Ünal <libreajans@gmail.com>, 2022.
-# Emin Tufan Çetin <etcetin@gmail.com>, 2022.
-#
+# Ingir <ingirafn@this.is>, 2023.
+# Sveinn í Felli <sv1@fellsnet.is>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: AudioSharing\n"
+"Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2022-10-30 20:12+0000\n"
-"PO-Revision-Date: 2022-10-30 23:11+0300\n"
-"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
-"Language-Team: Türkçe <takim@gnome.org.tr>\n"
-"Language: tr\n"
+"POT-Creation-Date: 2023-04-10 11:33+0000\n"
+"PO-Revision-Date: 2023-04-22 17:34+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
+"Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.1.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.12.3\n"
 
-# Olduğu gibi kalmalı. Çevirmeye gerek yok.
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
 msgid "@NAME@"
@@ -29,11 +27,11 @@ msgstr "@NAME@"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
 msgid "Gnome;GTK;audio;sharing;sound;"
-msgstr "Gnome;GTK;ses;paylaşım;"
+msgstr "Gnome;GTK;tónlist;deila;hljóð;"
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
 msgid "Share your computer audio"
-msgstr "Bilgisayarınızın sesini paylaşın"
+msgstr "Deildu hljóði úr tölvunni þinni"
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
 msgid "Felix Häcker"
@@ -45,11 +43,10 @@ msgid ""
 "form of an RTSP stream. This stream can then be played back by other "
 "devices, for example using VLC."
 msgstr ""
-"Ses Paylaşımı ile bilgisayarınızın kayıttan yürüttüğü sesi RTSP akışı "
-"biçiminde paylaşabilirsiniz. Bu akış, sonrasında diğer aygıtlarca, örneğin "
-"VLC kullanılarak oynatılabilir."
+"Með Audio Sharing getur þú deilt yfirstandandi afspilun í tölvunni þinni sem "
+"RTSP-streymi. Þetta streymi er þá hægt að spila með öðrum tækjum, t.d. með"
+" VLC."
 
-# Biraz karışık oldu gibi.
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
@@ -60,27 +57,29 @@ msgid ""
 "played back on a smartphone, which is then connected to the Bluetooth "
 "accessory."
 msgstr ""
-"Sesi ağ akışı olarak paylaşarak, ses alıcı amacıyla kullanılmayan yaygın "
-"aygıtları da (ör. akıllı telefonlar) alıcı olarak kullanabilirsiniz. "
-"Örneğin, bilgisayarda Bluetooth modülü olmadığından masaüstü bilgisayarlarla "
-"uyumsuz ses aksesuarları vardır. Bu uygulama yardımıyla, bilgisayar sesi "
-"sonrasında Bluetooth aksesuarına bağlanan akıllı telefonda çalınabilir."
+"Með því að deila hljóði sem net-streymi, getur þú notað algeng tæki "
+"sem ekki eru ætluð sem móttakarar (t.d. eins og snjallsíma) sem viðtakendur."
+" Sem dæmi væru hljómtæki sem eru ekki samrýmanleg við borðtölvur (í þeim"
+" tilfellum að "
+"tölvan hefur ekki innbyggt Bluetooth). En með hjálp þessa forrits, er hægt að"
+" spila "
+"hljóð úr tölvunni yfir í snjallsíma, sem er þá tengdur við Bluetooth-tækið."
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
 msgid "Main window light"
-msgstr "Ana pencere aydınlık"
+msgstr "Aðalgluggi ljós"
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
 msgid "Main window dark"
-msgstr "Ana pencere koyu"
+msgstr "Aðalgluggi dökkur"
 
 #: data/gtk/window.ui:27
 msgid "Menu"
-msgstr "Menü"
+msgstr "Valmynd"
 
 #: data/gtk/window.ui:87
 msgid "Copy to Clipboard"
-msgstr "Panoya Kopyala"
+msgstr "Afrita á klippispjald"
 
 #: data/gtk/window.ui:98
 msgid ""
@@ -91,43 +90,41 @@ msgid ""
 "\n"
 "To stop sharing, simply close this window."
 msgstr ""
-"Şu anda sesinizi paylaşıyorsunuz. Aynı ağdaki diğer aygıtlardan, QR kodunu "
-"tarayarak ya da gösterilen adresi RTSP akışlarını destekleyen oynatıcıya "
-"girerek erişebilirsiniz. Bu aygıtın sesi kapatılsa bile paylaşım "
-"sürecektir.\n"
-"\n"
-"Paylaşımı durdurmak için bu pencereyi kapatmalısınız."
+"Þú deilir núna hljóðinu þínu. Þú getur hlustað á hana í öðrum tækjum á "
+"sama netkerfi með því að skanna inn QR-kóðann eða setja inn uppgefið veffang"
+" í "
+"forriti sem styður RTSP-streymi. Hægt er að þagga niður í viðkomandi tæki en "
+"aðrir geta eftir sem áður hlustað.\n"
+"Til að hætta að deila skaltu einfaldlega loka þessum glugga."
 
 #: data/gtk/window.ui:120
 msgid "Unable to Share Audio"
-msgstr "Ses Paylaşılamadı"
+msgstr "Ekki hægt að deila hljóði"
 
 #: data/gtk/window.ui:145
 msgid "Open _Help <sup>↗</sup>"
-msgstr "_Yardımı Aç <sup>↗</sup>"
+msgstr "Opna _hjálp <sup>↗</sup>"
 
 #: data/gtk/window.ui:152
 msgid "_About Audio Sharing"
-msgstr "Ses Paylaşımı _Hakkında"
+msgstr "_Um Audio Sharing"
 
 #: src/ui/about_window.rs:35
 msgid "Share computer audio"
-msgstr "Bilgisayarın sesini paylaş"
+msgstr "Deila hljóði úr tölvu"
 
 #: src/ui/about_window.rs:45
 msgid "translator-credits"
-msgstr ""
-"Sabri Ünal <libreajans@gmail.com>\n"
-"Emin Tufan Çetin <etcetin@gmail.com>"
+msgstr "Ingirafn Steinarsson, ingirafn at this dot is, 2023"
 
 #: src/ui/window.rs:83
 msgid "Copied address to clipboard"
-msgstr "Adres panoya kopyalandı"
+msgstr "Afritaði veffang á klippispjald"
 
 #: src/app.rs:144
 msgid "A client has established a connection"
-msgstr "İstemci bağlantı kurdu"
+msgstr "Notandi hefur komið á tengingu"
 
 #: src/app.rs:145
 msgid "Audio playback from this device gets shared."
-msgstr "Bu aygıttan ses çalma paylaşıldı."
+msgstr "Afspilun hljóðs frá þessu tæki deilist."

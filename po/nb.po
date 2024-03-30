@@ -1,0 +1,122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2024-03-08 14:17+0000\n"
+"PO-Revision-Date: 2024-03-19 11:02+0100\n"
+"Last-Translator: Brage <bragefuglseth@gnome.org>\n"
+"Language-Team: \n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "Audio Sharing"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr ""
+"GNOME;GTK;lyddeling;lyd;dele;deling;sende;sending;strømme;strømming;RTSP;"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+msgid "Share your computer audio"
+msgstr "Strøm lyd rett fra enheten din"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:20
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"Audio Sharing lar deg dele lyden fra systemet ditt med andre enheter. Den "
+"bruker RTSP-protokollen, som støttes av mange forskjellige apper, for "
+"eksempel VLC."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Appen lar deg for eksempel gjøre mobilen din til en utgangsenhet for "
+"datamaskinen din. Hvis du har lydutstyr som ikke er kompatibelt med "
+"datamaskinen, kan du koble det til mobilen din i stedet og la den sende ut "
+"lyd fra Audio Sharing."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
+msgid "Main window light"
+msgstr "Hovedvindu"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:36
+msgid "Main window dark"
+msgstr "Hovedvindu"
+
+#: data/gtk/window.ui:27
+msgid "Menu"
+msgstr "Hovedmeny"
+
+#: data/gtk/window.ui:88
+msgid "Copy to Clipboard"
+msgstr "Kopier"
+
+#: data/gtk/window.ui:99
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Lyden fra systemet deles nå. Andre enheter på nettverket kan motta den ved å "
+"bruke QR-koden eller adressen over i en app som støtter RTSP-strømming. "
+"Lyden på denne enheten kan dempes uten at delingen stopper.\n"
+"\n"
+"For å avslutte delingen, lukk appen."
+
+#: data/gtk/window.ui:121
+msgid "Unable to Share Audio"
+msgstr "Lyddeling mislyktes"
+
+#: data/gtk/window.ui:146
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Åpne _Hjelp"
+
+#: data/gtk/window.ui:153
+msgid "_About Audio Sharing"
+msgstr "_Om Audio Sharing"
+
+#: src/ui/about_window.rs:35
+msgid "Share computer audio"
+msgstr "Strøm lyd fra enheten din"
+
+#: src/ui/about_window.rs:45
+msgid "translator-credits"
+msgstr "Brage Fuglseth https://bragefuglseth.dev"
+
+#: src/ui/window.rs:83
+msgid "Copied address to clipboard"
+msgstr "Adresse kopiert til utklippstavlen"
+
+#: src/app.rs:144
+msgid "A client has established a connection"
+msgstr "Enhet tilkoblet"
+
+#: src/app.rs:145
+msgid "Audio playback from this device gets shared."
+msgstr "Lyden fra dette systemet deles med en annen enhet"

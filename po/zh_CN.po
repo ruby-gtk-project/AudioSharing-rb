@@ -1,26 +1,22 @@
-# Turkish translation for AudioSharing.
-# Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
+# Chinese (China) translation for AudioSharing.
+# Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
-#
-# Sabri Ünal <libreajans@gmail.com>, 2022.
-# Emin Tufan Çetin <etcetin@gmail.com>, 2022.
+# Eni <enigma@petalmail.com>, 2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: AudioSharing\n"
+"Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2022-10-30 20:12+0000\n"
-"PO-Revision-Date: 2022-10-30 23:11+0300\n"
-"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
-"Language-Team: Türkçe <takim@gnome.org.tr>\n"
-"Language: tr\n"
+"POT-Creation-Date: 2023-06-19 18:47+0000\n"
+"PO-Revision-Date: 2023-07-08 16:05+0800\n"
+"Last-Translator: Eni <enigma@petalmail.com>\n"
+"Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
-# Olduğu gibi kalmalı. Çevirmeye gerek yok.
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
 msgid "@NAME@"
@@ -29,11 +25,11 @@ msgstr "@NAME@"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
 msgid "Gnome;GTK;audio;sharing;sound;"
-msgstr "Gnome;GTK;ses;paylaşım;"
+msgstr "Gnome;GTK;音频;共享;声音;"
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
 msgid "Share your computer audio"
-msgstr "Bilgisayarınızın sesini paylaşın"
+msgstr "分享您计算机的音频"
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
 msgid "Felix Häcker"
@@ -45,11 +41,9 @@ msgid ""
 "form of an RTSP stream. This stream can then be played back by other "
 "devices, for example using VLC."
 msgstr ""
-"Ses Paylaşımı ile bilgisayarınızın kayıttan yürüttüğü sesi RTSP akışı "
-"biçiminde paylaşabilirsiniz. Bu akış, sonrasında diğer aygıtlarca, örneğin "
-"VLC kullanılarak oynatılabilir."
+"使用 Audio Sharing 您可以将当前计算机的音频播放以 RTSP 流的方式分享。RTSP 流"
+"可以在其它设备使用例如 VLC 等软件播放。"
 
-# Biraz karışık oldu gibi.
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
@@ -60,29 +54,28 @@ msgid ""
 "played back on a smartphone, which is then connected to the Bluetooth "
 "accessory."
 msgstr ""
-"Sesi ağ akışı olarak paylaşarak, ses alıcı amacıyla kullanılmayan yaygın "
-"aygıtları da (ör. akıllı telefonlar) alıcı olarak kullanabilirsiniz. "
-"Örneğin, bilgisayarda Bluetooth modülü olmadığından masaüstü bilgisayarlarla "
-"uyumsuz ses aksesuarları vardır. Bu uygulama yardımıyla, bilgisayar sesi "
-"sonrasında Bluetooth aksesuarına bağlanan akıllı telefonda çalınabilir."
+"通过网络流分享音频，您可以使用通常并不作为音频接收端的常见设备（如智能手机）"
+"来接收它。例如，目前有一些和计算机不兼容的音频配件（例如计算机没有安装蓝牙模"
+"块）。有了这个应用的帮助，计算机音频可以在智能手机上播放，而蓝牙配件可以连接"
+"到智能手机上，从而间接实现在配件上进行播放。"
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
 msgid "Main window light"
-msgstr "Ana pencere aydınlık"
+msgstr "主窗口亮色"
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
 msgid "Main window dark"
-msgstr "Ana pencere koyu"
+msgstr "主窗口暗色"
 
 #: data/gtk/window.ui:27
 msgid "Menu"
-msgstr "Menü"
+msgstr "菜单"
 
-#: data/gtk/window.ui:87
+#: data/gtk/window.ui:88
 msgid "Copy to Clipboard"
-msgstr "Panoya Kopyala"
+msgstr "复制到剪贴板"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:99
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -91,43 +84,41 @@ msgid ""
 "\n"
 "To stop sharing, simply close this window."
 msgstr ""
-"Şu anda sesinizi paylaşıyorsunuz. Aynı ağdaki diğer aygıtlardan, QR kodunu "
-"tarayarak ya da gösterilen adresi RTSP akışlarını destekleyen oynatıcıya "
-"girerek erişebilirsiniz. Bu aygıtın sesi kapatılsa bile paylaşım "
-"sürecektir.\n"
+"您当前正在分享音频。您可以在同一网络下的其它设备上扫描二维码，或在支持 RTSP "
+"流播放的 APP 上输入显示的地址。该设备可以静音，音频仍然会被分享。\n"
 "\n"
-"Paylaşımı durdurmak için bu pencereyi kapatmalısınız."
+"要停止分享，只需关闭本窗口。"
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:121
 msgid "Unable to Share Audio"
-msgstr "Ses Paylaşılamadı"
+msgstr "无法分享音频"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:146
 msgid "Open _Help <sup>↗</sup>"
-msgstr "_Yardımı Aç <sup>↗</sup>"
+msgstr "打开帮助(_H)<sup>↗</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:153
 msgid "_About Audio Sharing"
-msgstr "Ses Paylaşımı _Hakkında"
+msgstr "关于 Audio Sharing(_A)"
 
 #: src/ui/about_window.rs:35
 msgid "Share computer audio"
-msgstr "Bilgisayarın sesini paylaş"
+msgstr "分享计算机音频"
 
 #: src/ui/about_window.rs:45
 msgid "translator-credits"
 msgstr ""
-"Sabri Ünal <libreajans@gmail.com>\n"
-"Emin Tufan Çetin <etcetin@gmail.com>"
+"polskaonmars <yellowsiumai@gmail.com>, 2023.\n"
+"Eni <enigma@petalmail.com>, 2023."
 
 #: src/ui/window.rs:83
 msgid "Copied address to clipboard"
-msgstr "Adres panoya kopyalandı"
+msgstr "已复制地址到剪贴板"
 
 #: src/app.rs:144
 msgid "A client has established a connection"
-msgstr "İstemci bağlantı kurdu"
+msgstr "一个客户端已建立连接"
 
 #: src/app.rs:145
 msgid "Audio playback from this device gets shared."
-msgstr "Bu aygıttan ses çalma paylaşıldı."
+msgstr "该设备的音频播放已分享。"
