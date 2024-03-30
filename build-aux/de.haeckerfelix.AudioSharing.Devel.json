@@ -1,17 +1,17 @@
 {
-    "app-id": "de.haeckerfelix.AudioSharing.Devel",
+    "id": "de.haeckerfelix.AudioSharing.Devel",
     "runtime": "org.gnome.Platform",
     "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
-    "sdk-extensions" : [
+    "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable",
         "org.freedesktop.Sdk.Extension.llvm16"
     ],
     "command": "audio-sharing",
-    "tags" : [
+    "tags": [
         "nightly"
     ],
-    "finish-args" : [
+    "finish-args": [
         "--share=network",
         "--share=ipc",
         "--socket=fallback-x11",
@@ -23,13 +23,13 @@
         "--env=RUST_LOG=audio_sharing=debug",
         "--env=RUST_BACKTRACE=1"
     ],
-    "build-options" : {
-        "append-path" : "/usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/llvm16/bin",
+    "build-options": {
+        "append-path": "/usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/llvm16/bin",
         "env": {
             "CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER": "clang",
             "CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_RUSTFLAGS": "-C link-arg=-fuse-ld=/usr/lib/sdk/rust-stable/bin/mold"
         },
-        "build-args" : [
+        "build-args": [
             "--share=network"
         ]
     },
@@ -38,12 +38,12 @@
             "name": "gst-rtsp-server",
             "buildsystem": "meson",
             "subdir": "subprojects/gst-rtsp-server",
-            "sources" : [
+            "sources": [
                 {
-                    "type" : "git",
+                    "type": "git",
                     "disable-submodules": true,
                     "url": "https://gitlab.freedesktop.org/gstreamer/gstreamer.git",
-                    "tag": "1.20.6"
+                    "tag": "1.22.11"
                 }
             ]
         },
@@ -51,7 +51,9 @@
             "name": "audio-sharing",
             "buildsystem": "meson",
             "run-tests": true,
-            "config-opts": ["-Dprofile=development"],
+            "config-opts": [
+                "-Dprofile=development"
+            ],
             "sources": [
                 {
                     "type": "git",
