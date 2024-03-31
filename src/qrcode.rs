@@ -1,29 +1,57 @@
+// Audio Sharing - qrcode.rs
+// Copyright (C) 2022-2024  Felix Häcker <haeckerfelix@gnome.org>
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 // Original author: Bilal Elmoussaoui
 // https://gitlab.gnome.org/bilelmoussaoui/decoder/-/raw/master/src/qrcode.rs
 
-use glib::{ParamSpec, ParamSpecString};
+use std::cell::{Cell, OnceCell, RefCell};
+
 use gtk::glib;
+use gtk::glib::Properties;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-pub use imp::QRCodeData;
-use once_cell::sync::Lazy;
 
 mod imp {
-    use std::cell::{Cell, RefCell};
-
     use super::*;
 
-    #[derive(Debug, Clone, glib::Boxed)]
-    #[boxed_type(name = "QRCodeData")]
-    pub struct QRCodeData {
-        pub width: i32,
-        pub height: i32,
-        pub items: Vec<Vec<bool>>,
+    #[derive(Debug, Properties, Default)]
+    #[properties(wrapper_type = super::QrCode)]
+    pub struct QrCode {
+        #[property(get, set, construct_only)]
+        content: OnceCell<String>,
+        #[property(get)]
+        width: Cell<i32>,
+        #[property(get)]
+        height: Cell<i32>,
+
+        pub items: RefCell<Vec<Vec<bool>>>,
     }
 
-    impl From<&str> for QRCodeData {
-        fn from(data: &str) -> Self {
-            let code = qrcode::QrCode::new(data.as_bytes()).unwrap();
+    #[glib::object_subclass]
+    impl ObjectSubclass for QrCode {
+        const NAME: &'static str = "QrCode";
+        type Type = super::QrCode;
+    }
+
+    #[glib::derived_properties]
+    impl ObjectImpl for QrCode {
+        fn constructed(&self) {
+            self.parent_constructed();
+
+            let code = qrcode::QrCode::new(self.obj().content().as_bytes()).unwrap();
             let items = code
                 .render::<char>()
                 .quiet_zone(true)
@@ -36,76 +64,32 @@ mod imp {
                         .collect::<Vec<bool>>()
                 })
                 .collect::<Vec<Vec<bool>>>();
-
             let width = items.first().unwrap().len() as i32;
             let height = items.len() as i32;
-            Self {
-                width,
-                height,
-                items,
-            }
-        }
-    }
 
-    #[derive(Debug, Default)]
-    pub struct QRCode {
-        pub id: Cell<i32>,
-        pub content: RefCell<String>,
-        pub data: RefCell<Option<QRCodeData>>,
-    }
-
-    #[glib::object_subclass]
-    impl ObjectSubclass for QRCode {
-        const NAME: &'static str = "QRCode";
-        type ParentType = glib::Object;
-        type Type = super::QRCode;
-    }
-
-    impl ObjectImpl for QRCode {
-        fn properties() -> &'static [ParamSpec] {
-            static PROPERTIES: Lazy<Vec<ParamSpec>> =
-                Lazy::new(|| vec![ParamSpecString::builder("content").readwrite().build()]);
-            PROPERTIES.as_ref()
-        }
-
-        fn set_property(&self, _id: usize, value: &glib::Value, pspec: &ParamSpec) {
-            match pspec.name() {
-                "content" => {
-                    let content = value.get::<String>().unwrap();
-                    self.content.replace(content);
-                }
-                _ => unimplemented!(),
-            }
-        }
-
-        fn property(&self, _id: usize, pspec: &ParamSpec) -> glib::Value {
-            match pspec.name() {
-                "content" => self.content.borrow().to_value(),
-                _ => unimplemented!(),
-            }
+            self.width.set(width);
+            self.height.set(height);
+            self.items.replace(items);
         }
     }
 }
 
 glib::wrapper! {
-    pub struct QRCode(ObjectSubclass<imp::QRCode>);
+    pub struct QrCode(ObjectSubclass<imp::QrCode>);
 }
 
-impl QRCode {
-    pub fn new(content: String) -> Self {
-        let qr_code: QRCode = glib::Object::builder()
-            .property("content", &content)
-            .build();
-        let qrcode_data = imp::QRCodeData::from(content.as_str());
-        qr_code.imp().data.replace(Some(qrcode_data));
-        qr_code
+impl QrCode {
+    pub fn new(content: &str) -> Self {
+        glib::Object::builder().property("content", content).build()
     }
 
-    pub fn content(&self) -> String {
-        self.imp().content.borrow().clone()
+    pub fn items(&self) -> Vec<Vec<bool>> {
+        self.imp().items.borrow().clone()
     }
+}
 
-    pub fn data(&self) -> QRCodeData {
-        self.imp().data.borrow().as_ref().unwrap().clone()
+impl Default for QrCode {
+    fn default() -> Self {
+        QrCode::new("")
     }
 }

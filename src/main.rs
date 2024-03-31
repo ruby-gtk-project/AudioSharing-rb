@@ -31,7 +31,7 @@ mod qrcode;
 use gtk::{gio, glib};
 
 pub use crate::app::AsApplication;
-pub use crate::qrcode::QRCode;
+pub use crate::qrcode::QrCode;
 
 fn main() -> glib::ExitCode {
     // Initialize logger

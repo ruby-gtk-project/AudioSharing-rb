@@ -18,5 +18,5 @@ pub mod about_dialog;
 mod qrcode_paintable;
 mod window;
 
-pub use qrcode_paintable::QRCodePaintable;
+pub use qrcode_paintable::QrCodePaintable;
 pub use window::AsApplicationWindow;

@@ -1,13 +1,28 @@
+// Audio Sharing - window.rs
+// Copyright (C) 2022-2024  Felix Häcker <haeckerfelix@gnome.org>
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 use glib::clone;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{self, gdk, gio, glib, CompositeTemplate};
 
 use crate::app::AsApplication;
-use crate::config::APP_ID;
 use crate::i18n::i18n;
-use crate::ui::QRCodePaintable;
-use crate::QRCode;
+use crate::ui::QrCodePaintable;
+use crate::QrCode;
 
 mod imp {
     use super::*;
@@ -16,19 +31,19 @@ mod imp {
     #[template(resource = "/de/haeckerfelix/AudioSharing/gtk/window.ui")]
     pub struct AsApplicationWindow {
         #[template_child]
-        pub toast_overlay: TemplateChild<adw::ToastOverlay>,
+        toast_overlay: TemplateChild<adw::ToastOverlay>,
         #[template_child]
         pub qrcode: TemplateChild<gtk::Picture>,
         #[template_child]
         pub address_label: TemplateChild<gtk::Label>,
         #[template_child]
-        pub copy_address_button: TemplateChild<gtk::Button>,
+        copy_address_button: TemplateChild<gtk::Button>,
         #[template_child]
         pub stack: TemplateChild<gtk::Stack>,
         #[template_child]
         pub error_status: TemplateChild<adw::StatusPage>,
 
-        pub paintable: QRCodePaintable,
+        pub paintable: QrCodePaintable,
     }
 
     #[glib::object_subclass]
@@ -46,51 +61,51 @@ mod imp {
         }
     }
 
-    impl ObjectImpl for AsApplicationWindow {}
+    impl ObjectImpl for AsApplicationWindow {
+        fn constructed(&self) {
+            self.parent_constructed();
+
+            self.copy_address_button
+                .connect_clicked(clone!(@weak self as this => move|_|
+                    let address = this.address_label.get().text();
+
+                    let display = gdk::Display::default().unwrap();
+                    let clipboard = display.clipboard();
+                    clipboard.set_text(&address);
+
+                    let toast = adw::Toast::new(&i18n("Copied address to clipboard"));
+                    toast.set_timeout(2);
+                    this.toast_overlay.add_toast(toast);
+                ));
+        }
+    }
+
     impl WidgetImpl for AsApplicationWindow {}
+
     impl WindowImpl for AsApplicationWindow {}
+
     impl ApplicationWindowImpl for AsApplicationWindow {}
 }
 
 glib::wrapper! {
     pub struct AsApplicationWindow(ObjectSubclass<imp::AsApplicationWindow>)
-        @extends gtk::Widget, gtk::Window, gtk::ApplicationWindow, @implements gio::ActionMap, gio::ActionGroup;
+        @extends gtk::Widget, gtk::Window, gtk::ApplicationWindow,
+        @implements gio::ActionMap, gio::ActionGroup;
 }
 
 impl AsApplicationWindow {
     pub fn new(app: &AsApplication) -> Self {
-        let window: Self = glib::Object::builder().property("application", app).build();
-
-        // Set icons for shell
-        gtk::Window::set_default_icon_name(APP_ID);
-
-        window.setup_widgets();
-        window
-    }
-
-    fn setup_widgets(&self) {
-        self.imp()
-            .copy_address_button
-            .connect_clicked(clone!(@weak self as this => move|_|
-                let imp = this.imp();
-                let address = imp.address_label.get().text();
-
-                let display = gdk::Display::default().unwrap();
-                let clipboard = display.clipboard();
-                clipboard.set_text(&address);
-
-                let toast = adw::Toast::new(&i18n("Copied address to clipboard"));
-                toast.set_timeout(2);
-                imp.toast_overlay.add_toast(toast);
-            ));
+        glib::Object::builder::<AsApplicationWindow>()
+            .property("application", app)
+            .build()
     }
 
     pub fn set_address(&self, address: String) {
-        let imp = self.imp();
+        let qr = QrCode::new(&address);
 
+        let imp = self.imp();
         imp.address_label.set_text(&address);
-        let qr = QRCode::new(address);
-        imp.paintable.set_qrcode(qr.data());
+        imp.paintable.set_qrcode(qr);
         imp.qrcode.set_paintable(Some(&imp.paintable));
     }
 
