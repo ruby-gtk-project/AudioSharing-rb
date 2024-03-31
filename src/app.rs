@@ -11,7 +11,7 @@ use pnet::datalink::interfaces;
 
 use crate::config;
 use crate::i18n::i18n;
-use crate::ui::{about_window, AsApplicationWindow};
+use crate::ui::{about_dialog, AsApplicationWindow};
 
 mod imp {
     use super::*;
@@ -111,7 +111,7 @@ impl AsApplication {
                 .build(),
             gio::ActionEntryBuilder::new("about")
                 .activate(|app: &Self, _, _| {
-                    about_window::show(&app.get_main_window());
+                    about_dialog::show(&app.get_main_window());
                 })
                 .build(),
         ];

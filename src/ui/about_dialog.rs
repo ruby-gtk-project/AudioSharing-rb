@@ -1,5 +1,5 @@
 // Audio Sharing - about_window.rs
-// Copyright (C) 2022  Felix Häcker <haeckerfelix@gnome.org>
+// Copyright (C) 2022-2024  Felix Häcker <haeckerfelix@gnome.org>
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,10 +14,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use gtk::prelude::*;
+use adw::prelude::*;
 
 use crate::config;
-use crate::i18n::*;
+use crate::i18n::i18n;
 use crate::ui::AsApplicationWindow;
 
 pub fn show(parent: &AsApplicationWindow) {
@@ -27,24 +27,20 @@ pub fn show(parent: &AsApplicationWindow) {
         _ => config::VERSION.to_string(),
     };
 
-    let window = adw::AboutWindow::new();
-    window.set_transient_for(Some(parent));
-    window.set_application_icon(config::APP_ID);
-    window.set_application_name(config::NAME);
-    window.set_designers(&["Tobias Bernard"]);
-    window.set_comments(&i18n("Share computer audio"));
-    window.set_copyright("© 2021-2022 Felix Häcker");
-    window.set_debug_info(&vcs_tag);
-    window.set_developer_name("Felix Häcker");
-    window.set_developers(&[
+    let dialog = adw::AboutDialog::from_appdata(
+        &format!("{}/metainfo.xml", config::PATH_ID),
+        Some(config::VERSION),
+    );
+
+    dialog.set_version(&version);
+    dialog.set_debug_info(&vcs_tag);
+
+    dialog.set_developers(&[
         "Felix Häcker <haeckerfelix@gnome.org>",
         "Maximiliano Sandoval <msandova@gnome.org>",
     ]);
-    window.set_issue_url("https://gitlab.gnome.org/World/AudioSharing/-/issues/new");
-    window.set_license_type(gtk::License::Gpl30);
-    window.set_translator_credits(&i18n("translator-credits"));
-    window.set_version(&version);
-    window.set_website("https://gitlab.gnome.org/World/AudioSharing");
+    dialog.set_designers(&["Tobias Bernard", "Jakub Steiner", "Sam Hewitt"]);
+    dialog.set_translator_credits(&i18n("translator-credits"));
 
-    window.present();
+    dialog.present(parent);
 }
