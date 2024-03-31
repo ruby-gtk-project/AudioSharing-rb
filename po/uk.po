@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-03-30 21:54+0000\n"
-"PO-Revision-Date: 2024-03-31 09:05+0300\n"
+"POT-Creation-Date: 2024-03-31 09:41+0000\n"
+"PO-Revision-Date: 2024-03-31 19:19+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -29,11 +29,12 @@ msgstr "@NAME@"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;sharing;sound;гноме;жетека;аудіо;звук;оприлюднення;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Оприлюдніть звукові дані з вашого комп'ютера"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:20
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -43,7 +44,7 @@ msgstr ""
 "відтворюється вашим комп'ютером, у формі потоку даних RTSP. Цей потік даних "
 "може бути відтворено іншими пристроями за допомогою, наприклад, VLC."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -61,20 +62,18 @@ msgstr ""
 "програми звук з комп'ютера може бути відтворено на смартфоні, який може бути "
 "з'єднано із приладом за допомогою протоколу Bluetooth."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window light"
-msgstr "Головне вікно світле"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:36
-msgid "Main window dark"
-msgstr "Головне вікно темне"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:58
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Встановлення з'єднання з потоком звукових даних шляхом сканування QR-коду"
+" або копіювання адреси"
 
 #: data/gtk/window.ui:27
 msgid "Menu"
 msgstr "Меню"
 
 #: data/gtk/window.ui:91
-#| msgid "Copy to Clipboard"
 msgid "_Copy to Clipboard"
 msgstr "С_копіювати до буфера"
 
@@ -107,11 +106,7 @@ msgstr "Відкрити _довідку <sup>↗</sup>"
 msgid "_About Audio Sharing"
 msgstr "_Про «Оприлюднення звуку»"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Оприлюдніть звукові дані з комп'ютера"
-
-#: src/ui/about_window.rs:45
+#: src/ui/about_dialog.rs:43
 msgid "translator-credits"
 msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2022"
 
@@ -126,6 +121,15 @@ msgstr "Клієнт встановив з'єднання"
 #: src/app.rs:139
 msgid "Audio playback from this device gets shared."
 msgstr "Відтворення звуку на цьому пристрої оприлюднено."
+
+#~ msgid "Main window light"
+#~ msgstr "Головне вікно світле"
+
+#~ msgid "Main window dark"
+#~ msgstr "Головне вікно темне"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Оприлюдніть звукові дані з комп'ютера"
 
 #~ msgid "Felix Häcker"
 #~ msgstr "Felix Häcker"
