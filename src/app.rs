@@ -14,6 +14,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+use std::cell::OnceCell;
+
 use adw::subclass::prelude::*;
 use glib::{clone, WeakRef};
 use gstreamer::DeviceMonitor;
@@ -22,7 +24,6 @@ use gstreamer_rtsp_server::{RTSPMediaFactory, RTSPServer};
 use gtk::prelude::*;
 use gtk::{gio, glib};
 use log::{debug, error, info, warn};
-use once_cell::sync::OnceCell;
 use pnet::datalink::interfaces;
 
 use crate::config;

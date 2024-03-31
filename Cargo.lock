@@ -27,7 +27,6 @@ dependencies = [
  "gtk4",
  "libadwaita",
  "log",
- "once_cell",
  "pnet",
  "pretty_env_logger",
  "qrcode",
