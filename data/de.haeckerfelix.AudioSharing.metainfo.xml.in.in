@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2022-2023 Felix Häcker -->
-<component type="desktop-application">
+<component type="desktop">
+  <!-- Meson Build -->
   <id>@APP_ID@</id>
   <name>@NAME@</name>
-  <summary>Share your computer audio</summary>
-  <translation type="gettext">audio-sharing</translation>
-  <!-- developer_name tag deprecated with Appstream 1.0 -->
-  <developer_name translatable="no">Felix Häcker</developer_name>
-  <developer id="de.haeckerfelix">
-    <name translatable="no">Felix Häcker</name>
-  </developer>
-  <update_contact>haeckerfelix@gnome.org</update_contact>
-  <metadata_license>CC0-1.0</metadata_license>
-  <project_license>GPL-3.0-or-later</project_license>
+  <translation type="gettext">@PKGNAME@</translation>
   <launchable type="desktop-id">@APP_ID@.desktop</launchable>
-  <content_rating type="oars-1.1"/>
 
+  <!-- General -->
+  <summary>Share your computer audio</summary>
   <description>
     <p>
       With Audio Sharing you can share your current computer audio playback in the form of an RTSP stream. This stream can then be played back by other devices, for example using VLC.
@@ -25,45 +17,49 @@
       For example, there are audio accessories that are not compatible with desktop computers (e.g. because the computer does not have a Bluetooth module installed). With the help of this app, the computer audio can be played back on a smartphone, which is then connected to the Bluetooth accessory.
     </p>
   </description>
+  <content_rating type="oars-1.0"/>
 
-  <screenshots>
-    <screenshot type="default">
-      <image width="572" height="597">https://gitlab.gnome.org/World/AudioSharing/-/raw/main/data/screenshots/1.png</image>
-      <caption>Main window light</caption>
-    </screenshot>
-    <screenshot>
-      <image width="572" height="597">https://gitlab.gnome.org/World/AudioSharing/-/raw/main/data/screenshots/2.png</image>
-      <caption>Main window dark</caption>
-    </screenshot>
-  </screenshots>
+  <!-- Branding -->
+  <developer id="de.haeckerfelix">
+    <name>Felix Häcker</name>
+  </developer>
+  <branding>
+    <color type="primary" scheme_preference="light">#e56b5a</color>
+    <color type="primary" scheme_preference="dark">#972b31</color>
+  </branding>
 
-  <url type="homepage">https://gitlab.gnome.org/World/AudioSharing</url>
+  <!-- License -->
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+
+  <!-- URLs -->
+  <url type="homepage">https://apps.gnome.org/AudioSharing/</url>
   <url type="bugtracker">https://gitlab.gnome.org/World/AudioSharing/issues</url>
   <url type="donation">https://liberapay.com/haecker-felix</url>
-  <url type="help">https://gitlab.gnome.org/World/AudioSharing/-/blob/main/README.md</url>
   <url type="translate">https://l10n.gnome.org/module/AudioSharing/</url>
+  <url type="contact">https://matrix.to/#/#audio-sharing:gnome.org</url>
   <url type="vcs-browser">https://gitlab.gnome.org/World/AudioSharing</url>
+  <url type="contribute">https://welcome.gnome.org/app/AudioSharing/</url>
 
-  <kudos>
-    <kudo>HiDpiIcon</kudo>
-    <kudo>ModernToolkit</kudo>
-    <kudo>Notifications</kudo>
-  </kudos>
-
-  <custom>
-    <value key="Purism::form_factor">mobile</value>
-  </custom>
-
+  <!-- Supported Hardware -->
   <requires>
     <display_length compare="ge">360</display_length>
   </requires>
-
   <recommends>
     <control>keyboard</control>
     <control>pointing</control>
     <control>touch</control>
   </recommends>
 
+  <!-- Screenshots -->
+  <screenshots>
+    <screenshot type="default">
+      <image>https://gitlab.gnome.org/World/AudioSharing/-/raw/main/data/screenshots/1.png</image>
+      <caption>Connect to the audio stream by scanning the QR code or copying the address</caption>
+    </screenshot>
+  </screenshots>
+
+  <!-- Releases -->
   <releases>
     <release version="0.2.2" date="2023-06-19">
       <description>
