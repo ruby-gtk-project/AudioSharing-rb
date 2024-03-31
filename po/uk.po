@@ -2,22 +2,22 @@
 # Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2022.
+# Yuri Chornoivan <yurchor@ukr.net>, 2022, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2022-10-09 07:05+0000\n"
-"PO-Revision-Date: 2022-10-09 20:07+0300\n"
+"POT-Creation-Date: 2024-03-30 21:54+0000\n"
+"PO-Revision-Date: 2024-03-31 09:05+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"Language-Team: Ukrainian\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -33,21 +33,17 @@ msgstr "Gnome;GTK;audio;sharing;sound;гноме;жетека;аудіо;зву�
 msgid "Share your computer audio"
 msgstr "Оприлюдніть звукові дані з вашого комп'ютера"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Felix Häcker"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:20
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
 "devices, for example using VLC."
 msgstr ""
-"За допомогою «Оприлюднення звуку» ви можете оприлюднити звук, який"
-" відтворюється вашим комп'ютером, у формі потоку даних RTSP. Цей потік даних"
-" може бути відтворено іншими пристроями за допомогою, наприклад, VLC."
+"За допомогою «Оприлюднення звуку» ви можете оприлюднити звук, який "
+"відтворюється вашим комп'ютером, у формі потоку даних RTSP. Цей потік даних "
+"може бути відтворено іншими пристроями за допомогою, наприклад, VLC."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -57,19 +53,19 @@ msgid ""
 "played back on a smartphone, which is then connected to the Bluetooth "
 "accessory."
 msgstr ""
-"Оприлюдненням звукових даних як потоку даних мережі надає змогу скористатися"
-" типовими пристроями, які не призначено для використання як приймачів звуку,"
-" (наприклад смартфонами) для отримання таких даних. Наприклад, існують"
-" звукові прилади, які є несумісними із робочими станціями (наприклад, через"
-" те, що на комп'ютері не встановлено модуль Bluetooth). За допомогою цієї"
-" програми звук з комп'ютера може бути відтворено на смартфоні, який може"
-" бути з'єднано із приладом за допомогою протоколу Bluetooth."
+"Оприлюдненням звукових даних як потоку даних мережі надає змогу скористатися "
+"типовими пристроями, які не призначено для використання як приймачів звуку, "
+"(наприклад смартфонами) для отримання таких даних. Наприклад, існують "
+"звукові прилади, які є несумісними із робочими станціями (наприклад, через "
+"те, що на комп'ютері не встановлено модуль Bluetooth). За допомогою цієї "
+"програми звук з комп'ютера може бути відтворено на смартфоні, який може бути "
+"з'єднано із приладом за допомогою протоколу Bluetooth."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
 msgid "Main window light"
 msgstr "Головне вікно світле"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:36
 msgid "Main window dark"
 msgstr "Головне вікно темне"
 
@@ -77,11 +73,12 @@ msgstr "Головне вікно темне"
 msgid "Menu"
 msgstr "Меню"
 
-#: data/gtk/window.ui:87
-msgid "Copy to Clipboard"
-msgstr "Скопіювати до буфера"
+#: data/gtk/window.ui:91
+#| msgid "Copy to Clipboard"
+msgid "_Copy to Clipboard"
+msgstr "С_копіювати до буфера"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:106
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -90,23 +87,23 @@ msgid ""
 "\n"
 "To stop sharing, simply close this window."
 msgstr ""
-"Зараз ви оприлюднюєте звукові дані. Ви можете отримати доступ до них з інших"
-" пристроїв у мережі вашого комп'ютера, якщо виконаєте сканування QR-коду або"
-" введете показану адресу у програмі, де передбачено підтримку відтворення"
-" потоків даних RTSP. Звук на цьому пристрої можна вимкнути — звукові дані"
-" все одно оприлюднюватимуться.\n"
+"Зараз ви оприлюднюєте звукові дані. Ви можете отримати доступ до них з інших "
+"пристроїв у мережі вашого комп'ютера, якщо виконаєте сканування QR-коду або "
+"введете показану адресу у програмі, де передбачено підтримку відтворення "
+"потоків даних RTSP. Звук на цьому пристрої можна вимкнути — звукові дані все "
+"одно оприлюднюватимуться.\n"
 "\n"
 "Щоб припинити оприлюднення, просто закрийте це вікно."
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:128
 msgid "Unable to Share Audio"
 msgstr "Не вдалося оприлюднити звукові дані"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:153
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Відкрити _довідку <sup>↗</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:160
 msgid "_About Audio Sharing"
 msgstr "_Про «Оприлюднення звуку»"
 
@@ -118,14 +115,17 @@ msgstr "Оприлюдніть звукові дані з комп'ютера"
 msgid "translator-credits"
 msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2022"
 
-#: src/ui/window.rs:83
+#: src/ui/window.rs:82
 msgid "Copied address to clipboard"
 msgstr "Адресу скопійовано до буфера обміну даними"
 
-#: src/app.rs:144
+#: src/app.rs:138
 msgid "A client has established a connection"
 msgstr "Клієнт встановив з'єднання"
 
-#: src/app.rs:145
+#: src/app.rs:139
 msgid "Audio playback from this device gets shared."
 msgstr "Відтворення звуку на цьому пристрої оприлюднено."
+
+#~ msgid "Felix Häcker"
+#~ msgstr "Felix Häcker"
