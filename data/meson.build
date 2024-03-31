@@ -82,7 +82,8 @@ gnome.compile_resources(
   gresource_bundle: true,
   source_dir: join_paths(meson.project_build_root(), 'data'),
   install: true,
-  install_dir: join_paths(datadir, meson.project_name())
+  install_dir: join_paths(datadir, meson.project_name()),
+  dependencies: appdata_file,
 )
 
 # Run required post-install steps
