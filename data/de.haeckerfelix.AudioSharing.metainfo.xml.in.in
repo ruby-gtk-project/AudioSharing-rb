@@ -61,6 +61,18 @@
 
   <!-- Releases -->
   <releases>
+    <release version="0.2.3" date="2024-04-01">
+      <description>
+        <p>
+          This version includes minor improvements and bug fixes.
+        </p>
+        <ul>
+          <li>Improved user interface using new Adwaita widgets</li>
+          <li>Using GNOME 46 Platform</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.2.2" date="2023-06-19">
       <description>
         <p>
