@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2022-10-10 16:30+0000\n"
-"PO-Revision-Date: 2022-10-10 22:42+0200\n"
-"Last-Translator: Matej Urbančič <mateju@src.gnome.org>\n"
+"POT-Creation-Date: 2024-03-31 09:41+0000\n"
+"PO-Revision-Date: 2024-04-01 10:49+0200\n"
+"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenščina <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -31,15 +31,12 @@ msgstr "@NAME@"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;sharing;sound;zvok;souporaba;skladbe;pesmi;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Spletno oddajanje vseh vrst posnetkov zvoka"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Felix Häcker"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -49,7 +46,7 @@ msgstr ""
 "zvočnega posnetka oddajati z uporabo pretoka RTSP. Pretok je mogoče nato na "
 "drugem mestu predvajati na primer s programoma VLC."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -67,23 +64,22 @@ msgstr ""
 "predvajati na pametnem telefonu, ki je nato povezan z drugo napravo v "
 "omrežju Bluetooth."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "Svetla tema glavnega okna"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "Temna tema glavnega okna"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:58
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Povežite se z zvočnim tokom tako, da optično preberete kodo QR ali kopirate "
+"naslov"
 
 #: data/gtk/window.ui:27
 msgid "Menu"
 msgstr "Meni"
 
-#: data/gtk/window.ui:87
-msgid "Copy to Clipboard"
-msgstr "Kopiraj v odložišče"
+#: data/gtk/window.ui:91
+msgid "_Copy to Clipboard"
+msgstr "_Kopiraj v odložišče"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:106
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -99,34 +95,30 @@ msgstr ""
 "\n"
 "Če želite oddajanje zaustaviti, preprosto zaprite to okno."
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:128
 msgid "Unable to Share Audio"
 msgstr "Zvokov ni mogoče objaviti v izmenjavo"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:153
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Odpri pomo_č <sup>↗</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:160
 msgid "_About Audio Sharing"
 msgstr "_O programu"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Program za izmenjavo zvokov"
-
-#: src/ui/about_window.rs:45
+#: src/ui/about_dialog.rs:43
 msgid "translator-credits"
 msgstr "Matej Urbančič <mateju@src.gnome.org>"
 
-#: src/ui/window.rs:83
+#: src/ui/window.rs:82
 msgid "Copied address to clipboard"
 msgstr "Kopiraj naslov v odložišče"
 
-#: src/app.rs:144
+#: src/app.rs:138
 msgid "A client has established a connection"
 msgstr "Program je vzpostavil povezavo"
 
-#: src/app.rs:145
+#: src/app.rs:139
 msgid "Audio playback from this device gets shared."
 msgstr "Zvočni posketek bo oddajan s te naprave."
