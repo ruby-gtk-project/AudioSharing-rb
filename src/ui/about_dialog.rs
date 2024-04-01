@@ -39,7 +39,7 @@ pub fn show(parent: &AsApplicationWindow) {
         "Felix Häcker <haeckerfelix@gnome.org>",
         "Maximiliano Sandoval <msandova@gnome.org>",
     ]);
-    dialog.set_designers(&["Tobias Bernard", "Jakub Steiner", "Sam Hewitt"]);
+    dialog.set_designers(&["Tobias Bernard"]);
     dialog.set_translator_credits(&i18n("translator-credits"));
 
     dialog.present(parent);
