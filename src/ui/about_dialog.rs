@@ -1,4 +1,4 @@
-// Audio Sharing - about_window.rs
+// Audio Sharing - about_dialog.rs
 // Copyright (C) 2022-2024  Felix Häcker <haeckerfelix@gnome.org>
 //
 // This program is free software: you can redistribute it and/or modify
@@ -21,20 +21,20 @@ use crate::i18n::i18n;
 use crate::ui::AsApplicationWindow;
 
 pub fn show(parent: &AsApplicationWindow) {
-    let vcs_tag = format!("Git Commit: {}", config::VCS_TAG);
-    let version = match config::PROFILE {
-        "development" => format!("{}-devel", config::VERSION),
-        _ => config::VERSION.to_string(),
-    };
-
     let dialog = adw::AboutDialog::from_appdata(
         &format!("{}/metainfo.xml", config::PATH_ID),
         Some(config::VERSION),
     );
 
-    dialog.set_version(&version);
-    dialog.set_debug_info(&vcs_tag);
+    let version = match config::PROFILE {
+        "development" => {
+            dialog.set_debug_info(&format!("Git Commit: {}", config::VCS_TAG));
+            format!("{}-devel", config::VERSION)
+        }
+        _ => config::VERSION.to_string(),
+    };
 
+    dialog.set_version(&version);
     dialog.set_developers(&[
         "Felix Häcker <haeckerfelix@gnome.org>",
         "Maximiliano Sandoval <msandova@gnome.org>",
