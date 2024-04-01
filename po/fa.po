@@ -2,20 +2,21 @@
 # Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 # eshagh shahidani <eshagh094@gmail.com>, 2022.
+# Danial Behzadi <dani.behzi@ubuntu.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2022-12-14 11:37+0000\n"
-"PO-Revision-Date: 2023-09-09 02:23+0330\n"
+"POT-Creation-Date: 2024-03-31 09:41+0000\n"
+"PO-Revision-Date: 2024-04-01 19:40+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -27,25 +28,21 @@ msgstr "هم‌رسانی صدا"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;sharing;sound;گنوم;جی‌تی‌کی;هم‌رسانی;صدا;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "هم‌رسانی صدای رایانه‌تان"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "فلیکس هکر"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other devices, "
 "for example using VLC."
 msgstr ""
-"با هم‌رسانی صدا می‌توانید پخش صوتی کنونی رایانه خود را در قالب یک جریان RTSP به "
-"اشتراک بگذارید. سپس این جریان را می‌توان توسط افزارهای دیگر پخش کرد، به عنوان "
-"مثال با استفاده از وی‌ال‌سی."
+"با هم‌رسانی صدا می‌توانید پخش صدای کنونی رایانه‌تان را در قالب یک جریان RTSP "
+"هم‌رسانید. این جریان می‌تواند با دیگر افزارها همچون وی‌ال‌سی پخش شود."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -54,30 +51,27 @@ msgid ""
 "installed). With the help of this app, the computer audio can be played back "
 "on a smartphone, which is then connected to the Bluetooth accessory."
 msgstr ""
-"با هم‌رسانی صدا به عنوان یک جریان شبکه، می‌توانید از افزارهای معمولی که برای "
-"استفاده به عنوان گیرندهٔ صوتی (مثلاً تلفن‌های هوشمند) در نظر گرفته نشده‌اند، برای "
-"دریافت آن استفاده کنید. به عنوان مثال، لوازم جانبی صوتی وجود دارد که با "
-"رایانه‌های میزکار سازگار نیستند (مثلاً به این دلیل که رایانه ماژول بلوتوث نصب "
-"نکرده است). با کمک این برنامه می‌توان صدای کامپیوتر را در گوشی هوشمند پخش کرد "
-"و سپس به بلوتوث وصل می‌شود."
+"با هم‌رسانی صدا به عنوان یک جریان شبکه‌ای می‌توانید از افزاره‌های معمولی که برای "
+"استفاده به عنوان گیرندهٔ صوتی در نظر گرفته نشده‌اند (چون تلفن‌های هوشمند) برای "
+"دریافتش استفاده کنید. برای نمونه لوازم جانبی صوتی‌ای وجود دارند که با "
+"رایانه‌های میزکار سازگار نیستند (مثلاً چون رایانه پیمانهٔ بلوتوث ندارد). به کمک "
+"این کاره صدای رایانه می‌تواند روی تلفن هوشمند پخش شده و سپس به دستگاه بلوتوثی "
+"وصل شود."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "پنجرهٔ اصلی روشن"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "پنجرهٔ اصلی تاریک"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:58
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr "وصل شدن به جریان صدا با پویش کد پاس یا رونوشت از نشانی"
 
 #: data/gtk/window.ui:27
 msgid "Menu"
 msgstr "فهرست"
 
-#: data/gtk/window.ui:87
-msgid "Copy to Clipboard"
-msgstr "رونوشت به تخته‌گیره"
+#: data/gtk/window.ui:91
+msgid "_Copy to Clipboard"
+msgstr "_رونوشت در تخته‌گیره"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:106
 msgid ""
 "You are currently sharing your audio. You can access it from other devices in "
 "the same network by scanning the QR code or entering the displayed address in "
@@ -86,41 +80,51 @@ msgid ""
 "\n"
 "To stop sharing, simply close this window."
 msgstr ""
-"شما هم‌اکنون صدای خود را هم‌رسانی می‌کنید. می‌توانید با پویش کد کیوآر یا وارد "
-"کردن نشانی نمایش داده شده در یک پخش‌کنندهٔ رسانه‌ای که از جریان‌های RTSP پشتیبانی "
-"کند، از افزارهای دیگر در همان شبکه به آن دسترسی داشته باشید. این افزار را "
-"می‌توان خموش کرد، صدا همچنان هم‌رسانی خواهد شد.\n"
+"هم‌اکنون صدایتان را هم می‌رسانید. می‌توانید از دیگر افزاره‌ها در همان شبکه با "
+"پویش کد پاس یا وارد کردن نشانی نمایش داده شده در پخش‌کنندهٔ رسانه‌ای که از "
+"جریان‌های RTSP پشتیبانی ‌می‌کند به آن دسترسی داشته باشید. این افزار را می‌توان "
+"خموش کرد، صدا همچنان هم‌رسانده خواهد شد.\n"
 "\n"
 "برای توقّف هم‌رسانی، به سادگی این پنجره را ببندید."
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:128
 msgid "Unable to Share Audio"
 msgstr "ناتوان در هم‌رسانی صدا"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:153
 msgid "Open _Help <sup>↗</sup>"
 msgstr "گشودن _راهنما <sup>↖</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:160
 msgid "_About Audio Sharing"
 msgstr "_دربارهٔ هم‌رسانی صدا"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "هم‌رسانی صدای رایانه"
-
-#: src/ui/about_window.rs:45
+#: src/ui/about_dialog.rs:43
 msgid "translator-credits"
-msgstr "سید اسحاق مقیم شهیدانی <eshagh094@gmail.com>"
+msgstr ""
+"سید اسحاق مقیم شهیدانی <eshagh094@gmail.com>\n"
+"دانیال بهزادی <dani.behzi@ubuntu.com>"
 
-#: src/ui/window.rs:83
+#: src/ui/window.rs:82
 msgid "Copied address to clipboard"
 msgstr "نشانی به تخته‌گیره رونوشت شد"
 
-#: src/app.rs:144
+#: src/app.rs:138
 msgid "A client has established a connection"
 msgstr "کارخواهی ارتباطی برقرار کرده"
 
-#: src/app.rs:145
+#: src/app.rs:139
 msgid "Audio playback from this device gets shared."
-msgstr "صدای پخش شده از این افزاره، هم‌رسانی می‌شود."
+msgstr "پخش صدای این افزاره هم‌رسانی می‌شود."
+
+#~ msgid "Felix Häcker"
+#~ msgstr "فلیکس هکر"
+
+#~ msgid "Main window light"
+#~ msgstr "پنجرهٔ اصلی روشن"
+
+#~ msgid "Main window dark"
+#~ msgstr "پنجرهٔ اصلی تاریک"
+
+#~ msgid "Share computer audio"
+#~ msgstr "هم‌رسانی صدای رایانه"
