@@ -14,9 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+use adw::subclass::prelude::*;
 use glib::clone;
 use gtk::prelude::*;
-use gtk::subclass::prelude::*;
 use gtk::{self, gdk, gio, glib, CompositeTemplate};
 
 use crate::app::AsApplication;
@@ -50,7 +50,7 @@ mod imp {
     impl ObjectSubclass for AsApplicationWindow {
         const NAME: &'static str = "AsApplicationWindow";
         type Type = super::AsApplicationWindow;
-        type ParentType = gtk::ApplicationWindow;
+        type ParentType = adw::ApplicationWindow;
 
         fn class_init(klass: &mut Self::Class) {
             Self::bind_template(klass);
@@ -85,11 +85,13 @@ mod imp {
     impl WindowImpl for AsApplicationWindow {}
 
     impl ApplicationWindowImpl for AsApplicationWindow {}
+
+    impl AdwApplicationWindowImpl for AsApplicationWindow {}
 }
 
 glib::wrapper! {
     pub struct AsApplicationWindow(ObjectSubclass<imp::AsApplicationWindow>)
-        @extends gtk::Widget, gtk::Window, gtk::ApplicationWindow,
+        @extends gtk::Widget, gtk::Window, gtk::ApplicationWindow, adw::ApplicationWindow,
         @implements gio::ActionMap, gio::ActionGroup;
 }
 
