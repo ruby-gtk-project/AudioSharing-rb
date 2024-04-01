@@ -7,14 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-03-30 21:54+0000\n"
-"PO-Revision-Date: 2024-03-31 01:53+0100\n"
+"POT-Creation-Date: 2024-03-31 09:41+0000\n"
+"PO-Revision-Date: 2024-04-01 05:15+0200\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.3.2\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
@@ -27,11 +28,12 @@ msgstr "AudioSharing"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;sharing;sound;ხმა;გაზიარება;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "გააზიარეთ თქვენი კომპიუტერის ხმა"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:20
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -41,7 +43,7 @@ msgstr ""
 "შეგიძლიათ, გააზიაროთ. ეს ნაკადი სხვა მოწყობილობებზეც შეგიძლიათ დაუკრათ. "
 "მაგალითად, VLC-ით."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -59,13 +61,10 @@ msgstr ""
 "აუდიოს დაკვრა შესაძლებელია სმარტფონზე, რომელიც შემდეგ უკავშირდება Bluetooth "
 "აქსესუარს."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window light"
-msgstr "მთავარი ფანჯარა ღიაა"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:36
-msgid "Main window dark"
-msgstr "მთავარი ფანჯარა მუქია"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:58
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr "მიერთდით აუდიონაკადთან QR კოდის კოპირებით ან მისამართის კოპირებით"
 
 #: data/gtk/window.ui:27
 msgid "Menu"
@@ -103,11 +102,7 @@ msgstr "_დახმარების გახსნა <sup>↗</sup>"
 msgid "_About Audio Sharing"
 msgstr "ხმის გაზიარების _შესახებ"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "კომპიუტერის ხმის გაზიარება"
-
-#: src/ui/about_window.rs:45
+#: src/ui/about_dialog.rs:43
 msgid "translator-credits"
 msgstr "temuri Doghonadze"
 
@@ -122,6 +117,15 @@ msgstr "კლიენტი შემოგვიერთდა"
 #: src/app.rs:139
 msgid "Audio playback from this device gets shared."
 msgstr "ხდება ამ კომპიუტერის მიერ გამოცემული ხმის გაზიარება."
+
+#~ msgid "Main window light"
+#~ msgstr "მთავარი ფანჯარა ღიაა"
+
+#~ msgid "Main window dark"
+#~ msgstr "მთავარი ფანჯარა მუქია"
+
+#~ msgid "Share computer audio"
+#~ msgstr "კომპიუტერის ხმის გაზიარება"
 
 #~ msgid "Felix Häcker"
 #~ msgstr "Felix Häcker"
