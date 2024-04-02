@@ -20,6 +20,7 @@
   <content_rating type="oars-1.0"/>
 
   <!-- Branding -->
+  <developer_name>Felix Häcker</developer_name>
   <developer id="de.haeckerfelix">
     <name>Felix Häcker</name>
   </developer>
