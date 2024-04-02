@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-03-31 09:41+0000\n"
-"PO-Revision-Date: 2022-10-17 20:08-0300\n"
-"Last-Translator: Enrico Nicoletto <hiko@duck.com>\n"
+"POT-Creation-Date: 2024-04-01 12:52+0000\n"
+"PO-Revision-Date: 2024-04-01 11:46-0300\n"
+"Last-Translator: Leônidas Araújo <leorusvellt@hotmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -73,10 +73,8 @@ msgid "Menu"
 msgstr "Menu"
 
 #: data/gtk/window.ui:91
-#, fuzzy
-#| msgid "Copy to Clipboard"
 msgid "_Copy to Clipboard"
-msgstr "Copiar para área de transferência"
+msgstr "_Copiar para a área de transferência"
 
 #: data/gtk/window.ui:106
 msgid ""
@@ -108,17 +106,19 @@ msgstr "So_bre o compartilhamento de áudio"
 
 #: src/ui/about_dialog.rs:43
 msgid "translator-credits"
-msgstr "Enrico Nicoletto <hiko@duck.com>"
+msgstr ""
+"Enrico Nicoletto <hiko@duck.com>\n"
+"Leônidas Araújo <leorusvellt@hotmail.com>"
 
-#: src/ui/window.rs:82
+#: src/ui/window.rs:76
 msgid "Copied address to clipboard"
 msgstr "Endereço copiado para área de transferência"
 
-#: src/app.rs:138
+#: src/app.rs:117
 msgid "A client has established a connection"
 msgstr "Um cliente estabeleceu uma conexão"
 
-#: src/app.rs:139
+#: src/app.rs:119
 msgid "Audio playback from this device gets shared."
 msgstr "A reprodução de áudio a partir deste dispositivo é compartilhada."
 
