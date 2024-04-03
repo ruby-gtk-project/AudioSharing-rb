@@ -12,7 +12,17 @@ regex = "1.10"
 gettext-rs = { version = "0.7", features = ["gettext-system"] }
 adw = { version = "0.6", package = "libadwaita", features = ["v1_5"] }
 gstreamer = "0.22"
-gstreamer-rtsp-server = "0.22"
+gst-plugin-webrtc = "0.12"
+gst-plugin-webrtc-signalling = "0.12"
 gtk = { version = "0.8", package = "gtk4", features = ["v4_10"] }
 qrcode = "0.14"
 pnet = "0.34"
+tokio = "1"
+anyhow = "1"
+actix-web = "4.5"
+actix-web-static-files = "4.0"
+actix-ws-proxy = "0.1"
+static-files = "0.2"
+
+[build-dependencies]
+static-files = "0.2"

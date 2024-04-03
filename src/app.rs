@@ -18,17 +18,15 @@ use std::cell::OnceCell;
 
 use adw::subclass::prelude::*;
 use glib::{clone, WeakRef};
+use gstreamer::prelude::*;
 use gstreamer::DeviceMonitor;
-use gstreamer_rtsp_server::prelude::*;
-use gstreamer_rtsp_server::{RTSPMediaFactory, RTSPServer};
 use gtk::prelude::*;
 use gtk::{gio, glib};
-use log::{debug, error, info, warn};
 use pnet::datalink::interfaces;
 
 use crate::config;
-use crate::i18n::i18n;
 use crate::ui::{about_dialog, AsApplicationWindow};
+use crate::webrtc::{signaling, web};
 
 mod imp {
     use super::*;
@@ -96,6 +94,17 @@ mod imp {
             obj.set_accels_for_action("app.quit", &["<primary>q"]);
             obj.add_action(&action);
 
+            // Start webrtc machinery
+            std::thread::spawn(move || {
+                info!("start signaling");
+                signaling::spawn().unwrap();
+            });
+
+            std::thread::spawn(move || {
+                info!("start web");
+                web::spawn().unwrap();
+            });
+
             self.setup_server(&window);
         }
     }
@@ -106,39 +115,24 @@ mod imp {
 
     impl AsApplication {
         fn setup_server(&self, window: &AsApplicationWindow) {
+            gstrswebrtc::plugin_register_static().unwrap();
+
             if let Some(node_name) = self.find_device_name() {
-                // Setup and start RTSP server
-                let server = RTSPServer::new();
-
-                server.connect_client_connected(|_, _| {
-                    debug!("A client has established a connection");
-
-                    let notification =
-                        gio::Notification::new(&i18n("A client has established a connection"));
-                    notification
-                        .set_body(Some(&i18n("Audio playback from this device gets shared.")));
-
-                    let app = gio::Application::default().unwrap();
-                    app.send_notification(Some("audio-sharing-playback"), &notification);
-                });
-
-                let factory = RTSPMediaFactory::new();
+                // for pipewire
+                // node.target
                 let launch = format!(
-                    "pulsesrc device={}.monitor client-name=audio-sharing ! vorbisenc ! rtpvorbispay name=pay0 pt=96",
+                    "webrtcsink name=ws meta=\"meta,name=AudioSharing\" pulsesrc device={}.monitor client-name=audio-sharing ! ws.",
+                    //"webrtcsink name=ws meta=\"meta,name=gst-stream\" pipewiresrc path=51 ! ws.",
                     node_name
                 );
-                debug!("Gstreamer pipeline: {}", &launch);
-                factory.set_launch(&launch);
-                factory.set_shared(true);
 
-                let mounts = server.mount_points().unwrap();
-                mounts.add_factory("/audio", factory);
+                let element = gstreamer::parse::launch(&launch).unwrap();
+                let pipeline = element.downcast::<gstreamer::Pipeline>().unwrap();
 
-                let ctx = glib::MainContext::default();
-                server.attach(Some(&ctx)).unwrap();
+                pipeline.set_state(gstreamer::State::Playing).unwrap();
 
                 let ip = self.get_ip_addr();
-                let address = format!("rtsp://{}:8554/audio", ip);
+                let address = format!("http://{}:9090", ip);
                 window.set_address(address);
             } else {
                 warn!("Unable to find audio sink");
