@@ -162,6 +162,7 @@ mod imp {
         fn find_device_name(&self) -> Option<String> {
             // Use gstreamer device monitor to find out the sink which we want to stream
             let device_monitor = DeviceMonitor::new();
+            device_monitor.add_filter(Some("Audio"), None).unwrap();
             device_monitor
                 .start()
                 .expect("Unable to start gstreamer device monitor");
