@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2022-10-09 19:56+0000\n"
-"PO-Revision-Date: 2022-10-10 18:44+0300\n"
-"Last-Translator: Aleksandr Melman <Alexmelman88@gmail.com>\n"
+"POT-Creation-Date: 2024-03-30 21:54+0000\n"
+"PO-Revision-Date: 2024-03-31 13:54+0300\n"
+"Last-Translator: Artur So <arturios2005@mail.ru>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -33,11 +33,7 @@ msgstr "Gnome;GTK;audio;sharing;sound;аудио;звук;"
 msgid "Share your computer audio"
 msgstr "Делитесь аудио с вашего компьютера"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Felix Häcker"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:20
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -47,7 +43,7 @@ msgstr ""
 "на компьютере в виде потока RTSP. Затем этот поток может быть воспроизведен "
 "другими устройствами, например, с помощью VLC."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -65,23 +61,29 @@ msgstr ""
 "приложения звук с компьютера можно воспроизвести на смартфоне, который затем "
 "подключается к Bluetooth-аксессуару."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
 msgid "Main window light"
 msgstr "Главное окно светлое"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:36
 msgid "Main window dark"
 msgstr "Главное окно темное"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:58
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Подключитесь к аудиопотоку, отсканировав QR-код или скопировав адрес"
 
 #: data/gtk/window.ui:27
 msgid "Menu"
 msgstr "Меню"
 
-#: data/gtk/window.ui:87
-msgid "Copy to Clipboard"
-msgstr "Копировать в буфер обмена"
+#: data/gtk/window.ui:91
+msgid "_Copy to Clipboard"
+msgstr "_Копировать в буфер обмена"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:106
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -98,17 +100,17 @@ msgstr ""
 "\n"
 "Чтобы прекратить обмен, просто закройте это окно."
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:128
 msgid "Unable to Share Audio"
 msgstr "Невозможно поделиться аудио"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:153
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Открыть _Справку <sup>↗</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:160
 msgid "_About Audio Sharing"
-msgstr "_О Audio Sharing"
+msgstr "_О приложении"
 
 #: src/ui/about_window.rs:35
 msgid "Share computer audio"
@@ -118,14 +120,17 @@ msgstr "Делитесь аудио с компьютера"
 msgid "translator-credits"
 msgstr "Aleksandr Melman"
 
-#: src/ui/window.rs:83
+#: src/ui/window.rs:82
 msgid "Copied address to clipboard"
 msgstr "Адрес скопирован в буфер обмена"
 
-#: src/app.rs:144
+#: src/app.rs:138
 msgid "A client has established a connection"
 msgstr "Клиент установил соединение"
 
-#: src/app.rs:145
+#: src/app.rs:139
 msgid "Audio playback from this device gets shared."
 msgstr "Воспроизведение аудио с этого устройства становится общим."
+
+#~ msgid "Felix Häcker"
+#~ msgstr "Felix Häcker"
