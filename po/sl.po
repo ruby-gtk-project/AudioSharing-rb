@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-03-31 09:41+0000\n"
-"PO-Revision-Date: 2024-04-01 10:49+0200\n"
+"POT-Creation-Date: 2024-04-02 17:40+0000\n"
+"PO-Revision-Date: 2024-04-05 00:21+0200\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenščina <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -64,22 +64,27 @@ msgstr ""
 "predvajati na pametnem telefonu, ki je nato povezan z drugo napravo v "
 "omrežju Bluetooth."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:58
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
 msgid ""
 "Connect to the audio stream by scanning the QR code or copying the address"
 msgstr ""
 "Povežite se z zvočnim tokom tako, da optično preberete kodo QR ali kopirate "
 "naslov"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Meni"
 
-#: data/gtk/window.ui:91
+#: data/gtk/window.ui:81
 msgid "_Copy to Clipboard"
 msgstr "_Kopiraj v odložišče"
 
-#: data/gtk/window.ui:106
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -95,15 +100,15 @@ msgstr ""
 "\n"
 "Če želite oddajanje zaustaviti, preprosto zaprite to okno."
 
-#: data/gtk/window.ui:128
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Zvokov ni mogoče objaviti v izmenjavo"
 
-#: data/gtk/window.ui:153
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Odpri pomo_č <sup>↗</sup>"
 
-#: data/gtk/window.ui:160
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "_O programu"
 
@@ -111,14 +116,14 @@ msgstr "_O programu"
 msgid "translator-credits"
 msgstr "Matej Urbančič <mateju@src.gnome.org>"
 
-#: src/ui/window.rs:82
+#: src/ui/window.rs:76
 msgid "Copied address to clipboard"
 msgstr "Kopiraj naslov v odložišče"
 
-#: src/app.rs:138
+#: src/app.rs:117
 msgid "A client has established a connection"
 msgstr "Program je vzpostavil povezavo"
 
-#: src/app.rs:139
+#: src/app.rs:119
 msgid "Audio playback from this device gets shared."
 msgstr "Zvočni posketek bo oddajan s te naprave."
