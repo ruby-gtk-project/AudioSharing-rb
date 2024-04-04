@@ -18,7 +18,6 @@
         "--socket=wayland",
         "--device=dri",
         "--socket=pulseaudio",
-        "--filesystem=xdg-run/pipewire-0",
         "--env=RUST_LOG=audio_sharing=debug",
         "--env=RUST_BACKTRACE=1",
         "--env=GST_DEBUG=WARN"
