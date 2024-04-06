@@ -1,13 +1,13 @@
 # Basque translation for AudioSharing.
 # Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
-# Asier Sarasua Garmendia <asiersarasua@ni.eus>, 2022.
+# Asier Sarasua Garmendia <asiersarasua@ni.eus>, 2022, 2024.
 #
 msgid ""
 msgstr "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2022-11-18 14:00+0000\n"
-"PO-Revision-Date: 2022-11-20 06:47+0000\n"
+"POT-Creation-Date: 2024-04-02 17:40+0000\n"
+"PO-Revision-Date: 2024-04-06 06:47+0000\n"
 "Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
 "Language-Team: Basque <librezale@librezale.eus>\n"
 "Language: eu\n"
@@ -25,22 +25,19 @@ msgstr "@NAME@"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audioa;partekatzea;soinua;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Partekatu zure ordenagailuko audioa"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Felix Häcker"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
 "devices, for example using VLC."
 msgstr "Audio Sharing aplikazioaren bidez, ordenagailuko audioaren erreprodukzioa partekatu daiteke RTSP korronte gisa. Korronte hori beste gailu batzuetan erreproduzitu daiteke, adibidez VLC erabiliz."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -51,23 +48,25 @@ msgid ""
 "accessory."
 msgstr "Audioa sareko korronte gisa partekatuz, aundio-kolektore gisa erabiltzeko pentsatuta ez dauden gailu arruntak ere erabili daitezke, adibidez mugikor adimentsuak.  Adibidez, badaude mahaigaineko ordenagailuekin bateragarriak ez diren audio-osagarriak (esaterako, ordenagailuak ez duelako Bluetooth modulurik instalatuta). Aplikazio honen laguntzaren bidez, ordenagailuko audioa mugikor batean erreproduzitu daiteke, eta hori Bluetooth osagarriarekin konektatu daiteke."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "Leiho nagusi argia"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "Leiho nagusi iluna"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr "Eskaneatu QR kodea edo kopiatu helbidea audio-korrontearekin konektatzeko"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Menua"
 
-#: data/gtk/window.ui:87
-msgid "Copy to Clipboard"
-msgstr "Kopiatu arbelean"
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Kopiatu arbelean"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -79,34 +78,39 @@ msgstr "Audioa partekatzen ari zara. Sare bereko beste gailuetatik atzitzeko, es
 "\n"
 "Partekatzea gelditzeko, itxi leiho hau."
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Ezin da audioa partekatu"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Ireki _laguntza <sup>↗</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "Audio Sharing aplikazioari _buruz"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Partekatu ordenagailuko audioa"
-
-#: src/ui/about_window.rs:45
+#: src/ui/about_dialog.rs:43
 msgid "translator-credits"
 msgstr "translator-credits"
 
-#: src/ui/window.rs:83
+#: src/ui/window.rs:76
 msgid "Copied address to clipboard"
 msgstr "Helbidea arbelean kopiatu da"
 
-#: src/app.rs:144
+#: src/app.rs:117
 msgid "A client has established a connection"
 msgstr "Bezero batek konexio bat ezarri du"
 
-#: src/app.rs:145
+#: src/app.rs:119
 msgid "Audio playback from this device gets shared."
 msgstr "Gailu honetako audio-erreprodukzioa partekatzen ari da."
+
+#~ msgid "Main window light"
+#~ msgstr "Leiho nagusi argia"
+
+#~ msgid "Main window dark"
+#~ msgstr "Leiho nagusi iluna"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Partekatu ordenagailuko audioa"
