@@ -1,14 +1,14 @@
 # Swedish translation for AudioSharing.
-# Copyright © 2022 AudioSharing's COPYRIGHT HOLDER
+# Copyright © 2022-2024 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2022.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2022, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2022-10-09 07:05+0000\n"
-"PO-Revision-Date: 2022-10-10 18:24+0200\n"
+"POT-Creation-Date: 2024-04-02 09:52+0000\n"
+"PO-Revision-Date: 2024-04-04 21:41+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -28,15 +28,12 @@ msgstr "@NAME@"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;delning;ljud;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Dela ditt datorljud"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Felix Häcker"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -47,7 +44,7 @@ msgstr ""
 "med VLC."
 
 # TODO: e.g.
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -65,23 +62,26 @@ msgstr ""
 "datorljudet spelas upp på en smartmobil som sedan ansluts till Bluetooth-"
 "tillbehöret."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "Ljust huvudfönster"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "Mörkt huvudfönster"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Anslut till ljudströmmen genom att läsa av QR-koden eller kopiera adressen"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Meny"
 
-#: data/gtk/window.ui:87
-msgid "Copy to Clipboard"
-msgstr "Kopiera till urklipp"
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Kopiera till urklipp"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -97,23 +97,19 @@ msgstr ""
 "\n"
 "Stäng detta fönster för att sluta dela."
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Kunde inte dela ljud"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Öppna _hjälp <sup>↗</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "_Om Audio Sharing"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Dela datorns ljud"
-
-#: src/ui/about_window.rs:45
+#: src/ui/about_dialog.rs:43
 msgid "translator-credits"
 msgstr ""
 "Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
@@ -121,14 +117,23 @@ msgstr ""
 "Skicka synpunkter på översättningen till\n"
 "<tp-sv@listor.tp-sv.se>."
 
-#: src/ui/window.rs:83
+#: src/ui/window.rs:76
 msgid "Copied address to clipboard"
 msgstr "Kopierade adress till urklipp"
 
-#: src/app.rs:144
+#: src/app.rs:117
 msgid "A client has established a connection"
 msgstr "En klient har etablerat en anslutning"
 
-#: src/app.rs:145
+#: src/app.rs:119
 msgid "Audio playback from this device gets shared."
 msgstr "Ljuduppspelning från denna enhet delas."
+
+#~ msgid "Main window light"
+#~ msgstr "Ljust huvudfönster"
+
+#~ msgid "Main window dark"
+#~ msgstr "Mörkt huvudfönster"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Dela datorns ljud"
