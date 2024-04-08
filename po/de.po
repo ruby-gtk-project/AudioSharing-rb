@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-03-30 21:54+0000\n"
-"PO-Revision-Date: 2024-03-30 23:07+0100\n"
+"POT-Creation-Date: 2024-04-02 17:40+0000\n"
+"PO-Revision-Date: 2024-04-08 20:02+0200\n"
 "Last-Translator: Jürgen Benvenuti <gastornis@posteo.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -28,12 +28,13 @@ msgstr "@NAME@"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;sharing;sound;Ton;freigeben;Klang;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Geben Sie die Tonausgabe Ihres Rechners frei"
 
 # Stream: Datenstrom? - jb
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:20
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -44,7 +45,7 @@ msgstr ""
 "Geräten wiedergegeben werden, zum Beispiel mit VLC."
 
 # Audio (ohne playback): Tonausgabe. Bin allerdings nicht ganz überzeugt davon. Audio einfach als Audio zu übersetzen, funktioniert aber auch nicht wirklich, finde ich. Verbesserungsvorschläge werden wie immer gerne angenommen ;) - jb
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -62,23 +63,27 @@ msgstr ""
 "Tonausgabe des Rechners auf einem Smartphone wiedergegeben werden, welches "
 "dann mit dem Bluetooth-Zubehör verbunden wird."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window light"
-msgstr "Hauptfenster hell"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:36
-msgid "Main window dark"
-msgstr "Hauptfenster dunkel"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Verbinden Sie sich mit dem Tonausgabe-Stream durch Scannen des QR-Codes oder "
+"durch Kopieren der Adresse"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Menü"
 
-#: data/gtk/window.ui:91
+#: data/gtk/window.ui:81
 msgid "_Copy to Clipboard"
 msgstr "In die Zwischenablage _kopieren"
 
-#: data/gtk/window.ui:106
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -95,38 +100,40 @@ msgstr ""
 "\n"
 "Um die Freigabe zu beenden, schließen Sie einfach dieses Fenster."
 
-#: data/gtk/window.ui:128
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Tonausgabe konnte nicht freigegeben werden"
 
-#: data/gtk/window.ui:153
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "_Hilfe öffnen <sup>↗</sup>"
 
-#: data/gtk/window.ui:160
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "_Info zu Audio Sharing"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Tonausgabe des Rechners freigeben"
-
-#: src/ui/about_window.rs:45
+#: src/ui/about_dialog.rs:43
 msgid "translator-credits"
 msgstr "Jürgen Benvenuti <gastornis@posteo.org>, 2022, 2024"
 
-#: src/ui/window.rs:82
+#: src/ui/window.rs:76
 msgid "Copied address to clipboard"
 msgstr "Adresse in die Zwischenablage kopiert"
 
-#: src/app.rs:138
+#: src/app.rs:117
 msgid "A client has established a connection"
 msgstr "Ein Client hat eine Verbindung hergestellt"
 
 # Audio playback: Tonwiedergabe (siehe auch anderer Kommentar). - jb
-#: src/app.rs:139
+#: src/app.rs:119
 msgid "Audio playback from this device gets shared."
 msgstr "Tonwiedergabe von diesem Gerät wird freigegeben."
 
-#~ msgid "Felix Häcker"
-#~ msgstr "Felix Häcker"
+#~ msgid "Main window light"
+#~ msgstr "Hauptfenster hell"
+
+#~ msgid "Main window dark"
+#~ msgstr "Hauptfenster dunkel"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Tonausgabe des Rechners freigeben"
