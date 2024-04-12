@@ -3,19 +3,22 @@
 # This file is distributed under the same license as the AudioSharing package.
 # Translators:
 # Hemish <hemish04082005@gmail.com>, 2022
+# Scrambled777 <weblate.scrambled777@simplelogin.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2022-11-16 20:37+0000\n"
-"PO-Revision-Date: 2022-11-18 07:01+0530\n"
-"Last-Translator: Hemish <hemish04082005@gmail.com>\n"
-"Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net> https://indlinux.org/hindi\n"
+"POT-Creation-Date: 2023-10-31 12:23+0000\n"
+"PO-Revision-Date: 2024-03-30 23:20+0530\n"
+"Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
+"Language-Team: Hindi\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Gtranslator 46.0\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -26,25 +29,21 @@ msgstr "@NAME@"
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;sharing;sound;ध्वनि;शेयर;शरे;"
-# I have added 'शरे' as this is how 'share' would appear if typed through ITRANS keyboard layout
 
+# I have added 'शरे' as this is how 'share' would appear if typed through ITRANS keyboard layout
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
 msgid "Share your computer audio"
 msgstr "अपने कंप्यूटर का ऑडियो साझा करें"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Felix Häcker"
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
 "devices, for example using VLC."
-msgstr "" 
-"Audio Sharing के द्वारा आप अपने वर्तमान कंप्यूटर ऑडियो प्लेबैक को "
-"RTSP स्ट्रीम के रूप में साझा कर सकते हैं। इस स्ट्रीम को फिर अन्य उपकरणों द्वारा "
-"चलाया जा सकता है, उदाहरण के लिए VLC।"
+msgstr ""
+"Audio Sharing के द्वारा आप अपने वर्तमान कंप्यूटर ऑडियो प्लेबैक को RTSP स्ट्रीम के रूप में "
+"साझा कर सकते हैं। इस स्ट्रीम को फिर अन्य उपकरणों द्वारा चलाया जा सकता है, उदाहरण के "
+"लिए VLC।"
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
 msgid ""
@@ -56,31 +55,29 @@ msgid ""
 "played back on a smartphone, which is then connected to the Bluetooth "
 "accessory."
 msgstr ""
-"ऑडियो को एक नेटवर्क स्ट्रीम के रूप में साझा करके, आप उन सामान्य "
-"उपकरणों का भी उपयोग कर सकते हैं जिन्हें ऑडियो सिंक (जैसे स्मार्टफोन) के रूप "
-"में उपयोग नहीं किया जाता। उदाहरण के लिए, कुछ ऐसे ऑडियो सहायक उपकरण होते "
-"हैं जो डेस्कटॉप कंप्यूटरों के साथ काम नहीं करते। (उदाहरण के लिए कंप्यूटर में ब्लूटूथ "
-"मॉड्यूल स्थापित नहीं है) इस ऐप की मदद से कंप्यूटर ऑडियो स्मार्टफोन पर चलाया जा "
-"सकता है, जो बाद में किसी ब्लूटूथ उपकरण (जैसे हेडफ़ोन) से जुड़ा हो सकता "
-"है।"
+"ऑडियो को एक नेटवर्क स्ट्रीम के रूप में साझा करके, आप उन सामान्य उपकरणों का भी उपयोग कर "
+"सकते हैं जिन्हें ऑडियो सिंक (जैसे स्मार्टफोन) के रूप में उपयोग नहीं किया जाता। उदाहरण के लिए, "
+"कुछ ऐसे ऑडियो सहायक उपकरण होते हैं जो डेस्कटॉप कंप्यूटरों के साथ काम नहीं करते। (उदाहरण के "
+"लिए कंप्यूटर में ब्लूटूथ मॉड्यूल स्थापित नहीं है) इस ऐप की मदद से कंप्यूटर ऑडियो स्मार्टफोन पर "
+"चलाया जा सकता है, जो बाद में किसी ब्लूटूथ उपकरण (जैसे हेडफ़ोन) से जुड़ा हो सकता है।"
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
 msgid "Main window light"
-msgstr "मुख्य विंडो लाइट"
+msgstr "मुख्य विंडो हल्की"
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
 msgid "Main window dark"
-msgstr "मुख्य विंडो डार्क"
+msgstr "मुख्य विंडो गहरी"
 
 #: data/gtk/window.ui:27
 msgid "Menu"
 msgstr "मेन्यू"
 
-#: data/gtk/window.ui:87
+#: data/gtk/window.ui:88
 msgid "Copy to Clipboard"
 msgstr "कॉपी करें"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:99
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -89,24 +86,23 @@ msgid ""
 "\n"
 "To stop sharing, simply close this window."
 msgstr ""
-"आप वर्तमान में अपना ऑडियो साझा कर रहे हैं। क्यूआर कोड स्कैन करके या "
-"प्रदर्शित पता RTSP स्ट्रीम का समर्थन करने वाले प्लेबैक ऐप में भर कर आप "
-"इसे एक ही नेटवर्क में अन्य उपकरणों से एक्सेस कर सकते हैं। यह डिवाइस "
-"मूक किया जा सकता है, ऑडियो फिर भी शेयर किया जाएगा।\n"
+"आप वर्तमान में अपना ऑडियो साझा कर रहे हैं। क्यूआर कोड स्कैन करके या प्रदर्शित पता RTSP "
+"स्ट्रीम का समर्थन करने वाले प्लेबैक ऐप में भर कर आप इसे एक ही नेटवर्क में अन्य उपकरणों से एक्सेस "
+"कर सकते हैं। यह डिवाइस मूक किया जा सकता है, ऑडियो फिर भी शेयर किया जाएगा।\n"
 "\n"
 "साझा करना बंद करने के लिए बस इस विंडो को बंद कर दें।"
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:121
 msgid "Unable to Share Audio"
 msgstr "ऑडियो साझा करने में असमर्थ"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:146
 msgid "Open _Help <sup>↗</sup>"
-msgstr "मदद खोलें<sup>↗</sup> (H)"
+msgstr "सहायता खोलें <sup>↗</sup> (_H)"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:153
 msgid "_About Audio Sharing"
-msgstr "'Audio Sharing' का परिचय (A)"
+msgstr "Audio Sharing के बारे में (_A)"
 
 #: src/ui/about_window.rs:35
 msgid "Share computer audio"
@@ -127,3 +123,6 @@ msgstr "एक क्लाइंट ने एक कनेक्शन स्�
 #: src/app.rs:145
 msgid "Audio playback from this device gets shared."
 msgstr "इस डिवाइस से ऑडियो प्लेबैक शेयर किया जाएगा।"
+
+#~ msgid "Felix Häcker"
+#~ msgstr "Felix Häcker"
