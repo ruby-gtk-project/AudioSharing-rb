@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2022-11-15 09:56+0000\n"
-"PO-Revision-Date: 2022-11-16 22:36+0200\n"
+"POT-Creation-Date: 2024-04-02 17:40+0000\n"
+"PO-Revision-Date: 2024-04-13 12:54+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: Finnish <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -28,15 +28,12 @@ msgstr "@NAME@"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;sharing;sound;äänen;jakaminen;ääni;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Jaa tietokoneesi ääni"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Felix Häcker"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -45,7 +42,7 @@ msgstr ""
 "Tällä sovelluksella voit jakaa tietokoneen äänentoiston RTSP-suoratoistona. "
 "Suoratoistoa voidaan toistaa muilta laitteilta käyttäen esimerkiksi VLC:tä."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -62,23 +59,25 @@ msgstr ""
 "kuulokkeisiin.. Tämän sovelluksen avulla voit välittää tietokoneen äänen "
 "älypuhelimeen, ja yhdistää siihen Bluetooth-kuulokkeet."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "Vaalea pääikkuna"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "Tumma pääikkuna"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr "Yhdistä äänivirtaan skannaamalla QR-koodi tai kopioimalla osoite"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Valikko"
 
-#: data/gtk/window.ui:87
-msgid "Copy to Clipboard"
-msgstr "Kopioi leikepöydälle"
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Kopioi leikepöydälle"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -94,34 +93,39 @@ msgstr ""
 "\n"
 "Lopeta äänen jakaminen sulkemalla tämä ikkuna."
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Äänen jakaminen ei onnistunut"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Avaa _ohje <sup>↗</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "_Tietoja - Äänen jakaminen"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Jaa tietokoneen ääni"
-
-#: src/ui/about_window.rs:45
+#: src/ui/about_dialog.rs:43
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
 
-#: src/ui/window.rs:83
+#: src/ui/window.rs:76
 msgid "Copied address to clipboard"
 msgstr "Osoite kopioitu leikepöydälle"
 
-#: src/app.rs:144
+#: src/app.rs:117
 msgid "A client has established a connection"
 msgstr "Asiakas on muodostanut yhteyden"
 
-#: src/app.rs:145
+#: src/app.rs:119
 msgid "Audio playback from this device gets shared."
 msgstr "Äänentoisto tältä laitteelta jaetaan."
+
+#~ msgid "Main window light"
+#~ msgstr "Vaalea pääikkuna"
+
+#~ msgid "Main window dark"
+#~ msgstr "Tumma pääikkuna"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Jaa tietokoneen ääni"
