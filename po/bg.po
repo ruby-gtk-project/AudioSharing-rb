@@ -1,0 +1,124 @@
+# Bulgarian translation for AudioSharing.
+# Copyright (C) 2024 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# twlvnn <kraft_werk@tutanota.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2024-04-13 09:54+0000\n"
+"PO-Revision-Date: 2024-04-15 14:52+0200\n"
+"Last-Translator: \n"
+"Language-Team: Bulgarian <dict-notifications@fsa-bg.org>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "аудио;споделяне;звук;Gnome;GTK;audio;sharing;sound;"
+
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
+msgid "Share your computer audio"
+msgstr "Споделяне на звука от компютъра"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"С „Audio Sharing“ може да споделяте текущо възпроизвежданото аудио от "
+"компютъра като поток на RTSP. Потокът може да бъде възпроизведен от други "
+"устройства, например с VLC."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Чрез споделяне на звука като мрежов поток може да го възпроизвеждате с "
+"всякакви устройства, дори и такива, които не са предназначени за звукови "
+"приемници (например телефон). Например — тонколонка по Bluetooth, която не "
+"може да се свърже (защото компютърът няма Bluetooth). С помощта на тази "
+"програма звукът от компютъра може да се възпроизвежда на телефон, който след "
+"това е свързан към тонколонката по Bluetooth."
+
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Свързване към аудио поток чрез сканиране на QR код или копиране на адрес"
+
+#: data/gtk/window.ui:20
+msgid "Menu"
+msgstr "Меню"
+
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Копиране към буфера за обмен"
+
+#: data/gtk/window.ui:96
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"В момента споделяте звука. Може да получите достъп до него от други "
+"устройства в същата мрежа, като сканирате QR кода или въведете показания "
+"адрес в програма за възпроизвеждане, която поддържа RTSP. Това устройство "
+"може да бъде заглушено, но звукът ще продължи да се споделя.\n"
+"\n"
+"За да спрете споделянето, затворете текущия прозорец."
+
+#: data/gtk/window.ui:118
+msgid "Unable to Share Audio"
+msgstr "Неуспешно споделяне на звука"
+
+#: data/gtk/window.ui:143
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Отваряне на Помо_щта <sup>↗</sup>"
+
+#: data/gtk/window.ui:150
+msgid "_About Audio Sharing"
+msgstr "_Относно „Audio Sharing“"
+
+#: src/ui/about_dialog.rs:43
+msgid "translator-credits"
+msgstr "twlvnn <kraft_werk@tutanota.com>"
+
+#: src/ui/window.rs:76
+msgid "Copied address to clipboard"
+msgstr "Адресът е копиран в буфера за обмен"
+
+#: src/app.rs:117
+msgid "A client has established a connection"
+msgstr "Клиент е установил връзка"
+
+#: src/app.rs:119
+msgid "Audio playback from this device gets shared."
+msgstr "Възпроизвежданият от това устройство звук се споделя."
