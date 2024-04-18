@@ -2,22 +2,22 @@
 # Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 #
-# Ingir <ingirafn@this.is>, 2023.
+# Ingir <ingirafn@this.is>, 2023, 2024.
 # Sveinn í Felli <sv1@fellsnet.is>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2023-04-10 11:33+0000\n"
-"PO-Revision-Date: 2023-04-22 17:34+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
+"POT-Creation-Date: 2024-04-02 17:40+0000\n"
+"PO-Revision-Date: 2024-04-18 19:04+0000\n"
+"Last-Translator: Ingirafn Steinarsson <ingirafn@this.is>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -29,25 +29,22 @@ msgstr "@NAME@"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;tónlist;deila;hljóð;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Deildu hljóði úr tölvunni þinni"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Felix Häcker"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
 "devices, for example using VLC."
 msgstr ""
 "Með Audio Sharing getur þú deilt yfirstandandi afspilun í tölvunni þinni sem "
-"RTSP-streymi. Þetta streymi er þá hægt að spila með öðrum tækjum, t.d. með"
-" VLC."
+"RTSP-streymi. Þetta streymi er þá hægt að spila með öðrum tækjum, t.d. með "
+"VLC."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -57,31 +54,33 @@ msgid ""
 "played back on a smartphone, which is then connected to the Bluetooth "
 "accessory."
 msgstr ""
-"Með því að deila hljóði sem net-streymi, getur þú notað algeng tæki "
-"sem ekki eru ætluð sem móttakarar (t.d. eins og snjallsíma) sem viðtakendur."
-" Sem dæmi væru hljómtæki sem eru ekki samrýmanleg við borðtölvur (í þeim"
-" tilfellum að "
-"tölvan hefur ekki innbyggt Bluetooth). En með hjálp þessa forrits, er hægt að"
-" spila "
-"hljóð úr tölvunni yfir í snjallsíma, sem er þá tengdur við Bluetooth-tækið."
+"Með því að deila hljóði sem net-streymi, getur þú notað algeng tæki sem ekki "
+"eru ætluð sem móttakarar (t.d. eins og snjallsíma) sem viðtakendur. Sem dæmi "
+"væru hljómtæki sem eru ekki samrýmanleg við borðtölvur (í þeim tilfellum að "
+"tölvan hefur ekki innbyggt Bluetooth). En með hjálp þessa forrits, er hægt "
+"að spila hljóð úr tölvunni yfir í snjallsíma, sem er þá tengdur við "
+"Bluetooth-tækið."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "Aðalgluggi ljós"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "Aðalgluggi dökkur"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr "Tengjast hljóðstreyminu með því að skanna QR kóða eða vefföng"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Valmynd"
 
-#: data/gtk/window.ui:87
-msgid "Copy to Clipboard"
-msgstr "Afrita á klippispjald"
+#: data/gtk/window.ui:81
+#| msgid "Copy to Clipboard"
+msgid "_Copy to Clipboard"
+msgstr "_Afrita á klippispjald"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -90,41 +89,45 @@ msgid ""
 "\n"
 "To stop sharing, simply close this window."
 msgstr ""
-"Þú deilir núna hljóðinu þínu. Þú getur hlustað á hana í öðrum tækjum á "
-"sama netkerfi með því að skanna inn QR-kóðann eða setja inn uppgefið veffang"
-" í "
+"Þú deilir núna hljóðinu þínu. Þú getur hlustað á hana í öðrum tækjum á sama "
+"netkerfi með því að skanna inn QR-kóðann eða setja inn uppgefið veffang í "
 "forriti sem styður RTSP-streymi. Hægt er að þagga niður í viðkomandi tæki en "
 "aðrir geta eftir sem áður hlustað.\n"
 "Til að hætta að deila skaltu einfaldlega loka þessum glugga."
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Ekki hægt að deila hljóði"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Opna _hjálp <sup>↗</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "_Um Audio Sharing"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Deila hljóði úr tölvu"
-
-#: src/ui/about_window.rs:45
+#: src/ui/about_dialog.rs:43
 msgid "translator-credits"
 msgstr "Ingirafn Steinarsson, ingirafn at this dot is, 2023"
 
-#: src/ui/window.rs:83
+#: src/ui/window.rs:76
 msgid "Copied address to clipboard"
 msgstr "Afritaði veffang á klippispjald"
 
-#: src/app.rs:144
+#: src/app.rs:117
 msgid "A client has established a connection"
 msgstr "Notandi hefur komið á tengingu"
 
-#: src/app.rs:145
+#: src/app.rs:119
 msgid "Audio playback from this device gets shared."
 msgstr "Afspilun hljóðs frá þessu tæki deilist."
+
+#~ msgid "Main window light"
+#~ msgstr "Aðalgluggi ljós"
+
+#~ msgid "Main window dark"
+#~ msgstr "Aðalgluggi dökkur"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Deila hljóði úr tölvu"
