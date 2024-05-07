@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2023-10-31 12:23+0000\n"
-"PO-Revision-Date: 2024-03-30 23:20+0530\n"
+"POT-Creation-Date: 2024-04-12 07:44+0000\n"
+"PO-Revision-Date: 2024-04-12 19:59+0530\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi\n"
 "Language: hi\n"
@@ -31,11 +31,12 @@ msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;sharing;sound;ध्वनि;शेयर;शरे;"
 
 # I have added 'शरे' as this is how 'share' would appear if typed through ITRANS keyboard layout
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "अपने कंप्यूटर का ऑडियो साझा करें"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -45,7 +46,7 @@ msgstr ""
 "साझा कर सकते हैं। इस स्ट्रीम को फिर अन्य उपकरणों द्वारा चलाया जा सकता है, उदाहरण के "
 "लिए VLC।"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -61,23 +62,25 @@ msgstr ""
 "लिए कंप्यूटर में ब्लूटूथ मॉड्यूल स्थापित नहीं है) इस ऐप की मदद से कंप्यूटर ऑडियो स्मार्टफोन पर "
 "चलाया जा सकता है, जो बाद में किसी ब्लूटूथ उपकरण (जैसे हेडफ़ोन) से जुड़ा हो सकता है।"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "मुख्य विंडो हल्की"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "मुख्य विंडो गहरी"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr "QR कोड को स्कैन करके या पता कॉपी करके ऑडियो स्ट्रीम से जुड़े"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "मेन्यू"
 
-#: data/gtk/window.ui:88
-msgid "Copy to Clipboard"
-msgstr "कॉपी करें"
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "क्लिपबोर्ड पर कॉपी करें (_C)"
 
-#: data/gtk/window.ui:99
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -92,37 +95,39 @@ msgstr ""
 "\n"
 "साझा करना बंद करने के लिए बस इस विंडो को बंद कर दें।"
 
-#: data/gtk/window.ui:121
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "ऑडियो साझा करने में असमर्थ"
 
-#: data/gtk/window.ui:146
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "सहायता खोलें <sup>↗</sup> (_H)"
 
-#: data/gtk/window.ui:153
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "Audio Sharing के बारे में (_A)"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "कंप्यूटर का ऑडियो साझा करें"
-
-#: src/ui/about_window.rs:45
+#: src/ui/about_dialog.rs:43
 msgid "translator-credits"
 msgstr "Hemish <hemish04082005@gmail.com>"
 
-#: src/ui/window.rs:83
+#: src/ui/window.rs:76
 msgid "Copied address to clipboard"
 msgstr "पता क्लिपबोर्ड पर कॉपी कर दिया गया"
 
-#: src/app.rs:144
+#: src/app.rs:117
 msgid "A client has established a connection"
 msgstr "एक क्लाइंट ने एक कनेक्शन स्थापित किया है"
 
-#: src/app.rs:145
+#: src/app.rs:119
 msgid "Audio playback from this device gets shared."
 msgstr "इस डिवाइस से ऑडियो प्लेबैक शेयर किया जाएगा।"
 
-#~ msgid "Felix Häcker"
-#~ msgstr "Felix Häcker"
+#~ msgid "Main window light"
+#~ msgstr "मुख्य विंडो हल्की"
+
+#~ msgid "Main window dark"
+#~ msgstr "मुख्य विंडो गहरी"
+
+#~ msgid "Share computer audio"
+#~ msgstr "कंप्यूटर का ऑडियो साझा करें"
