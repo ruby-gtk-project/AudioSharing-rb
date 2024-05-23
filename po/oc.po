@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2022-11-25 08:27+0000\n"
-"PO-Revision-Date: 2022-12-04 10:58+0100\n"
+"POT-Creation-Date: 2024-04-02 17:40+0000\n"
+"PO-Revision-Date: 2024-05-23 19:16+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: Occitan <totenoc@gmail.com>\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.3\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -27,15 +27,12 @@ msgstr "@NAME@"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;àudio;partiment;partatge;paratge;son;musica;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Partejar l’àudio de l’ordenador"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Felix Häcker"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -45,7 +42,7 @@ msgstr ""
 "fòrma de flux RTSP. Aqueste flux se pòt legir sus d’autres periferics, per "
 "exemple en utilizant VLC."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -62,23 +59,26 @@ msgstr ""
 "l’ajuda d’aquesta aplicacion, l’ordenador pòt enviar l’àudio al mobil, qu'es "
 "connectat a l’accessòri Bluetooth."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "Fenèstra principala en tèma clar"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "Fenèstra principala en tèma escur"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Connectatz-vos al flux àudio en numerizant lo còdi QR o en copiant l’adreça"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Menú"
 
-#: data/gtk/window.ui:87
-msgid "Copy to Clipboard"
-msgstr "Copiar al quichapapièrs"
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Copiar al quichapapièrs"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -94,34 +94,39 @@ msgstr ""
 "\n"
 "Per arrestar lo partatge, tampatz aquesta fenèstra."
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Partatge àudio impossible"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Dobrir _Ajuda <sup>↗</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "_A prepaus de Partatge àudio"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Partejar l’àudio de l’ordenador"
-
-#: src/ui/about_window.rs:45
+#: src/ui/about_dialog.rs:43
 msgid "translator-credits"
 msgstr "Quentin PAGÈS"
 
-#: src/ui/window.rs:83
+#: src/ui/window.rs:76
 msgid "Copied address to clipboard"
 msgstr "Adreça copiada al quichapapièrs"
 
-#: src/app.rs:144
+#: src/app.rs:117
 msgid "A client has established a connection"
 msgstr "Un client a establit una connexion"
 
-#: src/app.rs:145
+#: src/app.rs:119
 msgid "Audio playback from this device gets shared."
 msgstr "La lectura del periferic es partejada."
+
+#~ msgid "Main window light"
+#~ msgstr "Fenèstra principala en tèma clar"
+
+#~ msgid "Main window dark"
+#~ msgstr "Fenèstra principala en tèma escur"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Partejar l’àudio de l’ordenador"
