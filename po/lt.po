@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2023-01-25 15:55+0000\n"
-"PO-Revision-Date: 2023-04-10 14:32+0300\n"
+"POT-Creation-Date: 2024-04-02 17:40+0000\n"
+"PO-Revision-Date: 2024-05-24 22:57+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"(n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 42.0\n"
+"(n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -31,15 +31,12 @@ msgstr "@NAME@"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;garsas;bendrinimas;dalijimasis;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Dalinkitės kompiuterio garsu"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Felix Häcker"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -49,7 +46,7 @@ msgstr ""
 "transliacijos formoje. Ši transliacija tada gali būti paleista kitų "
 "įrenginių, pavyzdžiui naudojant VLC."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -67,23 +64,26 @@ msgstr ""
 "būti paleistas išmaniajame telefone, kuris tada yra prijungtas prie "
 "Bluetooth prietaiso."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "Pagrindinis langas šviesus"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "Pagrindinis langas tamsus"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Prisijunkite prie garso srauto nuskenuodami QR kodą arba nukopijuodami adresą"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Meniu"
 
-#: data/gtk/window.ui:87
-msgid "Copy to Clipboard"
-msgstr "Kopijuoti į iškarpinę"
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Kopijuoti į iškarpinę"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -99,36 +99,41 @@ msgstr ""
 "\n"
 "Dalijimuisi nutraukti tiesiog uždarykite šį langą."
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Nepavyksta dalintis garsu"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Atidaryti žinyną <sup>↗</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "_Apie Garso Dalijimąsi"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Dalinkitės kompiuterio garsu"
-
-#: src/ui/about_window.rs:45
+#: src/ui/about_dialog.rs:43
 msgid "translator-credits"
 msgstr ""
 "Išvertė:\n"
 "Aurimas Černius <aurisc4@gmail.com>"
 
-#: src/ui/window.rs:83
+#: src/ui/window.rs:76
 msgid "Copied address to clipboard"
 msgstr "Adresas nukopijuotas į iškarpinę"
 
-#: src/app.rs:144
+#: src/app.rs:117
 msgid "A client has established a connection"
 msgstr "Klientas užmezgė ryšį"
 
-#: src/app.rs:145
+#: src/app.rs:119
 msgid "Audio playback from this device gets shared."
 msgstr "Dalijimąsi garsu iš šio įrenginio."
+
+#~ msgid "Main window light"
+#~ msgstr "Pagrindinis langas šviesus"
+
+#~ msgid "Main window dark"
+#~ msgstr "Pagrindinis langas tamsus"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Dalinkitės kompiuterio garsu"
