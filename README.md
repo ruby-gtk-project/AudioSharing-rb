@@ -15,7 +15,7 @@ The recommended way of installing Audio Sharing is using the Flatpak package. If
 
 Or by clicking this button:
 
-<a href="https://flathub.org/apps/details/de.haeckerfelix.AudioSharing"><img src="https://flathub.org/assets/badges/flathub-badge-en.png" width="200"/></a>
+<a href="https://flathub.org/apps/details/de.haeckerfelix.AudioSharing"><img src="https://flathub.org/api/badge?svg&locale=en" width="200"/></a>
 
 #### Nightly Builds
 
