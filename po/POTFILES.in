@@ -1,7 +1,11 @@
 data/de.haeckerfelix.AudioSharing.desktop.in.in
 data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in
 data/gtk/window.ui
-
-src/ui/about_dialog.rs
-src/ui/window.rs
 src/app.rs
+src/i18n.rs
+src/main.rs
+src/qrcode.rs
+src/ui/about_window.rs
+src/ui/mod.rs
+src/ui/qrcode_paintable.rs
+src/ui/window.rs
