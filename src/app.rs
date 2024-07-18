@@ -71,28 +71,42 @@ mod imp {
 
             // app.help
             let action = gio::SimpleAction::new("help", None);
-            action.connect_activate(clone!(@weak window, @weak obj => move |_, _| {
-                let launcher = gtk::UriLauncher::new("https://gitlab.gnome.org/World/AudioSharing/-/blob/main/README.md");
-                launcher.launch(Some(&window), gio::Cancellable::NONE, move |result| {
-                    if let Err(err) = result {
-                        error!("Could not open url: {err}");
-                    }
-                });
-            }));
+            action.connect_activate(clone!(
+                #[weak]
+                window,
+                move |_, _| {
+                    let launcher = gtk::UriLauncher::new(
+                        "https://gitlab.gnome.org/World/AudioSharing/-/blob/main/README.md",
+                    );
+                    launcher.launch(Some(&window), gio::Cancellable::NONE, move |result| {
+                        if let Err(err) = result {
+                            error!("Could not open url: {err}");
+                        }
+                    });
+                }
+            ));
             obj.add_action(&action);
 
             // app.about
             let action = gio::SimpleAction::new("about", None);
-            action.connect_activate(clone!(@weak window => move |_, _| {
-                about_dialog::show(&window);
-            }));
+            action.connect_activate(clone!(
+                #[weak]
+                window,
+                move |_, _| {
+                    about_dialog::show(&window);
+                }
+            ));
             obj.add_action(&action);
 
             // app.quit
             let action = gio::SimpleAction::new("quit", None);
-            action.connect_activate(clone!(@weak window => move |_, _| {
-                window.close();
-            }));
+            action.connect_activate(clone!(
+                #[weak]
+                window,
+                move |_, _| {
+                    window.close();
+                }
+            ));
             obj.set_accels_for_action("app.quit", &["<primary>q"]);
             obj.add_action(&action);
 

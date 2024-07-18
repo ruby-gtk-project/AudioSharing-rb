@@ -65,8 +65,10 @@ mod imp {
         fn constructed(&self) {
             self.parent_constructed();
 
-            self.copy_address_button
-                .connect_clicked(clone!(@weak self as this => move|_|
+            self.copy_address_button.connect_clicked(clone!(
+                #[weak(rename_to = this)]
+                self,
+                move |_| {
                     let address = this.address_label.get().text();
 
                     let display = gdk::Display::default().unwrap();
@@ -76,7 +78,8 @@ mod imp {
                     let toast = adw::Toast::new(&i18n("Copied address to clipboard"));
                     toast.set_timeout(2);
                     this.toast_overlay.add_toast(toast);
-                ));
+                }
+            ));
         }
     }
 
