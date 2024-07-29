@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-04-02 09:52+0000\n"
-"PO-Revision-Date: 2024-04-02 23:01+0300\n"
+"POT-Creation-Date: 2024-04-09 09:41+0000\n"
+"PO-Revision-Date: 2024-05-09 10:28+0300\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.3\n"
 
 # Olduğu gibi kalmalı. Çevirmeye gerek yok.
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
@@ -29,7 +29,7 @@ msgstr "@NAME@"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
 msgid "Gnome;GTK;audio;sharing;sound;"
-msgstr "Gnome;GTK;ses;paylaşım;"
+msgstr "Gnome;GTK;audio;sharing;sound;ses;paylaşım;"
 
 #. General
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
