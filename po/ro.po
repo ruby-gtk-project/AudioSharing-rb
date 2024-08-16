@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2023-10-08 15:44+0000\n"
-"PO-Revision-Date: 2023-10-11 13:47+0300\n"
+"POT-Creation-Date: 2024-07-29 20:35+0000\n"
+"PO-Revision-Date: 2024-08-15 19:19+0300\n"
 "Last-Translator: Florentina Mușat <florentina [dot] musat [dot] 28 [at] "
 "gmail [dot] com>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -30,15 +30,12 @@ msgstr "@NAME@"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;sharing;sound;partajare;sunet;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Partajați sunetul calculatorului"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Felix Häcker"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -48,7 +45,7 @@ msgstr ""
 "calculatorului sub forma unui flux RSTP. Acest flux poate fi apoi redat de "
 "alte dispozitive, de exemplu utilizând VLC."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -66,23 +63,27 @@ msgstr ""
 "acestei aplicații, audio-ul calculatorului poate fi redat pe un smartphone, "
 "care este apoi conectat la accesoriul Bluetooth."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "Fereastra principală luminoasă"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "Fereastra principală întunecată"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Conectați-vă la fluxul audio prin scanarea codului QR sau prin copierea "
+"adresei"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Meniu"
 
-#: data/gtk/window.ui:88
-msgid "Copy to Clipboard"
-msgstr "Copiază la clipboard"
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Copiază la clipboard"
 
-#: data/gtk/window.ui:99
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -98,35 +99,41 @@ msgstr ""
 "\n"
 "Pentru a opri partajarea, pur și simplu închideți această fereastră."
 
-#: data/gtk/window.ui:121
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Nu se poate partaja audio-ul"
 
-#: data/gtk/window.ui:146
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Deschide _Ajutorul <sup>↗</sup>"
 
-#: data/gtk/window.ui:153
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "_Despre Partajare audio"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Partajează sunetul calculatorului"
-
-#: src/ui/about_window.rs:45
-msgid "translator-credits"
-msgstr ""
-"Florentina Mușat <florentina [dot] musat [dot] 28 [at] gmail [dot] com>, 2023"
-
-#: src/ui/window.rs:83
-msgid "Copied address to clipboard"
-msgstr "S-a copiat adresa la clipboard"
-
-#: src/app.rs:144
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Un client a stabilit o conexiune"
 
-#: src/app.rs:145
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "Redarea audio pentru acest dispozitiv este partajată."
+
+#: src/ui/about_dialog.rs:43
+msgid "translator-credits"
+msgstr ""
+"Florentina Mușat <florentina [dot] musat [dot] 28 [at] gmail [dot] com>, "
+"2023-2024"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "S-a copiat adresa la clipboard"
+
+#~ msgid "Main window light"
+#~ msgstr "Fereastra principală luminoasă"
+
+#~ msgid "Main window dark"
+#~ msgstr "Fereastra principală întunecată"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Partajează sunetul calculatorului"
