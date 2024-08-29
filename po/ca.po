@@ -1,0 +1,123 @@
+# Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# turbocat009 <turbocat009@gmail.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2024-07-18 21:12+0000\n"
+"PO-Revision-Date: 2023-09-08 22:54+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Catalan <gnome@llistes.softcatala.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;audio;sharing;sound;"
+
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
+msgid "Share your computer audio"
+msgstr "Comparteix l'àudio del teu dispositiu"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"Amb Audio Sharing pots compartir l'àudio del teu dispositiu en forma de "
+"transmissió RTSP. Pots reproduir aquest àudio en altres dispositius, com per "
+"exemple VLC"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Si compartiu l'àudio com a transmissió de xarxa, també podeu utilitzar "
+"dispositius habituals que no estan pensats per ser utilitzats com a "
+"embornals d'àudio (per exemple, telèfons intel·ligents) per rebre-ho. Per "
+"exemple, hi ha accessoris d’àudio que no són compatibles amb ordinadors "
+"d'escriptori (ex. perquè l'ordinador no té el mòdul de Bluetooth "
+"instal·lat). Amb l'ajuda d'aquesta app, l'àudio de l'ordinador pot ser "
+"reproduït a telèfons intel·ligents, que estiguin connectats a Bluetooth "
+"accessoris"
+
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+
+#: data/gtk/window.ui:20
+msgid "Menu"
+msgstr "Menú"
+
+#: data/gtk/window.ui:81
+#, fuzzy
+#| msgid "Copy to Clipboard"
+msgid "_Copy to Clipboard"
+msgstr "Copiar al porta-retalls"
+
+#: data/gtk/window.ui:96
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Ara mateix estàs compartint el teu àudio. Pots accedir-hi des de altres "
+"dispositius en la xarxa escanejar el codi QR o copiant l'adreça mostrada en "
+"apps que suportin transmissions RTSP. Aquest dispositiu pot ser silenciat, "
+"però l'àudio es seguirà compartint\n"
+"Per parar la compartició, simplement tanca aquesta finestra"
+
+#: data/gtk/window.ui:118
+msgid "Unable to Share Audio"
+msgstr "No s'ha pogut compartir l'àudio"
+
+#: data/gtk/window.ui:143
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Obre l'aj_uda <sup>↗</sup>"
+
+#: data/gtk/window.ui:150
+msgid "_About Audio Sharing"
+msgstr "_Quant a l'Audio Sharing"
+
+#: src/app.rs:131
+msgid "A client has established a connection"
+msgstr "Un client ha establert una connexió"
+
+#: src/app.rs:133
+msgid "Audio playback from this device gets shared."
+msgstr "La reproducció d'àudio d'aquest dispositiu es comparteix."
+
+#: src/ui/about_dialog.rs:43
+msgid "translator-credits"
+msgstr "turbocat009 <turbocat009@gmail.com>, 2023"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Adreça copiada al porta-retalls"
