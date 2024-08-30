@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-03-08 14:17+0000\n"
-"PO-Revision-Date: 2024-03-19 11:02+0100\n"
+"POT-Creation-Date: 2024-07-29 20:35+0000\n"
+"PO-Revision-Date: 2024-08-31 01:44+0200\n"
 "Last-Translator: Brage <bragefuglseth@gnome.org>\n"
 "Language-Team: \n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -29,11 +29,12 @@ msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr ""
 "GNOME;GTK;lyddeling;lyd;dele;deling;sende;sending;strømme;strømming;RTSP;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Strøm lyd rett fra enheten din"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:20
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -43,7 +44,7 @@ msgstr ""
 "bruker RTSP-protokollen, som støttes av mange forskjellige apper, for "
 "eksempel VLC."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -58,23 +59,26 @@ msgstr ""
 "datamaskinen, kan du koble det til mobilen din i stedet og la den sende ut "
 "lyd fra Audio Sharing."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window light"
-msgstr "Hovedvindu"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:36
-msgid "Main window dark"
-msgstr "Hovedvindu"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Koble til enhetens lydkanal ved å skanne QR-koden eller kopiere adressen"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Hovedmeny"
 
-#: data/gtk/window.ui:88
-msgid "Copy to Clipboard"
-msgstr "Kopier"
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Kopier"
 
-#: data/gtk/window.ui:99
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -89,34 +93,39 @@ msgstr ""
 "\n"
 "For å avslutte delingen, lukk appen."
 
-#: data/gtk/window.ui:121
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Lyddeling mislyktes"
 
-#: data/gtk/window.ui:146
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Åpne _Hjelp"
 
-#: data/gtk/window.ui:153
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "_Om Audio Sharing"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Strøm lyd fra enheten din"
-
-#: src/ui/about_window.rs:45
-msgid "translator-credits"
-msgstr "Brage Fuglseth https://bragefuglseth.dev"
-
-#: src/ui/window.rs:83
-msgid "Copied address to clipboard"
-msgstr "Adresse kopiert til utklippstavlen"
-
-#: src/app.rs:144
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Enhet tilkoblet"
 
-#: src/app.rs:145
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "Lyden fra dette systemet deles med en annen enhet"
+
+#: src/ui/about_dialog.rs:43
+msgid "translator-credits"
+msgstr "Brage Fuglseth https://bragefuglseth.dev"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Adresse kopiert til utklippstavlen"
+
+#~ msgid "Main window light"
+#~ msgstr "Hovedvindu"
+
+#~ msgid "Main window dark"
+#~ msgstr "Hovedvindu"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Strøm lyd fra enheten din"
