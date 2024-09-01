@@ -1,15 +1,15 @@
 # Turkish translation for AudioSharing.
-# Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
+# Copyright (C) 2022-2024 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 #
-# Sabri Ünal <libreajans@gmail.com>, 2022.
-# Emin Tufan Çetin <etcetin@gmail.com>, 2022.
+# Sabri Ünal <yakushabb@gmail.com>, 2022, 2024.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2022, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-04-09 09:41+0000\n"
+"POT-Creation-Date: 2024-07-29 20:35+0000\n"
 "PO-Revision-Date: 2024-05-09 10:28+0300\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
@@ -109,29 +109,20 @@ msgstr "_Yardımı Aç <sup>↗</sup>"
 msgid "_About Audio Sharing"
 msgstr "Ses Paylaşımı _Hakkında"
 
+#: src/app.rs:131
+msgid "A client has established a connection"
+msgstr "İstemci bağlantı kurdu"
+
+#: src/app.rs:133
+msgid "Audio playback from this device gets shared."
+msgstr "Bu aygıttan ses çalma paylaşıldı."
+
 #: src/ui/about_dialog.rs:43
 msgid "translator-credits"
 msgstr ""
 "Sabri Ünal <yakushabb@gmail.com>\n"
 "Emin Tufan Çetin <etcetin@gmail.com>"
 
-#: src/ui/window.rs:76
+#: src/ui/window.rs:78
 msgid "Copied address to clipboard"
 msgstr "Adres panoya kopyalandı"
-
-#: src/app.rs:117
-msgid "A client has established a connection"
-msgstr "İstemci bağlantı kurdu"
-
-#: src/app.rs:119
-msgid "Audio playback from this device gets shared."
-msgstr "Bu aygıttan ses çalma paylaşıldı."
-
-#~ msgid "Main window light"
-#~ msgstr "Ana pencere aydınlık"
-
-#~ msgid "Main window dark"
-#~ msgstr "Ana pencere koyu"
-
-#~ msgid "Share computer audio"
-#~ msgstr "Bilgisayarın sesini paylaş"
