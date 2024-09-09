@@ -2,21 +2,22 @@
 # Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2023.
+# Julián Villodre <jvillodrede@gmail.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2023-03-14 13:58+0000\n"
-"PO-Revision-Date: 2023-03-16 10:09+0100\n"
-"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
+"POT-Creation-Date: 2024-07-29 20:35+0000\n"
+"PO-Revision-Date: 2024-09-07 21:54+0200\n"
+"Last-Translator: Julián Villodre <jvillodrede@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
-"Language: es_ES\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Gtranslator 42.0\n"
+"X-Generator: Gtranslator 46.1\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -28,15 +29,12 @@ msgstr "@NAME@"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;sonido;compartir;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Compartir el sonido de su equipo"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Felix Häcker"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -46,7 +44,7 @@ msgstr ""
 "de su equipo en forma de flujo RTSP. Este flujo se puede reproducir en otros "
 "dispositivos, usando por ejemplo VLC."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -63,23 +61,26 @@ msgstr ""
 "instalado). Con la ayuda de esta aplicación el sonido del equipo se puede "
 "reproducir en un teléfono móvil, cuando está conectado mediante Bluetooth."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "Ventana principal clara"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "Ventana principal oscura"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Conéctese al flujo de audio escaneando el código QR o copiando la dirección"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Menú"
 
-#: data/gtk/window.ui:87
-msgid "Copy to Clipboard"
-msgstr "Copiar al portapapeles"
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Copiar al portapapeles"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -96,34 +97,41 @@ msgstr ""
 "\n"
 "Para dejar de compartir, simplemente cierre esta ventana."
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "No se puede compartir sonido"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Abrir la _ayuda <sup>↗</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "_Acerca de compartición de sonido"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Compartir sonido del equipo"
-
-#: src/ui/about_window.rs:45
-msgid "translator-credits"
-msgstr "Daniel Mustieles <daniel.mustieles@gmail.com>, 2023"
-
-#: src/ui/window.rs:83
-msgid "Copied address to clipboard"
-msgstr "Dirección copiada al portapapeles"
-
-#: src/app.rs:144
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Un cliente ha establecido una conexión"
 
-#: src/app.rs:145
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "La reproducción de sonido desde este dispositivo se comparte."
+
+#: src/ui/about_dialog.rs:43
+msgid "translator-credits"
+msgstr ""
+"Julián Villodre <jvillodrede@gmail.com>, 2024\n"
+"Daniel Mustieles <daniel.mustieles@gmail.com>, 2023"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Dirección copiada al portapapeles"
+
+#~ msgid "Main window light"
+#~ msgstr "Ventana principal clara"
+
+#~ msgid "Main window dark"
+#~ msgstr "Ventana principal oscura"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Compartir sonido del equipo"
