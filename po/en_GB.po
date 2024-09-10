@@ -2,13 +2,14 @@
 # Copyright (C) 2024 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 # Andi Chandler <andi@gowling.com>, 2024.
+# Bruce Cowan <bruce@bcowan.me.uk>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-03-03 18:44+0000\n"
-"PO-Revision-Date: 2024-03-08 14:16+0000\n"
+"POT-Creation-Date: 2024-07-18 21:12+0000\n"
+"PO-Revision-Date: 2024-09-10 11:33+0100\n"
 "Last-Translator: Bruce Cowan <bruce@bcowan.me.uk>\n"
 "Language-Team: British English <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -28,11 +29,12 @@ msgstr "@NAME@"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;sharing;sound;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Share your computer audio"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:20
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -42,7 +44,7 @@ msgstr ""
 "form of an RTSP stream. This stream can then be played back by other "
 "devices, for example using VLC."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -60,23 +62,26 @@ msgstr ""
 "played back on a smartphone, which is then connected to the Bluetooth "
 "accessory."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window light"
-msgstr "Main window light"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:36
-msgid "Main window dark"
-msgstr "Main window dark"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Connect to the audio stream by scanning the QR code or copying the address"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Menu"
 
-#: data/gtk/window.ui:88
-msgid "Copy to Clipboard"
-msgstr "Copy to Clipboard"
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Copy to Clipboard"
 
-#: data/gtk/window.ui:99
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -92,34 +97,41 @@ msgstr ""
 "\n"
 "To stop sharing, simply close this window."
 
-#: data/gtk/window.ui:121
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Unable to Share Audio"
 
-#: data/gtk/window.ui:146
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Open _Help <sup>↗</sup>"
 
-#: data/gtk/window.ui:153
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "_About Audio Sharing"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Share computer audio"
-
-#: src/ui/about_window.rs:45
-msgid "translator-credits"
-msgstr "Andi Chandler <andi@gowling.com>"
-
-#: src/ui/window.rs:83
-msgid "Copied address to clipboard"
-msgstr "Copied address to clipboard"
-
-#: src/app.rs:144
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "A client has established a connection"
 
-#: src/app.rs:145
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "Audio playback from this device gets shared."
+
+#: src/ui/about_dialog.rs:43
+msgid "translator-credits"
+msgstr ""
+"Andi Chandler <andi@gowling.com>\n"
+"Bruce Cowan <bruce@bcowan.me.uk>"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Copied address to clipboard"
+
+#~ msgid "Main window light"
+#~ msgstr "Main window light"
+
+#~ msgid "Main window dark"
+#~ msgstr "Main window dark"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Share computer audio"
