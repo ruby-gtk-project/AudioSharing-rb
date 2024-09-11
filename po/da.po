@@ -1,14 +1,14 @@
 # Danish translation for AudioSharing.
 # Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
-# Alan Mortensen <alanmortensen.am@gmail.com>, 2022.
+# Alan Mortensen <alanmortensen.am@gmail.com>, 2022, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2022-12-16 15:02+0000\n"
-"PO-Revision-Date: 2022-12-30 16:28+0100\n"
+"POT-Creation-Date: 2024-07-29 20:35+0000\n"
+"PO-Revision-Date: 2024-08-22 17:19+0200\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -28,15 +28,12 @@ msgstr "@NAVN@"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;deling;lyd;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Del lyden på din computer"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Felix Häcker"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -46,7 +43,7 @@ msgstr ""
 "en RTSP-strøm. Denne strøm kan så afspilles på andre enheder med brug af f."
 "eks. VLC."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -63,23 +60,25 @@ msgstr ""
 "Bluetooth-modul installeret). Ved hjælp af dette program kan computerlyden "
 "afspilles på en smartphone, som så er forbundet med Bluetooth-tilbehøret."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "Lyst hovedvindue"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "Mørkt hovedvindue"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr "Forbind til lydstrømmen ved at skanne QR-koden eller kopiere adressen"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Menu"
 
-#: data/gtk/window.ui:87
-msgid "Copy to Clipboard"
-msgstr "Kopiér til udklipsholder"
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Kopiér til udklipsholder"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -95,23 +94,27 @@ msgstr ""
 "\n"
 "Hvis du vil stoppe delingen, skal du blot lukke dette vindue."
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Kan ikke dele lyd"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Åbn _Hjælp <sup>↗</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "_Om Lyddeling"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Del lyden på din computer"
+#: src/app.rs:131
+msgid "A client has established a connection"
+msgstr "En klient har etableret en forbindelse"
 
-#: src/ui/about_window.rs:45
+#: src/app.rs:133
+msgid "Audio playback from this device gets shared."
+msgstr "Lydafspilning på denne enhed bliver delt."
+
+#: src/ui/about_dialog.rs:43
 msgid "translator-credits"
 msgstr ""
 "Alan Mortensen\n"
@@ -119,14 +122,15 @@ msgstr ""
 "Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
 "Mere info: http://www.dansk-gruppen.dk"
 
-#: src/ui/window.rs:83
+#: src/ui/window.rs:78
 msgid "Copied address to clipboard"
 msgstr "Adresse kopieret til udklipsholder"
 
-#: src/app.rs:144
-msgid "A client has established a connection"
-msgstr "En klient har etableret en forbindelse"
+#~ msgid "Main window light"
+#~ msgstr "Lyst hovedvindue"
 
-#: src/app.rs:145
-msgid "Audio playback from this device gets shared."
-msgstr "Lydafspilning på denne enhed bliver delt."
+#~ msgid "Main window dark"
+#~ msgstr "Mørkt hovedvindue"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Del lyden på din computer"
