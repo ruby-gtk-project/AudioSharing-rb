@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2023-10-31 12:23+0000\n"
-"PO-Revision-Date: 2024-01-22 22:36+0100\n"
+"POT-Creation-Date: 2024-07-29 20:35+0000\n"
+"PO-Revision-Date: 2024-09-17 16:48+0200\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -28,11 +28,12 @@ msgstr "Sdílení zvuku"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;sdílení;zvuk;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Sdílejte zvuk ze svého počítače"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -42,7 +43,7 @@ msgstr ""
 "formě RTSP proudu. Tento proud může být poté přehrán na jiném zařízení, "
 "například přes přehrávač VLC."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -59,23 +60,26 @@ msgstr ""
 "počítače přehráván na telefonu, který je dále připojen na příslušenství "
 "Bluetooth."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "Světlé hlavní okno"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "Tmavé hlavní okno"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Připojte se ke zvukovému proudu naskenováním QR kódu nebo zkopírováním adresy"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Nabídka"
 
-#: data/gtk/window.ui:88
-msgid "Copy to Clipboard"
-msgstr "Zkopírovat do schránky"
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "Z_kopírovat do schránky"
 
-#: data/gtk/window.ui:99
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -91,37 +95,39 @@ msgstr ""
 "\n"
 "Abyste přestali sdílet, jednoduše zavřete toto okno."
 
-#: data/gtk/window.ui:121
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Nelze sdílet zvuk"
 
-#: data/gtk/window.ui:146
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Otevřít _Nápovědu <sup>↗</sup>"
 
-#: data/gtk/window.ui:153
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "O _aplikaci Sdílení zvuku"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Sdílejte zvuk počítače"
-
-#: src/ui/about_window.rs:45
-msgid "translator-credits"
-msgstr "Písek Pískovec <pisekpiskovec@gmail.com>"
-
-#: src/ui/window.rs:83
-msgid "Copied address to clipboard"
-msgstr "Zkopírovat adresu do schránky"
-
-#: src/app.rs:144
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Klient navázal spojení"
 
-#: src/app.rs:145
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "Přehrávaný zvuk z tohoto zařízení se sdílí."
 
-#~ msgid "Felix Häcker"
-#~ msgstr "Felix Häcker"
+#: src/ui/about_dialog.rs:43
+msgid "translator-credits"
+msgstr "Písek Pískovec <pisekpiskovec@gmail.com>"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Zkopírovat adresu do schránky"
+
+#~ msgid "Main window light"
+#~ msgstr "Světlé hlavní okno"
+
+#~ msgid "Main window dark"
+#~ msgstr "Tmavé hlavní okno"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Sdílejte zvuk počítače"
