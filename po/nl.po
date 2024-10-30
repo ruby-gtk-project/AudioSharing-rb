@@ -1,23 +1,23 @@
 # Dutch translation for AudioSharing.
 # Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
-# Philip Goto <Philip.goto@gmail.com>, 2022.
-# Nathan Follens <nfollens@gnome.org>, 2022.
+# Philip Goto <philip.goto@gmail.com>, 2022.
+# Nathan Follens <nfollens@gnome.org>, 2022-2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2022-10-30 20:12+0000\n"
-"PO-Revision-Date: 2022-11-06 13:04+0100\n"
+"POT-Creation-Date: 2024-09-21 23:18+0000\n"
+"PO-Revision-Date: 2024-10-30 18:39+0100\n"
 "Last-Translator: Nathan Follens <nfollens@gnome.org>\n"
-"Language-Team: Dutch <gnome-nl-list@gnome.org>\n"
+"Language-Team: GNOME-NL https://matrix.to/#/#nl:gnome.org\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -29,15 +29,12 @@ msgstr "@NAME@"
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;sharing;sound;delen;geluid;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Deel uw computeraudio"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Felix Häcker"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -47,7 +44,7 @@ msgstr ""
 "RTSP-stream. Deze stream kan dan worden afgespeeld door andere apparaten, "
 "bijvoorbeeld met VLC."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -65,23 +62,27 @@ msgstr ""
 "worden afgespeeld op een smartphone, die vervolgens wordt aangesloten op het "
 "Bluetooth-accessoire."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "Hoofdscherm (licht)"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "Hoofdscherm (donker)"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Verbind met de audiostream door de QR-code te scannen of het adres te "
+"kopiëren"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Menu"
 
-#: data/gtk/window.ui:87
-msgid "Copy to Clipboard"
-msgstr "Kopiëren naar klembord"
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Kopiëren naar klembord"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -97,36 +98,42 @@ msgstr ""
 "\n"
 "Om het delen te stoppen sluit u gewoon dit venster."
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Kan audio niet delen"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "_Hulp openen <sup>↗</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "_Over Audio Sharing"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Deel computeraudio"
-
-#: src/ui/about_window.rs:45
-msgid "translator-credits"
-msgstr ""
-"Philip Goto <philip.goto@gmail.com>\n"
-"Meer info over Gnome-NL https://nl.gnome.org"
-
-#: src/ui/window.rs:83
-msgid "Copied address to clipboard"
-msgstr "Adres gekopieerd naar klembord"
-
-#: src/app.rs:144
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Een cliënt heeft een verbinding tot stand gebracht"
 
-#: src/app.rs:145
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "Audio van dit apparaat wordt gedeeld."
+
+#: src/ui/about_dialog.rs:43
+msgid "translator-credits"
+msgstr ""
+"Philip Goto <philip.goto@gmail.com>\n"
+"Nathan Follens <nfollens@gnome.org>\n"
+"Meer info over GNOME-NL https://nl.gnome.org"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Adres gekopieerd naar klembord"
+
+#~ msgid "Main window light"
+#~ msgstr "Hoofdscherm (licht)"
+
+#~ msgid "Main window dark"
+#~ msgstr "Hoofdscherm (donker)"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Deel computeraudio"
