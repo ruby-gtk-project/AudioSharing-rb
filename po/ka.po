@@ -1,14 +1,14 @@
 # Georgian translation for AudioSharing.
 # Copyright (C) 2023 AudioSharing's authors.
 # This file is distributed under the same license as the AudioSharing package.
-# Ekaterine Papava <papava.e@gtu.ge>, 2023.
+# Ekaterine Papava <papava.e@gtu.ge>, 2023-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-04-02 17:40+0000\n"
-"PO-Revision-Date: 2024-04-05 04:33+0200\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2025-01-27 02:44+0100\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -107,21 +107,25 @@ msgstr "_დახმარების გახსნა <sup>↗</sup>"
 msgid "_About Audio Sharing"
 msgstr "ხმის გაზიარების _შესახებ"
 
-#: src/ui/about_dialog.rs:43
-msgid "translator-credits"
-msgstr "ეკატერინე პაპავა"
-
-#: src/ui/window.rs:76
-msgid "Copied address to clipboard"
-msgstr "მისამართი კოპირებულია ბუფერში"
-
-#: src/app.rs:117
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "კლიენტი შემოგვიერთდა"
 
-#: src/app.rs:119
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "ხდება ამ კომპიუტერის მიერ გამოცემული ხმის გაზიარება."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "ეკატერინე პაპავა"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "შემოწირულობა"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "მისამართი კოპირებულია ბუფერში"
 
 #~ msgid "Main window light"
 #~ msgstr "მთავარი ფანჯარა ღიაა"
