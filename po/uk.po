@@ -2,22 +2,22 @@
 # Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2022, 2024.
+# Yuri Chornoivan <yurchor@ukr.net>, 2022, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-03-31 09:41+0000\n"
-"PO-Revision-Date: 2024-03-31 19:19+0300\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2025-01-28 22:12+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -62,22 +62,27 @@ msgstr ""
 "програми звук з комп'ютера може бути відтворено на смартфоні, який може бути "
 "з'єднано із приладом за допомогою протоколу Bluetooth."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:58
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
 msgid ""
 "Connect to the audio stream by scanning the QR code or copying the address"
 msgstr ""
-"Встановлення з'єднання з потоком звукових даних шляхом сканування QR-коду"
-" або копіювання адреси"
+"Встановлення з'єднання з потоком звукових даних шляхом сканування QR-коду "
+"або копіювання адреси"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Меню"
 
-#: data/gtk/window.ui:91
+#: data/gtk/window.ui:81
 msgid "_Copy to Clipboard"
 msgstr "С_копіювати до буфера"
 
-#: data/gtk/window.ui:106
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -94,33 +99,37 @@ msgstr ""
 "\n"
 "Щоб припинити оприлюднення, просто закрийте це вікно."
 
-#: data/gtk/window.ui:128
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Не вдалося оприлюднити звукові дані"
 
-#: data/gtk/window.ui:153
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Відкрити _довідку <sup>↗</sup>"
 
-#: data/gtk/window.ui:160
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "_Про «Оприлюднення звуку»"
 
-#: src/ui/about_dialog.rs:43
-msgid "translator-credits"
-msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2022"
-
-#: src/ui/window.rs:82
-msgid "Copied address to clipboard"
-msgstr "Адресу скопійовано до буфера обміну даними"
-
-#: src/app.rs:138
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Клієнт встановив з'єднання"
 
-#: src/app.rs:139
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "Відтворення звуку на цьому пристрої оприлюднено."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2022"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Підтримати фінансово"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Адресу скопійовано до буфера обміну даними"
 
 #~ msgid "Main window light"
 #~ msgstr "Головне вікно світле"
@@ -130,6 +139,3 @@ msgstr "Відтворення звуку на цьому пристрої оп�
 
 #~ msgid "Share computer audio"
 #~ msgstr "Оприлюдніть звукові дані з комп'ютера"
-
-#~ msgid "Felix Häcker"
-#~ msgstr "Felix Häcker"
