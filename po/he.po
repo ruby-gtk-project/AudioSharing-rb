@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-04-02 17:40+0000\n"
-"PO-Revision-Date: 2024-04-06 16:30+0300\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2025-01-28 11:55+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <>\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
 "2 : 3);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -105,23 +105,27 @@ msgstr "פתיחת _עזרה <sup>↖</sup>"
 msgid "_About Audio Sharing"
 msgstr "על _אודות שיתוף שמע"
 
-#: src/ui/about_dialog.rs:43
+#: src/app.rs:131
+msgid "A client has established a connection"
+msgstr "לקוח יצר חיבור"
+
+#: src/app.rs:133
+msgid "Audio playback from this device gets shared."
+msgstr "משותף שמע מהתקן זה."
+
+#: src/ui/about_dialog.rs:40
 msgid "translator-credits"
 msgstr ""
 "יוסף אור בוצ׳קו <yoseforb@gmail.com>\n"
 "מיזם תרגום GNOME לעברית https://l10n.gnome.org/teams/he/"
 
-#: src/ui/window.rs:76
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "תרומה"
+
+#: src/ui/window.rs:78
 msgid "Copied address to clipboard"
 msgstr "העתקת הכתובת ללוח הגזירים"
-
-#: src/app.rs:117
-msgid "A client has established a connection"
-msgstr "לקוח יצר חיבור"
-
-#: src/app.rs:119
-msgid "Audio playback from this device gets shared."
-msgstr "משותף שמע מהתקן זה."
 
 #~ msgid "Main window light"
 #~ msgstr "Main window light"
