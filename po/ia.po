@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2025-01-12 11:00+0000\n"
-"PO-Revision-Date: 2025-01-14 07:35-0300\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2025-01-28 18:19-0300\n"
 "Last-Translator: Emilio Sepúlveda <emism.translations@gmail.com>\n"
 "Language-Team: Interlingua (International Auxiliary Language Association) "
 "<softinterlingua@gmail.com>\n"
@@ -17,12 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Gtranslator 42.0\n"
+"X-Generator: Gtranslator 47.1\n"
+"X-DL-Lang: ia\n"
+"X-DL-Module: AudioSharing\n"
+"X-DL-Branch: main\n"
+"X-DL-Domain: po\n"
+"X-DL-State: Translating\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
 msgid "@NAME@"
-msgstr ""
+msgstr "@NAME@"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
@@ -117,9 +122,13 @@ msgstr "Un cliente ha establite un connexion"
 msgid "Audio playback from this device gets shared."
 msgstr "Le reproduction de audio desde "
 
-#: src/ui/about_dialog.rs:43
+#: src/ui/about_dialog.rs:40
 msgid "translator-credits"
-msgstr ""
+msgstr "Emilio Sepúlveda <emism.translations@gmail.com>"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Facer un donation"
 
 #: src/ui/window.rs:78
 msgid "Copied address to clipboard"
