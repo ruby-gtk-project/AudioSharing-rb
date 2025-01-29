@@ -1,14 +1,14 @@
 # German translation for AudioSharing.
 # Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
-# Jürgen Benvenuti <gastornis@posteo.org>, 2022, 2024.
+# Jürgen Benvenuti <gastornis@posteo.org>, 2022, 2024, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-04-02 17:40+0000\n"
-"PO-Revision-Date: 2024-04-08 20:02+0200\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2025-01-29 20:17+0100\n"
 "Last-Translator: Jürgen Benvenuti <gastornis@posteo.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -112,22 +112,26 @@ msgstr "_Hilfe öffnen <sup>↗</sup>"
 msgid "_About Audio Sharing"
 msgstr "_Info zu Audio Sharing"
 
-#: src/ui/about_dialog.rs:43
-msgid "translator-credits"
-msgstr "Jürgen Benvenuti <gastornis@posteo.org>, 2022, 2024"
-
-#: src/ui/window.rs:76
-msgid "Copied address to clipboard"
-msgstr "Adresse in die Zwischenablage kopiert"
-
-#: src/app.rs:117
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Ein Client hat eine Verbindung hergestellt"
 
 # Audio playback: Tonwiedergabe (siehe auch anderer Kommentar). - jb
-#: src/app.rs:119
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "Tonwiedergabe von diesem Gerät wird freigegeben."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "Jürgen Benvenuti <gastornis@posteo.org>, 2022, 2024, 2025"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Spenden"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Adresse in die Zwischenablage kopiert"
 
 #~ msgid "Main window light"
 #~ msgstr "Hauptfenster hell"
