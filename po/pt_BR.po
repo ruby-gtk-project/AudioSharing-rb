@@ -1,15 +1,15 @@
 # Brazilian Portuguese translation for AudioSharing.
-# Copyright (C) 2024 AudioSharing's COPYRIGHT HOLDER
+# Copyright (C) 2025 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 # Enrico Nicoletto <hiko@duck.com>, 2022.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2024.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2024-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-09-21 23:18+0000\n"
-"PO-Revision-Date: 2024-09-21 20:26-0300\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2025-01-29 16:50-0300\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Gtranslator 46.1\n"
+"X-Generator: Gtranslator 47.1\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -118,11 +118,15 @@ msgstr "Um cliente estabeleceu uma conexão"
 msgid "Audio playback from this device gets shared."
 msgstr "A reprodução de áudio a partir deste dispositivo é compartilhada."
 
-#: src/ui/about_dialog.rs:43
+#: src/ui/about_dialog.rs:40
 msgid "translator-credits"
 msgstr ""
 "Enrico Nicoletto <hiko@duck.com>\n"
 "Leônidas Araújo <leorusvellt@hotmail.com>"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Doar"
 
 #: src/ui/window.rs:78
 msgid "Copied address to clipboard"
