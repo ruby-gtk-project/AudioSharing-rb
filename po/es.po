@@ -2,22 +2,22 @@
 # Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2023.
-# Julián Villodre <jvillodrede@gmail.com>, 2024.
+# Julián Villodre <jvillodrede@gmail.com>, 2024-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-07-29 20:35+0000\n"
-"PO-Revision-Date: 2024-09-07 21:54+0200\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2025-02-02 13:16+0100\n"
 "Last-Translator: Julián Villodre <jvillodrede@gmail.com>\n"
-"Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
-"Language: es\n"
+"Language-Team: es_ES\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Gtranslator 46.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 47.1\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -117,11 +117,15 @@ msgstr "Un cliente ha establecido una conexión"
 msgid "Audio playback from this device gets shared."
 msgstr "La reproducción de sonido desde este dispositivo se comparte."
 
-#: src/ui/about_dialog.rs:43
+#: src/ui/about_dialog.rs:40
 msgid "translator-credits"
 msgstr ""
 "Julián Villodre <jvillodrede@gmail.com>, 2024\n"
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2023"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Donar"
 
 #: src/ui/window.rs:78
 msgid "Copied address to clipboard"
