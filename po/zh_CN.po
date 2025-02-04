@@ -2,21 +2,21 @@
 # Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 # Eni <enigma@petalmail.com>, 2023.
-# lumingzh <lumingzh@qq.com>, 2024.
+# lumingzh <lumingzh@qq.com>, 2024-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-04-02 17:40+0000\n"
-"PO-Revision-Date: 2024-05-19 20:04+0800\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2025-02-04 09:28+0800\n"
 "Last-Translator: lumingzh <lumingzh@qq.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 46.1\n"
+"X-Generator: Gtranslator 47.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
@@ -102,24 +102,28 @@ msgstr "打开帮助(_H)<sup>↗</sup>"
 msgid "_About Audio Sharing"
 msgstr "关于 Audio Sharing(_A)"
 
-#: src/ui/about_dialog.rs:43
+#: src/app.rs:131
+msgid "A client has established a connection"
+msgstr "一个客户端已建立连接"
+
+#: src/app.rs:133
+msgid "Audio playback from this device gets shared."
+msgstr "该设备的音频播放已分享。"
+
+#: src/ui/about_dialog.rs:40
 msgid "translator-credits"
 msgstr ""
 "polskaonmars <yellowsiumai@gmail.com>, 2023.\n"
 "Eni <enigma@petalmail.com>, 2023.\n"
-"lumingzh <lumingzh@qq.com>, 2024."
+"lumingzh <lumingzh@qq.com>, 2024-2025."
 
-#: src/ui/window.rs:76
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "捐助"
+
+#: src/ui/window.rs:78
 msgid "Copied address to clipboard"
 msgstr "已复制地址到剪贴板"
-
-#: src/app.rs:117
-msgid "A client has established a connection"
-msgstr "一个客户端已建立连接"
-
-#: src/app.rs:119
-msgid "Audio playback from this device gets shared."
-msgstr "该设备的音频播放已分享。"
 
 #~ msgid "Main window light"
 #~ msgstr "主窗口亮色"
