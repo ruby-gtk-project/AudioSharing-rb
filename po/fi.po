@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-04-02 17:40+0000\n"
-"PO-Revision-Date: 2024-04-13 12:54+0300\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2025-02-07 16:30+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: Finnish <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -105,21 +105,25 @@ msgstr "Avaa _ohje <sup>↗</sup>"
 msgid "_About Audio Sharing"
 msgstr "_Tietoja - Äänen jakaminen"
 
-#: src/ui/about_dialog.rs:43
-msgid "translator-credits"
-msgstr "Jiri Grönroos"
-
-#: src/ui/window.rs:76
-msgid "Copied address to clipboard"
-msgstr "Osoite kopioitu leikepöydälle"
-
-#: src/app.rs:117
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Asiakas on muodostanut yhteyden"
 
-#: src/app.rs:119
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "Äänentoisto tältä laitteelta jaetaan."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "Jiri Grönroos"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Lahjoita"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Osoite kopioitu leikepöydälle"
 
 #~ msgid "Main window light"
 #~ msgstr "Vaalea pääikkuna"
