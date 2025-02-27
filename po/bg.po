@@ -1,14 +1,14 @@
 # Bulgarian translation for AudioSharing.
-# Copyright (C) 2024 AudioSharing's COPYRIGHT HOLDER
+# Copyright (C) 2024, 2025 twlvnn <kraft_werk@tutanota.com>
 # This file is distributed under the same license as the AudioSharing package.
-# twlvnn <kraft_werk@tutanota.com>, 2024.
+# twlvnn <kraft_werk@tutanota.com>, 2024, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-04-13 09:54+0000\n"
-"PO-Revision-Date: 2024-04-15 14:52+0200\n"
+"POT-Creation-Date: 2025-02-16 14:40+0000\n"
+"PO-Revision-Date: 2025-02-05 21:22+0100\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian <dict-notifications@fsa-bg.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Gtranslator 47.1\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -107,18 +107,22 @@ msgstr "Отваряне на Помо_щта <sup>↗</sup>"
 msgid "_About Audio Sharing"
 msgstr "_Относно „Audio Sharing“"
 
-#: src/ui/about_dialog.rs:43
-msgid "translator-credits"
-msgstr "twlvnn <kraft_werk@tutanota.com>"
-
-#: src/ui/window.rs:76
-msgid "Copied address to clipboard"
-msgstr "Адресът е копиран в буфера за обмен"
-
-#: src/app.rs:117
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Клиент е установил връзка"
 
-#: src/app.rs:119
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "Възпроизвежданият от това устройство звук се споделя."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "twlvnn <kraft_werk@tutanota.com>"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Дарете"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Адресът е копиран в буфера за обмен"
