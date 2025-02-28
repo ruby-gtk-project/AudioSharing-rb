@@ -1,14 +1,14 @@
 # Hungarian translation for AudioSharing.
-# Copyright (C) 2022, 2024 Free Software Foundation, Inc.
+# Copyright (C) 2022, 2024, 2025 Free Software Foundation, Inc.
 # This file is distributed under the same license as the AudioSharing package.
 #
-# Balázs Úr <ur.balazs at fsf dot hu>, 2022, 2024.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2022, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-04-02 17:40+0000\n"
-"PO-Revision-Date: 2024-05-19 11:34+0200\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2025-02-28 17:08+0100\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
@@ -77,7 +77,6 @@ msgid "Menu"
 msgstr "Menü"
 
 #: data/gtk/window.ui:81
-#| msgid "Copy to Clipboard"
 msgid "_Copy to Clipboard"
 msgstr "_Másolás a vágólapra"
 
@@ -109,18 +108,23 @@ msgstr "_Súgó megnyitása <sup>↗</sup>"
 msgid "_About Audio Sharing"
 msgstr "A Hangmegosztó _névjegye"
 
-#: src/ui/about_dialog.rs:43
-msgid "translator-credits"
-msgstr "Úr Balázs <ur dot balazs at fsf dot hu>, 2022."
-
-#: src/ui/window.rs:76
-msgid "Copied address to clipboard"
-msgstr "Cím a vágólapra másolva"
-
-#: src/app.rs:117
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Egy ügyfél kapcsolatot létesített"
 
-#: src/app.rs:119
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "Az erről az eszközről indított hanglejátszás megosztásra kerül."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "Úr Balázs <ur dot balazs at fsf dot hu>, 2022."
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Adományozás"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Cím a vágólapra másolva"
+
