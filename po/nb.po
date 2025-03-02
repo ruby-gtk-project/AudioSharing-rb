@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-07-29 20:35+0000\n"
-"PO-Revision-Date: 2024-08-31 01:44+0200\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2025-03-02 17:41+0100\n"
 "Last-Translator: Brage <bragefuglseth@gnome.org>\n"
 "Language-Team: \n"
 "Language: nb\n"
@@ -113,9 +113,13 @@ msgstr "Enhet tilkoblet"
 msgid "Audio playback from this device gets shared."
 msgstr "Lyden fra dette systemet deles med en annen enhet"
 
-#: src/ui/about_dialog.rs:43
+#: src/ui/about_dialog.rs:40
 msgid "translator-credits"
 msgstr "Brage Fuglseth https://bragefuglseth.dev"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Doner"
 
 #: src/ui/window.rs:78
 msgid "Copied address to clipboard"
