@@ -1,0 +1,128 @@
+# Filipino translation for AudioSharing.
+# Copyright (C) 2025 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# Iverson Briones <ivercoder@proton.me>,  2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2025-03-02 16:41+0000\n"
+"PO-Revision-Date: 2025-03-07 16:06+0800\n"
+"Last-Translator: \n"
+"Language-Team: Filipino <fil@li.org>\n"
+"Language: fil\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;audio;sharing;sound;tunog;"
+
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
+msgid "Share your computer audio"
+msgstr "Ibahagi ang tunog ng kompyuter mo"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"Gamit ang Audio Sharing, maibabahagi mo ang kasalukuyang tunog ng kompyuter "
+"mo sa pamamagitan ng isang RTSP stream. Mape-play ng ibang device ang "
+"stream, halimbawa gamit ang VLC."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Sa pagbabahagi ng tunog bilang isang network stream, magagamit mo rin ang "
+"mga pangkaraniwang device na hindi nakadisenyo para maging audio sink (hal. "
+"mga cellphone) para pakinggan ito. Halimbawa, may mga kagamitang pantunog na "
+"hindi angkop sa mga desktop na kompyuter (hal. dahil walang Bluetooth module "
+"ang kompyuter). Gamit ang app na ito, mape-play ang tunog ng kompyuter sa "
+"isang cellphone, na nakakonekta sa isang kagamitang Bluetooth."
+
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Kumonekta sa audio stream sa pamamagitan ng pag-scan sa QR code o pagkopya "
+"sa address"
+
+#: data/gtk/window.ui:20
+msgid "Menu"
+msgstr "Menu"
+
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "I_kopya sa Clipboard"
+
+#: data/gtk/window.ui:96
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Kasalukuyan kang nagbabahagi ng tunog. Maa-access mo ito sa iba pang mga "
+"device sa parehong network sa pamamagitan ng pag-scan sa QR code o paglagay "
+"ng nakasulat na address sa isang playback app na sinusuportahan ang mga RTSP "
+"stream. Mamu-mute mo ang device na ito, at ibabahagi pa rin ang tunog.\n"
+"\n"
+"Para itigil ang pagbabahagi, isara lamang ang window na ito."
+
+#: data/gtk/window.ui:118
+msgid "Unable to Share Audio"
+msgstr "Hindi Mabahagi ang Tunog"
+
+#: data/gtk/window.ui:143
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Buksan ang _Tulong <sup>↗</sup>"
+
+#: data/gtk/window.ui:150
+msgid "_About Audio Sharing"
+msgstr "T_ungkol sa Audio Sharing"
+
+#: src/app.rs:131
+msgid "A client has established a connection"
+msgstr "Nagsimula ng koneksyon ang isang kliyente"
+
+#: src/app.rs:133
+msgid "Audio playback from this device gets shared."
+msgstr "Ibinabahagi ang tunog na nagpe-play sa device na ito."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "Iverson Briones"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Mag-donate"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Kinopya sa clipboard ang address"
