@@ -2,15 +2,15 @@
 # Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 #
-# Ingir <ingirafn@this.is>, 2023, 2024.
+# Ingir <ingirafn@this.is>, 2023, 2024, 2025.
 # Sveinn í Felli <sv1@fellsnet.is>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-04-02 17:40+0000\n"
-"PO-Revision-Date: 2024-04-18 19:04+0000\n"
-"Last-Translator: Ingirafn Steinarsson <ingirafn@this.is>\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2025-04-16 21:02+0000\n"
+"Last-Translator: Ingir <ingirafn@this.is>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
@@ -69,14 +69,14 @@ msgstr "Felix Häcker"
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
 msgid ""
 "Connect to the audio stream by scanning the QR code or copying the address"
-msgstr "Tengjast hljóðstreyminu með því að skanna QR kóða eða vefföng"
+msgstr ""
+"Tengjast hljóðstreyminu með því að skanna QR kóða eða með að afrita vefföng"
 
 #: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Valmynd"
 
 #: data/gtk/window.ui:81
-#| msgid "Copy to Clipboard"
 msgid "_Copy to Clipboard"
 msgstr "_Afrita á klippispjald"
 
@@ -107,21 +107,25 @@ msgstr "Opna _hjálp <sup>↗</sup>"
 msgid "_About Audio Sharing"
 msgstr "_Um Audio Sharing"
 
-#: src/ui/about_dialog.rs:43
-msgid "translator-credits"
-msgstr "Ingirafn Steinarsson, ingirafn at this dot is, 2023"
-
-#: src/ui/window.rs:76
-msgid "Copied address to clipboard"
-msgstr "Afritaði veffang á klippispjald"
-
-#: src/app.rs:117
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Notandi hefur komið á tengingu"
 
-#: src/app.rs:119
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
-msgstr "Afspilun hljóðs frá þessu tæki deilist."
+msgstr "Afspilun frá þessu tæki verður deilt."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "Ingirafn Steinarsson, ingirafn at this dot is, 2023,2025"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Láta af hendi rakna"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Afritaði veffang á klippispjald"
 
 #~ msgid "Main window light"
 #~ msgstr "Aðalgluggi ljós"
