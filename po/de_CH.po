@@ -1,0 +1,128 @@
+# Swiss German translation for AudioSharing.
+# Copyright (C) 2025 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# Rexle Rex <gisbert11@protonmail.com>,  2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2025-04-17 11:02+0000\n"
+"PO-Revision-Date: 2025-04-22 18:02+0200\n"
+"Last-Translator: \n"
+"Language-Team: Swiss German <de_CH@li.org>\n"
+"Language: de_CH\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;audio;sharing;sound;"
+
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
+msgid "Share your computer audio"
+msgstr "Teile di Computer Audio"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"Mit Audio Sharing chasch du die aktuelli Audio Wiedergab vo dim Computer in "
+"Form vo RTPS-Streams teile. Diese Stream cha dann vo anderen Gräten "
+"wiedergebe werde, zum Bispiel mit VLC."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Mit em Teile vom Audio als Netzwerkstream chasch du o ganz normale Grät, wo "
+"eigentlich nöd für Audioempfang vorgseh si (z. B. Smartphones), bruuchä, um "
+"s Audio z empfange. Zum Bispiel git’s Audio-Zuebehör, wo nöd mit Desktop-"
+"Computer kompatibel isch (z. B. wäge dem, dass dä Computer kei Bluetooth-"
+"Modul het). Mit Hilfe vo däre App cha s Computer-Audio über s Smartphone "
+"wiedergeh werde, wo denn mit em Bluetooth-Zuebehör verbunde isch."
+
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Verbinde mit em Audio Stream mit dem scanne vom QR Code oder Adresse kopiere"
+
+#: data/gtk/window.ui:20
+msgid "Menu"
+msgstr "Menü"
+
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_I die Zwischeablag kopiere"
+
+#: data/gtk/window.ui:96
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Du bisch derzit am Audio teile. Du chasch vo andere Grät im gliiche Netzwerk "
+"druf zugriife, indem du de QR-Code scannsch oder d aazeigti Adress in e "
+"Wiedergab-App igisch, wo RTSP-Streams unterstützt. Dieses Grät cha stumm "
+"gstellt werde, der Audio wird immer no teilt..\n"
+"\n"
+"Um mit dem teile ufzhöre, schliess dieses Fenster."
+
+#: data/gtk/window.ui:118
+msgid "Unable to Share Audio"
+msgstr "Audio teile nit möglich"
+
+#: data/gtk/window.ui:143
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Öffni_Hilf <sup>↗</sup>"
+
+#: data/gtk/window.ui:150
+msgid "_About Audio Sharing"
+msgstr "_Über Audio Sharing"
+
+#: src/app.rs:131
+msgid "A client has established a connection"
+msgstr "Ä Client hät ä Verbindig härgstellt"
+
+#: src/app.rs:133
+msgid "Audio playback from this device gets shared."
+msgstr "D Audiowiedergab vo däm Grät wird teilet."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "Übersetzer: Rexle25"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Spende"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Adresse i Zwischeablag kopiert"
