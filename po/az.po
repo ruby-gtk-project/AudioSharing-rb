@@ -1,0 +1,93 @@
+# Azerbaijani translation for AudioSharing.
+# Copyright (C) 2025 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# Ramal Rəhimov <jhonaluman@gmail.com>,  2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2025-05-21 00:16+0000\n"
+"PO-Revision-Date: 2025-05-21 00:16+0000\n"
+"Last-Translator: Ramal Rəhimov <jhonaluman@gmail.com>\n"
+"Language-Team: Azerbaijani <contact@azlinux.org>\n"
+"Language: az\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "AudioPaylaşım"
+
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;səs;paylaşım;sound;audio;"
+
+msgid "Share your computer audio"
+msgstr "Komputerinizin səsini paylaşın"
+
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"AudioPaylaşım vasitəsilə kompüterinizdə səsləndirilən səsi RTSP axını şəklində paylaşa bilərsiniz. Bu axını digər cihazlarda, məsələn VLC ilə dinləmək mümkündür."
+
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Səsi şəbəkə axını şəklində paylaşmaqla, adətən səs çıxışı üçün nəzərdə tutulmayan cihazlardan (məsələn, smartfonlar) istifadə edə bilərsiniz. Məsələn, bəzi audio aksesuarlar masaüstü kompüterlərlə uyğun olmaya bilər (məsələn, kompüterdə Bluetooth modulu yoxdursa). Bu tətbiqin köməyi ilə kompüter səsini smartfonda səsləndirmək və sonra onu Bluetooth aksesuarına qoşmaq mümkündür."
+
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+msgid "Connect to the audio stream by scanning the QR code or copying the address"
+msgstr "QR kodunu oxudaraq və ya ünvanı kopyalayaraq səs axınına qoşulun"
+
+msgid "Menu"
+msgstr "Menyu"
+
+msgid "_Copy to Clipboard"
+msgstr "_Yaddaşa kopyala"
+
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Hal-hazırda səsinizi paylaşırsınız. Eyni şəbəkədəki digər cihazlar QR kodunu oxudaraq və ya göstərilən ünvanı RTSP axınlarını dəstəkləyən bir proqramda daxil edərək bu səsə qoşula bilər. Bu cihazın səsi kəsilsə belə, paylaşım davam edəcəkdir.\n\nPaylaşımı dayandırmaq üçün bu pəncərəni bağlamağınız kifayətdir."
+
+msgid "Unable to Share Audio"
+msgstr "Səsi paylaşmaq mümkün olmadı"
+
+msgid "Open _Help <sup>↗</sup>"
+msgstr "_Yardımı aç <sup>↗</sup>"
+
+msgid "_About Audio Sharing"
+msgstr "_AudioPaylaşım haqqında"
+
+msgid "A client has established a connection"
+msgstr "Bir müştəri bağlantı qurdu"
+
+msgid "Audio playback from this device gets shared."
+msgstr "Bu cihazdan səsləndirilən səs paylaşılır."
+
+msgid "translator-credits"
+msgstr "Ramal Rəhimov <jhonaluman@gmail.com>"
+
+msgid "Donate"
+msgstr "Layihəyə dəstək ol"
+
+msgid "Copied address to clipboard"
+msgstr "Ünvan yaddaşa kopyalandı"
+
