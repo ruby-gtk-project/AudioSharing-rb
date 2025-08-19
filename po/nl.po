@@ -2,14 +2,14 @@
 # Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 # Philip Goto <philip.goto@gmail.com>, 2022.
-# Nathan Follens <nfollens@gnome.org>, 2022-2024.
+# Nathan Follens <nfollens@gnome.org>, 2022-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-09-21 23:18+0000\n"
-"PO-Revision-Date: 2024-10-30 18:39+0100\n"
+"POT-Creation-Date: 2025-08-10 11:12+0000\n"
+"PO-Revision-Date: 2025-08-19 18:29+0200\n"
 "Last-Translator: Nathan Follens <nfollens@gnome.org>\n"
 "Language-Team: GNOME-NL https://matrix.to/#/#nl:gnome.org\n"
 "Language: nl\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.6\n"
 
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
 msgid "@NAME@"
 msgstr "@NAME@"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;sharing;sound;delen;geluid;"
 
@@ -118,12 +118,16 @@ msgstr "Een cliënt heeft een verbinding tot stand gebracht"
 msgid "Audio playback from this device gets shared."
 msgstr "Audio van dit apparaat wordt gedeeld."
 
-#: src/ui/about_dialog.rs:43
+#: src/ui/about_dialog.rs:40
 msgid "translator-credits"
 msgstr ""
 "Philip Goto <philip.goto@gmail.com>\n"
 "Nathan Follens <nfollens@gnome.org>\n"
 "Meer info over GNOME-NL https://nl.gnome.org"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Doneren"
 
 #: src/ui/window.rs:78
 msgid "Copied address to clipboard"
