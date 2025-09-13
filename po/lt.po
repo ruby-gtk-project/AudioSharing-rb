@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-04-02 17:40+0000\n"
-"PO-Revision-Date: 2024-05-24 22:57+0300\n"
-"Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
+"POT-Creation-Date: 2025-09-10 11:13+0000\n"
+"PO-Revision-Date: 2025-09-13 20:33+0300\n"
+"Last-Translator: Aurimas Černius <aurimas.cernius@mailo.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -19,15 +19,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.7\n"
 
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
 msgid "@NAME@"
 msgstr "@NAME@"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;garsas;bendrinimas;dalijimasis;"
 
@@ -111,23 +111,27 @@ msgstr "Atidaryti žinyną <sup>↗</sup>"
 msgid "_About Audio Sharing"
 msgstr "_Apie Garso Dalijimąsi"
 
-#: src/ui/about_dialog.rs:43
-msgid "translator-credits"
-msgstr ""
-"Išvertė:\n"
-"Aurimas Černius <aurisc4@gmail.com>"
-
-#: src/ui/window.rs:76
-msgid "Copied address to clipboard"
-msgstr "Adresas nukopijuotas į iškarpinę"
-
-#: src/app.rs:117
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Klientas užmezgė ryšį"
 
-#: src/app.rs:119
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "Dalijimąsi garsu iš šio įrenginio."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr ""
+"Išvertė:\n"
+"Aurimas Černius <aurimas.cernius@mailo.com>"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Paaukoti"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Adresas nukopijuotas į iškarpinę"
 
 #~ msgid "Main window light"
 #~ msgstr "Pagrindinis langas šviesus"
