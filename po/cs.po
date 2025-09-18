@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-07-29 20:35+0000\n"
-"PO-Revision-Date: 2024-09-17 16:48+0200\n"
+"POT-Creation-Date: 2025-09-13 17:33+0000\n"
+"PO-Revision-Date: 2025-09-18 21:46+0200\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -16,15 +16,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.7\n"
 
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
 msgid "@NAME@"
 msgstr "Sdílení zvuku"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;sdílení;zvuk;"
 
@@ -115,9 +115,13 @@ msgstr "Klient navázal spojení"
 msgid "Audio playback from this device gets shared."
 msgstr "Přehrávaný zvuk z tohoto zařízení se sdílí."
 
-#: src/ui/about_dialog.rs:43
+#: src/ui/about_dialog.rs:40
 msgid "translator-credits"
 msgstr "Písek Pískovec <pisekpiskovec@gmail.com>"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Věnovat dar"
 
 #: src/ui/window.rs:78
 msgid "Copied address to clipboard"
