@@ -6,29 +6,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-07-18 21:12+0000\n"
-"PO-Revision-Date: 2023-09-08 22:54+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2025-11-10 11:11+0000\n"
+"PO-Revision-Date: 2025-11-11 10:30+0100\n"
+"Last-Translator: \n"
 "Language-Team: Catalan <gnome@llistes.softcatala.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
 
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
 msgid "@NAME@"
 msgstr "@NAME@"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
 msgid "Gnome;GTK;audio;sharing;sound;"
-msgstr "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;àudio;compartir;so;"
 
 #. General
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
-msgstr "Comparteix l'àudio del teu dispositiu"
+msgstr "Compartiu l'àudio del vostre dispositiu"
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
@@ -36,9 +37,9 @@ msgid ""
 "form of an RTSP stream. This stream can then be played back by other "
 "devices, for example using VLC."
 msgstr ""
-"Amb Audio Sharing pots compartir l'àudio del teu dispositiu en forma de "
-"transmissió RTSP. Pots reproduir aquest àudio en altres dispositius, com per "
-"exemple VLC"
+"Amb el Compartidor d'àudio podeu compartir la reproducció d'àudio de "
+"l'ordinador en forma de transmissió RTSP. Aquesta transmissió pot ser "
+"reproduïda per altres dispositius, per exemple utilitzant el VLC."
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
@@ -50,14 +51,13 @@ msgid ""
 "played back on a smartphone, which is then connected to the Bluetooth "
 "accessory."
 msgstr ""
-"Si compartiu l'àudio com a transmissió de xarxa, també podeu utilitzar "
-"dispositius habituals que no estan pensats per ser utilitzats com a "
-"embornals d'àudio (per exemple, telèfons intel·ligents) per rebre-ho. Per "
-"exemple, hi ha accessoris d’àudio que no són compatibles amb ordinadors "
-"d'escriptori (ex. perquè l'ordinador no té el mòdul de Bluetooth "
-"instal·lat). Amb l'ajuda d'aquesta app, l'àudio de l'ordinador pot ser "
-"reproduït a telèfons intel·ligents, que estiguin connectats a Bluetooth "
-"accessoris"
+"En compartir l'àudio com a flux de xarxa, també podeu utilitzar dispositius "
+"comuns que no estan destinats a ser utilitzats com a embornals d'àudio (per "
+"exemple, telèfons intel·ligents) per rebre'l. Per exemple, hi ha accessoris "
+"d'àudio que no són compatibles amb ordinadors de sobretaula (per exemple, "
+"perquè l'ordinador no té instal·lat un mòdul Bluetooth). Amb l'ajuda "
+"d'aquesta aplicació, l'àudio de l'ordinador es pot reproduir en un telèfon "
+"intel·ligent, que després es connecta a l'accessori Bluetooth."
 
 #. Branding
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
@@ -67,17 +67,15 @@ msgstr "Felix Häcker"
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
 msgid ""
 "Connect to the audio stream by scanning the QR code or copying the address"
-msgstr ""
+msgstr "Connecteu-vos al flux d'àudio escanejant el codi QR o copiant l'adreça"
 
 #: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Menú"
 
 #: data/gtk/window.ui:81
-#, fuzzy
-#| msgid "Copy to Clipboard"
 msgid "_Copy to Clipboard"
-msgstr "Copiar al porta-retalls"
+msgstr "_Copia al porta-retalls"
 
 #: data/gtk/window.ui:96
 msgid ""
@@ -88,11 +86,12 @@ msgid ""
 "\n"
 "To stop sharing, simply close this window."
 msgstr ""
-"Ara mateix estàs compartint el teu àudio. Pots accedir-hi des de altres "
-"dispositius en la xarxa escanejar el codi QR o copiant l'adreça mostrada en "
-"apps que suportin transmissions RTSP. Aquest dispositiu pot ser silenciat, "
-"però l'àudio es seguirà compartint\n"
-"Per parar la compartició, simplement tanca aquesta finestra"
+"Actualment esteu compartint el vostre àudio. Podeu accedir-hi des d'altres "
+"dispositius de la mateixa xarxa escanejant el codi QR o introduint l'adreça "
+"que es mostra en una aplicació de reproducció que admet fluxos RTSP. Aquest "
+"dispositiu es pot silenciar, l'àudio encara es compartirà.\n"
+"\n"
+"Per deixar de compartir, tanqueu aquesta finestra."
 
 #: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
@@ -104,7 +103,7 @@ msgstr "Obre l'aj_uda <sup>↗</sup>"
 
 #: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
-msgstr "_Quant a l'Audio Sharing"
+msgstr "_Quant al Compartidor d'àudio"
 
 #: src/app.rs:131
 msgid "A client has established a connection"
@@ -114,10 +113,16 @@ msgstr "Un client ha establert una connexió"
 msgid "Audio playback from this device gets shared."
 msgstr "La reproducció d'àudio d'aquest dispositiu es comparteix."
 
-#: src/ui/about_dialog.rs:43
+#: src/ui/about_dialog.rs:40
 msgid "translator-credits"
-msgstr "turbocat009 <turbocat009@gmail.com>, 2023"
+msgstr ""
+"turbocat009 <turbocat009@gmail.com>, 2023\n"
+"Victor Dargallo <victordargallo@disroot.org>, 2025"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Feu una donació"
 
 #: src/ui/window.rs:78
 msgid "Copied address to clipboard"
-msgstr "Adreça copiada al porta-retalls"
+msgstr "S'ha copiat l'adreça al porta-retalls"
