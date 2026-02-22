@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-04-02 17:40+0000\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
 "PO-Revision-Date: 2023-10-15 09:21+0300\n"
 "Last-Translator: Giannis Antypas <gianni.antypas@gmail.com>\n"
 "Language-Team: Greek <gnome-el-list@gnome.org>\n"
@@ -18,13 +18,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.4\n"
 
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
 msgid "@NAME@"
 msgstr "@NAME@"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;ήχος;κοινή χρήση;ήχος;"
 
@@ -70,17 +70,17 @@ msgstr "Felix Häcker"
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
 msgid ""
 "Connect to the audio stream by scanning the QR code or copying the address"
-msgstr "Σύνδεση στη ροή ήχου σαρώνοντας τον κωδικό QR 'ή αντιγράφοντας τη διεύθυνση"
+msgstr ""
+"Σύνδεση στη ροή ήχου σαρώνοντας τον κωδικό QR 'ή αντιγράφοντας τη διεύθυνση"
 
 #: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Μενού"
 
 #: data/gtk/window.ui:81
-#, fuzzy
 #| msgid "Copy to Clipboard"
 msgid "_Copy to Clipboard"
-msgstr "Αντιγραφή στο Πρόχειρο"
+msgstr "_Αντιγραφή στο Πρόχειρο"
 
 #: data/gtk/window.ui:96
 msgid ""
@@ -111,7 +111,15 @@ msgstr "Άνοιγμα _Βοήθειας <sup>↗</sup>"
 msgid "_About Audio Sharing"
 msgstr "_Περί Κοινής Χρήσης Ήχου"
 
-#: src/ui/about_dialog.rs:43
+#: src/app.rs:131
+msgid "A client has established a connection"
+msgstr "Ένας πελάτης έχει συνδεθεί"
+
+#: src/app.rs:133
+msgid "Audio playback from this device gets shared."
+msgstr "Η αναπαραγωγή ήχου από αυτήν τη συσκευή κοινοποιείται."
+
+#: src/ui/about_dialog.rs:40
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
@@ -120,17 +128,13 @@ msgstr ""
 "Για περισσότερες πληροφορίες, επισκεφθείτε τη σελίδα\n"
 "http://gnome.gr/"
 
-#: src/ui/window.rs:76
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Δωρεά"
+
+#: src/ui/window.rs:78
 msgid "Copied address to clipboard"
 msgstr "Αντιγράφηκε η διεύθυνση στο πρόχειρο"
-
-#: src/app.rs:117
-msgid "A client has established a connection"
-msgstr "Ένας πελάτης έχει συνδεθεί"
-
-#: src/app.rs:119
-msgid "Audio playback from this device gets shared."
-msgstr "Η αναπαραγωγή ήχου από αυτήν τη συσκευή κοινοποιείται."
 
 #~ msgid "Main window light"
 #~ msgstr "Κύριο παράθυρο (φωτεινό)"
