@@ -1,0 +1,127 @@
+# Esperanto translation for AudioSharing.
+# Copyright (C) 2026 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2026-02-27 09:14+0100\n"
+"Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
+"Language-Team: Esperanto <gnome-eo-list@gnome.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 49.0\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;audio;sharing;sound;"
+
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
+msgid "Share your computer audio"
+msgstr "Kunhavigi la aŭdion de via komputilo"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"Per Audio Sharing vi povas kunhavigi la aktualan aŭdioludadon de via "
+"komputilo en formo de RTSP-fluo. Tiun fluon povas poste ludi aliaj aparatoj, "
+"ekzemple uzante VLC."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Kunhavigante la aŭdion kiel retfluo, vi ankaŭ povas uzi komunajn aparatojn "
+"kiuj ne estas destinitaj kiel aŭdio-riceviloj (ekz. saĝtelefonoj) por ricevi "
+"ĝin. Ekzemple, ekzistas aŭdio-akcesoraĵoj kiuj ne estas kongruaj kun "
+"labortablaj komputiloj (ekz. ĉar la komputilo ne havas instalitan Bluetooth-"
+"modulon). Helpe de ĉi tiu programo, la komputila aŭdio povas esti ludita sur "
+"saĝtelefono, kiu estas poste konektita al la Bluetooth-akcesoraĵo."
+
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix HÄCKER"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr "Konektiĝu al la aŭdiofluo skanante la QR-kodon aŭ kopiante la adreson"
+
+#: data/gtk/window.ui:20
+msgid "Menu"
+msgstr "Menuo"
+
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Kopii al tondujo"
+
+#: data/gtk/window.ui:96
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Vi nun kunhavigadas vian aŭdion. Vi povas aliri ĝin de aliaj aparatoj en la "
+"sama reto skanante la QR-kodon aŭ enigante la montriĝantan adreson en "
+"ludadan programon kiu subtenas RTSP-fluojn. Ĉi tiu aparato povas esti "
+"silentigita, la aŭdio tamen ankoraŭ estos kunhavigata.\n"
+"\n"
+"Por ĉesigi la kunhavigadon, simple fermu ĉi tiun fenestron."
+
+#: data/gtk/window.ui:118
+msgid "Unable to Share Audio"
+msgstr "Ne eblas kunhavigi aŭdion"
+
+#: data/gtk/window.ui:143
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Malfermi _helpon <sup>↗</sup>"
+
+#: data/gtk/window.ui:150
+msgid "_About Audio Sharing"
+msgstr "_Pri Audio Sharing"
+
+#: src/app.rs:131
+msgid "A client has established a connection"
+msgstr "Kliento konektiĝis"
+
+#: src/app.rs:133
+msgid "Audio playback from this device gets shared."
+msgstr "La aŭdioludado de ĉi tiu aparato estas kunhavigata."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "Kristjan Schmidt <kristjan.schmidt@googlemail.com>"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Donaci"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Adreso kopiita al tondujo"
