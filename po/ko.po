@@ -1,0 +1,125 @@
+# Korean translation of the AudioShare.
+# Copyright (C) 2026 AudioShare's all of contributors
+# This file is distributed under the same license as the AudioShare package.
+# Seong-ho Cho <shcho@gnome.org>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2026-02-23 22:57+0900\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
+"Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.7\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "오디오 공유"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;그놈;GTK;지티케이;audio;음원;오디오;sharing;공유;sound;소리;"
+
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
+msgid "Share your computer audio"
+msgstr "컴퓨터 오디오를 공유해보세요"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"오디오 공유로 현재 컴퓨터의 재생 오디오를 RTSP 스트림 형식으로 공유할 수 있습"
+"니다. 이 스트림은 VLC 같은 프로그램을 활용하여 다른 장치에서도 재생할 수 있습"
+"니다."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"네트워크 스트림 오디오를 공유하여, 오디오 신호를 받는 오디오 싱크(예: 스마트"
+"폰)를 의도하지 않아도 일반 장치를 활용할 수도 있습니다. 예를 들어, 데스크톱 "
+"컴퓨터와 호환성이 없는 오디오 주변 장치(이를 테면, 블루투스 모듈을 설치하지 "
+"않아서)가 있습니다. 이 앱의 도움을 받으면, 컴퓨터 오디오를 블루투스 주변 장치"
+"로 연결한 스마트폰에서 재생할 수 있습니다."
+
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr "QR 코드를 스캐닝하거나 주소를 복사하여 오디오 스트림에 연결합니다"
+
+#: data/gtk/window.ui:20
+msgid "Menu"
+msgstr "메뉴"
+
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "클립보드에 복사(_C)"
+
+#: data/gtk/window.ui:96
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"현재 오디오를 공유하고 있습니다. 동일한 네트워크의 다른 장치에서 QR 코드를 스"
+"캐닝하거나 화면에 나타난 주소를 RTSP 스트림 지원 재생 앱에 입력하여 접근할 "
+"수 있습니다. 오디오를 여전히 공유한 상태에서 이 장치의 소리를 끌 수 있습니"
+"다.\n"
+"\n"
+"공유를 멈추려면, 이 창을 닫으십시오."
+
+#: data/gtk/window.ui:118
+msgid "Unable to Share Audio"
+msgstr "오디오를 공유할 수 없습니다"
+
+#: data/gtk/window.ui:143
+msgid "Open _Help <sup>↗</sup>"
+msgstr "도움말 열기<sup>↗</sup>(_H)"
+
+#: data/gtk/window.ui:150
+msgid "_About Audio Sharing"
+msgstr "오디오 공유 정보(_A)"
+
+#: src/app.rs:131
+msgid "A client has established a connection"
+msgstr "클라이언트가 연결했습니다."
+
+#: src/app.rs:133
+msgid "Audio playback from this device gets shared."
+msgstr "이 장치의 오디오 재생을 공유합니다."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "조성호 <shcho@gnome.org>, 2026."
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "기부하기"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "클립보드에 주소를 복사했습니다"
