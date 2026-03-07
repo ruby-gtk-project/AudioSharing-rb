@@ -7,132 +7,137 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2023-01-08 11:30+0000\n"
-"PO-Revision-Date: 2023-01-12 11:32+0100\n"
-"Last-Translator: Irénée Thirion <irenee.thirion@e.email>\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2026-03-07 08:52+0100\n"
+"Last-Translator: Guillaume Bernard <associations@guillaume-bernard.fr>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.8\n"
 "X-DL-Team: fr\n"
 "X-DL-Module: AudioSharing\n"
 "X-DL-Branch: main\n"
 "X-DL-Domain: po\n"
 "X-DL-State: Translating\n"
 
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
 msgid "@NAME@"
-msgstr ""
+msgstr "@NAME@"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;partage;son;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
-msgstr "Partagez l’audio de votre ordinateur"
+msgstr "Partager l’audio de votre ordinateur"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Felix Häcker"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
-"form of an RTSP stream. This stream can then be played back by other "
-"devices, for example using VLC."
+"form of an RTSP stream. This stream can then be played back by other devices, "
+"for example using VLC."
 msgstr ""
 "Avec Partage Audio vous pouvez partager la lecture audio en cours sur votre "
 "ordinateur sous la forme d’un flux RTSP. Ce flux peut ensuite être lu par "
 "d’autres appareils, par exemple avec VLC."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
-"By sharing the audio as a network stream, you can also use common devices "
-"that are not intended to be used as audio sinks (eg. smartphones) to receive "
-"it. For example, there are audio accessories that are not compatible with "
-"desktop computers (e.g. because the computer does not have a Bluetooth "
-"module installed). With the help of this app, the computer audio can be "
-"played back on a smartphone, which is then connected to the Bluetooth "
-"accessory."
+"By sharing the audio as a network stream, you can also use common devices that "
+"are not intended to be used as audio sinks (eg. smartphones) to receive it. For "
+"example, there are audio accessories that are not compatible with desktop "
+"computers (e.g. because the computer does not have a Bluetooth module "
+"installed). With the help of this app, the computer audio can be played back on "
+"a smartphone, which is then connected to the Bluetooth accessory."
 msgstr ""
 "En partageant l’audio sous forme de flux réseau, vous pouvez notamment le "
-"diffuser vers des appareils courants qui ne sont pas prévus pour ça (comme "
-"les smartphones). Par exemple, il existe des accessoires audio qui ne sont "
-"pas compatibles avec les ordinateurs de bureau (parce que l’ordinateur n’est "
-"pas équipé d’un module Bluetooth, ou pour toute autre raison). Grâce à cette "
+"diffuser vers des appareils courants qui ne sont pas prévus pour ça (comme les "
+"smartphones). Par exemple, il existe des accessoires audio qui ne sont pas "
+"compatibles avec les ordinateurs de bureau (parce que l’ordinateur n’est pas "
+"équipé d’un module Bluetooth, ou pour toute autre raison). Grâce à cette "
 "application, l’audio de l’ordinateur peut être lu sur un smartphone, qui est "
 "ensuite connecté à l’accessoire Bluetooth."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "Fenêtre principale claire"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "Fenêtre principale sombre"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid "Connect to the audio stream by scanning the QR code or copying the address"
+msgstr "Se connecter au flux audio en scannant le code QR ou en copiant l’adresse"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Menu"
 
-#: data/gtk/window.ui:87
-msgid "Copy to Clipboard"
-msgstr "Copier dans le presse-papiers"
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Copier dans le presse-papiers"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:96
 msgid ""
-"You are currently sharing your audio. You can access it from other devices "
-"in the same network by scanning the QR code or entering the displayed "
-"address in a playback app that supports RTSP streams. This device can be "
-"muted, the audio will still be shared.\n"
+"You are currently sharing your audio. You can access it from other devices in "
+"the same network by scanning the QR code or entering the displayed address in a "
+"playback app that supports RTSP streams. This device can be muted, the audio "
+"will still be shared.\n"
 "\n"
 "To stop sharing, simply close this window."
 msgstr ""
 "Vous êtes en train de partager votre audio. Vous pouvez y accéder depuis "
 "d’autres appareils du même réseau en scannant le QR Code ou en saisissant "
-"l’adresse affichée dans une application de lecture prenant en charge les "
-"flux RTSP. Cet appareil peut être mis en sourdine, l’audio sera toujours "
-"partagé.\n"
+"l’adresse affichée dans une application de lecture prenant en charge les flux "
+"RTSP. Cet appareil peut être mis en sourdine, l’audio sera toujours partagé.\n"
 "\n"
 "Pour arrêter le partage, il suffit de fermer cette fenêtre."
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Impossible de partager l’audio"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Ouvrir l’_aide <sup>↗</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "À _propos de Partage Audio"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Partager l’audio de l’ordinateur"
-
-#: src/ui/about_window.rs:45
-msgid "translator-credits"
-msgstr "Irénée Thirion <irenee.thirion@e.email>"
-
-#: src/ui/window.rs:83
-msgid "Copied address to clipboard"
-msgstr "Adresse copiée dans le presse-papiers"
-
-#: src/app.rs:144
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Un client a établi une connexion"
 
-#: src/app.rs:145
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "La lecture de l’audio de cet appareil est partagée."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "Irénée Thirion <irenee.thirion@e.email>"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Faire un don"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Adresse copiée dans le presse-papiers"
+
+#~ msgid "Main window light"
+#~ msgstr "Fenêtre principale claire"
+
+#~ msgid "Main window dark"
+#~ msgstr "Fenêtre principale sombre"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Partager l’audio de l’ordinateur"
 
 #~ msgid "Audio Sharing"
 #~ msgstr "Partage Audio"
