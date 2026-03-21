@@ -2,41 +2,40 @@
 # Copyright © 2022 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 # Мирослав Николић <miroslavnikolic@rocketmail.com>, 2022.
+# Марко Костић <marko.m.kostic@gmail.com>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2022-10-09 19:56+0000\n"
-"PO-Revision-Date: 2022-10-10 09:05+0200\n"
-"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2026-03-21 12:42+0100\n"
+"Last-Translator: Марко М. Костић <marko.m.kostic@gmail.com>\n"
 "Language-Team: Serbian <српски <gnome-sr@googlegroups.org>>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : n"
-"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
+"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Poedit 3.9\n"
 
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
 msgid "@NAME@"
 msgstr "@NAME@"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Гном;Гтк;аудио;дељење;звук;Gnome;GTK;audio;sharing;sound;"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
 msgid "Share your computer audio"
 msgstr "Делите звук са вашег рачунара"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
-msgid "Felix Häcker"
-msgstr "Феликс Хакер"
-
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
 msgid ""
 "With Audio Sharing you can share your current computer audio playback in the "
 "form of an RTSP stream. This stream can then be played back by other "
@@ -46,7 +45,7 @@ msgstr ""
 "тока. Тај ток се затим може пуштати на другим уређајима, на пример помоћу "
 "ВЛЦ-а."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
 "By sharing the audio as a network stream, you can also use common devices "
 "that are not intended to be used as audio sinks (eg. smartphones) to receive "
@@ -63,23 +62,25 @@ msgstr ""
 "модул). Уз помоћ овог програма, звук рачунара се може пуштати на паметном "
 "телефону, који је затим повезан са Блутут уређајем."
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
-msgid "Main window light"
-msgstr "Главни прозор је светао"
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Феликс Хакер"
 
-#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
-msgid "Main window dark"
-msgstr "Главни прозор је таман"
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr "Повежите се на звучни ток скенирањем КР кода или копирањем адресе"
 
-#: data/gtk/window.ui:27
+#: data/gtk/window.ui:20
 msgid "Menu"
 msgstr "Изборник"
 
-#: data/gtk/window.ui:87
-msgid "Copy to Clipboard"
-msgstr "Умножи у оставу"
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Умножи у оставу"
 
-#: data/gtk/window.ui:98
+#: data/gtk/window.ui:96
 msgid ""
 "You are currently sharing your audio. You can access it from other devices "
 "in the same network by scanning the QR code or entering the displayed "
@@ -95,34 +96,37 @@ msgstr ""
 "\n"
 "Да зауставите дељење, само затворите прозор."
 
-#: data/gtk/window.ui:120
+#: data/gtk/window.ui:118
 msgid "Unable to Share Audio"
 msgstr "Не могу да делим звук"
 
-#: data/gtk/window.ui:145
+#: data/gtk/window.ui:143
 msgid "Open _Help <sup>↗</sup>"
 msgstr "Отвори По_моћ <sup>↗</sup>"
 
-#: data/gtk/window.ui:152
+#: data/gtk/window.ui:150
 msgid "_About Audio Sharing"
 msgstr "_О Дељењу звука"
 
-#: src/ui/about_window.rs:35
-msgid "Share computer audio"
-msgstr "Делите звук са рачунара"
-
-#: src/ui/about_window.rs:45
-msgid "translator-credits"
-msgstr "Мирослав Николић <miroslavnikolic@rocketmail.com>"
-
-#: src/ui/window.rs:83
-msgid "Copied address to clipboard"
-msgstr "Адреса је умножена у оставу"
-
-#: src/app.rs:144
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Клијент је успоставио везу"
 
-#: src/app.rs:145
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "Репродукција звука са овог уређаја се дели."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr ""
+"Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Марко Костић <marko.m.kostic@gmail.com>\n"
+"Превод на српски језик https://гном.срб"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Донирај"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Адреса је умножена у оставу"
