@@ -1,14 +1,14 @@
 # Portuguese translation for AudioSharing.
-# Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
+# Copyright (C) 2022-2026 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
-# Hugo Carvalho <hugokarvalho@hotmail.com>, 2022, 2023, 2024.
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2022, 2023, 2024, 2025, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-05-07 16:26+0000\n"
-"PO-Revision-Date: 2024-05-18 11:18+0100\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2026-03-23 14:39+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -16,15 +16,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.9\n"
 
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
 msgid "@NAME@"
 msgstr "@NAME@"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;áudio;partilha;som;"
 
@@ -108,21 +108,25 @@ msgstr "Abrir A_juda <sup>↗</sup>"
 msgid "_About Audio Sharing"
 msgstr "Acerca do Audio Sharing"
 
-#: src/ui/about_dialog.rs:43
-msgid "translator-credits"
-msgstr "Hugo Carvalho <hugokarvalho@hotmail.com>"
-
-#: src/ui/window.rs:76
-msgid "Copied address to clipboard"
-msgstr "Endereço copiado para a área de transferência"
-
-#: src/app.rs:117
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Um cliente estabeleceu uma ligação"
 
-#: src/app.rs:119
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "A reprodução áudio a partir deste dispositivo é partilhada."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "Hugo Carvalho <hugokarvalho@hotmail.com>"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Doar"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Endereço copiado para a área de transferência"
 
 #~ msgid "Main window light"
 #~ msgstr "Janela principal clara"
