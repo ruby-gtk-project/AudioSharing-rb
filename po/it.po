@@ -2,14 +2,14 @@
 # Copyright (C) 2022 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing
 # package.
-# Davide Ferracin <davide.ferracin@protonmail.com>, 2024.
+# Davide Ferracin <davide.ferracin@protonmail.com>, 2024-2026
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2024-04-02 17:40+0000\n"
-"PO-Revision-Date: 2024-05-28 22:04+0300\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2026-04-05 15:24+0200\n"
 "Last-Translator: Davide Ferracin <davide.ferracin@protonmail.com>\n"
 "Language-Team: Italian <gnome-it-list@gnome.org>\n"
 "Language: it\n"
@@ -19,13 +19,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
 msgid "@NAME@"
 msgstr "@NAME@"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;audio;condivisione;suono;"
 
@@ -110,21 +110,25 @@ msgstr "Apri l'_aiuto <sup>↗</sup>"
 msgid "_About Audio Sharing"
 msgstr "_Informazioni su Audio Sharing"
 
-#: src/ui/about_dialog.rs:43
-msgid "translator-credits"
-msgstr "Davide Ferracin <davide.ferracin@protonmail.com>"
-
-#: src/ui/window.rs:76
-msgid "Copied address to clipboard"
-msgstr "Indirizzo copiato negli appunti"
-
-#: src/app.rs:117
+#: src/app.rs:131
 msgid "A client has established a connection"
 msgstr "Un client ha stabilito una connessione"
 
-#: src/app.rs:119
+#: src/app.rs:133
 msgid "Audio playback from this device gets shared."
 msgstr "La riproduzione audio è in condivisione."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "Davide Ferracin <davide.ferracin@protonmail.com>"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Fai una donazione"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Indirizzo copiato negli appunti"
 
 #~ msgid "Main window light"
 #~ msgstr "Finestra principale chiara"
