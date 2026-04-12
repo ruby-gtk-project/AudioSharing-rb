@@ -1,0 +1,129 @@
+# Slovak translation for AudioSharing.
+# Copyright (C) 2026 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# petervanco347-cell <petervanco347@gmail.com>,  2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2026-04-05 22:03+0200\n"
+"Last-Translator: \n"
+"Language-Team: Slovak <sk@li.org>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"X-Generator: Poedit 3.9\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "Zdieľanie zvuku"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;audio;share;zvuk;zdieľanie;"
+
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
+msgid "Share your computer audio"
+msgstr "Zdieľajte zvuk zo svojho počítača"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"S aplikáciou Zdieľanie zvuku môžete zdieľať aktuálne prehrávaný zvuk z "
+"počítača vo forme streamu RTSP. Tento stream môžu následne prehrávať iné "
+"zariadenia, napríklad pomocou prehrávača VLC."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Vďaka zdieľaniu zvuku ako sieťového streamu ho môžete prijímať aj na bežných "
+"zariadeniach, ktoré nie sú určené ako zvukové výstupy (napr. smartfóny). "
+"Existuje napríklad audio príslušenstvo, ktoré nie je kompatibilné so "
+"stolnými počítačmi (napr. pretože počítač nemá nainštalovaný modul "
+"Bluetooth). S pomocou tejto aplikácie možno zvuk z počítača prehrávať na "
+"smartfóne, ktorý je následne pripojený k Bluetooth príslušenstvu."
+
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Pripojte sa k zvukovému streamu naskenovaním QR kódu alebo skopírovaním "
+"adresy"
+
+#: data/gtk/window.ui:20
+msgid "Menu"
+msgstr "Ponuka"
+
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Kopírovať do schránky"
+
+#: data/gtk/window.ui:96
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Momentálne zdieľate svoj zvuk. Môžete k nemu pristupovať z iných zariadení v "
+"rovnakej sieti naskenovaním QR kódu alebo zadaním zobrazenej adresy do "
+"aplikácie na prehrávanie, ktorá podporuje streamy RTSP. Toto zariadenie môže "
+"byť stlmené, zvuk sa bude aj naďalej zdieľať.\r\n"
+"\r\n"
+"Ak chcete zdieľanie zastaviť, jednoducho zatvorte toto okno."
+
+#: data/gtk/window.ui:118
+msgid "Unable to Share Audio"
+msgstr "Nie je možné zdieľať zvuk"
+
+#: data/gtk/window.ui:143
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Otvoriť _Pomocníka <sup>↗</sup>"
+
+#: data/gtk/window.ui:150
+msgid "_About Audio Sharing"
+msgstr "_O aplikácii Zdieľanie zvuku"
+
+#: src/app.rs:131
+msgid "A client has established a connection"
+msgstr "Klient nadviazal spojenie"
+
+#: src/app.rs:133
+msgid "Audio playback from this device gets shared."
+msgstr "Prehrávaný zvuk z tohto zariadenia sa zdieľa."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "Peter Vančo <petervanco347@gmail.com>"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Podporiť"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Adresa bola skopírovaná do schránky"
