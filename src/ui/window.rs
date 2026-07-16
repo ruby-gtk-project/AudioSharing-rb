@@ -15,12 +15,12 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use adw::subclass::prelude::*;
+use gettextrs::gettext;
 use glib::clone;
 use gtk::prelude::*;
 use gtk::{self, gdk, gio, glib, CompositeTemplate};
 
 use crate::app::AsApplication;
-use crate::i18n::i18n;
 use crate::ui::QrCodePaintable;
 use crate::QrCode;
 
@@ -75,7 +75,7 @@ mod imp {
                     let clipboard = display.clipboard();
                     clipboard.set_text(&address);
 
-                    let toast = adw::Toast::new(&i18n("Copied address to clipboard"));
+                    let toast = adw::Toast::new(&gettext("Copied address to clipboard"));
                     toast.set_timeout(2);
                     this.toast_overlay.add_toast(toast);
                 }

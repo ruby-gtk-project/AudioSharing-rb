@@ -17,6 +17,7 @@
 use std::cell::OnceCell;
 
 use adw::subclass::prelude::*;
+use gettextrs::gettext;
 use glib::{clone, WeakRef};
 use gstreamer::DeviceMonitor;
 use gstreamer_rtsp_server::prelude::*;
@@ -27,7 +28,6 @@ use log::{debug, error, info, warn};
 use pnet::datalink::interfaces;
 
 use crate::config;
-use crate::i18n::i18n;
 use crate::ui::{about_dialog, AsApplicationWindow};
 
 mod imp {
@@ -128,9 +128,10 @@ mod imp {
                     debug!("A client has established a connection");
 
                     let notification =
-                        gio::Notification::new(&i18n("A client has established a connection"));
-                    notification
-                        .set_body(Some(&i18n("Audio playback from this device gets shared.")));
+                        gio::Notification::new(&gettext("A client has established a connection"));
+                    notification.set_body(Some(&gettext(
+                        "Audio playback from this device gets shared.",
+                    )));
 
                     let app = gio::Application::default().unwrap();
                     app.send_notification(Some("audio-sharing-playback"), &notification);
