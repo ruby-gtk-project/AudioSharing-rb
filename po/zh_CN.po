@@ -2,30 +2,30 @@
 # Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 # Eni <enigma@petalmail.com>, 2023.
-# lumingzh <lumingzh@qq.com>, 2024-2025.
+# lumingzh <lumingzh@qq.com>, 2024-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2025-01-26 21:12+0000\n"
-"PO-Revision-Date: 2025-02-04 09:28+0800\n"
+"POT-Creation-Date: 2026-01-11 08:52+0000\n"
+"PO-Revision-Date: 2026-08-15 17:28+0800\n"
 "Last-Translator: lumingzh <lumingzh@qq.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 47.1\n"
+"X-Generator: Gtranslator 50.0\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
 msgid "@NAME@"
 msgstr "@NAME@"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;音频;共享;声音;"
 
@@ -41,7 +41,7 @@ msgid ""
 "devices, for example using VLC."
 msgstr ""
 "使用 Audio Sharing 您可以将当前计算机的音频播放以 RTSP 流的方式分享。RTSP 流"
-"可以在其它设备使用例如 VLC 等软件播放。"
+"可以在其他设备使用例如 VLC 等软件播放。"
 
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
 msgid ""
@@ -60,6 +60,7 @@ msgstr ""
 
 #. Branding
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:25
 msgid "Felix Häcker"
 msgstr "Felix Häcker"
 
@@ -85,7 +86,7 @@ msgid ""
 "\n"
 "To stop sharing, simply close this window."
 msgstr ""
-"您当前正在分享音频。您可以在同一网络下的其它设备上扫描二维码，或在支持 RTSP "
+"您当前正在分享音频。您可以在同一网络下的其他设备上扫描二维码，或在支持 RTSP "
 "流播放的 APP 上输入显示的地址。该设备可以静音，音频仍然会被分享。\n"
 "\n"
 "要停止分享，只需关闭本窗口。"
