@@ -2,14 +2,14 @@
 # Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
 # This file is distributed under the same license as the AudioSharing package.
 #
-# Ingir <ingirafn@this.is>, 2023, 2024, 2025.
+# SPDX-FileCopyrightText: 2023-2026 Ingir <ingirafn@this.is>
 # Sveinn í Felli <sv1@fellsnet.is>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: AudioSharing main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
-"POT-Creation-Date: 2025-01-26 21:12+0000\n"
-"PO-Revision-Date: 2025-04-16 21:02+0000\n"
+"POT-Creation-Date: 2026-01-11 08:52+0000\n"
+"PO-Revision-Date: 2026-09-11 07:55+0000\n"
 "Last-Translator: Ingir <ingirafn@this.is>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 26.04.3\n"
 
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
 msgid "@NAME@"
 msgstr "@NAME@"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
 msgid "Gnome;GTK;audio;sharing;sound;"
 msgstr "Gnome;GTK;tónlist;deila;hljóð;"
 
@@ -63,6 +63,7 @@ msgstr ""
 
 #. Branding
 #: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:25
 msgid "Felix Häcker"
 msgstr "Felix Häcker"
 
@@ -89,10 +90,11 @@ msgid ""
 "\n"
 "To stop sharing, simply close this window."
 msgstr ""
-"Þú deilir núna hljóðinu þínu. Þú getur hlustað á hana í öðrum tækjum á sama "
+"Þú deilir núna hljóðinu þínu. Þú getur hlustað á það í öðrum tækjum á sama "
 "netkerfi með því að skanna inn QR-kóðann eða setja inn uppgefið veffang í "
 "forriti sem styður RTSP-streymi. Hægt er að þagga niður í viðkomandi tæki en "
 "aðrir geta eftir sem áður hlustað.\n"
+"\n"
 "Til að hætta að deila skaltu einfaldlega loka þessum glugga."
 
 #: data/gtk/window.ui:118
