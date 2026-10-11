@@ -1,0 +1,8 @@
+module Audiosharing
+  module Rb
+    module Version
+      VERSION: String
+    end
+    VERSION: String
+  end
+end
