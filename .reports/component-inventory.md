@@ -12,31 +12,45 @@ three app actions and one toast.
 ## Mapping summary
 
 The house shape is the pilot's (`gnome-contacts-rb`): the real port lives in
-top-level `lib/*.rb`, one file per upstream source file, with
-`lib/audiosharing/application.rb` + `lib/audiosharing.rb` remaining the gem
-plumbing that `exe/audiosharing` requires.
+top-level `lib/*.rb`, one file per upstream source file, with `lib/audiosharing.rb`
+remaining the gem entry point that `exe/audiosharing` requires.
 
 | # | Upstream file(s) | Port file | Kind | Exists on `ruby`? |
 |---|---|---|---:|---|
-| 1 | `src/main.rs`, `src/app.rs` | `lib/main.rb` | application | no |
-| 2 | `src/ui/window.rs` + `data/gtk/window.ui` | `lib/window.rb` | window | no |
-| 3 | `data/gtk/window.ui` (`menu primary_menu`) | `lib/window.rb` (in `primary_menu`) | menu | no |
-| 4 | `data/gtk/window.ui` (`GtkStackPage` #1) | `lib/window.rb` (in `sharing_page`) | page | no |
-| 5 | `data/gtk/window.ui` (`GtkStackPage` "error") | `lib/window.rb` (in `error_status`) | error state | no |
-| 6 | `src/ui/about_dialog.rs` + metainfo | `lib/about_dialog.rb` | dialog | no |
-| 7 | `src/ui/qrcode_paintable.rs` | `lib/qrcode_paintable.rb` | paintable | no |
-| 8 | `src/qrcode.rs` | `lib/qrcode.rb` | model | no |
-| 9 | `src/app.rs` (`setup_server`, `find_device_name`, `get_ip_addr`) | `lib/rtsp_server.rb` | service | no |
-| 10 | `src/config.rs.in`, `data/*.in.in` | `lib/config.rb` | config | no |
-| 11 | `po/*.po` (51 locales, 19 msgids) | `lib/gettext.rb` + `po/` | i18n | no |
-| — | scaffold stub | `lib/audiosharing/application.rb` | stub | **yes** (placeholder only) |
+| 1 | `src/main.rs`, `src/app.rs` | `lib/main.rb` | application | **yes** — actions, accel, process setup; **no** Gio::Notification, no `gstreamer::init()` |
+| 2 | `src/ui/window.rs` + `data/gtk/window.ui` | `lib/window.rb` | window | **yes** |
+| 3 | `data/gtk/window.ui` (`menu primary_menu`) | `lib/window.rb` (`primary_menu`) | menu | **yes** |
+| 4 | `data/gtk/window.ui` (`GtkStackPage` #1) | `lib/window.rb` (`sharing_page`) | page | **yes** |
+| 5 | `data/gtk/window.ui` (`GtkStackPage` "error") | `lib/window.rb` (`error_status`) | error state | **yes** |
+| 6 | `src/ui/about_dialog.rs` + metainfo | `lib/about_dialog.rb` | dialog | **yes** |
+| 7 | `src/ui/qrcode_paintable.rs` | `lib/qrcode_paintable.rb` | paintable | **yes** (Cairo → `Gdk::Texture` substitution) |
+| 8 | `src/qrcode.rs` | `lib/qrcode.rb` | model | **yes** |
+| 9 | `src/app.rs` (`setup_server`, `find_device_name`, `get_ip_addr`, `client-connected`) | `lib/rtsp_server.rb` | service | **no** |
+| 10 | `src/config.rs.in`, `data/*.in.in` | `lib/config.rb` | config | **yes** |
+| 11 | `po/*.po` (51 locales, 19 msgids) | `lib/gettext.rb` + `po/` | i18n | **yes** |
 | — | gem entry | `lib/audiosharing.rb` | plumbing | **yes** |
+| — | gem version | `lib/audiosharing/rb/version.rb` | plumbing | **yes** |
 
-Nothing user-facing exists yet. `lib/audiosharing/application.rb` is the
-generated scaffold: a `Gtk::Application`, an `Adwaita::ApplicationWindow`, an
-`Adwaita::ToolbarView`, an empty `Adwaita::HeaderBar` and an
-`Adwaita::StatusPage` reading "The Ruby port has not been written yet." It
-contributes no upstream component.
+## Current state on `ruby`
+
+`lib/` holds `about_dialog.rb`, `audiosharing.rb`, `config.rb`, `gettext.rb`,
+`main.rb`, `qrcode.rb`, `qrcode_paintable.rb`, `window.rb` and
+`audiosharing/rb/version.rb`. Every user-facing component upstream has — the
+window, its two stack pages, the primary menu, the toast, the about dialog, the
+QR code and the catalogues — is built. The scaffold stub
+`lib/audiosharing/application.rb` is gone; `lib/audiosharing.rb` now just
+requires `main`.
+
+**The one outstanding gap is component 9**, and it is what makes the app do
+anything: nothing on `ruby` finds the audio sink, resolves the LAN address,
+mounts the RTSP factory or calls `Window#set_address` / `Window#show_error`.
+Two pieces of component 1 hang off it and are also absent — `gstreamer::init()`
+at startup and the `Gio::Notification` fired on `client-connected`. The window
+therefore shows an empty sharing page rather than either real state.
+
+Supporting files that exist but are not components: `test/gtk_driver.rb`,
+`test/drive_window.rb`, `test/check_qrcode.rb`, `test/check_translations.rb`,
+`test/qrcode_golden.txt`, `spec/`.
 
 ---
 
