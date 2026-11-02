@@ -17,7 +17,7 @@ remaining the gem entry point that `exe/audiosharing` requires.
 
 | # | Upstream file(s) | Port file | Kind | Exists on `ruby`? |
 |---|---|---|---:|---|
-| 1 | `src/main.rs`, `src/app.rs` | `lib/main.rb` | application | **yes** — actions, accel, process setup; **no** Gio::Notification, no `gstreamer::init()` |
+| 1 | `src/main.rs`, `src/app.rs` | `lib/main.rb` | application | **yes** — actions, accel, process setup, `gstreamer::init()` (via `lib/gstreamer.rb`), Gio::Notification (in `lib/rtsp_server.rb`) |
 | 2 | `src/ui/window.rs` + `data/gtk/window.ui` | `lib/window.rb` | window | **yes** |
 | 3 | `data/gtk/window.ui` (`menu primary_menu`) | `lib/window.rb` (`primary_menu`) | menu | **yes** |
 | 4 | `data/gtk/window.ui` (`GtkStackPage` #1) | `lib/window.rb` (`sharing_page`) | page | **yes** |
@@ -25,28 +25,41 @@ remaining the gem entry point that `exe/audiosharing` requires.
 | 6 | `src/ui/about_dialog.rs` + metainfo | `lib/about_dialog.rb` | dialog | **yes** |
 | 7 | `src/ui/qrcode_paintable.rs` | `lib/qrcode_paintable.rb` | paintable | **yes** (Cairo → `Gdk::Texture` substitution) |
 | 8 | `src/qrcode.rs` | `lib/qrcode.rb` | model | **yes** |
-| 9 | `src/app.rs` (`setup_server`, `find_device_name`, `get_ip_addr`, `client-connected`) | `lib/rtsp_server.rb` | service | **no** |
+| 9 | `src/app.rs` (`setup_server`, `find_device_name`, `get_ip_addr`, `client-connected`) | `lib/rtsp_server.rb` | service | **yes** |
 | 10 | `src/config.rs.in`, `data/*.in.in` | `lib/config.rb` | config | **yes** |
 | 11 | `po/*.po` (51 locales, 19 msgids) | `lib/gettext.rb` + `po/` | i18n | **yes** |
+| — | `gstreamer`/`gstreamer-rtsp-server` crates | `lib/gstreamer.rb` | plumbing | **yes** (typelibs loaded through GObject-Introspection) |
 | — | gem entry | `lib/audiosharing.rb` | plumbing | **yes** |
 | — | gem version | `lib/audiosharing/rb/version.rb` | plumbing | **yes** |
 
 ## Current state on `ruby`
 
 `lib/` holds `about_dialog.rb`, `audiosharing.rb`, `config.rb`, `gettext.rb`,
-`main.rb`, `qrcode.rb`, `qrcode_paintable.rb`, `window.rb` and
-`audiosharing/rb/version.rb`. Every user-facing component upstream has — the
+`gstreamer.rb`, `main.rb`, `qrcode.rb`, `qrcode_paintable.rb`, `rtsp_server.rb`,
+`window.rb` and `audiosharing/rb/version.rb`. Every user-facing component upstream has — the
 window, its two stack pages, the primary menu, the toast, the about dialog, the
 QR code and the catalogues — is built. The scaffold stub
 `lib/audiosharing/application.rb` is gone; `lib/audiosharing.rb` now just
 requires `main`.
 
-**The one outstanding gap is component 9**, and it is what makes the app do
-anything: nothing on `ruby` finds the audio sink, resolves the LAN address,
-mounts the RTSP factory or calls `Window#set_address` / `Window#show_error`.
-Two pieces of component 1 hang off it and are also absent — `gstreamer::init()`
-at startup and the `Gio::Notification` fired on `client-connected`. The window
-therefore shows an empty sharing page rather than either real state.
+**Component 9 is built.** `lib/rtsp_server.rb` runs at the end of `activate`:
+it asks a `Gst::DeviceMonitor` for the default `Audio/Sink`, builds upstream's
+`pulsesrc ! vorbisenc ! rtpvorbispay` factory for that sink's monitor source,
+mounts it at `/audio`, attaches the server to the default main context, and
+hands `Window#set_address` the `rtsp://<ip>:8554/audio` it is reachable at. The
+address comes from the same interface choice upstream's `pnet` call makes — up,
+not loopback, not a `virbr` bridge, has an address — falling back to `0.0.0.0`.
+With no sink the server is never started and `Window#show_error` gets
+`"No audio sink found"`, which is what the drive run sees on this machine. The
+two pieces of component 1 that hang off it are built too: `gstreamer::init()`
+through `lib/gstreamer.rb`, and the `audio-sharing-playback` `Gio::Notification`
+the server's `client-connected` handler sends.
+
+There is no ruby-gnome gem for either GStreamer library, so `lib/gstreamer.rb`
+maps their typelibs with the `gobject-introspection` gem's loader instead —
+the same introspection data upstream's Rust bindings are generated from. The
+dev shell and the packaged wrapper carry the four GStreamer packages and point
+`GST_PLUGIN_SYSTEM_PATH_1_0` at the plugins the launch line names.
 
 Supporting files that exist but are not components: `test/gtk_driver.rb`,
 `test/drive_window.rb`, `test/check_qrcode.rb`, `test/check_translations.rb`,

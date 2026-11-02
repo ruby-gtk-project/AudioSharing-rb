@@ -5,14 +5,15 @@ require 'adwaita'
 require_relative 'config'
 require_relative 'gettext'
 require_relative 'about_dialog'
+require_relative 'rtsp_server'
 require_relative 'window'
 
 # App is the application object.
 #
 # Ported from upstream's src/main.rs — the process-wide setup it does before
 # the application exists — and from src/app.rs, whose `activate` creates the
-# window, presents it, and adds the three application actions the primary
-# menu and the quit accelerator use.
+# window, presents it, adds the three application actions the primary menu
+# and the quit accelerator use, and then starts the RTSP server.
 class App
   include Gettext
 
@@ -27,6 +28,7 @@ class App
       application.signal_connect('activate') do
         actions
         main_window.present
+        rtsp_server.start
       end
     end
   end
@@ -47,6 +49,17 @@ class App
   # presents this window again rather than building another, which is what
   # upstream's stored window weak reference is for.
   def main_window = @main_window ||= Window.new(app).tap { |win| win.build }
+
+  # Upstream's setup_server, which runs at the end of activate: the server
+  # either comes up and hands the window the address to show, or finds no sink
+  # to record and the window shows that instead.
+  def rtsp_server
+    @rtsp_server ||= RtspServer.new(
+      app,
+      on_address: ->(address) { main_window.set_address(address) },
+      on_error:   ->(message) { main_window.show_error(message) },
+    )
+  end
 
   # app.help, app.about and app.quit, added once.
   def actions
@@ -85,10 +98,15 @@ class App
       ENV['PULSE_PROP_application.metadata().name'] = Config::NAME
     end
 
+    # Upstream logs whatever the launch future returns and carries on. The
+    # Ruby bindings raise the GError as a Gtk::DialogError — which is a
+    # StandardError but not a GLib::Error — and an exception raised inside an
+    # async callback takes the whole process down with it, so the rescue has
+    # to be as wide as upstream's `if let Err(err)`.
     def open_help
       Gtk::UriLauncher.new(HELP_URI).launch(main_window.window, nil) do |launcher, result|
         launcher.launch_finish(result)
-      rescue GLib::Error => e
+      rescue StandardError => e
         warn "Could not open url: #{e.message}"
       end
     end
