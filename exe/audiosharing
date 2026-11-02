@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+# Entry point for the Ruby port of Audio Sharing, upstream's src/main.rs.
+
 require "audiosharing"
 
-Audiosharing::Application.new.build.run
+App.new.build.run

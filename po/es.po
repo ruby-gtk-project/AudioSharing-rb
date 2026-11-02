@@ -1,0 +1,141 @@
+# Spanish translation for AudioSharing.
+# Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2023.
+# Julián Villodre <jvillodrede@gmail.com>, 2024-2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2025-02-02 13:16+0100\n"
+"Last-Translator: Julián Villodre <jvillodrede@gmail.com>\n"
+"Language-Team: es_ES\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 47.1\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;sonido;compartir;"
+
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
+msgid "Share your computer audio"
+msgstr "Compartir el sonido de su equipo"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"Con Compartición de sonido puede compartir la reproducción de sonido actual "
+"de su equipo en forma de flujo RTSP. Este flujo se puede reproducir en otros "
+"dispositivos, usando por ejemplo VLC."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Al compartir el sonido como un flujo de red puede usar dispositivos comunes "
+"que no están pensado como sumideros de sonido (ej. teléfonos móviles) para "
+"recibirlo. Por ejemplo, hay accesorios de sonido que no son compatibles con "
+"equipos de escritorio (ej. porque el equipo no tiene un módulo de Bluetooth "
+"instalado). Con la ayuda de esta aplicación el sonido del equipo se puede "
+"reproducir en un teléfono móvil, cuando está conectado mediante Bluetooth."
+
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Conéctese al flujo de audio escaneando el código QR o copiando la dirección"
+
+#: data/gtk/window.ui:20
+msgid "Menu"
+msgstr "Menú"
+
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "_Copiar al portapapeles"
+
+#: data/gtk/window.ui:96
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Actualmente está compartiendo sonido. Puede acceder a él desde otros "
+"dispositivos en la misma red escaneando el código QR o introduciendo la "
+"dirección mostrada en una aplicación de reproducción que soporte flujos "
+"RTSP. Este dispositivo se puede silenciar, el sonido se seguirá "
+"compartiendo.\n"
+"\n"
+"Para dejar de compartir, simplemente cierre esta ventana."
+
+#: data/gtk/window.ui:118
+msgid "Unable to Share Audio"
+msgstr "No se puede compartir sonido"
+
+#: data/gtk/window.ui:143
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Abrir la _ayuda <sup>↗</sup>"
+
+#: data/gtk/window.ui:150
+msgid "_About Audio Sharing"
+msgstr "_Acerca de compartición de sonido"
+
+#: src/app.rs:131
+msgid "A client has established a connection"
+msgstr "Un cliente ha establecido una conexión"
+
+#: src/app.rs:133
+msgid "Audio playback from this device gets shared."
+msgstr "La reproducción de sonido desde este dispositivo se comparte."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr ""
+"Julián Villodre <jvillodrede@gmail.com>, 2024\n"
+"Daniel Mustieles <daniel.mustieles@gmail.com>, 2023"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Donar"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Dirección copiada al portapapeles"
+
+#~ msgid "Main window light"
+#~ msgstr "Ventana principal clara"
+
+#~ msgid "Main window dark"
+#~ msgstr "Ventana principal oscura"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Compartir sonido del equipo"

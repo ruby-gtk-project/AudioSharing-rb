@@ -1,0 +1,7 @@
+lib/about_dialog.rb
+lib/config.rb
+lib/gettext.rb
+lib/main.rb
+lib/qrcode.rb
+lib/qrcode_paintable.rb
+lib/window.rb

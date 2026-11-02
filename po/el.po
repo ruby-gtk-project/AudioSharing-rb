@@ -1,0 +1,146 @@
+# Greek translation for AudioSharing.
+# Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# Efstathios Iosifidis <eiosifidis@gnome.org>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2023-10-15 09:21+0300\n"
+"Last-Translator: Giannis Antypas <gianni.antypas@gmail.com>\n"
+"Language-Team: Greek <gnome-el-list@gnome.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;ήχος;κοινή χρήση;ήχος;"
+
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
+msgid "Share your computer audio"
+msgstr "Μοιραστείτε τον ήχο του υπολογιστή σας"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"Με την Κοινή χρήση ήχου μπορείτε να μοιραστείτε την τρέχουσα αναπαραγωγή "
+"ήχου στον υπολογιστή σας με τη μορφή ροής RTSP. Αυτή η ροή μπορεί στη "
+"συνέχεια να αναπαραχθεί από άλλες συσκευές, για παράδειγμα χρησιμοποιώντας "
+"VLC."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Μοιράζοντας τον ήχο ως ροή δικτύου, μπορείτε επίσης να χρησιμοποιήσετε "
+"κοινές συσκευές που δεν προορίζονται να χρησιμοποιηθούν ως ακουστικές ροές "
+"(π.χ. έξυπνο τηλέφωνο) για τη λήψη του. Για παράδειγμα, υπάρχουν αξεσουάρ "
+"ήχου που δεν είναι συμβατά με επιτραπέζιους υπολογιστές (π.χ. επειδή ο "
+"υπολογιστής δεν έχει εγκατεστημένη μονάδα Bluetooth). Με τη βοήθεια αυτής "
+"της εφαρμογής, ο ήχος του υπολογιστή μπορεί να αναπαραχθεί σε ένα έξυπνο "
+"τηλέφωνο, το οποίο στη συνέχεια συνδέεται με το αξεσουάρ Bluetooth."
+
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr ""
+"Σύνδεση στη ροή ήχου σαρώνοντας τον κωδικό QR 'ή αντιγράφοντας τη διεύθυνση"
+
+#: data/gtk/window.ui:20
+msgid "Menu"
+msgstr "Μενού"
+
+#: data/gtk/window.ui:81
+#| msgid "Copy to Clipboard"
+msgid "_Copy to Clipboard"
+msgstr "_Αντιγραφή στο Πρόχειρο"
+
+#: data/gtk/window.ui:96
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Μοιράζεστε αυτήν τη στιγμή τον ήχο σας. Μπορείτε να αποκτήσετε πρόσβαση σε "
+"αυτόν από άλλες συσκευές στο ίδιο δίκτυο σαρώνοντας τον κωδικό QR ή "
+"εισάγοντας την εμφανιζόμενη διεύθυνση σε μια εφαρμογή αναπαραγωγής που "
+"υποστηρίζει ροές RTSP. Αυτή η συσκευή μπορεί να αποσιωπηθεί, ο ήχος θα "
+"εξακολουθεί να κοινοποιείται.\n"
+"\n"
+"Για να διακόψετε την κοινή χρήση, απλώς κλείστε αυτό το παράθυρο."
+
+#: data/gtk/window.ui:118
+msgid "Unable to Share Audio"
+msgstr "Αδυναμία Κοινής Χρήσης Ήχου"
+
+#: data/gtk/window.ui:143
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Άνοιγμα _Βοήθειας <sup>↗</sup>"
+
+#: data/gtk/window.ui:150
+msgid "_About Audio Sharing"
+msgstr "_Περί Κοινής Χρήσης Ήχου"
+
+#: src/app.rs:131
+msgid "A client has established a connection"
+msgstr "Ένας πελάτης έχει συνδεθεί"
+
+#: src/app.rs:133
+msgid "Audio playback from this device gets shared."
+msgstr "Η αναπαραγωγή ήχου από αυτήν τη συσκευή κοινοποιείται."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr ""
+"Ελληνική μεταφραστική ομάδα GNOME\n"
+" Ευστάθιος Ιωσηφίδης <iosifidis@opensuse.org>\n"
+"\n"
+"Για περισσότερες πληροφορίες, επισκεφθείτε τη σελίδα\n"
+"http://gnome.gr/"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "Δωρεά"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "Αντιγράφηκε η διεύθυνση στο πρόχειρο"
+
+#~ msgid "Main window light"
+#~ msgstr "Κύριο παράθυρο (φωτεινό)"
+
+#~ msgid "Main window dark"
+#~ msgstr "Κύριο παράθυρο (σκοτεινό)"
+
+#~ msgid "Share computer audio"
+#~ msgstr "Κοινή χρήση ήχου υπολογιστή"

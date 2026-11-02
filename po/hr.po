@@ -1,0 +1,131 @@
+# Croatian translation for AudioSharing.
+# Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2023-01-08 11:30+0000\n"
+"PO-Revision-Date: 2023-01-13 12:17+0100\n"
+"Last-Translator: \n"
+"Language-Team: Croatian <hr@li.org>\n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;glazba;dijeljenje;zvuk;"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+msgid "Share your computer audio"
+msgstr "Dijelite svoj računalni zvuk"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:8
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"S dijeljenjem zvuka možete dijeliti svoj trenutni zvuk računala u obliku "
+"RTSP strujanja. To strujanje se zatim može reporuducirati na drugim "
+"uređajima, primjerice na VLC reporduktoru."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"Dijeljenje zvuka kao mrežnog strujanja, možete koristiti uobičajene uređaje "
+"koji nisu namijenjeni da budu zvučni slivnici (npr. pametni telefoni) za "
+"primanje zvuka. Primjerice, postoje zvučni dodaci koji nisu kompatibilni sa "
+"stolnim računalima (npr. jer računalo nema instaliran Bluetooth modul). Uz "
+"pomoć ove aplikacije, zvuk s računala može se reproducirati na pametnom "
+"telefonu koji se zatim povezuje s Bluetooth dodatkom."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
+msgid "Main window light"
+msgstr "Svijetli glavni prozor"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
+msgid "Main window dark"
+msgstr "Tamni glavni prozor"
+
+#: data/gtk/window.ui:27
+msgid "Menu"
+msgstr "Izbornik"
+
+#: data/gtk/window.ui:87
+msgid "Copy to Clipboard"
+msgstr "Kopiraj u međuspremnik"
+
+#: data/gtk/window.ui:98
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"Trenutno dijelite svoj zvuk. Možete mu pristupiti putem drugih uređaja na "
+"istoj mreži ili skeniranjem QR kôda ili upisom prikazane adrese u aplikaciji "
+"repordukcije koja podržava RTSP strujanja. Taj uređaj se može utišati, a "
+"zvuk će se i dalje dijeliti.\n"
+"\n"
+"Za prestanak dijeljenja jednostavno zatvorite ovaj prozor."
+
+#: data/gtk/window.ui:120
+msgid "Unable to Share Audio"
+msgstr "Nemoguće dijeljenje zvuka"
+
+#: data/gtk/window.ui:145
+msgid "Open _Help <sup>↗</sup>"
+msgstr "Otvori _pomoć <sup>↗</sup>"
+
+#: data/gtk/window.ui:152
+msgid "_About Audio Sharing"
+msgstr "_O Zvučnom dijeljenju"
+
+#: src/ui/about_window.rs:35
+msgid "Share computer audio"
+msgstr "Dijelite računalni zvuk"
+
+#: src/ui/about_window.rs:45
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  gogo https://launchpad.net/~trebelnik-stefina"
+
+#: src/ui/window.rs:83
+msgid "Copied address to clipboard"
+msgstr "Adresa je kopirana u međuspremnik"
+
+#: src/app.rs:144
+msgid "A client has established a connection"
+msgstr "Klijent je uspostavio povezivanje"
+
+#: src/app.rs:145
+msgid "Audio playback from this device gets shared."
+msgstr "Reprodukcija zvuka s ovog uređaja se dijeli."

@@ -1,0 +1,121 @@
+# Telugu translation for AudioSharing.
+# Copyright (C) 2026 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# FULL NAME <EMAIL@ADDRESS>, 2026.
+# Aryan Karamtoth <spaciouskarter78@disroot.org>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2025-01-26 21:12+0000\n"
+"PO-Revision-Date: 2026-05-18 15:01+0530\n"
+"Last-Translator: Aryan Karamtoth <spaciouskarter78@disroot.org>\n"
+"Language-Team: GNOME Telugu Translation Team\n"
+"Language: te\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Gtranslator 50.0\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:2
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:11
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;audio;sharing;sound;"
+
+#. General
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:10
+msgid "Share your computer audio"
+msgstr "మీ కంప్యూటర్ ఆడియోను భాగస్వామ్యం చేయండి"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:12
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"ఆడియో షేరింగ్‌తో మీరు మీ ప్రస్తుత కంప్యూటర్ ఆడియో ప్లేబ్యాక్‌ను RTSP స్ట్రీమ్ రూపంలో పంచుకోవచ్చు. ఈ "
+"స్ట్రీమ్‌ను ఆ తర్వాత VLC వంటి ఇతర పరికరాలలో ప్లేబ్యాక్ చేయవచ్చు."
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:15
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"ఆడియోను నెట్‌వర్క్ స్ట్రీమ్‌గా షేర్ చేయడం ద్వారా, ఆడియో సింక్‌లుగా ఉపయోగించడానికి ఉద్దేశించని సాధారణ పరికరాలను "
+"(ఉదా. స్మార్ట్‌ఫోన్‌లు) కూడా మీరు దానిని స్వీకరించడానికి ఉపయోగించవచ్చు. ఉదాహరణకు, డెస్క్‌టాప్ కంప్యూటర్‌లకు "
+"అనుకూలంగా లేని ఆడియో యాక్సెసరీలు ఉన్నాయి (ఉదా. కంప్యూటర్‌లో బ్లూటూత్ మాడ్యూల్ ఇన్‌స్టాల్ చేయకపోవడం వల్ల). "
+"ఈ యాప్ సహాయంతో, బ్లూటూత్ యాక్సెసరీకి కనెక్ట్ చేయబడిన స్మార్ట్‌ఫోన్‌లో కంప్యూటర్ ఆడియోను ప్లేబ్యాక్ చేయవచ్చు."
+
+#. Branding
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:23
+msgid "Felix Häcker"
+msgstr "Felix Häcker"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:59
+msgid ""
+"Connect to the audio stream by scanning the QR code or copying the address"
+msgstr "QR కోడ్‌ను స్కాన్ చేయడం ద్వారా లేదా చిరునామాను కాపీ చేయడం ద్వారా ఆడియో స్ట్రీమ్‌కు కనెక్ట్ అవ్వండి"
+
+#: data/gtk/window.ui:20
+msgid "Menu"
+msgstr "మెనూ"
+
+#: data/gtk/window.ui:81
+msgid "_Copy to Clipboard"
+msgstr "క్లిప్‌బోర్డ్‌కు కాపీ చేయండి (_C)"
+
+#: data/gtk/window.ui:96
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"మీరు ప్రస్తుతం మీ ఆడియోను షేర్ చేస్తున్నారు. QR కోడ్‌ను స్కాన్ చేయడం ద్వారా లేదా RTSP స్ట్రీమ్‌లకు మద్దతు "
+"ఇచ్చే ప్లేబ్యాక్ యాప్‌లో ప్రదర్శించబడిన చిరునామాను నమోదు చేయడం ద్వారా మీరు అదే నెట్‌వర్క్‌లోని ఇతర పరికరాల నుండి "
+"దాన్ని యాక్సెస్ చేయవచ్చు. ఈ పరికరం మ్యూట్ చేయబడి ఉన్నప్పటికీ, ఆడియో షేర్ చేయబడుతూనే ఉంటుంది."
+
+#: data/gtk/window.ui:118
+msgid "Unable to Share Audio"
+msgstr "ఆడియోను షేర్ చేయలేకపోతున్నాను"
+
+#: data/gtk/window.ui:143
+msgid "Open _Help <sup>↗</sup>"
+msgstr "సహాయాన్ని తెరవండి (_H) <sup>↗</sup>"
+
+#: data/gtk/window.ui:150
+msgid "_About Audio Sharing"
+msgstr "Audio Sharing గురించి (_A)"
+
+#: src/app.rs:131
+msgid "A client has established a connection"
+msgstr "ఒక క్లయింట్ కనెక్షన్‌ను ఏర్పాటు చేసుకున్నారు"
+
+#: src/app.rs:133
+msgid "Audio playback from this device gets shared."
+msgstr "ఈ పరికరం నుండి ఆడియో ప్లేబ్యాక్ పంచుకోబడుతుంది."
+
+#: src/ui/about_dialog.rs:40
+msgid "translator-credits"
+msgstr "Aryan Karamtoth"
+
+#: src/ui/about_dialog.rs:41
+msgid "Donate"
+msgstr "దానం చేయండి"
+
+#: src/ui/window.rs:78
+msgid "Copied address to clipboard"
+msgstr "చిరునామాను క్లిప్‌బోర్డ్‌కు కాపీ చేసారు"

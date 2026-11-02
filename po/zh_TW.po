@@ -1,0 +1,121 @@
+# Chinese (Taiwan) translation for AudioSharing.
+# Copyright (C) 2023 AudioSharing's COPYRIGHT HOLDER
+# This file is distributed under the same license as the AudioSharing package.
+# KennethCho <code.kenneth.cho@outlook.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AudioSharing main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/AudioSharing/issues\n"
+"POT-Creation-Date: 2023-10-31 12:23+0000\n"
+"PO-Revision-Date: 2023-11-28 12:12+0800\n"
+"Last-Translator: Cheng-Chia Tseng <zerngjia@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) <chinese-l10n@googlegroups.com>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:3
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:5
+msgid "@NAME@"
+msgstr "@NAME@"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/de.haeckerfelix.AudioSharing.desktop.in.in:12
+msgid "Gnome;GTK;audio;sharing;sound;"
+msgstr "Gnome;GTK;audio;sharing;sound;音效;音訊;聲音;分享;共享;"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:6
+msgid "Share your computer audio"
+msgstr "分享您的電腦音訊"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:16
+msgid ""
+"With Audio Sharing you can share your current computer audio playback in the "
+"form of an RTSP stream. This stream can then be played back by other "
+"devices, for example using VLC."
+msgstr ""
+"有了《音訊分享》，您可以用 RTSP 串流的形式分享您目前電腦的音訊播放。這道串流"
+"也可以透過其他裝置來操作播放，例如用 VLC。"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:19
+msgid ""
+"By sharing the audio as a network stream, you can also use common devices "
+"that are not intended to be used as audio sinks (eg. smartphones) to receive "
+"it. For example, there are audio accessories that are not compatible with "
+"desktop computers (e.g. because the computer does not have a Bluetooth "
+"module installed). With the help of this app, the computer audio can be "
+"played back on a smartphone, which is then connected to the Bluetooth "
+"accessory."
+msgstr ""
+"藉由網路串流的形式分享音訊，您也可以讓一般不用作音效承接的裝置（例如智慧型手"
+"機）來接收音訊。例如，有些音效配件與桌面電腦不相容（例如，電腦沒有安裝藍牙模"
+"組）。而在這個程式的幫助之下，您可以透過智慧型手機播放電腦音訊，接著再讓手機"
+"連到藍牙配件上播放。"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:28
+msgid "Main window light"
+msgstr "主視窗亮色"
+
+#: data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in:32
+msgid "Main window dark"
+msgstr "主視窗暗色"
+
+#: data/gtk/window.ui:27
+msgid "Menu"
+msgstr "選單"
+
+#: data/gtk/window.ui:88
+msgid "Copy to Clipboard"
+msgstr "複製到剪貼簿"
+
+#: data/gtk/window.ui:99
+msgid ""
+"You are currently sharing your audio. You can access it from other devices "
+"in the same network by scanning the QR code or entering the displayed "
+"address in a playback app that supports RTSP streams. This device can be "
+"muted, the audio will still be shared.\n"
+"\n"
+"To stop sharing, simply close this window."
+msgstr ""
+"您目前正在分享音訊。您可以透過掃描 QR 碼，或在支援 RTSP 串流的播放應用程式"
+"中，輸入顯示的位址，來從相同網路中的其他裝置存取音訊串流。這個裝置可以保持靜"
+"音，而音訊仍然會被分享。\n"
+"\n"
+"如要停止分享，關閉這個視窗即可。"
+
+#: data/gtk/window.ui:121
+msgid "Unable to Share Audio"
+msgstr "無法分享音訊"
+
+#: data/gtk/window.ui:146
+msgid "Open _Help <sup>↗</sup>"
+msgstr "開啟求助(_H) <sup>↗</sup>"
+
+#: data/gtk/window.ui:153
+msgid "_About Audio Sharing"
+msgstr "關於音效分享 (_A)"
+
+#: src/ui/about_window.rs:35
+msgid "Share computer audio"
+msgstr "分享電腦音效"
+
+#: src/ui/about_window.rs:45
+msgid "translator-credits"
+msgstr ""
+"Kenneth Cho <code.kenneth.cho@outlook.com>, 2023.\n"
+"Cheng-Chia Tseng <zerngjia@gmail.com>, 2023."
+
+#: src/ui/window.rs:83
+msgid "Copied address to clipboard"
+msgstr "已複製位址到剪貼簿"
+
+#: src/app.rs:144
+msgid "A client has established a connection"
+msgstr "客戶端已建立連線"
+
+#: src/app.rs:145
+msgid "Audio playback from this device gets shared."
+msgstr "此裝置的音訊播放正被分享。"
