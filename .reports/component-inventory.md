@@ -218,8 +218,9 @@ A `GObject` with no widget in it. Properties: `content` (get/set/construct-only)
 `module_dimensions(1, 1)`, rendered to chars and mapped to booleans by
 non-whitespace. `Default` is `QrCode::new("")`.
 
-**Port note:** no libqrencode/qrcode binding; use `rqrcode_core` (pure Ruby, as
-the pilot does) and expose the same `items` / `width` / `height` shape.
+**Port note:** no libqrencode/qrcode binding; `lib/qrcode.rb` wraps
+`rqrcode_core` (pure Ruby, as the pilot does) and exposes the same `items` /
+`width` / `height` shape, instead of a hand-rolled encoder.
 
 ## 9. `src/app.rs` server plumbing → `lib/rtsp_server.rb` — the sharing service
 

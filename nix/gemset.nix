@@ -213,4 +213,14 @@
     };
     version = "0.5.0";
   };
+  rqrcode_core = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0l9hl5nb7jx8sjchsrlv6bk30hywr449ihcdxv2qy6wwz1fvh0zk";
+      type = "gem";
+    };
+    version = "2.1.0";
+  };
 }

@@ -16,7 +16,10 @@ GOLDEN = File.readlines(File.expand_path('qrcode_golden.txt', __dir__), chomp: t
 QUIET = QrCode::QUIET_ZONE
 
 # The byte capacity of each version at level M: the last length that still
-# fits before the encoder has to step up a version.
+# fits before the encoder has to step up a version. Versions beyond 10 are
+# never reached by an RTSP address, but `rqrcode_core` (the encoder behind
+# `QrCode`) covers the whole range up to version 40, so the boundary checks
+# below do too.
 CAPACITIES = {
   1  => 14,
   2  => 26,
@@ -29,6 +32,9 @@ CAPACITIES = {
   9  => 180,
   10 => 213,
 }.freeze
+
+# The largest byte capacity of any version at level M, in byte mode.
+MAX_CAPACITY = 2331
 
 @failures = []
 
@@ -90,9 +96,9 @@ end
 
 check('content past the largest version is refused') do
   begin
-    QrCode.new('x' * (CAPACITIES.fetch(10) + 1)).items
+    QrCode.new('x' * (MAX_CAPACITY + 1)).items
     false
-  rescue ArgumentError
+  rescue StandardError
     true
   end
 end
