@@ -3,8 +3,8 @@
 | | |
 |---|---|
 | Upstream | `main` @ `a4b9350` |
-| Port | `ruby` @ `165d81e` (re-verified this round; previous round was `c038da2`) |
-| Units with full parity | 10 / 12 (the application unit's repeat-activation gap was closed this round; see below) |
+| Port | `ruby` @ `f476341` (re-verified this round; previous round was `165d81e`) |
+| Units with full parity | 12 / 12 — the `data/` packaging gap this report used to carry was closed in `71fa944` ("Ship the data/ packaging unit and cover the repeat-activation guard"); see the corrected section below. |
 
 Scan evidence: `component-scan.sh` run against both trees
 (`.claude/skills/component-identification/scripts/component-scan.sh`),
@@ -21,19 +21,20 @@ pair (the scan alone is a lead, never a verdict — Step 1 of this skill).
 | `<primary>q` accel on `app.quit` | 1 | 1 | parity |
 | `configure_process` (app name, icon name, 2 PulseAudio env vars) | yes | yes (`lib/main.rb#configure_process`) | parity |
 
-**Fixed this round — repeat-activation guard.** Last round found upstream's
-`activate` checking `self.window.get()` and, on a second activation,
-presenting the existing window and returning before reaching
-`setup_server` (`src/app.rs:40-47`), while the port's `App#build` ran
-`actions; main_window.present; rtsp_server.start` unconditionally. Commit
-`165d81e` ("Guard App#activate against a second activation restarting the
-server") adds `App#activate` with a `window_built?` check
-(`lib/main.rb`): a second activation now only presents the window, matching
-upstream's single-setup behaviour. Read live this session — the fix is
-correct and matches upstream's shape. **parity, as of this commit** — but
-see `test-parity.md`: no check in the suite fires the application's
-`activate` signal twice, so this fix has no regression test. Recorded there
-as a live gap, not erased here.
+**Repeat-activation guard — fixed and now covered.** Upstream's `activate`
+checks `self.window.get()` and, on a second activation, presents the
+existing window and returns before reaching `setup_server`
+(`src/app.rs:40-47`). Commit `165d81e` ("Guard App#activate against a
+second activation restarting the server") added `App#activate` with a
+`window_built?` check (`lib/main.rb`): a second activation now only
+presents the window, matching upstream's single-setup behaviour. Commit
+`71fa944` then added the regression test this report used to flag as
+missing: `test/drive_window.rb`'s "a second activation only re-presents
+the window" step stubs `RtspServer#start`, calls `App#activate` a second
+time, and asserts no second window was built and `starts.zero?`. Re-run
+live this round (`nix develop --command xvfb-run -a ruby
+test/drive_window.rb`, 85/85 checks green) — the step passes. **parity,
+with regression coverage.**
 
 ## Unit: window — `src/ui/window.rs` + `data/gtk/window.ui` → `lib/window.rb`
 
@@ -112,32 +113,43 @@ client connecting — has never been driven on any machine this audit can
 confirm (see `test-parity.md`); that absence of evidence is scored there,
 not silently assumed as parity here.
 
-## Unit: data/ packaging — `data/*.in.in`, `data/icons/**`, `data/gtk/style.css` → **nothing**
+## Unit: data/ packaging — `data/*.in.in`, `data/icons/**`, `data/gtk/style.css` → `lib/data_files.rb` + `data/**`
 
-See `.reports/component-identification.md` addendum. No `.desktop` file, no
-AppStream `metainfo.xml`, no D-Bus `.service` file, and no icon file (`.svg`,
-scalable or symbolic) exists anywhere in the `ruby` tree. Concretely:
+**Closed this round (previously scored "gap" in this report).** Commit
+`71fa944` ("Ship the data/ packaging unit and cover the repeat-activation
+guard") added `lib/data_files.rb` plus the three generated/copied files it
+ports:
 
-- `Gtk::Window.set_default_icon_name(Config::APP_ID)`
-  (`lib/main.rb#configure_process`) names an icon that is never installed,
-  so the window/taskbar icon resolves to the system's missing-icon
-  placeholder rather than Audio Sharing's branded icon.
-- `Config::DESKTOP_ENTRY`, `Config::DBUS_SERVICE_NAME` and
-  `Config::DBUS_SERVICE_ARGUMENT` (`lib/config.rb:40-57`) are built and
-  never read by anything — dead constants standing in for a file that was
-  never written. Nothing in the port can be D-Bus-activated, launched from
-  an app grid, or found by `gnome-software`/`flatpak`.
-- The screenshot caption msgid ("Connect to the audio stream by scanning
-  the QR code or copying the address") and the metainfo developer name
-  (translatable `Felix Häcker`) have no port-side home at all — tracked
-  again in `translation-parity.md`.
+- `data/de.haeckerfelix.AudioSharing.desktop` — `DataFiles.desktop_entry`,
+  built from `Config::DESKTOP_ENTRY`, the same constant this report
+  previously called a dead end. It is read now: `Keywords=`,
+  `Categories=`, `DBusActivatable=true` and the rest all round-trip.
+- `data/de.haeckerfelix.AudioSharing.metainfo.xml` — `DataFiles.metainfo`,
+  sourced from `AboutDialog::SUMMARY`/`DESCRIPTION`/`DEVELOPER_NAME` so the
+  about dialog and the metainfo cannot drift apart.
+- `data/de.haeckerfelix.AudioSharing.service` — `Config::DBUS_SERVICE_NAME`/
+  `DBUS_SERVICE_ARGUMENT`, no longer dead constants.
+- The three icon files (`...svg`, `...Devel.svg`, `...-symbolic.svg`) are
+  copied verbatim under `data/icons/hicolor/**`, so
+  `Gtk::Window.set_default_icon_name(Config::APP_ID)`
+  (`lib/main.rb#configure_process`) now names an icon that exists on disk
+  in this tree, not one that resolves to the missing-icon placeholder.
 
-**gap.**
+`test/check_data_files.rb` (run live this round, `DATA FILES OK`) checks
+the committed files carry the app id, summary, both description
+paragraphs, developer name and homepage link; that
+`DataFiles.generate!` reproduces the committed desktop entry and metainfo
+byte for byte (idempotency); and that all three icon files are present.
+`data/gtk/style.css` is empty upstream, so there is nothing to port there —
+unchanged from the base inventory.
+
+Unit: **parity.**
 
 ## Rules check
 
 - No app-wide totals substituted for per-unit comparison above.
 - Every extra (none found beyond house-style restructuring already recorded
   as correspondences in the base inventory) is accounted for.
-- The repeat-activation and missing-`data/`-unit gaps are both named with
-  file:line and are not excused anywhere in this document.
+- The repeat-activation and `data/`-unit gaps this report used to carry are
+  both closed, each with the commit and the live test run that proves it,
+  not just asserted.

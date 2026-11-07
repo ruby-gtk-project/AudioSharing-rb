@@ -63,6 +63,7 @@ module Config
   CONTACT_URL = 'https://matrix.to/#/#audio-sharing:gnome.org'
   VCS_BROWSER_URL = 'https://gitlab.gnome.org/World/AudioSharing'
   TRANSLATE_URL = 'https://l10n.gnome.org/module/AudioSharing/'
+  CONTRIBUTE_URL = 'https://welcome.gnome.org/app/AudioSharing/'
 
   # The short commit the build was made from. meson runs `git rev-parse
   # --short HEAD` and bakes the answer in; reading the refs directly costs no

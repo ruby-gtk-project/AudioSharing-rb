@@ -3,11 +3,11 @@
 | | |
 |---|---|
 | Upstream | `main` @ `a4b9350` |
-| Port | `ruby` @ `165d81e` (re-verified this round; previous round was `c038da2`) |
+| Port | `ruby` @ `f476341` (re-verified this round; previous round was `165d81e`) |
 | Upstream tests | 0 |
 | Ported | 0 |
-| Gaps | 0 upstream-test gaps, but see "Narrowness" below — a behaviour with no upstream test can still have no port test either, and one now doesn't |
-| Test command(s) | `nix develop --command xvfb-run -a ruby test/drive_window.rb` · `... test/check_qrcode.rb` · `... test/check_translations.rb` |
+| Gaps | 0 upstream-test gaps; see "Narrowness" below for the one real coverage gap that remains (the live-sink success path) |
+| Test command(s) | `nix develop --command xvfb-run -a ruby test/drive_window.rb` · `... test/check_qrcode.rb` · `... test/check_translations.rb` · `... test/check_data_files.rb` |
 
 ## Upstream has no test suite
 
@@ -30,7 +30,7 @@ Ran live, in the fork's dev shell, against a virtual display, this audit:
 ```
 $ nix develop --command xvfb-run -a ruby test/drive_window.rb
 ...
-82 of 82 checks passed
+85 of 85 checks passed
 DRIVE OK
 
 $ nix develop --command xvfb-run -a ruby test/check_qrcode.rb
@@ -40,64 +40,78 @@ QRCODE OK   (20 checks)
 $ nix develop --command xvfb-run -a ruby test/check_translations.rb
 ...
 TRANSLATIONS OK   (≈60 checks, incl. "50 of 51 catalogues carry translations")
+
+$ nix develop --command xvfb-run -a ruby test/check_data_files.rb
+...
+DATA FILES OK   (11 checks)
 ```
 
-The runtime gate this round (82 checks / 10 components / `drive_ok: true`)
-matches `test/drive_window.rb` exactly — it is the drive script's own
-count, re-run and reproduced here, not a figure taken on faith.
-`test/check_qrcode.rb` and `test/check_translations.rb` were also re-run
-live this round and both still pass (QRCODE OK, 20 checks; TRANSLATIONS OK).
+The runtime gate this round (85 checks in `test/drive_window.rb`, up from
+82) matches the drive script's own count, re-run and reproduced here, not
+a figure taken on faith. The other three scripts were also re-run live
+this round and all still/now pass.
 
-**Round-2 update: `lib/main.rb` was changed since the last audit** (commit
-`165d81e`, "Guard App#activate against a second activation restarting the
-server") to add the `window_built?` guard the previous round's
-`component-parity.md` flagged as missing. Reading the current source
-confirms the fix matches upstream's shape: a second `activate` now only
-presents the window and returns, it does not re-run `rtsp_server.start`.
-**But no test exercises this.** `grep -n 'activate\|repeat' test/drive_window.rb`
-turns up only the single `signal_connect('activate')` setup and the
-`app.help_action.activate` / `app.about_action.activate` *action* calls —
-nothing fires the application's `activate` signal a second time. The code
-fix is real; the regression protection for it is not. If a future change
-reintroduces the unconditional path, this suite would not catch it. That is
-still a gap, just a different one than last round's (then: behaviour wrong
-and unverified; now: behaviour right and still unverified).
+**Closed — the repeat-activation guard now has a regression test.**
+Commit `165d81e` ("Guard App#activate against a second activation
+restarting the server") added the `window_built?` guard; the previous
+round of this report flagged it as fixed but unverified. Commit `71fa944`
+closed that: `test/drive_window.rb`'s "a second activation only
+re-presents the window" step (re-read this round, lines 346-358) stubs
+`RtspServer#start` to count calls, invokes `App#activate` a second time
+directly (documented in-file as the deliberate way to exercise the guard
+without re-entering the harness's own `activate` handler), and asserts
+`app.main_window.equal?(window_before)`, the window is still visible, and
+`starts.zero?`. All three assertions are part of the 85 checks that just
+passed live. **No longer a gap.**
 
-**Narrowness of the gate, read against the component list:** the gate
-reports "10 components" covered this round (component-identification.md's
-addendum now counts 12 named units total, with the `data/` tree as its own
-row). At least two units are still not exercised by any check in any of the
-three test files:
+**Closed — the `data/` packaging unit now has its own check file.**
+`test/check_data_files.rb` (new in `71fa944`) opens the committed
+`.desktop` and metainfo files and asserts on the app id, summary, both
+description paragraphs, developer name and homepage link; re-generates
+both with `DataFiles.generate!` and asserts the result is byte-identical
+to what is committed; and asserts all three icon files exist on disk.
+This is a port-side check, not an upstream one (upstream has no test
+suite at all, see above), and it does not open an *installed* `.desktop`
+file through a desktop-file-validator or resolve the icon through
+GTK's icon theme at runtime — so "the generated files are correct" is
+proven, "a desktop environment would actually find and use them" is not.
+That narrower claim is the gap recorded below, not the broader one this
+report used to carry.
 
-1. **The `data/` packaging unit** — no check opens an installed `.desktop`
-   file, loads the metainfo, or resolves the window icon from an icon
-   theme, because none of those files exist to check (see
-   `component-parity.md`). Unchanged from last round.
-2. **A live audio sink.** `test/drive_window.rb` step 2 explicitly asserts
+**Narrowness of the gate, read against the component list:** one real gap
+remains, not two:
+
+1. **A live audio sink.** `test/drive_window.rb` step 2 explicitly asserts
    `app.rtsp_server.device_name.nil?` and takes the *error* branch — this
    machine has no PulseAudio sink. The success path (`RtspServer#share`
    actually starting a `GstRtspServer::RTSPServer`, mounting the factory,
    and a client connecting to receive the notification) has **never been
-   driven on any machine this audit can confirm.** `82/82` checks passing
+   driven on any machine this audit can confirm.** `85/85` checks passing
    proves the error path and the UI around it; it does not prove the
    server itself ever serves audio. This is the single largest "a suite
    that passes is not the same as a suite that was executed against the
    real behaviour" risk in this port, and it is unresolved by this audit.
-3. **The repeat-activation guard itself** (new this round, see above) —
-   the behaviour exists now but is unverified, which this report counts
-   as its own gap rather than folding it silently into "done."
+   Closing it needs either a machine with a real or virtual (e.g.
+   `pulseaudio --start` plus a null sink) audio sink wired into CI, or an
+   `RtspServer` test that fakes `Gst::DeviceMonitor` to return a sink and
+   drives a real RTSP client against `rtsp.attach`'s server — neither of
+   which exists yet.
 
 ## Extra
 
-- `test/drive_window.rb` — 82 checks: window construction/geometry, the
+- `test/drive_window.rb` — 85 checks: window construction/geometry, the
   primary menu, the toast/clipboard round-trip, the three app actions and
-  their accelerator, the about dialog's full field set, the error page,
-  focus and the `<primary>q` accelerator closing the window.
+  their accelerator, the repeat-activation guard, the about dialog's full
+  field set, the error page, focus and the `<primary>q` accelerator
+  closing the window.
 - `test/check_qrcode.rb` — 20 checks: the QR matrix against a golden file,
   quiet zone, finder/timing patterns, and version-boundary capacity.
 - `test/check_translations.rb` — catalogue completeness (50/51 non-empty),
   per-language message counts, and spot-translation checks for `de`,
   `fr`, `pt_BR` plus locale-fallback behaviour.
+- `test/check_data_files.rb` — 11 checks: the generated desktop entry and
+  metainfo carry the right content and regenerate byte-for-byte, and all
+  three icon files are present.
 
 None of these corresponds to an upstream test; none claims to. They are
 listed here, outside the 0/0 count, per the skill's own worked example for

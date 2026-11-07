@@ -61,6 +61,26 @@ check('it carries the developer name') do
   metainfo_text.include?("<developer_name>#{AboutDialog::DEVELOPER_NAME}</developer_name>")
 end
 check('it links the homepage') { metainfo_text.include?(Config::HOMEPAGE_URL) }
+check('it links the contribute page') { metainfo_text.include?(Config::CONTRIBUTE_URL) }
+check('it carries the developer block with its id') do
+  metainfo_text.include?("<developer id=\"#{DataFiles::DEVELOPER_ID}\">")
+end
+check('it carries both branding colours') do
+  DataFiles::BRANDING_COLORS.values.all? { |color| metainfo_text.include?(color) }
+end
+check('it declares the minimum display length') do
+  metainfo_text.include?("<display_length compare=\"ge\">#{DataFiles::MINIMUM_DISPLAY_LENGTH}</display_length>")
+end
+check('it declares all three supported controls') do
+  DataFiles::SUPPORTED_CONTROLS.all? { |control| metainfo_text.include?("<control>#{control}</control>") }
+end
+check('it carries the screenshot and its caption') do
+  metainfo_text.include?(DataFiles::SCREENSHOT_URL) && metainfo_text.include?(DataFiles::SCREENSHOT_CAPTION)
+end
+check('it carries every release version upstream lists') do
+  DataFiles::RELEASES.all? { |release| metainfo_text.include?("version=\"#{release[:version]}\"") }
+end
+check('it closes the releases element') { metainfo_text.include?('</releases>') }
 
 puts 'DataFiles.generate! is idempotent and reproduces the committed files'
 check('the desktop entry regenerates byte for byte') { DataFiles.desktop_entry == File.read(desktop_path) }

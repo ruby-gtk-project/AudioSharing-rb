@@ -15,6 +15,13 @@
   </description>
   <content_rating type="oars-1.0"/>
   <developer_name>Felix Häcker</developer_name>
+  <developer id="de.haeckerfelix">
+    <name>Felix Häcker</name>
+  </developer>
+  <branding>
+    <color type="primary" scheme_preference="light">#e56b5a</color>
+    <color type="primary" scheme_preference="dark">#972b31</color>
+  </branding>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <url type="homepage">https://apps.gnome.org/AudioSharing/</url>
@@ -23,4 +30,82 @@
   <url type="translate">https://l10n.gnome.org/module/AudioSharing/</url>
   <url type="contact">https://matrix.to/#/#audio-sharing:gnome.org</url>
   <url type="vcs-browser">https://gitlab.gnome.org/World/AudioSharing</url>
+  <url type="contribute">https://welcome.gnome.org/app/AudioSharing/</url>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </supports>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://gitlab.gnome.org/World/AudioSharing/-/raw/main/data/screenshots/1.png</image>
+      <caption>Connect to the audio stream by scanning the QR code or copying the address</caption>
+    </screenshot>
+  </screenshots>
+  <releases>
+    <release version="0.2.4" date="2024-04-01">
+      <description>
+        <p>
+          This version includes minor improvements and bug fixes.
+        </p>
+        <ul>
+          <li>Improved user interface using new Adwaita widgets</li>
+          <li>Using GNOME 46 Platform</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.2.3" date="2024-04-01"/>
+    <release version="0.2.2" date="2023-06-19">
+      <description>
+        <p>
+          This version includes minor improvements and bug fixes.
+        </p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.2.1" date="2022-10-15">
+      <description>
+        <p>
+          This version includes minor improvements and bug fixes.
+        </p>
+        <ul>
+          <li>Don't invert QR code on dark mode</li>
+          <li>Use new Adwaita about dialog</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.2.0" date="2022-02-27">
+      <description>
+        <p>
+          This version includes minor improvements and bug fixes.
+        </p>
+        <ul>
+          <li>User interface adapted to new Adwaita design</li>
+          <li>New desktop notification when a client connects</li>
+          <li>Fixed a problem where on some systems the microphone input was streamed instead of audio playback</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.1.2" date="2021-09-28">
+      <description>
+        <p>
+          Bugfix release to fix the "Unable to find audio sink" message.
+        </p>
+      </description>
+    </release>
+    <release version="0.1.0" date="2021-09-19">
+      <description>
+        <p>
+          First stable release.
+        </p>
+      </description>
+    </release>
+  </releases>
 </component>

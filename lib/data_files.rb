@@ -56,10 +56,71 @@ module DataFiles
       "Exec=#{bindir}/#{Config::PKGNAME} #{Config::DBUS_SERVICE_ARGUMENT}\n"
   end
 
+  # The developer id upstream's <developer> block carries, alongside the
+  # <developer_name> element the about dialog also reads.
+  DEVELOPER_ID = 'de.haeckerfelix'
+
+  # upstream's <branding> block: the two accent colours apps.gnome.org shows
+  # this app's card in, light and dark.
+  BRANDING_COLORS = {
+    'light' => '#e56b5a',
+    'dark'  => '#972b31',
+  }.freeze
+
+  # upstream's <requires>/<supports> hardware declaration.
+  MINIMUM_DISPLAY_LENGTH = 360
+  SUPPORTED_CONTROLS = %w[keyboard pointing touch].freeze
+
+  # upstream's one screenshot, hosted in the repository rather than shipped
+  # as a file the way the app icons are, so the metainfo links to it instead
+  # of to a local path. The caption is the one msgid this file and
+  # `po/*.po` both carry that no other port-side string duplicates; only
+  # the English source text is emitted here — there is no per-locale
+  # metainfo generation in this port (see the file-level comment).
+  SCREENSHOT_URL = 'https://gitlab.gnome.org/World/AudioSharing/-/raw/main/data/screenshots/1.png'
+  SCREENSHOT_CAPTION = 'Connect to the audio stream by scanning the QR code or copying the address'
+
+  # upstream's <releases> history, verbatim: each entry is the version and
+  # date meson.build's `project(version: ...)` was bumped to for that
+  # release, plus whatever release notes that tag's metainfo carried. A nil
+  # :paragraph means upstream shipped a bare self-closing <release/> with no
+  # notes for that version.
+  RELEASES = [
+    {
+      version: '0.2.4', date: '2024-04-01',
+      paragraph: 'This version includes minor improvements and bug fixes.',
+      items: ['Improved user interface using new Adwaita widgets', 'Using GNOME 46 Platform', 'Updated translations'],
+    },
+    { version: '0.2.3', date: '2024-04-01' },
+    {
+      version: '0.2.2', date: '2023-06-19',
+      paragraph: 'This version includes minor improvements and bug fixes.',
+      items: ['Updated translations'],
+    },
+    {
+      version: '0.2.1', date: '2022-10-15',
+      paragraph: 'This version includes minor improvements and bug fixes.',
+      items: ["Don't invert QR code on dark mode", 'Use new Adwaita about dialog', 'Updated translations'],
+    },
+    {
+      version: '0.2.0', date: '2022-02-27',
+      paragraph: 'This version includes minor improvements and bug fixes.',
+      items: [
+        'User interface adapted to new Adwaita design',
+        'New desktop notification when a client connects',
+        'Fixed a problem where on some systems the microphone input was streamed instead of audio playback',
+      ],
+    },
+    { version: '0.1.2', date: '2021-09-28', paragraph: 'Bugfix release to fix the "Unable to find audio sink" message.' },
+    { version: '0.1.0', date: '2021-09-19', paragraph: 'First stable release.' },
+  ].freeze
+
   # data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in, substituted with
   # the same summary, description, developer name and url constants the
   # about dialog shows, so the two cannot drift apart the way a hand-kept
-  # metainfo file could.
+  # metainfo file could, plus the branding, hardware and release history
+  # upstream's file carries that have no runtime reader in this port (no
+  # code here needs them, but a software center reading this file does).
   def self.metainfo
     <<~XML
       <?xml version="1.0" encoding="UTF-8"?>
@@ -74,6 +135,12 @@ module DataFiles
         </description>
         <content_rating type="oars-1.0"/>
         <developer_name>#{AboutDialog::DEVELOPER_NAME}</developer_name>
+        <developer id="#{DEVELOPER_ID}">
+          <name>#{AboutDialog::DEVELOPER_NAME}</name>
+        </developer>
+        <branding>
+      #{branding_colors}
+        </branding>
         <metadata_license>CC0-1.0</metadata_license>
         <project_license>GPL-3.0-or-later</project_license>
         <url type="homepage">#{Config::HOMEPAGE_URL}</url>
@@ -82,8 +149,70 @@ module DataFiles
         <url type="translate">#{Config::TRANSLATE_URL}</url>
         <url type="contact">#{Config::CONTACT_URL}</url>
         <url type="vcs-browser">#{Config::VCS_BROWSER_URL}</url>
+        <url type="contribute">#{Config::CONTRIBUTE_URL}</url>
+        <requires>
+          <display_length compare="ge">#{MINIMUM_DISPLAY_LENGTH}</display_length>
+        </requires>
+        <supports>
+      #{supported_controls}
+        </supports>
+        <screenshots>
+          <screenshot type="default">
+            <image>#{SCREENSHOT_URL}</image>
+            <caption>#{SCREENSHOT_CAPTION}</caption>
+          </screenshot>
+        </screenshots>
+        <releases>
+      #{releases}
+        </releases>
       </component>
     XML
+  end
+
+  def self.branding_colors
+    BRANDING_COLORS.map { |scheme, color| "    <color type=\"primary\" scheme_preference=\"#{scheme}\">#{color}</color>" }
+      .join("\n")
+  end
+
+  def self.supported_controls
+    SUPPORTED_CONTROLS.map { |control| "    <control>#{control}</control>" }.join("\n")
+  end
+
+  def self.releases
+    RELEASES.map { |release| release_entry(release) }.join("\n")
+  end
+
+  def self.release_entry(release)
+    if release[:paragraph].nil?
+      "    <release version=\"#{release[:version]}\" date=\"#{release[:date]}\"/>"
+    else
+      release_entry_with_notes(release)
+    end
+  end
+
+  def self.release_entry_with_notes(release)
+    [
+      "    <release version=\"#{release[:version]}\" date=\"#{release[:date]}\">",
+      '      <description>',
+      '        <p>',
+      "          #{release[:paragraph]}",
+      '        </p>',
+      release_items(release[:items]),
+      '      </description>',
+      '    </release>',
+    ].reject(&:empty?).join("\n")
+  end
+
+  def self.release_items(items)
+    if items.nil? || items.empty?
+      ''
+    else
+      [
+        '        <ul>',
+        *items.map { |item| "          <li>#{item}</li>" },
+        '        </ul>',
+      ].join("\n")
+    end
   end
 
   def self.description_paragraphs
@@ -130,5 +259,7 @@ module DataFiles
     FileUtils.cp(source, File.join(dest_dir, name))
   end
 
-  private_class_method :description_paragraphs, :install_file, :install_service_file
+  private_class_method :description_paragraphs, :install_file, :install_service_file,
+                        :branding_colors, :supported_controls, :releases, :release_entry,
+                        :release_entry_with_notes, :release_items
 end
