@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Upstream | `main` @ `a4b9350` |
-| Port | `ruby` @ `f476341` (re-verified this round — 2 of the 4 gaps below are now closed; previous round was `165d81e`) |
+| Port | `ruby` @ `9908947` (re-verified this round, live: `grep -n 'Name\[' data/*.desktop` and `grep -n 'xml:lang' data/*.metainfo.xml` both still return nothing — gaps #1 and #4 below are unchanged; previous round was `f476341`) |
 | Domain | `audio-sharing` (upstream's `meson.project_name()`; port's `catalogue.rb` read it `unconfirmed` — see below) |
 | Upstream messages | 18 |
 | Ported (after hand-resolving scanner misses, see Step 2) | **16** (14 + the 2 gaps closed this round) |

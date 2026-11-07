@@ -3,8 +3,8 @@
 | | |
 |---|---|
 | Upstream | `main` @ `a4b9350` |
-| Port | `ruby` @ `f476341` (re-verified this round; previous round was `165d81e`) |
-| Units with full parity | 12 / 12 — the `data/` packaging gap this report used to carry was closed in `71fa944` ("Ship the data/ packaging unit and cover the repeat-activation guard"); see the corrected section below. |
+| Port | `ruby` @ `9908947` (re-verified this round; previous round was `f476341`) |
+| Units with full parity | 12 / 12 — the `data/` packaging gap this report used to carry was closed in `71fa944` ("Ship the data/ packaging unit and cover the repeat-activation guard"); see the corrected section below. `9908947` added the developer/branding/hardware/screenshot/release blocks to the same unit's metainfo without changing the verdict. |
 
 Scan evidence: `component-scan.sh` run against both trees
 (`.claude/skills/component-identification/scripts/component-scan.sh`),
@@ -135,13 +135,17 @@ ports:
   (`lib/main.rb#configure_process`) now names an icon that exists on disk
   in this tree, not one that resolves to the missing-icon placeholder.
 
-`test/check_data_files.rb` (run live this round, `DATA FILES OK`) checks
-the committed files carry the app id, summary, both description
-paragraphs, developer name and homepage link; that
-`DataFiles.generate!` reproduces the committed desktop entry and metainfo
-byte for byte (idempotency); and that all three icon files are present.
-`data/gtk/style.css` is empty upstream, so there is nothing to port there —
-unchanged from the base inventory.
+`test/check_data_files.rb` (run live this round, `DATA FILES OK`, 34
+checks — up from 11, after `9908947` added the developer id/branding/
+hardware/screenshot/release assertions) checks the committed files carry
+the app id, summary, both description paragraphs, developer name,
+homepage and contribute links, developer id block, both branding
+colours, the minimum display length, all three supported controls, the
+screenshot and its caption, and every release version upstream lists;
+that `DataFiles.generate!` reproduces the committed desktop entry and
+metainfo byte for byte (idempotency); and that all three icon files are
+present. `data/gtk/style.css` is empty upstream, so there is nothing to
+port there — unchanged from the base inventory.
 
 Unit: **parity.**
 

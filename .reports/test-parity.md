@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Upstream | `main` @ `a4b9350` |
-| Port | `ruby` @ `f476341` (re-verified this round; previous round was `165d81e`) |
+| Port | `ruby` @ `9908947` (re-verified this round; previous round was `f476341`) |
 | Upstream tests | 0 |
 | Ported | 0 |
 | Gaps | 0 upstream-test gaps; see "Narrowness" below for the one real coverage gap that remains (the live-sink success path) |
@@ -39,17 +39,19 @@ QRCODE OK   (20 checks)
 
 $ nix develop --command xvfb-run -a ruby test/check_translations.rb
 ...
-TRANSLATIONS OK   (≈60 checks, incl. "50 of 51 catalogues carry translations")
+TRANSLATIONS OK   (76 checks)
 
 $ nix develop --command xvfb-run -a ruby test/check_data_files.rb
 ...
-DATA FILES OK   (11 checks)
+DATA FILES OK   (34 checks, up from 11 — `9908947` added the developer/
+branding/hardware/screenshot/release assertions)
 ```
 
-The runtime gate this round (85 checks in `test/drive_window.rb`, up from
-82) matches the drive script's own count, re-run and reproduced here, not
-a figure taken on faith. The other three scripts were also re-run live
-this round and all still/now pass.
+The runtime gate this round (85 checks in `test/drive_window.rb`, unchanged
+since `f476341`) matches the drive script's own count, re-run and
+reproduced here, not a figure taken on faith. The other three scripts were
+also re-run live this round; `check_data_files.rb` grew from 11 to 34
+checks in `9908947` and all 34 pass.
 
 **Closed — the repeat-activation guard now has a regression test.**
 Commit `165d81e` ("Guard App#activate against a second activation
@@ -109,9 +111,11 @@ remains, not two:
 - `test/check_translations.rb` — catalogue completeness (50/51 non-empty),
   per-language message counts, and spot-translation checks for `de`,
   `fr`, `pt_BR` plus locale-fallback behaviour.
-- `test/check_data_files.rb` — 11 checks: the generated desktop entry and
-  metainfo carry the right content and regenerate byte-for-byte, and all
-  three icon files are present.
+- `test/check_data_files.rb` — 34 checks: the generated desktop entry and
+  metainfo (including the developer id, branding colours, hardware
+  requirements, screenshot caption and full release history added in
+  `9908947`) carry the right content and regenerate byte-for-byte, and
+  all three icon files are present.
 
 None of these corresponds to an upstream test; none claims to. They are
 listed here, outside the 0/0 count, per the skill's own worked example for
