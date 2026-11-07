@@ -1,278 +1,173 @@
-# Audio Sharing — upstream component inventory
+# Component inventory — AudioSharing-rb
 
-Survey of `origin/main` (Rust / gtk-rs, GPL-3.0-or-later) against `lib/` on the
-`ruby` branch. Produced with the `component-identification` skill. No app code
-was written in this step.
+Surveyed against `origin/main` (Rust/libadwaita, meson build). Small app: one
+window, one dialog, one custom paintable, one QR encoder, the application
+object, and the config/translation/service layer underneath them. There is no
+GSettings schema. The single declarative file is `data/gtk/window.ui`; every
+other upstream source file is plain Rust.
 
-Upstream is small: **5 Rust source files, 1 GtkBuilder `.ui`, 1 (empty)
-stylesheet, no GSettings schema, no blueprint, no shortcuts window.** The whole
-user-facing app is one window with two stack pages, one menu, one about dialog,
-three app actions and one toast.
+Upstream tree read in full:
+`git ls-tree -r --name-only origin/main` plus every file under `src/`,
+`data/`, and `po/`.
 
-## Mapping summary
+## Window — the app's only window
 
-The house shape is the pilot's (`gnome-contacts-rb`): the real port lives in
-top-level `lib/*.rb`, one file per upstream source file, with `lib/audiosharing.rb`
-remaining the gem entry point that `exe/audiosharing` requires.
-
-| # | Upstream file(s) | Port file | Kind | Exists on `ruby`? |
-|---|---|---|---:|---|
-| 1 | `src/main.rs`, `src/app.rs` | `lib/main.rb` | application | **yes** — actions, accel, process setup, `gstreamer::init()` (via `lib/gstreamer.rb`), Gio::Notification (in `lib/rtsp_server.rb`) |
-| 2 | `src/ui/window.rs` + `data/gtk/window.ui` | `lib/window.rb` | window | **yes** |
-| 3 | `data/gtk/window.ui` (`menu primary_menu`) | `lib/window.rb` (`primary_menu`) | menu | **yes** |
-| 4 | `data/gtk/window.ui` (`GtkStackPage` #1) | `lib/window.rb` (`sharing_page`) | page | **yes** |
-| 5 | `data/gtk/window.ui` (`GtkStackPage` "error") | `lib/window.rb` (`error_status`) | error state | **yes** |
-| 6 | `src/ui/about_dialog.rs` + metainfo | `lib/about_dialog.rb` | dialog | **yes** |
-| 7 | `src/ui/qrcode_paintable.rs` | `lib/qrcode_paintable.rb` | paintable | **yes** (Cairo → `Gdk::Texture` substitution) |
-| 8 | `src/qrcode.rs` | `lib/qrcode.rb` | model | **yes** |
-| 9 | `src/app.rs` (`setup_server`, `find_device_name`, `get_ip_addr`, `client-connected`) | `lib/rtsp_server.rb` | service | **yes** |
-| 10 | `src/config.rs.in`, `data/*.in.in` | `lib/config.rb` | config | **yes** |
-| 11 | `po/*.po` (51 locales, 19 msgids) | `lib/gettext.rb` + `po/` | i18n | **yes** |
-| — | `gstreamer`/`gstreamer-rtsp-server` crates | `lib/gstreamer.rb` | plumbing | **yes** (typelibs loaded through GObject-Introspection) |
-| — | gem entry | `lib/audiosharing.rb` | plumbing | **yes** |
-| — | gem version | `lib/audiosharing/rb/version.rb` | plumbing | **yes** |
-
-## Current state on `ruby`
-
-`lib/` holds `about_dialog.rb`, `audiosharing.rb`, `config.rb`, `gettext.rb`,
-`gstreamer.rb`, `main.rb`, `qrcode.rb`, `qrcode_paintable.rb`, `rtsp_server.rb`,
-`window.rb` and `audiosharing/rb/version.rb`. Every user-facing component upstream has — the
-window, its two stack pages, the primary menu, the toast, the about dialog, the
-QR code and the catalogues — is built. The scaffold stub
-`lib/audiosharing/application.rb` is gone; `lib/audiosharing.rb` now just
-requires `main`.
-
-**Component 9 is built.** `lib/rtsp_server.rb` runs at the end of `activate`:
-it asks a `Gst::DeviceMonitor` for the default `Audio/Sink`, builds upstream's
-`pulsesrc ! vorbisenc ! rtpvorbispay` factory for that sink's monitor source,
-mounts it at `/audio`, attaches the server to the default main context, and
-hands `Window#set_address` the `rtsp://<ip>:8554/audio` it is reachable at. The
-address comes from the same interface choice upstream's `pnet` call makes — up,
-not loopback, not a `virbr` bridge, has an address — falling back to `0.0.0.0`.
-With no sink the server is never started and `Window#show_error` gets
-`"No audio sink found"`, which is what the drive run sees on this machine. The
-two pieces of component 1 that hang off it are built too: `gstreamer::init()`
-through `lib/gstreamer.rb`, and the `audio-sharing-playback` `Gio::Notification`
-the server's `client-connected` handler sends.
-
-There is no ruby-gnome gem for either GStreamer library, so `lib/gstreamer.rb`
-maps their typelibs with the `gobject-introspection` gem's loader instead —
-the same introspection data upstream's Rust bindings are generated from. The
-dev shell and the packaged wrapper carry the four GStreamer packages and point
-`GST_PLUGIN_SYSTEM_PATH_1_0` at the plugins the launch line names.
-
-Supporting files that exist but are not components: `test/gtk_driver.rb`,
-`test/drive_window.rb`, `test/check_qrcode.rb`, `test/check_translations.rb`,
-`test/qrcode_golden.txt`, `spec/`.
-
----
-
-## 1. `src/main.rs` + `src/app.rs` → `lib/main.rb` — the application
-
-Not a widget class, but it owns the actions, the accelerator, the single-window
-policy and the RTSP server startup that fills the window.
-
-| Widget | × | CSS | Signals | Notes |
-|---|---:|---|---|---|
-| `Adw.Application` | 1 | — | `activate` | upstream subclasses `adw::Application`; the Ruby bindings' `Adwaita::Application` is unusable, so the port uses `Gtk::Application` (as the pilot does) and an `Adwaita::ApplicationWindow` |
-| `Gtk.UriLauncher` | 1 | — | — | `app.help` opens the upstream README on GitLab; logs on failure |
-| `Gio.Notification` | 1 | — | — | not a widget; fired on `client-connected`, id `audio-sharing-playback` |
-
-**Actions installed (`app.` prefix, all `Gio::SimpleAction`, no parameter):**
-
-| Action | Accel | Does |
-|---|---|---|
-| `app.help` | — | `Gtk.UriLauncher` → `https://gitlab.gnome.org/World/AudioSharing/-/blob/main/README.md` |
-| `app.about` | — | `about_dialog::show(&window)` |
-| `app.quit` | `<primary>q` | `window.close()` |
-
-**Activate behaviour:** if a window already exists it is `present`ed and
-activate returns — actions are installed exactly once, on first activate.
-
-**Startup (`main.rs`):** `glib::set_application_name(NAME)`,
-`Gtk::Window.set_default_icon_name(APP_ID)`, two PulseAudio env vars
-(`PULSE_PROP_application.icon_name`, `PULSE_PROP_application.metadata().name`),
-gettext `setlocale`/`bindtextdomain`/`textdomain`, GResource load, and
-`gstreamer::init()`. App id `de.haeckerfelix.AudioSharing`, resource base path
-`/de/haeckerfelix/AudioSharing`.
-
-Repeaters: none. Conditional: the whole action block and `setup_server` only on
-the first activate.
-
-## 2. `src/ui/window.rs` + `data/gtk/window.ui` → `lib/window.rb` — the one app window
-
-`AsApplicationWindow : AdwApplicationWindow`. default 450×500, minimum
-350×425.
-
-| Widget | × | CSS | Signals | Notes |
-|---|---:|---|---|---|
-| `Adw.ApplicationWindow` | 1 | `audio-sharing-window` | — | template root |
-| `Gtk.WindowHandle` | 1 | — | — | whole window draggable |
-| `Adw.ToolbarView` | 1 | — | — | — |
-| `Adw.HeaderBar` | 1 | — | — | — |
-| `Gtk.MenuButton` (`appmenu_button`) | 1 | `circular` | — | `child type="start"`, `has-frame=False`, `valign=center`, `primary=True`, icon `open-menu-symbolic`, tooltip "Menu", `menu-model=primary_menu` |
-| `Adw.ToastOverlay` (`toast_overlay`) | 1 | — | — | hosts the copy confirmation toast |
-| `Gtk.ScrolledWindow` | 1 | — | — | `hscrollbar-policy=never` |
-| `Adw.Clamp` | 1 | — | — | `maximum-size=500` |
-| `Gtk.Stack` (`stack`) | 1 | — | — | 2 pages: unnamed default, and `"error"` |
-| `Gtk.StackPage` | 2 | — | — | not widgets — page wrappers (see 4 and 5) |
-| `Adw.Toast` | 1 | — | — | built in code, "Copied address to clipboard", `timeout=2` |
-
-**Public API the application calls:**
-
-- `set_address(address)` — builds a `QrCode` from the address, sets
-  `address_label`, hands the code to the paintable and the paintable to the
-  `Gtk.Picture`.
-- `show_error(message)` — `stack.visible_child_name = "error"` and
-  `error_status.description = message`.
-
-Repeaters: none. Conditional: the `"error"` stack page is only ever shown via
-`show_error`; the default page is the startup child.
-
-## 3. `data/gtk/window.ui` `menu primary_menu` → `lib/window.rb` — the primary menu
-
-A `Gio::Menu` in two sections, 2 items, no `custom:` slots:
-
-| Section | Label | Action | Notes |
+| Upstream | Port | Kind | Exists |
 |---|---|---|---|
-| 1 | `Open _Help <sup>↗</sup>` | `app.help` | `use-markup=True` — the superscript arrow is markup, not a mnemonic |
-| 2 | `_About Audio Sharing` | `app.about` | — |
+| `data/gtk/window.ui` + `src/ui/window.rs` | `lib/window.rb` | window (template root `AsApplicationWindow`) | yes |
 
-## 4. `data/gtk/window.ui` first `GtkStackPage` → `lib/window.rb` `sharing_page` — the sharing view
-
-The default, unnamed page. A vertical `Gtk.Box`, spacing 12, centred both ways,
-h/v-expanding, 12px margins all round.
+Widget tree (from the `.ui` template, cross-checked against `window.rs`'s
+template children and the `constructed()` signal wiring):
 
 | Widget | × | CSS | Signals | Notes |
 |---|---:|---|---|---|
-| `Gtk.Box` (outer) | 1 | `audio-sharing` | — | vertical, spacing 12, `halign/valign=center` |
-| `Gtk.Picture` (`qrcode`) | 1 | `card` | — | 200×200 request, centred; paintable set by `set_address` |
-| `Gtk.Box` (inner) | 1 | — | — | vertical, spacing 12, `halign=center` |
-| `Gtk.Label` (`address_label`) | 1 | `title-3` | — | `selectable`, `wrap`, `justify=center`; text is `rtsp://<ip>:8554/audio` |
-| `Gtk.Button` (`copy_address_button`) | 1 | `pill` | `clicked` → copies `address_label.text` to `Gdk::Display.default.clipboard`, then adds a 2s `Adw.Toast` | label `_Copy to Clipboard`, `use-underline`, `halign=center` |
-| `Gtk.Separator` | 1 | — | — | — |
-| `Gtk.Label` (explanatory) | 1 | `caption` | — | `wrap`, `justify=center`; the two-paragraph "You are currently sharing your audio…" / "To stop sharing, simply close this window." text |
+| `Adw.ApplicationWindow` (template root) | 1 | `audio-sharing-window` | — | `AsApplicationWindow` |
+| `Gtk.WindowHandle` | 1 | — | — | wraps the whole content |
+| `Adw.ToolbarView` | 1 | — | — | |
+| `Adw.HeaderBar` | 1 | — | — | top bar |
+| `Gtk.MenuButton` (`appmenu_button`) | 1 | `circular` | — | `has-frame=false`, `primary=true`, `menu-model=primary_menu` |
+| `Adw.ToastOverlay` (`toast_overlay`) | 1 | — | — | hosts the copy-confirmation toast |
+| `Gtk.ScrolledWindow` | 1 | — | — | `hscrollbar-policy: never` |
+| `Adw.Clamp` | 1 | — | — | `maximum-size: 500` |
+| `Gtk.Stack` (`stack`) | 1 | — | — | two pages: unnamed sharing page, `"error"` |
+| `Gtk.Box` (sharing page) | 1 | `audio-sharing` | — | vertical, spacing 12, centered |
+| `Gtk.Picture` (`qrcode`) | 1 | `card` | — | 200×200, paintable is the `QrCodePaintable`'s texture |
+| `Gtk.Box` (address box) | 1 | — | — | vertical, spacing 12, centered |
+| `Gtk.Label` (`address_label`) | 1 | `title-3` | — | selectable, wraps |
+| `Gtk.Button` (`copy_address_button`) | 1 | `pill` | `clicked` → copies address to clipboard, posts toast | label "_Copy to Clipboard" |
+| `Gtk.Separator` | 1 | — | — | |
+| `Gtk.Label` (info paragraph) | 1 | `caption` | — | the sharing-instructions text |
+| `Adw.StatusPage` (`error_status`, stack page `"error"`) | 1 | — | — | title "Unable to Share Audio", icon `audio-volume-muted-symbolic` |
+| `Gio.Menu` (`primary_menu`) | 1 | — | — | 2 sections: `app.help` (markup label with `↗`), `app.about` |
+| `Adw.Toast` (built on click) | 1 | — | — | "Copied address to clipboard", timeout 2s |
 
-## 5. `data/gtk/window.ui` `"error"` `GtkStackPage` → `lib/window.rb` `error_status` — the error state
+Actions targeted (not installed here, installed on the app — see below):
+`app.help`, `app.about` (menu items), `app.quit` (accelerator only, no menu
+item upstream).
+
+Port status: **present**, `lib/window.rb`. Matches widget-for-widget, CSS
+class-for-class, including the dynamically built `Adwaita::Toast` on
+`copy_address_button`'s `clicked` handler. `set_address` / `show_error` port
+`AsApplicationWindow::set_address` / `show_error` 1:1.
+
+## AboutDialog — the About window
+
+| Upstream | Port | Kind | Exists |
+|---|---|---|---|
+| `src/ui/about_dialog.rs` (+ values from `data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in`) | `lib/about_dialog.rb` | dialog | yes |
 
 | Widget | × | CSS | Signals | Notes |
 |---|---:|---|---|---|
-| `Adw.StatusPage` (`error_status`) | 1 | — | — | title "Unable to Share Audio", icon `audio-volume-muted-symbolic`, description set at runtime |
+| `Adw.AboutDialog` | 1 | — | — | built via `from_appdata` upstream; port sets every field `from_appdata` would have read off the metainfo file, plus the one extra link (`add_link("Donate", ...)`) |
 
-Only reachable description upstream: `"No audio sink found"`, passed from
-`app.rs` when `find_device_name()` returns `None`. Note this string is **not**
-in `po/POTFILES.in`'s extracted catalogue — upstream does not translate it.
+Fields set: application name/icon, developer name, version (with devel/VCS
+suffix), comments (summary + 2 description paragraphs from the metainfo),
+website, issue url, support url, GPL-3.0 license, developers (2), designers
+(1), translator-credits, donate link.
 
-## 6. `src/ui/about_dialog.rs` → `lib/about_dialog.rb` — the about dialog
+Port status: **present**, `lib/about_dialog.rb`.
 
-A free function upstream, not a subclass; `Adw.AboutDialog::from_appdata`
-reading the GResource'd `metainfo.xml`. The Ruby bindings have no
-`from_appdata`, so the port must set the same fields by hand from the metainfo
-values recorded here.
+## QrCodePaintable — draws the QR code onto the window's `Gtk.Picture`
 
-| Widget | × | CSS | Signals | Notes |
-|---|---:|---|---|---|
-| `Adw.AboutDialog` | 1 | — | — | `present(Some(parent))` |
+| Upstream | Port | Kind | Exists |
+|---|---|---|---|
+| `src/ui/qrcode_paintable.rs` | `lib/qrcode_paintable.rb` | behaviour (`GdkPaintable` impl, no CSS/no signals — it is drawn, not interacted with) | yes |
 
-**Fields, from `about_dialog.rs` plus `data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in`:**
+Not a widget by itself (implements `Gdk.Paintable`, consumed by the `qrcode`
+`Gtk.Picture` above). Port substitutes Cairo + a `Gdk::Texture` for the direct
+snapshot painting Rust does, because the Ruby bindings cannot dispatch
+`snapshot` back into a Ruby-implemented paintable — documented in the file's
+header comment. `set_qrcode` ports 1:1.
 
-- name "Audio Sharing", app id `de.haeckerfelix.AudioSharing`
-- version: `VERSION`, or `"<VERSION>-<VCS_TAG> (devel)"` when `PROFILE == "development"` — **conditional**
-- developers: `Felix Häcker <haeckerfelix@gnome.org>`, `Maximiliano Sandoval <msandova@gnome.org>`
-- designers: `Tobias Bernard`
-- translator credits: `gettext("translator-credits")`
-- extra link: `gettext("Donate")` → `https://liberapay.com/haecker-felix`
-- from metainfo: summary "Share your computer audio", developer name "Felix Häcker",
-  licenses CC0-1.0 / GPL-3.0-or-later, homepage `https://apps.gnome.org/AudioSharing/`,
-  issue URL `https://gitlab.gnome.org/World/AudioSharing/issues`,
-  branding colours `#e56b5a` (light) / `#972b31` (dark)
+Port status: **present**, `lib/qrcode_paintable.rb`.
 
-## 7. `src/ui/qrcode_paintable.rs` → `lib/qrcode_paintable.rb` — the QR paintable
+## QrCode — encodes a string as a QR module matrix
 
-`QrCodePaintable` implements `Gdk.Paintable` (an interface implementation, not a
-widget). Original author Bilal Elmoussaoui (from Decoder).
+| Upstream | Port | Kind | Exists |
+|---|---|---|---|
+| `src/qrcode.rs` | `lib/qrcode.rb` | model (GObject in Rust, plain object in the port — no widget, no CSS, no signals) | yes |
 
-| Item | Kind | Notes |
+Port substitutes `rqrcode_core` for the Rust `qrcode` crate (no Ruby binding
+for `libqrencode`/`qrcode` exists), same substitution as the pilot port's
+`qr_code_dialog.rb`. `items`/`width`/`height` port 1:1, quiet zone handled
+explicitly since `rqrcode_core` does not add one.
+
+Port status: **present**, `lib/qrcode.rb`.
+
+## App — the application object (actions, menu wiring, accelerators, server startup)
+
+| Upstream | Port | Kind | Exists |
+|---|---|---|---|
+| `src/app.rs` (`AsApplication`, `activate`) + `src/main.rs` (process init) | `lib/main.rb` (`App`) | application object | yes |
+
+Actions installed on the app (`app.*`, consumed by the window's primary menu
+and by the quit accelerator):
+
+| Action | × | Signal | Notes |
+|---|---:|---|---|
+| `app.help` | 1 | `activate` → `Gtk::UriLauncher` opens the README url, rescues the launch error and warns (matches upstream's `if let Err(err) = result`) | |
+| `app.about` | 1 | `activate` → builds and presents `AboutDialog` | |
+| `app.quit` | 1 | `activate` → closes the window; accelerator `<primary>q` | no menu item, accelerator-only like upstream |
+
+Non-UI behaviour ported alongside (not components, but the feature the window
+exists to show): `setup_server`/`get_ip_addr`/`find_device_name` from
+`src/app.rs`, in `lib/rtsp_server.rb` + `lib/gstreamer.rb`, including the
+`client-connected` → `Gio::Notification` ("A client has established a
+connection") upstream posts.
+
+Port status: **present**. Note: upstream splits this into `src/app.rs` +
+`src/main.rs`; the port merges both into a single `App` class in
+`lib/main.rb` (file name differs from upstream's `main.rs`/`app.rs` split —
+flagged here, not a gap, since every behaviour from both files is accounted
+for in the class comment and body).
+
+## Config / data files — not components, but every upstream data file's values are accounted for
+
+| Upstream | Port | Kind | Exists |
+|---|---|---|---|
+| `src/config.rs.in` | `lib/config.rb` | constants | yes |
+| `data/de.haeckerfelix.AudioSharing.desktop.in.in` | `lib/config.rb::DESKTOP_ENTRY` | data | yes |
+| `data/de.haeckerfelix.AudioSharing.service.in` | `lib/config.rb::DBUS_SERVICE_*` | data | yes |
+| `data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in` | `lib/about_dialog.rb` (summary/description/urls) + `lib/config.rb` (urls) | data | yes |
+| `data/de.haeckerfelix.AudioSharing.gresource.xml.in` | n/a — port has no GResource bundle; `window.ui`'s tree is in `lib/window.rb`, `style.css` is empty upstream (nothing to port) | — | n/a |
+| `data/icons/**` | n/a — app icon, not a UI component; not covered by this inventory | — | n/a |
+| `po/*.po`, `po/LINGUAS`, `po/POTFILES.in` | `lib/gettext.rb` | translation runtime | yes (translation *parity*, i.e. whether every msgid round-trips, is the `translation-parity` skill's job, not this one) |
+| `meson_options.txt` (`profile` option) | `lib/config.rb::PROFILE`/`DEVELOPMENT` | data | yes |
+
+`data/gtk/style.css` on `origin/main` is empty — there is no CSS to port.
+
+## GSettings
+
+Upstream ships no GSettings schema (`grep -r schema data/` and the meson
+files show none) — nothing to port, nothing missing.
+
+## Keyboard shortcuts
+
+Only accelerator in the app: `app.quit` → `<primary>q`, ported in
+`lib/main.rb`. There is no shortcuts window/dialog upstream.
+
+## Summary
+
+| File scanned | Maps to | Status |
 |---|---|---|
-| `Gdk.Paintable` | iface | implemented via `snapshot(snapshot, width, height)` |
-| `Gtk.Snapshot` | type | `append_color` per module |
-| `Graphene.Rect` | record | one per module plus one full-size background |
+| `data/gtk/window.ui` + `src/ui/window.rs` | `lib/window.rb` | present, full parity |
+| `src/ui/about_dialog.rs` | `lib/about_dialog.rb` | present, full parity |
+| `src/ui/qrcode_paintable.rs` | `lib/qrcode_paintable.rb` | present, full parity (Cairo substitution documented) |
+| `src/qrcode.rs` | `lib/qrcode.rb` | present, full parity (`rqrcode_core` substitution documented) |
+| `src/app.rs` + `src/main.rs` | `lib/main.rb` (`App`) | present, full parity (files merged, see note) |
+| `src/config.rs.in` + 3 `data/*.in(.in)` files | `lib/config.rb` | present |
+| `po/*` | `lib/gettext.rb` | present (runtime), msgid-level parity not re-verified here |
+| `src/ui/mod.rs` | n/a (module wiring only, no behaviour) | n/a |
 
-Drawing: white background rect over the full size, then for each module a black
-rect (or fully transparent when light), on a grid of
-`width / (qr.width + 2)` × `height / (qr.height + 2)` offset by one square —
-i.e. a one-module quiet border on top of the code's own quiet zone.
-`set_qrcode` replaces the code and calls `invalidate_contents`. With no code
-set it paints `QrCode::default()` (an empty-string code).
+**No missing components found.** Every upstream file that contributes a
+user-facing widget, action, or accelerator has a corresponding `lib/*.rb` file
+on `ruby`, and every widget/CSS class/signal the `.ui` template and the Rust
+source declare is present in the port. The only structural difference is that
+`src/app.rs` and `src/main.rs` are merged into one `App` class in
+`lib/main.rb` rather than kept as two files — a naming/organisation choice,
+not a dropped feature; every action, accelerator, and the server-startup call
+from both upstream files is present and callable.
 
-**Port note:** Ruby cannot subclass `Gdk::Paintable`. The port should render the
-modules with Cairo into a `Gdk::Texture` and set that on the `Gtk::Picture` —
-the same substitution the pilot made in `gnome-contacts-rb/lib/qr_code_dialog.rb`.
-`set_address` then re-renders rather than invalidating.
-
-## 8. `src/qrcode.rs` → `lib/qrcode.rb` — the QR code model
-
-A `GObject` with no widget in it. Properties: `content` (get/set/construct-only),
-`width` (get), `height` (get); plus `items: Vec<Vec<bool>>`. Built in
-`constructed` from the `qrcode` crate with `quiet_zone(true)` and
-`module_dimensions(1, 1)`, rendered to chars and mapped to booleans by
-non-whitespace. `Default` is `QrCode::new("")`.
-
-**Port note:** no libqrencode/qrcode binding; `lib/qrcode.rb` wraps
-`rqrcode_core` (pure Ruby, as the pilot does) and exposes the same `items` /
-`width` / `height` shape, instead of a hand-rolled encoder.
-
-## 9. `src/app.rs` server plumbing → `lib/rtsp_server.rb` — the sharing service
-
-Not UI, but it is what decides between component 4 and component 5, so the port
-needs it as its own file.
-
-- `find_device_name()` — `Gst::DeviceMonitor`, first device with
-  `device_class == "Audio/Sink"` and property `is-default == true`; returns its
-  element's `device` property. `None` → `window.show_error("No audio sink found")`.
-- `get_ip_addr()` — first interface that is up, not loopback, has an IP and
-  whose name does not contain `virbr`; else `"0.0.0.0"`.
-- `setup_server()` — `RTSPServer` with one `RTSPMediaFactory` mounted at
-  `/audio`, shared, launch pipeline
-  `pulsesrc device=<node>.monitor client-name=audio-sharing ! vorbisenc ! rtpvorbispay name=pay0 pt=96`,
-  attached to the default main context; then
-  `window.set_address("rtsp://<ip>:8554/audio")`.
-- `client-connected` → the `Gio.Notification` in component 1.
-
-## 10. `src/config.rs.in` + `data/*.in.in` → `lib/config.rb` — build-time config
-
-Meson-substituted constants the UI reads: `APP_ID`, `PATH_ID`, `NAME`,
-`PKGNAME`, `VERSION`, `VCS_TAG`, `PROFILE`, `DATADIR`, `LOCALEDIR`. The port has
-no meson, so these become Ruby constants. `PROFILE == "development"` is a live
-conditional in the about dialog (component 6).
-
-Also here: the desktop entry (`Categories=GNOME;GTK;Audio;AudioVideo;`,
-`Keywords=Gnome;GTK;audio;sharing;sound;`, `DBusActivatable=true`,
-`X-Purism-FormFactor=Workstation;Mobile;`) and the D-Bus service file.
-
-## 11. `po/` → `lib/gettext.rb` + `po/` — the catalogue
-
-51 locales in `po/LINGUAS`; 10 files in `po/POTFILES.in`. **19 msgids**, of
-which these are UI strings the port must carry:
-
-`Menu` · `_Copy to Clipboard` · `Unable to Share Audio` ·
-`Open _Help <sup>↗</sup>` · `_About Audio Sharing` ·
-`A client has established a connection` ·
-`Audio playback from this device gets shared.` · `translator-credits` ·
-`Donate` · `Copied address to clipboard` ·
-the long "You are currently sharing your audio…" body ·
-plus the desktop/metainfo strings (`Share your computer audio`, the two
-description paragraphs, the keyword list, `Felix Häcker`).
-
-## Stylesheet
-
-`data/gtk/style.css` is **0 bytes**. The classes `audio-sharing-window`
-(component 2) and `audio-sharing` (component 4) are therefore applied and
-nowhere defined — dead hooks upstream. Every other class used
-(`circular`, `card`, `title-3`, `pill`, `caption`) is a stock libadwaita class.
-
-## Not present upstream
-
-No GSettings schema, no preferences dialog, no shortcuts window (the only
-accelerator is `<primary>q`), no empty state other than component 5, no
-submodules, no `.blp`, no sidebar or navigation view, no tests.
+This inventory does not itself establish translation parity (msgid-by-msgid)
+or test parity — those are the `translation-parity` and `test-parity` skills'
+jobs and have not been run here.
