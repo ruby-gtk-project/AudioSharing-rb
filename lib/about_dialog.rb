@@ -54,7 +54,7 @@ class AboutDialog
     @dialog ||= Adwaita::AboutDialog.new.tap do |about|
       about.application_name = Config::NAME
       about.application_icon = Config::APP_ID
-      about.developer_name = DEVELOPER_NAME
+      about.developer_name = _(DEVELOPER_NAME)
       about.version = Config.display_version
       about.comments = comments
       about.website = Config::HOMEPAGE_URL

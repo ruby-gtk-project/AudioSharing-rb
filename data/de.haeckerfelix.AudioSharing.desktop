@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Audio Sharing
+Icon=de.haeckerfelix.AudioSharing
+Exec=audio-sharing
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Audio;AudioVideo;
+Keywords=Gnome;GTK;audio;sharing;sound;
+DBusActivatable=true
+X-Purism-FormFactor=Workstation;Mobile;

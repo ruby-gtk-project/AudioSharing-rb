@@ -162,6 +162,20 @@ GtkDriver.drive(app, shots: SHOTS) do |d, _|
   # so the device monitor listed nothing, the server was never started, and the
   # window came up on the error page saying so. That is upstream's behaviour on
   # such a machine too, not a failure of the port.
+  #
+  # DOCUMENTED LIMITATION: the no-sink path below is the only path this run
+  # proves. `RtspServer#share` — a real sink found, a `GstRtspServer::RTSPServer`
+  # actually bound to port 8554 and serving, a client connecting and the
+  # `client-connected` notification firing from a live connection rather than
+  # from calling the handler directly (see the next step) — has never been
+  # driven on any machine this suite has run on, because doing so needs a
+  # PulseAudio server with a default sink, which this CI/dev-shell environment
+  # does not provide. A pass here does not mean the server ever serves audio;
+  # it means the no-sink error path is correct. Closing this gap needs either a
+  # machine with a real or virtual (e.g. `pulseaudio --start` plus a null sink)
+  # audio sink wired into CI, or an `RtspServer` test that fakes
+  # `Gst::DeviceMonitor` to return a sink and drives a real RTSP client against
+  # `rtsp.attach`'s server — neither of which exists yet.
   d.step('the server reported what it found at startup') do
     app.main_window.then do |win|
       d.check('gstreamer is initialised') { !Gst.version_string.nil? }
@@ -315,6 +329,32 @@ GtkDriver.drive(app, shots: SHOTS) do |d, _|
 
   d.step('pasting gives back the address') do
     d.check('the clipboard pastes the address') { PASTED[:text] == ADDRESS }
+  end
+
+  # The repeat-activation guard (lib/main.rb#activate): upstream's
+  # `self.window.get()` check, which makes a second activation only present
+  # the existing window rather than running setup_server again.
+  #
+  # Firing the real GObject `activate` signal (`app.app.activate` or
+  # `signal_emit`) would also re-run this very driver's own `activate`
+  # handler — the one that schedules these steps in the first place — and
+  # start a second, interleaved run of the whole step list. `App#activate`
+  # is itself the handler the real signal dispatches to (`App#build` wires
+  # it with `signal_connect('activate') { activate }`), so calling it
+  # directly exercises exactly the guard this checks without re-entering the
+  # harness.
+  d.step('a second activation only re-presents the window') do
+    app.main_window.then do |win|
+      window_before = win
+      starts = 0
+      app.rtsp_server.define_singleton_method(:start) { starts += 1 }
+
+      app.send(:activate)
+
+      d.check('no second window was built') { app.main_window.equal?(window_before) }
+      d.check('the window is still presented') { win.window.visible? }
+      d.check('the server was not restarted') { starts.zero? }
+    end
   end
 
   d.step('the app installed its three actions') do

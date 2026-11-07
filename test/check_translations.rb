@@ -27,6 +27,7 @@ MSGIDS = [
   'Donate',
   AboutDialog::SUMMARY,
   *AboutDialog::DESCRIPTION,
+  AboutDialog::DEVELOPER_NAME,
 ].freeze
 
 # A translation to prove the right catalogue is read, per locale.

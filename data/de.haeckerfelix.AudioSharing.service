@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=de.haeckerfelix.AudioSharing
+Exec=/usr/bin/audio-sharing --gapplication-service
