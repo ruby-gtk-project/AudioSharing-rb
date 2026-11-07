@@ -10,6 +10,12 @@ Upstream tree read in full:
 `git ls-tree -r --name-only origin/main` plus every file under `src/`,
 `data/`, and `po/`.
 
+Re-surveyed (round 3) after commit `71fa944` shipped the `data/` packaging
+unit (`lib/data_files.rb` plus the three copied icon files) that round 2
+had flagged as a gap. The sections below are updated in place rather than
+re-written; the earlier rounds' corrections stay visible as history where
+they were already recorded.
+
 ## Window — the app's only window
 
 | Upstream | Port | Kind | Exists |
@@ -130,7 +136,8 @@ for in the class comment and body).
 | `data/de.haeckerfelix.AudioSharing.service.in` | `lib/config.rb::DBUS_SERVICE_*` | data | yes |
 | `data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in` | `lib/about_dialog.rb` (summary/description/urls) + `lib/config.rb` (urls) | data | yes |
 | `data/de.haeckerfelix.AudioSharing.gresource.xml.in` | correspondence, not n/a — port has no GResource bundle because `window.ui`'s tree is inlined in `lib/window.rb` and `style.css` is empty upstream; the *bundling mechanism* doesn't carry over but it bundles nothing lost | — | correspondence |
-| `data/icons/**` | **gap** — no `.svg` (scalable or symbolic) exists anywhere in the `ruby` tree; `Gtk::Window.set_default_icon_name` names an icon that is never installed. See `.reports/component-identification.md`'s addendum and `.reports/component-parity.md` | — | **missing** |
+| `data/icons/hicolor/scalable/apps/de.haeckerfelix.AudioSharing.svg`, `...Devel.svg`, `data/icons/hicolor/symbolic/apps/de.haeckerfelix.AudioSharing-symbolic.svg` | same three files, same paths, copied verbatim under `ruby`'s `data/icons/hicolor/**` | asset | yes (shipped in `71fa944`, see below) |
+| `data/meson.build`'s `configure_file`/`i18n.merge_file`/`install_data` calls for the desktop entry, metainfo and D-Bus service file, plus `data/icons/meson.build`'s two icon `install_data` calls | `lib/data_files.rb` (`DataFiles.generate!`/`.install!`) | packaging/install | yes (shipped in `71fa944`, see below) |
 | `po/*.po`, `po/LINGUAS`, `po/POTFILES.in` | `lib/gettext.rb` | translation runtime | yes (translation *parity*, i.e. whether every msgid round-trips, is the `translation-parity` skill's job, not this one) |
 | `meson_options.txt` (`profile` option) | `lib/config.rb::PROFILE`/`DEVELOPMENT` | data | yes |
 
@@ -156,28 +163,27 @@ Only accelerator in the app: `app.quit` → `<primary>q`, ported in
 | `src/qrcode.rs` | `lib/qrcode.rb` | present, full parity (`rqrcode_core` substitution documented) |
 | `src/app.rs` + `src/main.rs` | `lib/main.rb` (`App`) | present, full parity (files merged, see note) |
 | `src/config.rs.in` | `lib/config.rb` (constant *values* only) | present |
-| 3 `data/*.in(.in)` files + `data/icons/**` | **none** | **missing — see correction below** |
+| `data/*.in(.in)` templates + `data/icons/**` | `lib/data_files.rb` + copied `data/` files | present (shipped `71fa944`, see correction below) |
 | `po/*` | `lib/gettext.rb` | present (runtime), msgid-level parity not re-verified here |
 | `src/ui/mod.rs` | n/a (module wiring only, no behaviour) | n/a |
 
-**Correction (added in round 2, do not read the next sentence as the
-original verdict):** this document originally read "No missing components
-found" here. That was wrong even at the time it was written — see
+**Correction (added in round 2, kept here as history — this gap is now
+closed, do not read either sentence below as the current state):** this
+document originally read "No missing components found", which was wrong —
 `.reports/component-identification.md`'s addendum, written in the same
-round, which found the `data/` packaging tree (desktop entry, metainfo,
-D-Bus service file, 3 icon files) has no port-side file at all. This
-summary line was never corrected to match, which is itself the kind of
-stale false-green `accountability-ensurance.md` exists to catch; it is
-flagged there. The accurate statement: every upstream file that
-contributes a user-facing **widget, action, or accelerator** has a
-corresponding `lib/*.rb` file on `ruby`, and every widget/CSS class/signal
-the `.ui` template and the Rust source declare is present in the port — but
-the `data/` packaging tree, which contributes no widget but does
-contribute the app's identity (icon, desktop entry, D-Bus activation,
-metainfo), has no port file anywhere and is a real, currently-open gap
-(`.reports/component-parity.md`, `.reports/translation-parity.md`). The
-`src/app.rs`/`src/main.rs` merge into one `App` class remains a
-naming/organisation choice, not a dropped feature.
+round, found the `data/` packaging tree (desktop entry, metainfo, D-Bus
+service file, 3 icon files) had no port-side file at all. That gap was
+closed in commit `71fa944` ("Ship the data/ packaging unit and
+cover the repeat-activation guard"), which added `lib/data_files.rb`
+(ported from `data/meson.build`'s `configure_file`/`i18n.merge_file`/
+`install_data` calls) and copied the three icon files into
+`data/icons/hicolor/**` on `ruby`, verified by `test/check_data_files.rb`.
+As of this survey round, every upstream file that contributes a
+user-facing **widget, action, accelerator, or packaging/identity
+artifact** has a corresponding port-side file, and every widget/CSS
+class/signal the `.ui` template and the Rust source declare is present in
+the port. The `src/app.rs`/`src/main.rs` merge into one `App` class
+remains a naming/organisation choice, not a dropped feature.
 
 This inventory does not itself establish translation parity (msgid-by-msgid)
 or test parity — those are the `translation-parity` and `test-parity` skills'
