@@ -25,11 +25,7 @@ class App
 
   def build
     app.tap do |application|
-      application.signal_connect('activate') do
-        actions
-        main_window.present
-        rtsp_server.start
-      end
+      application.signal_connect('activate') { activate }
     end
   end
 
@@ -86,6 +82,25 @@ class App
   end
 
   private
+
+    # Upstream's activate: when the window already exists (a weak reference
+    # it stores on the application), a second activation just presents it
+    # again and goes no further — the actions are already added and the
+    # server is already running. Only the first activation adds the actions
+    # and starts the server.
+    def activate
+      if window_built?
+        main_window.present
+      else
+        actions
+        main_window.present
+        rtsp_server.start
+      end
+    end
+
+    # Whether #main_window has already built the window, i.e. whether this is
+    # a repeat activation rather than the first one.
+    def window_built? = !@main_window.nil?
 
     # What src/main.rs sets up before running the app: the name GLib reports
     # for this process, the icon its windows take by default, and the two
