@@ -1,83 +1,121 @@
 # Accountability ensurance — AudioSharing-rb
 
+Round 2, re-run against `ruby` @ `165d81e` (previous round: `c038da2`).
+
 ## Scan run
 
 ```sh
 bash .claude/skills/accountability-ensurance/scripts/find-excuses.sh .
 ```
 
-against `lib/`, `exe/`, every `.md`, and the repo root. **Zero hits.**
-No `PORTING.md`, `FINDINGS.md`, `COMPONENT_PARITY.md`, `TEST_PARITY.md` or
-`TRANSLATION_PARITY.md` exists anywhere in the `ruby` tree — there is no
-document for an excuse to live in. A manual grep confirms the negative
-beyond the script's pattern list:
+against `lib/`, `exe/`, `.reports/`, and the repo root. Also:
 
 ```sh
-grep -rniE "TODO|FIXME|not implemented|for now|in a future|placeholder|stub\b" lib/ exe/ .reports/
+grep -rniE "TODO|FIXME|not implemented|for now|in a future|placeholder|stub\b" lib/ exe/ .reports/ PORTING.md
 ```
 
-The one hit, `.reports/component-inventory.md:41` — "the scaffold stub
-`lib/audiosharing/application.rb` is gone" — is a factual past-tense
-statement about a scaffold file that no longer exists, not an excuse for
-anything missing now. Not rewritten.
+(`PORTING.md` does not exist on `ruby` — checked, not assumed:
+`ls PORTING.md` → "No such file or directory".)
 
-## What this does, and does not, mean
+**No `TODO`/`FIXME`/`not implemented`/`for now`/`in a future` hits anywhere
+in `lib/`, `exe/`, or `.reports/`.** The grep's only hits are inside the
+`.reports/` prose describing *upstream's* placeholder-by-design string
+(`@NAME@`, a literal gettext never-translated marker — `translation-parity.md`
+line ~75) and the skill's own pattern-table header text quoted inside
+`accountability-ensurance.md` itself. Neither is an excuse for a gap in
+this port; both are reporting on upstream's or the skill's own text.
 
-**It does not mean the port has no gaps.** It means no gap in this port has
-been *laundered into a decision* yet. The four other reports in this round
-(`component-parity.md`, `test-parity.md`, `translation-parity.md`, plus the
-`component-identification.md` addendum) name five real findings:
+## The most serious finding this round: a false green that survived one full round uncorrected
 
-1. The repeat-activation guard upstream's `app.rs` has and `lib/main.rb`
-   does not.
-2. The entire `data/` packaging tree — desktop entry, metainfo, D-Bus
-   service file, icons — never ported, with `Config::DESKTOP_ENTRY` and
-   `Config::DBUS_SERVICE_NAME` sitting in `lib/config.rb` as dead
-   constants nothing reads.
-3. Four real translation gaps, all downstream of (2), plus one unmarked
-   literal (`AboutDialog::DEVELOPER_NAME`).
-4. The RTSP server's *success* path — a real sink, a real client
-   connecting — has never been driven on any machine this audit can
-   confirm; only the no-sink error path is proven live.
-5. The 82-check drive gate covers 9 of 12 identified units; 3 are
-   structurally outside what any check in the suite exercises (see above).
+The task commissioning this round named this explicitly: "a false green in
+a report is the most serious finding you can make." This round found one,
+and it was not in `lib/` or `exe/` — it was already sitting in `.reports/`
+from the *previous* round, where `find-excuses.sh`'s own pattern table
+(which flags `n/a` as a suspect construct — "asserts the behaviour cannot
+exist here") caught it on a second pass:
 
-None of these appear anywhere in the port's source or docs as a sentence
-excusing them — because, again, there is no sentence anywhere about them at
-all. That is the finding this skill exists to make, stated plainly rather
-than inferred: **the gaps are real and currently unrecorded, which is worse
-than recorded-with-an-excuse only in the sense that a future reader has no
-signpost to find them without re-running this audit.** They are recorded
-now, in this round's five reports, with file:line citations in each.
+`.reports/component-inventory.md`'s original summary table carried:
 
-## Checked specifically for the false-green failure mode
+```
+| `data/de.haeckerfelix.AudioSharing.gresource.xml.in` | n/a — port has no
+  GResource bundle... | — | n/a |
+| `data/icons/**` | n/a — app icon, not a UI component; not covered by this
+  inventory | — | n/a |
+```
 
-The task that commissioned this round named this explicitly: "a false green
-in a report is the most serious finding you can make." The one place a
-false green could have hidden is `.reports/component-inventory.md`'s row
-10 ("config... **yes**"), which is accurate about `lib/config.rb` mirroring
-upstream's *values* but says nothing about whether the *files* those values
-describe (`.desktop`, `.service`, metainfo, icons) exist in the port. Re-read
-closely, the row does not claim they do — but it also does not flag that
-they don't, and a reader skimming "yes" rows could mistake coverage of the
-config *module* for coverage of the config *unit*. That ambiguity is now
-closed by `.reports/component-identification.md`'s addendum, which gives the
-missing `data/` tree its own row rather than leaving it implicit inside a
-"yes".
+followed by: **"No missing components found."**
 
-The runtime gate itself (`drive_ok: true`, 82/82 checks, 9 components) was
-re-run live this session and reproduces exactly — it is not a stale or
-fabricated figure. Its narrowness (3 of 12 units outside its reach) is
-recorded in `.reports/test-parity.md` rather than left to make the 82/82 read
-as more complete than it is.
+But the *same previous round*, in the *same `.reports/` folder*, wrote
+`.reports/component-identification.md`'s addendum, which found and named
+exactly those icon files (plus the desktop entry, metainfo, and D-Bus
+service file) as a missing unit — three `.svg` rows, each marked `**none**`.
+The addendum's correction was never carried back into
+`component-inventory.md`'s own summary line. A reader who opened only
+`component-inventory.md` — the base document, read first, and the one a
+"yes"/"present" skim is most likely to stop at — saw a clean "No missing
+components found" verdict that the very next document in the same folder
+contradicted. That is a false green: not a lie anyone told on purpose, but
+a correction that was made once, in one place, and never propagated to the
+document whose verdict it invalidated.
+
+**Fixed this round, not just flagged.** `component-inventory.md`'s summary
+table and verdict line are rewritten in place (see the "Correction" note
+now in that file) to mark `data/icons/**` and the 3 `data/*.in(.in)` files
+as missing rather than `n/a`, and to replace "No missing components found"
+with the accurate, narrower claim (every *widget/action/accelerator*-contributing
+file is ported; the `data/` packaging tree is not). The `gresource.xml.in`
+row is relabeled `correspondence` (the bundling mechanism legitimately
+doesn't carry over) rather than `n/a`, which the pattern table treats as
+presumptively suspect and which this one, read carefully, earns — it
+asserts a mechanism doesn't carry over while the behaviour (the window's
+own widget tree) does, which is the correspondence shape, not the excuse
+shape. This is recorded here as what happened to it, not left for a future
+round to re-discover.
+
+## Other findings this round, carried from the port source itself
+
+```sh
+grep -n 'DESKTOP_ENTRY\|DBUS_SERVICE' lib/*.rb exe/*
+```
+
+still shows `Config::DESKTOP_ENTRY`, `Config::DBUS_SERVICE_NAME`, and
+`Config::DBUS_SERVICE_ARGUMENT` built in `lib/config.rb` and read nowhere
+else — dead constants standing in for files that don't exist. Not an
+excuse (nothing in the source comments on why), but a live gap, tracked in
+`component-parity.md` and `translation-parity.md`.
+
+```sh
+grep -n 'DEVELOPER_NAME\|_(' lib/about_dialog.rb
+```
+
+still shows `DEVELOPER_NAME = 'Felix Häcker'` as a bare, unwrapped literal
+next to three sibling strings that are correctly wrapped in `_()`. Tracked
+in `translation-parity.md`.
+
+## What changed for the better this round
+
+The repeat-activation gap the previous round found (`lib/main.rb` running
+`rtsp_server.start` unconditionally on every `activate`, where upstream
+guards it) **was fixed**, in commit `165d81e`, with no hedging language in
+the commit message or the diff — it names the behaviour it was missing and
+closes it. That is the opposite of laundering a gap into a decision: it is
+a gap that got built instead of excused. It is not yet *tested* (see
+`test-parity.md`), which this round records as its own open item rather
+than crediting the fix with more certainty than a live regression test
+would give it.
 
 ## Rules check
 
-- No construct from the pattern table was rewritten with a softened reason,
-  because none was found to rewrite.
-- No new excuse was introduced while writing this report — each gap above
-  is stated as a behaviour owed (what the user does not get), with a
-  file:line pointer, in its own ledger (`component-parity.md` /
-  `translation-parity.md` / `test-parity.md`), not waved through here.
-- This report does not cite any of the other four as authority for leaving
-  a gap open; it cites them as where the gap is tracked.
+- No construct from the pattern table was rewritten with a softened
+  reason in the port's own source or docs — none was found there to
+  rewrite.
+- One stale false-green *was* found, inside `.reports/` itself, and is
+  fixed above rather than merely noted and left for next time.
+- Every other open item (data/ tree, 4 translation gaps, untested
+  repeat-activation guard, unverified audio-sink success path) is named
+  with a file:line or command pointer in its own ledger
+  (`component-parity.md` / `translation-parity.md` / `test-parity.md`),
+  not waved through here.
+- This report does not cite any of the other four as authority for
+  leaving a gap open; it cites them as where each gap is tracked, and
+  corrects the one document whose own verdict was wrong.

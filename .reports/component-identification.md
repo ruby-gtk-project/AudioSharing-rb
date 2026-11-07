@@ -35,3 +35,27 @@ recorded here as its own row rather than folded silently into row 10.
 
 Everything else in the base inventory (rows 1–11) still stands; this
 addendum does not repeat it.
+
+## Round-2 re-check (`ruby` @ `165d81e`)
+
+Re-ran `find . -iname '*.desktop*' -o -iname '*metainfo*' -o -iname
+'*.svg'` (excluding `.git`) and `find data -type f` against the current
+tip: both still return nothing. The `data/` unit named above is still
+missing, unchanged since the previous round. The one commit since then
+(`165d81e`) touched only `lib/main.rb`'s activation guard — see
+`component-parity.md`'s application unit — and did not add any `data/`
+file.
+
+**Flagging an inconsistency this addendum's own base document carries.**
+`component-inventory.md`'s summary table still reads "**No missing
+components found**" and marks `data/icons/**` and
+`data/*.gresource.xml.in` as `n/a` ("port has no GResource bundle" / "not a
+UI component; not covered by this inventory"). This addendum — in the same
+`.reports/` folder — already named the icons as a missing unit (the three
+`.svg` rows above) when it was first written, and that correction was never
+carried back into `component-inventory.md`'s own summary line. A reader
+who reads only `component-inventory.md` still sees a clean "no missing
+components" verdict that this addendum contradicts. Treated here as a
+reporting gap in its own right: the base inventory was not corrected when
+the addendum found what it found. See `accountability-ensurance.md` for
+the write-up of this as a false-green risk.

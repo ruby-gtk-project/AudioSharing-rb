@@ -3,8 +3,8 @@
 | | |
 |---|---|
 | Upstream | `main` @ `a4b9350` |
-| Port | `ruby` @ `c038da2` |
-| Units with full parity | 9 / 12 |
+| Port | `ruby` @ `165d81e` (re-verified this round; previous round was `c038da2`) |
+| Units with full parity | 10 / 12 (the application unit's repeat-activation gap was closed this round; see below) |
 
 Scan evidence: `component-scan.sh` run against both trees
 (`.claude/skills/component-identification/scripts/component-scan.sh`),
@@ -21,22 +21,19 @@ pair (the scan alone is a lead, never a verdict — Step 1 of this skill).
 | `<primary>q` accel on `app.quit` | 1 | 1 | parity |
 | `configure_process` (app name, icon name, 2 PulseAudio env vars) | yes | yes (`lib/main.rb#configure_process`) | parity |
 
-**Gap — repeat-activation guard not ported.** Upstream's `activate` checks
-`self.window.get()`; on a second activation it **presents the existing
-window and returns before reaching `setup_server`** (`src/app.rs:40-47`,
-"If the window already exists ... return"). The port's `App#build`
-(`lib/main.rb:29-35`) runs `actions; main_window.present; rtsp_server.start`
-unconditionally on every `activate` signal. `actions` and `main_window` are
-memoized so they no-op safely, but `rtsp_server.start` is not idempotent in
-the same way: `RtspServer#share` (`lib/rtsp_server.rb:128-133`) calls
-`rtsp.mount_points.add_factory(MOUNT_POINT, media_factory)` and
-`rtsp.attach(...)` again on every call, against the same memoized `@server`.
-Upstream never reaches `setup_server` twice in one process; the port does,
-on every repeat activation (a second `gapplication-service`-style invocation
-reaching the same running instance, which the desktop file's
-`DBusActivatable=true` would trigger if the port shipped one — see the
-missing-`data/`-unit gap below). Not exercised by the drive script, which
-only ever activates once. **gap.**
+**Fixed this round — repeat-activation guard.** Last round found upstream's
+`activate` checking `self.window.get()` and, on a second activation,
+presenting the existing window and returning before reaching
+`setup_server` (`src/app.rs:40-47`), while the port's `App#build` ran
+`actions; main_window.present; rtsp_server.start` unconditionally. Commit
+`165d81e` ("Guard App#activate against a second activation restarting the
+server") adds `App#activate` with a `window_built?` check
+(`lib/main.rb`): a second activation now only presents the window, matching
+upstream's single-setup behaviour. Read live this session — the fix is
+correct and matches upstream's shape. **parity, as of this commit** — but
+see `test-parity.md`: no check in the suite fires the application's
+`activate` signal twice, so this fix has no regression test. Recorded there
+as a live gap, not erased here.
 
 ## Unit: window — `src/ui/window.rs` + `data/gtk/window.ui` → `lib/window.rb`
 
@@ -107,10 +104,13 @@ scaling with QR version. Unit: **parity.**
 `share`, the exact launch pipeline string, the `audio-sharing-playback`
 notification id and its two translated strings — all present and, on this
 headless machine with no PulseAudio sink, behave exactly as upstream would
-(`No audio sink found`, shown on the error page). The repeat-activation gap
-above belongs to this unit as well as to the application unit. Unit:
-**parity** for the single-activation path; **gap** for the repeat path (see
-above — not double-counted, scored once there).
+(`No audio sink found`, shown on the error page). The repeat-activation
+guard (above) now also protects this unit from a second `share` call. Unit:
+**parity** for the single-activation, no-sink path, confirmed live. The
+success path — a real sink, `GstRtspServer::RTSPServer` actually serving, a
+client connecting — has never been driven on any machine this audit can
+confirm (see `test-parity.md`); that absence of evidence is scored there,
+not silently assumed as parity here.
 
 ## Unit: data/ packaging — `data/*.in.in`, `data/icons/**`, `data/gtk/style.css` → **nothing**
 

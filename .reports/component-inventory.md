@@ -129,8 +129,8 @@ for in the class comment and body).
 | `data/de.haeckerfelix.AudioSharing.desktop.in.in` | `lib/config.rb::DESKTOP_ENTRY` | data | yes |
 | `data/de.haeckerfelix.AudioSharing.service.in` | `lib/config.rb::DBUS_SERVICE_*` | data | yes |
 | `data/de.haeckerfelix.AudioSharing.metainfo.xml.in.in` | `lib/about_dialog.rb` (summary/description/urls) + `lib/config.rb` (urls) | data | yes |
-| `data/de.haeckerfelix.AudioSharing.gresource.xml.in` | n/a — port has no GResource bundle; `window.ui`'s tree is in `lib/window.rb`, `style.css` is empty upstream (nothing to port) | — | n/a |
-| `data/icons/**` | n/a — app icon, not a UI component; not covered by this inventory | — | n/a |
+| `data/de.haeckerfelix.AudioSharing.gresource.xml.in` | correspondence, not n/a — port has no GResource bundle because `window.ui`'s tree is inlined in `lib/window.rb` and `style.css` is empty upstream; the *bundling mechanism* doesn't carry over but it bundles nothing lost | — | correspondence |
+| `data/icons/**` | **gap** — no `.svg` (scalable or symbolic) exists anywhere in the `ruby` tree; `Gtk::Window.set_default_icon_name` names an icon that is never installed. See `.reports/component-identification.md`'s addendum and `.reports/component-parity.md` | — | **missing** |
 | `po/*.po`, `po/LINGUAS`, `po/POTFILES.in` | `lib/gettext.rb` | translation runtime | yes (translation *parity*, i.e. whether every msgid round-trips, is the `translation-parity` skill's job, not this one) |
 | `meson_options.txt` (`profile` option) | `lib/config.rb::PROFILE`/`DEVELOPMENT` | data | yes |
 
@@ -155,18 +155,29 @@ Only accelerator in the app: `app.quit` → `<primary>q`, ported in
 | `src/ui/qrcode_paintable.rs` | `lib/qrcode_paintable.rb` | present, full parity (Cairo substitution documented) |
 | `src/qrcode.rs` | `lib/qrcode.rb` | present, full parity (`rqrcode_core` substitution documented) |
 | `src/app.rs` + `src/main.rs` | `lib/main.rb` (`App`) | present, full parity (files merged, see note) |
-| `src/config.rs.in` + 3 `data/*.in(.in)` files | `lib/config.rb` | present |
+| `src/config.rs.in` | `lib/config.rb` (constant *values* only) | present |
+| 3 `data/*.in(.in)` files + `data/icons/**` | **none** | **missing — see correction below** |
 | `po/*` | `lib/gettext.rb` | present (runtime), msgid-level parity not re-verified here |
 | `src/ui/mod.rs` | n/a (module wiring only, no behaviour) | n/a |
 
-**No missing components found.** Every upstream file that contributes a
-user-facing widget, action, or accelerator has a corresponding `lib/*.rb` file
-on `ruby`, and every widget/CSS class/signal the `.ui` template and the Rust
-source declare is present in the port. The only structural difference is that
-`src/app.rs` and `src/main.rs` are merged into one `App` class in
-`lib/main.rb` rather than kept as two files — a naming/organisation choice,
-not a dropped feature; every action, accelerator, and the server-startup call
-from both upstream files is present and callable.
+**Correction (added in round 2, do not read the next sentence as the
+original verdict):** this document originally read "No missing components
+found" here. That was wrong even at the time it was written — see
+`.reports/component-identification.md`'s addendum, written in the same
+round, which found the `data/` packaging tree (desktop entry, metainfo,
+D-Bus service file, 3 icon files) has no port-side file at all. This
+summary line was never corrected to match, which is itself the kind of
+stale false-green `accountability-ensurance.md` exists to catch; it is
+flagged there. The accurate statement: every upstream file that
+contributes a user-facing **widget, action, or accelerator** has a
+corresponding `lib/*.rb` file on `ruby`, and every widget/CSS class/signal
+the `.ui` template and the Rust source declare is present in the port — but
+the `data/` packaging tree, which contributes no widget but does
+contribute the app's identity (icon, desktop entry, D-Bus activation,
+metainfo), has no port file anywhere and is a real, currently-open gap
+(`.reports/component-parity.md`, `.reports/translation-parity.md`). The
+`src/app.rs`/`src/main.rs` merge into one `App` class remains a
+naming/organisation choice, not a dropped feature.
 
 This inventory does not itself establish translation parity (msgid-by-msgid)
 or test parity — those are the `translation-parity` and `test-parity` skills'

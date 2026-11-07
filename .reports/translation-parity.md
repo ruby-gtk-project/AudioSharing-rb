@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Upstream | `main` @ `a4b9350` |
-| Port | `ruby` @ `c038da2` |
+| Port | `ruby` @ `165d81e` (re-verified this round — all 4 gaps below are unchanged; previous round was `c038da2`) |
 | Domain | `audio-sharing` (upstream's `meson.project_name()`; port's `catalogue.rb` read it `unconfirmed` — see below) |
 | Upstream messages | 18 |
 | Ported (after hand-resolving scanner misses, see Step 2) | **14** |
@@ -116,3 +116,14 @@ the missing `data/` tree. Closing them means: writing an actual
 writing the metainfo file with the screenshot caption, and wrapping
 `AboutDialog::DEVELOPER_NAME` in `_()`. None of that is done by this audit;
 this report records the gap, it does not close it.
+
+**Re-verified this round, unchanged.** `grep -n 'DEVELOPER_NAME\|_('
+lib/about_dialog.rb` run against `165d81e` still shows
+`DEVELOPER_NAME = 'Felix Häcker'` as a bare constant, never passed through
+`_()` (line 26), while `_()` wraps `SUMMARY`, each `DESCRIPTION` paragraph,
+and `'translator-credits'` a few lines below it. `find . -iname
+'*.desktop*' -o -iname '*metainfo*' -o -iname '*.svg'` (excluding `.git`)
+still returns nothing anywhere in the `ruby` tree. All 4 gaps stand exactly
+as last round left them; this round's commit (`165d81e`) touched only
+`lib/main.rb`, not `po/`, `lib/gettext.rb`, `lib/about_dialog.rb`, or
+`data/`.
