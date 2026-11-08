@@ -1,5 +1,51 @@
 # Test parity — AudioSharing-rb
 
+## Round 4 update (`ruby` @ `9265877`) — re-ran all four suites live, found a reporting error in the check counts
+
+All four scripts were re-run live this round
+(`nix develop --command xvfb-run -a ruby <script>`), each piped to a file
+and the actual `  ok   ` lines counted with `grep -c`, rather than trusting
+the number carried forward from the previous round:
+
+```
+test/drive_window.rb        85 of 85 checks passed   DRIVE OK      (matches the runtime gate: 85 checks, 0 failed)
+test/check_qrcode.rb        30 ok lines, 0 FAIL        QRCODE OK     (previous round claimed 20)
+test/check_translations.rb  127 ok lines, 0 FAIL       TRANSLATIONS OK (previous round claimed 76)
+test/check_data_files.rb    42 ok lines, 0 FAIL        DATA FILES OK (previous round claimed 34)
+```
+
+**The previous three rounds' `20`/`34`/`76` figures for
+`check_qrcode.rb`/`check_data_files.rb`/`check_translations.rb` are wrong.**
+All three scripts pass completely (0 `FAIL` lines in every run), so this is
+not a hidden failure — the suite is larger and fully green, not smaller than
+claimed. But a report that states a check count the actual run does not
+produce is exactly the kind of number "nobody can arrive at twice" this
+skill's sibling (`translation-parity`) warns against, and it is corrected
+here rather than carried forward silently a fourth time. Likely cause,
+stated as a lead, not confirmed further: `check_translations.rb` iterates
+all 51 `po/LINGUAS` languages per assertion category (the new
+`po_validator.rb`-based "no malformed entries" check added in `9265877`
+alone contributes 51 of the 127 `ok` lines), and a manual eyeball count
+in an earlier round likely undercounted a per-language loop rather than
+reading the full scrollback.
+
+`drive_window.rb`'s 85/85 figure is unaffected and matches the runtime gate
+cited for this round — it was the one count a `grep -c` check in a previous
+round (visible in the "Closed" paragraphs below) actually got right.
+
+### The runtime gate's "14 components" is drive_window.rb only
+
+The task's runtime gate (85 checks, 0 failed, 14 components) is
+`test/drive_window.rb` alone. `check_qrcode.rb` (QR encoding model),
+`check_translations.rb` (the gettext runtime and the new `po_validator.rb`)
+and `check_data_files.rb` (the `data/` packaging unit) are three more
+component units with their own check scripts, run separately and not
+folded into that single number. That is not itself a gap — all three run
+green — but a reader who takes "85 checks / 14 components" as the whole
+suite undercounts the port's actual verified surface by 199 checks
+(30 + 127 + 42) across at least 3 more components. Stated here so the
+narrower 85-check figure is not mistaken for the full picture.
+
 | | |
 |---|---|
 | Upstream | `main` @ `a4b9350` |

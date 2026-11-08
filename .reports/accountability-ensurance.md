@@ -1,5 +1,64 @@
 # Accountability ensurance — AudioSharing-rb
 
+## Round 4, re-run against `ruby` @ `9265877`
+
+Re-ran `find-excuses.sh` live this round plus the mandated grep
+(`TODO|FIXME|not implemented|for now|in a future`) over `lib/`, `exe/`,
+`.reports/`; `PORTING.md` still does not exist on this branch (checked
+with `ls`, not assumed). Both come back the same as round 3: every hit is
+inside `.reports/` itself, and every one of those is either historical
+record of an already-closed gap or the `gresource.xml.in` correspondence
+row, both already adjudicated in round 2/3 below. **No new excuse
+construct in `lib/` or `exe/`.**
+
+### A real finding this round: three reports stated wrong check counts, for four rounds running
+
+Re-running the full test suite live (`nix develop --command xvfb-run -a
+ruby <script>`, output piped to a file, `  ok   ` lines counted with
+`grep -c` rather than eyeballed) found:
+
+```
+test/check_qrcode.rb        30 ok, 0 FAIL   — test-parity.md has claimed "20" since round 1
+test/check_data_files.rb    42 ok, 0 FAIL   — test-parity.md has claimed "34" since 9908947
+test/check_translations.rb  127 ok, 0 FAIL  — test-parity.md has claimed "76" since round 1
+test/drive_window.rb        85 ok, 0 FAIL   — matches every round's claim, confirmed correct again
+```
+
+This is not a hidden failure — all three scripts are fully green, 0 `FAIL`
+lines, same as every previous round reported. The direction is not an
+overclaim of success; it is a wrong number sitting next to a true verdict,
+repeated across at least three "re-verified live this round" rounds
+without anyone re-counting the actual output. That is worth naming
+plainly: **"run live this round" was true, but the specific figure
+written down next to that claim was not re-derived from the run each
+time** — it was carried forward from an earlier eyeball count and never
+checked against `grep -c`. Fixed in `test-parity.md` this round with the
+corrected counts and a note on the likely cause (a per-language loop in
+`check_translations.rb`, 51 iterations, is easy to undercount by eye).
+This is the closest thing to a false green this round produced: not a
+fabricated pass, but an unverified figure stated with the same confidence
+as a verified one, four rounds running.
+
+### Translation-parity: a scanner artifact, not a new gap, documented rather than left to mislead
+
+`9265877`'s per-locale desktop/metainfo generation makes a fresh
+`catalogue.rb --compare` run report `extra: 61` where previous rounds
+reported near-zero. Read naively this looks like the port suddenly
+invented 61 untranslated strings — a regression. It is not: every one of
+the 61 is a translated (non-English) line inside the now-committed,
+*generated* `data/de.haeckerfelix.AudioSharing.desktop` and
+`...metainfo.xml` files, which `catalogue.rb` scans as if they were
+hand-written source. Confirmed by sampling the `port_sites` cell of all 61
+`state: extra` rows in the regenerated YAML — every one points at those
+two generated files. This is recorded in `translation-parity.md` as a
+scanner limitation, not silently reconciled or omitted. Flagging the
+instinct that matters here: a number that moves from ~0 to 61 between
+rounds is exactly the kind of jump that should be read before it is
+reported, in either direction — as a possible regression, or (as here) as
+a possible scanner artifact — and not just forwarded as a fact.
+
+### Round 3 findings (kept as history)
+
 Round 3, re-run against `ruby` @ `9908947` (previous round: `165d81e`,
 re-verified via commit `f476341` and enriched further by `9908947` in
 between). This round re-ran the scan live rather than trusting the

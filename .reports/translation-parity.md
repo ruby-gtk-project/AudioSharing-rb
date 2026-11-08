@@ -1,5 +1,90 @@
 # Translation parity — AudioSharing-rb
 
+## Round 4 update (`ruby` @ `9265877`) — gaps #1 and #4 verified closed
+
+Re-ran `catalogue.rb`/`msgid-census.sh` fresh this round against
+`origin/main` @ `a4b9350` and `ruby` @ `9265877` (the commit after the last
+"Parity reports" commit, titled "Generate per-locale Name[xx]/Keywords[xx]
+and metainfo xml:lang entries, add an offline .po strict-parse check").
+
+**Gaps #1 (`@NAME@`) and #4 (`Keywords=...`) are now `state: ported` in the
+regenerated `translation-parity.yaml`.** Confirmed two ways:
+- `grep -c 'Name\[' data/de.haeckerfelix.AudioSharing.desktop` → 50 per-locale
+  lines now present (previously 0); `grep -c 'xml:lang'
+  data/de.haeckerfelix.AudioSharing.metainfo.xml` → 100 (previously 0).
+- The committed per-locale values are byte-identical to the corresponding
+  `po/*.po` `msgstr`s — including the languages where upstream's own po file
+  leaves the app name untranslated and carries the literal placeholder
+  `msgstr "@NAME@"` (`be`, `bg`, `ca`, `de`, …) or a language-specific
+  placeholder (`da` → `@NAVN@`, `pl` → `@NAZWA@`, `it` → `@NOMI@`). The port
+  reproduces those placeholders too, which is correct: they are what the real
+  `.po` files actually say, not a bug introduced by the port.
+
+So of the 4 real gaps this ledger has tracked across rounds, all 4 are now
+closed (#2 and #3 closed in commit `9908947`, re-confirmed below; #1 and #4
+closed in `9265877`). **No real translation-message gap remains at 18/18
+upstream keys**, modulo two scanner artifacts (unchanged since round 1, see
+below) and one open non-blocking item (domain, see below).
+
+### A scanner artifact introduced by this same commit — read before trusting the raw numbers
+
+The freshly regenerated `port-catalogue.yaml` now reports **77 messages, 61
+`extra`** (up from near-zero in earlier rounds). This is **not** 61 new
+untranslated strings the port invented. `catalogue.rb` scans
+`data/de.haeckerfelix.AudioSharing.desktop` and
+`data/de.haeckerfelix.AudioSharing.metainfo.xml` as if they were source files
+containing literal messages, and every `Name[xx]=`/`Keywords[xx]=`/`<name
+xml:lang="xx">`/`<summary xml:lang="xx">` line it finds is a *translated*
+string in a non-English language (e.g. `AudioPaylaşım`, `Berbagi audio
+komputer Anda`, `Zdieľajte zvuk zo svojho počítača`). Those are build output
+derived from `po/*.po`, not new source text — the skill's own worked-example
+language ("read only `.po`/`LINGUAS` for `languages:`") does not anticipate a
+port checking in its *generated* per-locale desktop/metainfo files as
+tracked, scannable text. All 61 extras were manually confirmed (`grep -B1
+"state: extra"` against the regenerated YAML, then spot-checked each
+`port_sites` cell) to be per-locale output of these two generated files, not
+hand-written port strings. Per this skill's "when the scanner is the thing
+that is wrong" rule, this is recorded here as a scanner limitation rather
+than silently reconciled in the YAML, and is **not counted against
+parity** — but it is also not nothing: it means `extra: 61` in any future
+raw run of this skill's script against this port must be re-read by hand
+before it is quoted as 61 untranslated strings, because it is not.
+
+### Updated numbers (this round)
+
+```
+18/18 upstream messages ported (16 direct + 2 scanner-artifact rows resolved by hand, both unchanged since round 1)
+19/19 occurrences for the ported messages
+51/51 languages, po/ directories diff clean, LINGUAS matches
+domain: upstream reads `audio-sharing` (domain_source: meson.project_name()); port domain is unconfirmed (nil) — see "Domain" below, unchanged, still open
+```
+
+### Unresolved markers re-confirmed (5, same 4 real + 1 ignorable as previous rounds)
+
+`lib/about_dialog.rb:57` (`_(DEVELOPER_NAME)`), `lib/about_dialog.rb:72`
+(`_(SUMMARY)` / `_(paragraph)`), `lib/window.rb:237` (`_(INFO_TEXT)`) — all
+three hand-verified byte-identical against `po/de.po` again this round, same
+result as the previous round's census. `lib/gettext.rb:175` is the gem
+wrapper's own `_(msgid)` — not app content, ignored as before.
+
+### What remains open (not gaps, but not closed either)
+
+1. **Domain is still unconfirmed.** `lib/gettext.rb` has no `meson.build` to
+   read a domain from, and no `.mo` is ever built, so `domain_matches` is
+   `false` in the regenerated comparison and `summary.parity` cannot read
+   `true` on that account alone, independent of the message-key count. This
+   was flagged as an open item in the previous round and is unchanged — not a
+   message-key gap, but `summary.parity: true` is still not reachable.
+2. **`test/check_translations.rb`'s new `po_validator.rb`-based strict parse
+   check was added this round but its own execution is a `test-parity`/
+   `accountability-ensurance` question — see those reports — not re-verified
+   independently here beyond confirming the file exists and is wired into
+   that test file.**
+
+---
+
+## Original ledger (rounds 1–3), preserved below as history
+
 | | |
 |---|---|
 | Upstream | `main` @ `a4b9350` |

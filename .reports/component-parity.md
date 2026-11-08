@@ -1,5 +1,20 @@
 # Component parity — AudioSharing-rb
 
+## Round 4 update (`ruby` @ `9265877`)
+
+Re-verified against the current tip. The one commit since this report's
+last round (`9265877`, "Generate per-locale Name[xx]/Keywords[xx] and
+metainfo xml:lang entries, add an offline .po strict-parse check") touches
+only `lib/data_files.rb` (per-locale generation, inside the already-closed
+`data/` packaging unit below), `lib/gettext.rb` (`catalogue_for`, a reader
+helper, no widget), and a new `lib/po_validator.rb` (a standalone text
+parser, no widget, no CSS, no signal — it is not a GTK component by this
+skill's own definition, the same reasoning this report already applies to
+`lib/qrcode.rb`). **No unit's widget/CSS/signal set changed.** The 12/12
+verdict below is unchanged; the `data/` unit's section is updated in place
+to note it now also emits the per-locale `Name[xx]=`/`Keywords[xx]=` and
+`xml:lang` content tracked as closed gaps in `translation-parity.md`.
+
 | | |
 |---|---|
 | Upstream | `main` @ `a4b9350` |
