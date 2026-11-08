@@ -4,6 +4,7 @@ require 'fileutils'
 
 require_relative 'config'
 require_relative 'about_dialog'
+require_relative 'gettext'
 
 # DataFiles builds and installs the desktop-session files a packaged install
 # needs to find this app.
@@ -19,7 +20,11 @@ require_relative 'about_dialog'
 # ask for happen here instead, filled in from the very
 # `Config::DESKTOP_ENTRY`/`Config::DBUS_SERVICE_NAME`/
 # `Config::DBUS_SERVICE_ARGUMENT` constants that `lib/config.rb` already
-# built for this purpose.
+# built for this purpose. The `@NAME@`/`Keywords=` msgids also get the
+# per-locale `Name[xx]=`/`Keywords[xx]=` lines and `xml:lang` elements that
+# upstream's `i18n.merge_file`/itstool step would merge in from po/*.po —
+# built here straight from the catalogues `lib/gettext.rb` already knows how
+# to read, one language from `po/LINGUAS` at a time.
 module DataFiles
   # Where meson's `install_data` calls would put these files under a
   # `--prefix`-relative $datadir. This port has no install prefix, so
@@ -37,11 +42,50 @@ module DataFiles
   SCALABLE_ICON_DIR = File.join('icons', 'hicolor', 'scalable', 'apps')
   SYMBOLIC_ICON_DIR = File.join('icons', 'hicolor', 'symbolic', 'apps')
 
+  # The msgid po/*.po carries for the desktop entry's and metainfo's `Name`/
+  # `<name>` field — extracted, like upstream's POTFILES.in, from the
+  # `@NAME@` token in data/*.in.in before meson's own substitution ever
+  # touches it.
+  NAME_MSGID = '@NAME@'
+
   # data/de.haeckerfelix.AudioSharing.desktop.in.in, substituted the way
   # `i18n.merge_file`'s `configuration_data` would: one `Key=Value` line per
-  # entry, in the order upstream's template lists them.
+  # entry, in the order upstream's template lists them, followed by the
+  # `Key[xx]=` lines `i18n.merge_file` merges in for every language po/*.po
+  # actually translates that key's msgid into.
   def self.desktop_entry
-    "[Desktop Entry]\n#{Config::DESKTOP_ENTRY.map { |key, value| "#{key}=#{value}" }.join("\n")}\n"
+    lines = Config::DESKTOP_ENTRY.flat_map { |key, value| [key_line(key, value), *localized_key_lines(key, value)] }
+    "[Desktop Entry]\n#{lines.join("\n")}\n"
+  end
+
+  def self.key_line(key, value) = "#{key}=#{value}"
+
+  # Only `Name` and `Keywords` carry translator-facing text in upstream's
+  # template — `Icon`, `Exec` and `X-Purism-FormFactor` are all marked
+  # "do NOT translate" in its comments — so those are the only two keys a
+  # catalogue is ever asked for.
+  def self.localized_key_lines(key, value)
+    case key
+    when 'Name' then localized_lines(key, NAME_MSGID)
+    when 'Keywords' then localized_lines(key, value)
+    else []
+    end
+  end
+
+  # One `key[language]=translation` line per language po/LINGUAS lists whose
+  # catalogue actually translates msgid — the same fallback-to-source
+  # behaviour itstool's merge gives a reader of the generated file: a
+  # language with no (or an empty, untranslated) entry contributes nothing,
+  # and the reader falls back to the bare, English key.
+  def self.localized_lines(key, msgid)
+    Gettext.linguas.filter_map { |language| localized_line(key, msgid, language) }
+  end
+
+  def self.localized_line(key, msgid, language)
+    translation = Gettext.catalogue_for(language)[msgid]
+    if translation && !translation.empty?
+      "#{key}[#{language}]=#{translation}"
+    end
   end
 
   # meson's default --prefix of /usr, the shipped file's substitution for
@@ -73,10 +117,9 @@ module DataFiles
 
   # upstream's one screenshot, hosted in the repository rather than shipped
   # as a file the way the app icons are, so the metainfo links to it instead
-  # of to a local path. The caption is the one msgid this file and
-  # `po/*.po` both carry that no other port-side string duplicates; only
-  # the English source text is emitted here — there is no per-locale
-  # metainfo generation in this port (see the file-level comment).
+  # of to a local path. Unlike `<name>`/`<summary>`, upstream's own itstool
+  # merge never gives this caption an `xml:lang` variant either, so only the
+  # English source text is emitted here.
   SCREENSHOT_URL = 'https://gitlab.gnome.org/World/AudioSharing/-/raw/main/data/screenshots/1.png'
   SCREENSHOT_CAPTION = 'Connect to the audio stream by scanning the QR code or copying the address'
 
@@ -127,9 +170,11 @@ module DataFiles
       <component type="desktop-application">
         <id>#{Config::APP_ID}</id>
         <name>#{Config::NAME}</name>
+      #{localized_metainfo_lines('name', NAME_MSGID)}
         <translation type="gettext">#{Config::PKGNAME}</translation>
         <launchable type="desktop-id">#{Config::APP_ID}.desktop</launchable>
         <summary>#{AboutDialog::SUMMARY}</summary>
+      #{localized_metainfo_lines('summary', AboutDialog::SUMMARY)}
         <description>
       #{description_paragraphs}
         </description>
@@ -167,6 +212,21 @@ module DataFiles
         </releases>
       </component>
     XML
+  end
+
+  # One `<element xml:lang="xx">translation</element>` line per language
+  # po/LINGUAS lists whose catalogue actually translates msgid — itstool's
+  # merge, reproduced the same way `localized_lines` reproduces
+  # `i18n.merge_file` for the desktop entry above.
+  def self.localized_metainfo_lines(element, msgid)
+    Gettext.linguas.filter_map { |language| localized_metainfo_line(element, msgid, language) }.join("\n")
+  end
+
+  def self.localized_metainfo_line(element, msgid, language)
+    translation = Gettext.catalogue_for(language)[msgid]
+    if translation && !translation.empty?
+      "  <#{element} xml:lang=\"#{language}\">#{translation}</#{element}>"
+    end
   end
 
   def self.branding_colors
@@ -261,5 +321,6 @@ module DataFiles
 
   private_class_method :description_paragraphs, :install_file, :install_service_file,
                         :branding_colors, :supported_controls, :releases, :release_entry,
-                        :release_entry_with_notes, :release_items
+                        :release_entry_with_notes, :release_items, :key_line, :localized_key_lines,
+                        :localized_lines, :localized_line, :localized_metainfo_lines, :localized_metainfo_line
 end

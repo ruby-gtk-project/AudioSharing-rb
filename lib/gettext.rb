@@ -44,6 +44,15 @@ module Gettext
     @catalogue ||= load_catalogue(locale)
   end
 
+  # The catalogue for one named language, regardless of the environment's
+  # locale negotiation — what data_files.rb asks for to build the
+  # Name[xx]=/Keywords[xx]= lines and xml:lang elements i18n.merge_file and
+  # itstool generate per entry in po/LINGUAS, one language at a time.
+  def self.catalogue_for(language)
+    @catalogues ||= {}
+    @catalogues[language] ||= load_catalogue(language)
+  end
+
   # The locale the catalogue is read for, or nil when none of the environment
   # variables names a language this app is translated into.
   def self.locale
@@ -60,6 +69,7 @@ module Gettext
   def self.reset
     @locale = nil
     @catalogue = nil
+    @catalogues = nil
     @linguas = nil
   end
 

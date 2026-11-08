@@ -39,6 +39,20 @@ desktop_entries(File.read(desktop_path)).then do |entries|
   end
 end
 
+puts 'the desktop entry carries a localized Name[xx]/Keywords[xx] line per translated language'
+desktop_text = File.read(desktop_path)
+check('de translates Name') { desktop_text.include?('Name[de]=@NAME@') }
+check('cs translates Name to something other than the msgid') { desktop_text.include?('Name[cs]=Sdílení zvuku') }
+check('de translates Keywords') { desktop_text.include?('Keywords[de]=Gnome;GTK;audio;sharing;sound;Ton;freigeben;Klang;') }
+check('a language with no translation for a msgid contributes no line') do
+  # kab.po is in LINGUAS with every msgstr still empty (see
+  # check_translations.rb), so it has no translation for any msgid.
+  !desktop_text.include?('Name[kab]=') && !desktop_text.include?('Keywords[kab]=')
+end
+check('every Name[xx]/Keywords[xx] line names a language po/LINGUAS lists') do
+  desktop_text.scan(/^(?:Name|Keywords)\[([^\]]+)\]=/).flatten.uniq.all? { |language| Gettext.linguas.include?(language) }
+end
+
 puts 'the D-Bus service file on disk matches Config::DBUS_SERVICE_NAME'
 service_path = File.join(Config::DATADIR, DataFiles::SERVICE_FILE)
 check('the file exists') { File.readable?(service_path) }
@@ -81,6 +95,15 @@ check('it carries every release version upstream lists') do
   DataFiles::RELEASES.all? { |release| metainfo_text.include?("version=\"#{release[:version]}\"") }
 end
 check('it closes the releases element') { metainfo_text.include?('</releases>') }
+check('it carries a localized <name xml:lang> per translated language') do
+  metainfo_text.include?('<name xml:lang="cs">Sdílení zvuku</name>')
+end
+check('it carries a localized <summary xml:lang> per translated language') do
+  metainfo_text.include?('<summary xml:lang="de">Geben Sie die Tonausgabe Ihres Rechners frei</summary>')
+end
+check('every <name>/<summary> xml:lang names a language po/LINGUAS lists') do
+  metainfo_text.scan(/<(?:name|summary) xml:lang="([^"]+)">/).flatten.uniq.all? { |language| Gettext.linguas.include?(language) }
+end
 
 puts 'DataFiles.generate! is idempotent and reproduces the committed files'
 check('the desktop entry regenerates byte for byte') { DataFiles.desktop_entry == File.read(desktop_path) }

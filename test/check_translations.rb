@@ -11,6 +11,7 @@ $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 require 'gettext'
 require 'window'
 require 'about_dialog'
+require 'po_validator'
 
 # The strings this port asks the catalogues for.
 MSGIDS = [
@@ -95,6 +96,14 @@ check('a locale with an encoding and a modifier still finds its catalogue') { Ge
 ENV['LANGUAGE'] = 'xx'
 Gettext.reset
 check('an untranslated locale falls back to the msgid') { Gettext.translate('Menu') == 'Menu' }
+
+puts 'every catalogue passes a strict parse — the substitute for msgfmt -c this port has no build step to run'
+Gettext.linguas.each do |language|
+  path = File.join(Gettext::LOCALEDIR, "#{language}.po")
+  errors = PoValidator.errors(path)
+  check("#{language}.po has no malformed entries") { errors.empty? }
+  errors.each { |error| puts "       #{error}" }
+end
 
 puts
 puts(@failures.empty? ? 'TRANSLATIONS OK' : "TRANSLATIONS FAILED (#{@failures.size})")
